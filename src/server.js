@@ -8,6 +8,7 @@ import { BotDispatcher } from './bot/dispatcher.js';
 import { GroqAIClient } from './ai/groqClient.js';
 import { buildAstrologerSystemPrompt } from './chat/astrologerPersona.js';
 import { checkSafetyGuardrails } from './safety/guardrails.js';
+import QRCode from 'qrcode';
 import { ASTROLOGER_PERSONAS, getPersonaById } from './chat/personas.js';
 
 export function createServer(options = {}) {
@@ -28,6 +29,24 @@ export function createServer(options = {}) {
   // 1.1 Список 4 экспертов
   app.get('/api/personas', (req, res) => {
     res.json(ASTROLOGER_PERSONAS);
+  });
+
+  // 1.2 QR код генератор для вирального шеринга паспорта
+  app.get('/api/qr', async (req, res) => {
+    try {
+      const text = req.query.text || 'https://max.ru/id744510054693_4_bot';
+      const dataUrl = await QRCode.toDataURL(text, {
+        margin: 1,
+        width: 320,
+        color: {
+          dark: '#FFFFFF',
+          light: '#00000000',
+        },
+      });
+      res.json({ ok: true, dataUrl, text });
+    } catch (err) {
+      res.status(500).json({ ok: false, error: err.message });
+    }
   });
 
   // 2. Расчет натальной карты (Core Engine + AI)

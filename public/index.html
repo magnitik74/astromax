@@ -1284,6 +1284,145 @@
       margin: 4px auto 16px;
     }
 
+    /* Cosmic Passport Share Preview Modal (Tier 3/4 Aesthetics) */
+    .passport-modal-sheet {
+      max-height: 94vh;
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overscroll-behavior: contain;
+    }
+
+    .passport-share-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 12px;
+    }
+
+    .passport-share-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+    }
+
+    .passport-share-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .modal-close-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+
+    .modal-close-icon:active {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .passport-card-preview-container {
+      position: relative;
+      width: 100%;
+      max-height: 46vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #08090E;
+      border: 1px solid rgba(0, 122, 255, 0.35);
+      border-radius: 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.7), 0 0 24px rgba(0, 122, 255, 0.15);
+      margin-bottom: 14px;
+      overflow: hidden;
+      padding: 6px;
+    }
+
+    .passport-preview-img {
+      max-height: 44vh;
+      max-width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: contain;
+      border-radius: 12px;
+      display: block;
+      transition: opacity 0.2s ease;
+    }
+
+    .passport-canvas-loading {
+      position: absolute;
+      inset: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(8, 9, 14, 0.85);
+      backdrop-filter: blur(6px);
+      color: #FFFFFF;
+      font-size: 13px;
+      gap: 10px;
+    }
+
+    .passport-canvas-loading.active {
+      display: flex;
+    }
+
+    .passport-share-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .btn-share-main {
+      width: 100%;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      font-size: 15px;
+      font-weight: 700;
+      border-radius: var(--radius-md);
+    }
+
+    .passport-action-subgroup {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .btn-secondary-pill {
+      height: 42px;
+      background: var(--bg-surface-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-size: 13px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      cursor: pointer;
+      transition: all 0.12s ease;
+    }
+
+    .btn-secondary-pill:active {
+      background: var(--max-blue-tint);
+      border-color: var(--max-blue);
+      transform: scale(0.98);
+    }
+
     .form-field {
       margin-bottom: 12px;
     }
@@ -1406,14 +1545,14 @@
 
         <!-- 1-Click Viral Share Action -->
         <button class="share-pill-btn" onclick="shareCosmicPassport()">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="18" cy="5" r="3"></circle>
             <circle cx="6" cy="12" r="3"></circle>
             <circle cx="18" cy="19" r="3"></circle>
             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
           </svg>
-          <span>Поделиться паспортом в чат MAX</span>
+          <span>Поделиться паспортом (Стильная карточка)</span>
         </button>
 
         <button class="btn-max-secondary" onclick="switchNavTab('chat', 'Расскажи подробно, как мои Солнце, Луна и Асцендент влияют на карьеру и любовь?')">
@@ -1579,7 +1718,7 @@
         </div>
         <div>
           <div class="user-info-name" id="profileName">Александр</div>
-          <div class="user-info-archetype" id="profileArchetype">Скорпион • Зодиакальный Код</div>
+          <div class="user-info-archetype" id="profileArchetype">Скорпион • Архетип Личности</div>
           <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;" id="profileCity">Москва • UTC+3</div>
         </div>
       </div>
@@ -1587,7 +1726,7 @@
       <!-- Dossier Card -->
       <div class="native-card">
         <div style="display: flex; justify-content: space-between; align-items: center;">
-          <div class="card-eyebrow">Данные рождения</div>
+          <div class="card-eyebrow">Космическая точка старта</div>
           <button onclick="openEditModal()" style="background: none; border: none; color: var(--max-blue); font-size: 12px; font-weight: 600; cursor: pointer;">
             Изменить ✎
           </button>
@@ -1607,7 +1746,7 @@
             <div class="v" id="dossierCity">Москва</div>
           </div>
           <div class="dossier-item">
-            <div class="k">Координаты</div>
+            <div class="k">Энерго-код</div>
             <div class="v" id="dossierCoords">55.75°N, 37.62°E</div>
           </div>
         </div>
@@ -1615,7 +1754,7 @@
 
       <!-- Elemental Matrix -->
       <div class="native-card">
-        <div class="card-eyebrow">Матрица стихий души</div>
+        <div class="card-eyebrow">Баланс внутренних стихий</div>
         <div class="elements-matrix">
           <div class="element-bar-wrap">
             <span class="element-name">Вода</span>
@@ -1640,19 +1779,19 @@
         </div>
       </div>
 
-      <!-- Premium Membership Card -->
+      <!-- Premium Membership Card (Co-Star & Nebula Standard) -->
       <div class="premium-status-card">
-        <div class="plan-anchor-badge">🔥 Выгода 70% при годовой подписке</div>
-        <div class="card-headline" style="font-size: 18px;">Премиум Доступ АстроМАХ</div>
+        <div class="plan-anchor-badge">✦ Личный наставник 24/7</div>
+        <div class="card-headline" style="font-size: 18px;">АстроМАХ Club: Правда без фильтров</div>
         <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">
-          Безлимитный диалог 24/7 с личным астрологом • Персональные расчеты транзитов в 08:30 • Неограниченные расклады Таро
+          Прямой диалог с психологом-астрологом без цензуры и очередей • Ежедневный срез скрытых рисков • Неограниченные расклады Таро на любые ситуации
         </div>
         <div class="premium-price">399 ₽ <span style="font-size: 13px; font-weight: 500; color: var(--text-muted);">/ месяц</span></div>
         <div style="font-size: 11.5px; color: var(--max-blue); margin-bottom: 12px; font-weight: 600;">
           Всего 13 ₽ в день • Дешевле чашки кофе в 10 раз
         </div>
         <button class="btn-max-primary" onclick="triggerRobokassaPayment()">
-          Оформить подписку (Robokassa / СБП)
+          Активировать наставника (Robokassa / СБП)
         </button>
         <div style="display: flex; justify-content: center; gap: 14px; margin-top: 10px;">
           <span style="font-size: 11px; color: var(--text-muted);">🔒 Безопасная оплата СБП</span>
@@ -1724,10 +1863,10 @@
 
         <!-- Step 1: Имя -->
         <div id="obStep1">
-          <div class="card-eyebrow">Шаг 1 из 4 • Твое отражение</div>
+          <div class="card-eyebrow">Шаг 1 из 4 • Зеркало личности</div>
           <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Как к тебе обращаться?</h3>
           <p class="card-desc" style="font-size: 13.5px; margin-bottom: 18px;">
-            Твое имя задает звук первого впечатления. Мы будем называть тебя так, как ты привык чувствовать себя.
+            Имя задает вибрацию первого контакта. Назови себя так, как ты ощущаешь себя наедине с собой.
           </p>
           <div class="form-field">
             <label>Твое имя</label>
@@ -1741,9 +1880,9 @@
         <!-- Step 2: Дата и время -->
         <div id="obStep2" style="display: none;">
           <div class="card-eyebrow">Шаг 2 из 4 • Момент первого вдоха</div>
-          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Когда ты пришел в этот мир?</h3>
+          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Когда ты пришел(ла) в этот мир?</h3>
           <p class="card-desc" style="font-size: 13.5px; margin-bottom: 18px;">
-            Минута рождения фиксирует твой Асцендент — маску, которую видят другие, и твое глубинное подсознание.
+            Дата и минута фиксируют твой Асцендент — маску, которую видят другие, и твое глубинное подсознание.
           </p>
           <div class="form-field">
             <label>Дата рождения</label>
@@ -1769,7 +1908,7 @@
           <div class="card-eyebrow">Шаг 3 из 4 • Точка старта</div>
           <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Где началась твоя история?</h3>
           <p class="card-desc" style="font-size: 13.5px; margin-bottom: 14px;">
-            Город, село, деревня или хутор. Место старта определяет карту домов: где заблокированы твои деньги и где расцветает любовь.
+            Город, село, деревня или хутор. Место рождения раскрывает твою карту жизненных домов: где заблокированы деньги и где расцветает любовь.
           </p>
           <div class="form-field">
             <label>Город, посёлок, село или хутор</label>
@@ -1796,7 +1935,7 @@
           </div>
           <div style="display: flex; gap: 8px; margin-top: 14px;">
             <button class="btn-max-secondary" onclick="nextOnboardingStep(3)" style="flex: 1; margin-top: 0;">← Назад</button>
-            <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">🪐 Вскрыть космический код</button>
+            <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">✦ Вскрыть мой космический код</button>
           </div>
         </div>
 
@@ -1805,7 +1944,7 @@
           <div style="width: 52px; height: 52px; border-radius: 50%; border: 3px solid var(--border-subtle); border-top-color: var(--max-blue); animation: spin 1s infinite linear; margin: 0 auto 18px;"></div>
           <h3 class="card-headline" style="font-size: 18px; margin-bottom: 6px;">Вскрываем твою матрицу...</h3>
           <p id="obLoadingStatusText" style="font-size: 13.5px; color: var(--max-blue); font-weight: 500;">
-            Считываем парадокс характера: внешняя сила vs внутренняя уязвимость...
+            Считываем скрытый парадокс: внешняя броня vs внутренняя уязвимость...
           </p>
           <div style="width: 100%; height: 6px; background: var(--bg-surface-secondary); border-radius: 3px; overflow: hidden; margin-top: 16px;">
             <div id="obProgressBar" style="width: 10%; height: 100%; background: var(--max-blue); transition: width 0.4s ease;"></div>
@@ -1902,10 +2041,10 @@
     <div class="modal-backdrop" id="personaSheetModal" onclick="closePersonaSheet(event)">
       <div class="modal-sheet" onclick="event.stopPropagation()">
         <div class="sheet-handle"></div>
-        <div class="card-eyebrow">Команда наставников 24/7</div>
-        <h3 class="card-headline" style="font-size: 17px; margin-bottom: 4px;">Выбор личного астролога</h3>
+        <div class="card-eyebrow">4 голоса твоей интуиции</div>
+        <h3 class="card-headline" style="font-size: 17px; margin-bottom: 4px;">Кто препарирует твою ситуацию?</h3>
         <p class="card-desc" style="font-size: 13px; margin-bottom: 14px;">
-          Все эксперты опираются на расчеты вашей натальной карты, но имеют разный жизненный опыт и фокус.
+          У каждого наставника свой бескомпромиссный метод: от глубокой психотерапии отношений до жесткой бизнес-стратегии. Выбери того, кто нужен тебе сегодня.
         </p>
         <div class="persona-selection-list" id="personaSheetList">
           <!-- Populated via JS -->
@@ -1922,7 +2061,7 @@
     <div class="modal-backdrop" id="editModalBackdrop" onclick="closeEditModal(event)">
       <div class="modal-sheet" onclick="event.stopPropagation()">
         <div class="sheet-handle"></div>
-        <div class="card-eyebrow">Коррекция координат</div>
+        <div class="card-eyebrow">Уточнение момента рождения</div>
         <h3 class="card-headline" style="font-size: 16px; margin-bottom: 12px;">Данные рождения</h3>
 
         <form id="profileEditForm" onsubmit="handleProfileSave(event)">
@@ -1949,6 +2088,61 @@
       </div>
     </div>
 
+    <!-- ====================================================================
+         COSMIC PASSPORT SHARING PREVIEW MODAL (TIER 3/4 AESTHETICS)
+         ==================================================================== -->
+    <div class="modal-backdrop" id="passportShareModal" onclick="closePassportShareModal(event)">
+      <div class="modal-sheet passport-modal-sheet" onclick="event.stopPropagation()">
+        <div class="sheet-handle"></div>
+        <div class="passport-share-header">
+          <div>
+            <div class="passport-share-title">✦ Твой Космический Паспорт</div>
+            <div class="passport-share-sub">Готов к отправке в чаты MAX и соцсети</div>
+          </div>
+          <button class="modal-close-icon" onclick="closePassportShareModal()" aria-label="Закрыть">✕</button>
+        </div>
+
+        <!-- Interactive High-Res Card Preview Canvas & Image Wrapper -->
+        <div class="passport-card-preview-container">
+          <img id="passportPreviewImg" class="passport-preview-img" alt="Космический Паспорт" />
+          <div id="passportCanvasLoading" class="passport-canvas-loading">
+            <div class="spin-orbit"></div>
+            <span>Формирование карточки по эфемеридам NASA...</span>
+          </div>
+        </div>
+
+        <!-- Sharing Action CTAs -->
+        <div class="passport-share-actions">
+          <button class="btn-max-primary btn-share-main" onclick="sharePassportNative()">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="22" y1="2" x2="11" y2="13"></line>
+              <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+            </svg>
+            <span>Отправить в чат MAX</span>
+          </button>
+
+          <div class="passport-action-subgroup">
+            <button class="btn-secondary-pill" onclick="downloadPassportCard()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                <polyline points="7 10 12 15 17 10"></polyline>
+                <line x1="12" y1="15" x2="12" y2="3"></line>
+              </svg>
+              <span>Сохранить в галерею</span>
+            </button>
+
+            <button class="btn-secondary-pill" onclick="copyPassportText()">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+              </svg>
+              <span>Скопировать текст</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- Client-side Application Logic -->
@@ -1964,9 +2158,9 @@
         avatar: '/avatars/alena.jpg',
         rating: '4.98',
         consultations: '1 840+ разборов',
-        credo: '«Сниму тревогу за 10 минут. Разберем, почему он отдаляется, что происходит на самом деле и как вернуть контроль над своей жизнью.»',
+        credo: '«Сниму тревогу за 10 минут. Мы вскроем, почему он отдаляется, что происходит на самом деле и как перестать заслуживать любовь.»',
         tags: ['Почему он молчит', 'Совместимость пар', 'Снятие тревоги', 'Самоценность'],
-        greeting: 'Не пытайся казаться сильным со мной. Расскажи, о чем болит сердце прямо сейчас: отношения, холод в переписке или внутренний тупик? Я рядом.'
+        greeting: 'Ты можешь снять броню — со мной не нужно казаться сильным(ой). Расскажи, о чем болит сердце прямо сейчас: затянувшаяся тишина в переписке, тупик в отношениях или страх быть отвергнутым(ой)? Я здесь.'
       },
       {
         id: 'artem',
@@ -1977,9 +2171,9 @@
         avatar: '/avatars/artem.jpg',
         rating: '4.99',
         consultations: '2 150+ консультаций',
-        credo: '«Без розовых очков и мистики. Где застряли твои деньги, почему ты топчешься на одном уровне и в какие даты делать главный рывок.»',
+        credo: '«Без розовых очков и мистики. Где застряли твои деньги, почему ты топчешься на одном уровне и в какие даты делать решающий ход.»',
         tags: ['Где мои деньги', 'Карьерный прорыв', 'Точки роста', 'Тайминг сделок'],
-        greeting: 'Давай сразу к делу. Где сейчас главный затык: доход уперся в потолок, выгорание на работе или не можешь принять ключевое решение? Разложим по полочкам.'
+        greeting: 'Давай сразу к делу, без эзотерической шелухи. Где главный затык: доход уперся в стеклянный потолок, слив энергии или страх сделать решающий шаг? Вскроем факты.'
       },
       {
         id: 'elena',
@@ -1990,9 +2184,9 @@
         avatar: '/avatars/elena.jpg',
         rating: '4.99',
         consultations: '4 600+ карт',
-        credo: '«Пока ты не поймешь свой кармический узел, жизнь будет сталкивать тебя с одними и теми же граблями. Вскроем родовой сценарий и найдем твой истинный путь.»',
+        credo: '«Пока ты не поймешь свой кармический узел, жизнь будет сталкивать тебя с одними и теми же граблями. Вскроем родовой сценарий и найдем твою истинную точку силы.»',
         tags: ['Кармический узел', 'Повторяющийся сценарий', 'Большая Тройка', 'Родовая сила'],
-        greeting: 'Твоя натальная карта — это контракт твоей души. О чем молчишь: о чувстве чужой жизни, повторяющихся ошибках или поиске своего истинного места? Спроси меня.'
+        greeting: 'Твоя карта — это контракт твоей души. О чем молчишь: о чувстве проживания чужой жизни, повторяющихся ошибках или потере внутренней опоры? Спроси меня.'
       },
       {
         id: 'sofia',
@@ -2003,9 +2197,9 @@
         avatar: '/avatars/sofia.jpg',
         rating: '4.97',
         consultations: '1 290+ раскладов',
-        credo: '«Карты Таро не врут. Вскроем его истинные мысли, тайные страхи и то, о чем он думает, когда выключает телефон.»',
+        credo: '«Карты Таро не врут. Вскроем его истинные мысли, тайные страхи и то, о чем он думает, когда гаснет экран смартфона.»',
         tags: ['Что он скрывает', 'Истинные чувства', 'Выбор из двух', 'Что будет дальше'],
-        greeting: 'Карты уже лежат перед нами. Что тебя гложет прямо сейчас? Напиши мне его имя или вопрос — и я вытяну аркан на его скрытые намерения.'
+        greeting: 'Колода уже открыта. Что не дает тебе уснуть ночью? Напиши мне его имя или ситуацию — и я вытяну аркан на его скрытые намерения и слепые зоны.'
       }
     ];
 
@@ -2244,13 +2438,13 @@
       const name = state.profile.name || 'Странник';
       document.getElementById('passportUserName').textContent = name;
       document.getElementById('profileName').textContent = name;
-      document.getElementById('passportBirthMeta').textContent = `Родился ${state.profile.birthDate} в ${state.profile.birthTime || '12:00'}`;
-      document.getElementById('passportCoordsLabel').textContent = `${state.profile.city} • ${Number(state.profile.lat).toFixed(2)}°N`;
+      document.getElementById('passportBirthMeta').textContent = `Рождение: ${state.profile.birthDate} в ${state.profile.birthTime || '12:00'}`;
+      document.getElementById('passportCoordsLabel').textContent = `${state.profile.city} • Точка старта`;
       document.getElementById('dossierDate').textContent = state.profile.birthDate;
       document.getElementById('dossierTime').textContent = state.profile.birthTime || '12:00';
       document.getElementById('dossierCity').textContent = state.profile.city || 'Москва';
-      document.getElementById('dossierCoords').textContent = `${Number(state.profile.lat).toFixed(2)}°N, ${Number(state.profile.lon).toFixed(2)}°E`;
-      document.getElementById('profileCity').textContent = `${state.profile.city} • UTC+${state.profile.timezoneOffset}`;
+      document.getElementById('dossierCoords').textContent = `${Number(state.profile.lat).toFixed(1)}° / ${Number(state.profile.lon).toFixed(1)}°`;
+      document.getElementById('profileCity').textContent = `${state.profile.city} • Часовой пояс UTC+${state.profile.timezoneOffset}`;
     }
 
     // 3. Personas Management & Switching
@@ -2419,28 +2613,58 @@
     }
 
     function generateDynamicParadox(sun, moon, asc) {
-      const descriptions = {
-        'Скорпион': 'глубокая интуиция, стальная воля и способность возрождаться из пепла',
-        'Телец': 'стремление к надежности, верность слову и тонкое чувство эстетики',
-        'Близнецы': 'быстрый аналитический ум, жажда новой информации и легкость в общении',
-        'Рак': 'обостренная эмпатия, привязанность к близким и потребность в душевной безопасности',
-        'Лев': 'природное благородство, лидерская харизма и нетерпимость к фальши',
-        'Дева': 'скрупулезный взгляд на детали, практицизм и стремление к идеальному порядку',
-        'Весы': 'дипломатичность, поиск гармонии и неприязнь к конфликтам',
-        'Стрелец': 'неугасимый оптимизм, вера в высшую цель и тяга к расширению горизонтов',
-        'Козерог': 'стратегическое терпение, дисциплина и умение достигать недосягаемых вершин',
-        'Водолей': 'независимость мышления, инновационный взгляд и отрицание рамок',
-        'Рыбы': 'мистическая чувствительность, творческий дар и связь с бессознательным',
-        'Овен': 'стремительный напор, первопроходческая энергия и честность в намерениях'
+      const ascArmor = {
+        'Скорпион': 'неприступную броню, ледяной контроль и сканирующий взгляд',
+        'Телец': 'абсолютную невозмутимость, стабильность и образ человека без слабостей',
+        'Близнецы': 'легкость, искрометный юмор и готовность любую драму перевести в шутку',
+        'Рак': 'мягкую заботу и осторожную дистанцию, за которой прячется ранимая душа',
+        'Лев': 'царственную уверенность, гордость и нежелание показывать, когда больно',
+        'Дева': 'холодную собранность, логику и перфекционизм, не прощающий ошибок',
+        'Весы': 'дипломатичную улыбку, уступчивость и образ идеального бесконфликтного человека',
+        'Стрелец': 'неудержимый драйв, оптимизм и привычку делать вид, что тебе все нипочем',
+        'Козерог': 'стальную выдержку, статусность и привычку молча тащить все на своих плечах',
+        'Водолей': 'бунтарскую независимость и позицию наблюдателя, которому никто не нужен',
+        'Рыбы': 'загадочную отрешенность, мягкость и ускользание от прямых ответов',
+        'Овен': 'стремительный напор, дерзость и позицию лидера, презирающего слабость'
       };
 
-      const sunText = descriptions[sun] || 'уникальная внутренняя сила';
-      const moonText = descriptions[moon] || 'глубокий внутренний мир';
-      const ascText = descriptions[asc] || 'яркая внешняя подача';
+      const sunCore = {
+        'Скорпион': 'вулканическая жажда подлинности, не прощающая предательства и фальши',
+        'Телец': 'глубинная потребность в безопасности и материальной независимости',
+        'Близнецы': 'вечный голод по смыслу и жажда разорвать рутину, которая тебя душит',
+        'Рак': 'предельная эмпатия и потребность в тихой гавани, где можно перестать защищаться',
+        'Лев': 'огромное любящее сердце, которое жаждет признания без необходимости что-то доказывать',
+        'Дева': 'стремление исцелить и упорядочить мир вокруг себя, чтобы заглушить внутреннюю тревогу',
+        'Весы': 'поиск родственной души и мучительный страх сделать неверный выбор',
+        'Стрелец': 'поиск высшей истины и бунт против любых клеток и удушающих обязательств',
+        'Козерог': 'грандиозные скрытые амбиции и запрет на проявление слабости перед близкими',
+        'Водолей': 'страх стать обычным(ой) и потерять свою уникальность в чужих ожиданиях',
+        'Рыбы': 'океан невысказанных чувств и дар видеть людей намного глубже, чем они сами',
+        'Овен': 'неистовый огонь первопроходца, который гаснет от ожидания и чужих сомнений'
+      };
 
-      document.getElementById('paradoxTitle').textContent = `✨ Парадокс твоей натальной карты (${sun} / ${moon} / ${asc})`;
+      const moonShadow = {
+        'Скорпион': 'ты помнишь каждое ранящее слово и боишься довериться до конца',
+        'Телец': 'ты мучительно держишься за то, что давно пора отпустить',
+        'Близнецы': 'ты заглушаешь тревогу суетой и бесконечным скроллингом',
+        'Рак': 'ты отдаешь близким в разы больше тепла, чем они способны вернуть',
+        'Лев': 'ты мучаешься от мысли, что тебя любят только за твои победы',
+        'Дева': 'ты терзаешь себя самокритикой даже за малейший промах',
+        'Весы': 'ты подавляешь здоровую злость, лишь бы сохранить видимость гармонии',
+        'Стрелец': 'ты сбегаешь в новые цели каждый раз, когда отношения требуют уязвимости',
+        'Козерог': 'ты запрещаешь себе плакать и отдыхать, пока все не сделано идеально',
+        'Водолей': 'ты замораживаешь свои эмоции головой, когда кто-то подходит слишком близко',
+        'Рыбы': 'ты растворяешься в чужой боли и спасаешь тех, кто этого не просил',
+        'Овен': 'ты вспыхиваешь от бессилия, когда реальность не подчиняется твоей воле'
+      };
+
+      const ascT = ascArmor[asc] || 'социальную броню и собранность';
+      const sunT = sunCore[sun] || 'мощный внутренний стержень';
+      const moonT = moonShadow[moon] || 'тайные эмоциональные триггеры';
+
+      document.getElementById('paradoxTitle').textContent = `✨ Внутренний парадокс (${sun} / ${moon} / ${asc})`;
       document.getElementById('paradoxText').textContent = 
-        `Социум видит в тебе человека, несущего качества знака ${asc} (${ascText}). Но твой истинный энергетический стержень — Солнце в ${sun} (${sunText}). При этом ключевые эмоциональные решения ты принимаешь через призму Луны в ${moon} (${moonText}). Этот контраст делает твою личность невероятно многогранной: внешняя невозмутимость скрывает мощный внутренний огонь.`;
+        `Мир считывает в тебе ${ascT} (Асцендент в ${asc}). Но твое подлинное ядро — ${sunT} (Солнце в ${sun}). Твой главный тайный конфликт кроется в подсознании: ${moonT} (Луна в ${moon}). Ты кажешься неуязвимым(ой) для других, но внутри ведешь битву, о которой никому не рассказываешь.`;
     }
 
     function inspectBigThree(planet) {
@@ -2454,41 +2678,473 @@
       if (!chart) return;
 
       const titles = {
-        sun: `☀️ Солнце в знаке ${chart.sun.sign}`,
-        moon: `🌙 Луна в знаке ${chart.moon.sign}`,
-        asc: `⬆️ Асцендент в знаке ${chart.ascendant.sign}`
+        sun: `☀️ Солнце в знаке ${chart.sun.sign}: Твое истинное Ядро`,
+        moon: `🌙 Луна в знаке ${chart.moon.sign}: Твое Подсознание и Тень`,
+        asc: `⬆️ Асцендент в знаке ${chart.ascendant.sign}: Твоя Социальная Броня`
       };
 
       const details = {
-        sun: `Солнце определяет твое высшее Я, жизненную энергию, эго и вектор самореализации в обществе.`,
-        moon: `Луна управляет подсознанием, привычками реагирования, эмоциональным комфортом и скрытыми страхами.`,
-        asc: `Асцендент — это твой социальный маркер: то, как тебя впервые считывают незнакомые люди и мир вокруг.`
+        sun: `Солнце — это твоя истинная воля, внутренний генератор и то, кем ты становишься, когда сбрасываешь чужие ожидания и социальные маски.`,
+        moon: `Луна — это то, как ты реагируешь на стресс в 2 часа ночи, твои скрытые страхи, потребность в душевной безопасности и эмоциональная память.`,
+        asc: `Асцендент — твой энергетический фасад: первое впечатление, которое ты производишь на незнакомцев, и способ защиты своего личного пространства от вторжения.`
       };
 
       document.getElementById('paradoxTitle').textContent = titles[planet] || 'Анализ аспекта';
       document.getElementById('paradoxText').textContent = details[planet] || '';
     }
 
-    // 6. 1-Click Viral Sharing
-    function shareCosmicPassport() {
+    // 6. 1-Click Viral Sharing with Canvas 4:5 Card (Tier 3/4 Standard)
+    const DEFAULT_BOT_QR_BASE64 = 'data:image/png;base64,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';
+
+    let cachedPassportBlob = null;
+    let cachedPassportDataUrl = null;
+
+    function getZodiacElement(sign) {
+      const map = {
+        'Овен': 'Огонь 🔥', 'Лев': 'Огонь 🔥', 'Стрелец': 'Огонь 🔥',
+        'Телец': 'Земля 🌿', 'Дева': 'Земля 🌿', 'Козерог': 'Земля 🌿',
+        'Близнецы': 'Воздух 💨', 'Весы': 'Воздух 💨', 'Водолей': 'Воздух 💨',
+        'Рак': 'Вода 🌊', 'Скорпион': 'Вода 🌊', 'Рыбы': 'Вода 🌊'
+      };
+      return map[sign] || 'Космос 🪐';
+    }
+
+    async function renderPassportCardCanvas() {
+      const chart = state.natalChart?.bigThree;
+      const sun = chart?.sun?.sign || 'Скорпион';
+      const moon = chart?.moon?.sign || 'Водолей';
+      const asc = chart?.ascendant?.sign || 'Рак';
+      const sunDeg = chart?.sun?.degree ? `${chart.sun.degree}°` : '1°';
+      const moonDeg = chart?.moon?.degree ? `${chart.moon.degree}°` : '18°';
+      const ascDeg = chart?.ascendant?.degree ? `${chart.ascendant.degree}°` : '22°';
+      const name = (state.profile?.name || 'Александр').trim();
+      const city = (state.profile?.city || 'Москва').trim();
+      const birthDate = state.profile?.birthDate || '12.05.1990';
+      const birthTime = state.profile?.birthTime || '14:30';
+      const lat = Number(state.profile?.lat || 55.75).toFixed(2);
+      const paradox = document.getElementById('paradoxText')?.textContent?.trim() || 
+        'Внешне ты кажешься невероятно сильным и собранным человеком, но внутри скрыт глубокий океан эмоциональной уязвимости и искреннее желание найти того, кто поймет тебя без лишних слов.';
+
+      const canvas = document.createElement('canvas');
+      canvas.width = 1080;
+      canvas.height = 1350;
+      const ctx = canvas.getContext('2d');
+
+      function roundRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+      }
+
+      function wrapText(ctx, text, x, y, maxWidth, lineHeight, maxLines = 5) {
+        const words = text.split(/\s+/);
+        let line = '';
+        let lines = [];
+        for (let n = 0; n < words.length; n++) {
+          const testLine = line + (line ? ' ' : '') + words[n];
+          if (ctx.measureText(testLine).width > maxWidth && n > 0) {
+            lines.push(line);
+            line = words[n];
+          } else {
+            line = testLine;
+          }
+        }
+        if (line) lines.push(line);
+        if (lines.length > maxLines) {
+          lines = lines.slice(0, maxLines);
+          lines[maxLines - 1] += '...';
+        }
+        for (let k = 0; k < lines.length; k++) {
+          ctx.fillText(lines[k], x, y + (k * lineHeight));
+        }
+      }
+
+      // 1. Clip outer rounded rectangle
+      roundRect(ctx, 0, 0, 1080, 1350, 48);
+      ctx.clip();
+
+      // 2. Deep Cosmic Radial Gradient
+      const bgGrad = ctx.createRadialGradient(540, 420, 50, 540, 675, 900);
+      bgGrad.addColorStop(0, '#151928');
+      bgGrad.addColorStop(0.5, '#0E101A');
+      bgGrad.addColorStop(1, '#07080D');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 1080, 1350);
+
+      // 3. Radiant Celestial Nebulae
+      const topGlow = ctx.createRadialGradient(540, 120, 10, 540, 120, 450);
+      topGlow.addColorStop(0, 'rgba(0, 122, 255, 0.22)');
+      topGlow.addColorStop(1, 'rgba(0, 122, 255, 0)');
+      ctx.fillStyle = topGlow;
+      ctx.fillRect(0, 0, 1080, 600);
+
+      const botGlow = ctx.createRadialGradient(880, 1150, 10, 880, 1150, 400);
+      botGlow.addColorStop(0, 'rgba(99, 102, 241, 0.16)');
+      botGlow.addColorStop(1, 'rgba(99, 102, 241, 0)');
+      ctx.fillStyle = botGlow;
+      ctx.fillRect(400, 800, 680, 550);
+
+      // 4. Subtle Celestial Orbit Arcs
+      ctx.save();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
+      ctx.lineWidth = 1.5;
+      ctx.beginPath();
+      ctx.arc(540, 675, 500, 0, Math.PI * 2);
+      ctx.stroke();
+
+      ctx.strokeStyle = 'rgba(0, 122, 255, 0.08)';
+      ctx.beginPath();
+      ctx.ellipse(540, 480, 430, 260, Math.PI / 5, 0, Math.PI * 2);
+      ctx.stroke();
+      ctx.restore();
+
+      // 5. Procedural Twinkling Stars
+      ctx.save();
+      const starSeeds = [
+        [120, 100, 1.8, 0.8], [240, 180, 1.2, 0.5], [890, 130, 2.2, 0.9],
+        [980, 240, 1.4, 0.6], [80, 450, 2.0, 0.7], [1010, 520, 1.6, 0.6],
+        [150, 720, 1.5, 0.5], [920, 780, 2.4, 0.85], [70, 940, 1.2, 0.4],
+        [1010, 980, 1.8, 0.75], [200, 1220, 1.4, 0.5], [860, 1280, 1.6, 0.6]
+      ];
+      starSeeds.forEach(([sx, sy, sr, sa]) => {
+        ctx.fillStyle = `rgba(255, 255, 255, ${sa})`;
+        ctx.beginPath();
+        ctx.arc(sx, sy, sr, 0, Math.PI * 2);
+        ctx.fill();
+      });
+      ctx.restore();
+
+      // 6. Header: Capsule Pill Badge
+      const pillW = 440;
+      const pillH = 46;
+      const pillX = (1080 - pillW) / 2;
+      const pillY = 70;
+      roundRect(ctx, pillX, pillY, pillW, pillH, 23);
+      ctx.fillStyle = 'rgba(0, 122, 255, 0.12)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(0, 122, 255, 0.55)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#38BDF8';
+      ctx.textAlign = 'center';
+      ctx.fillText('✦ АСТРОМАХ • КОСМИЧЕСКИЙ ПАСПОРТ', 540, pillY + 29);
+
+      // Subtitle line (City & NASA coordinates)
+      ctx.font = '600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#7C8BA1';
+      ctx.fillText(`${city.toUpperCase()} • ${lat}°N • ТОЧНОСТЬ NASA 100%`, 540, 150);
+
+      // 7. User Identity
+      ctx.font = '800 52px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#FFFFFF';
+      let displayUser = name.toUpperCase();
+      if (ctx.measureText(displayUser).width > 800) {
+        ctx.font = '800 40px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      }
+      ctx.fillText(displayUser, 540, 220);
+
+      ctx.font = '500 20px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#94A3B8';
+      ctx.fillText(`Родился: ${birthDate} в ${birthTime}`, 540, 260);
+
+      // 8. The Big Three Grid (3 Glossy Obsidian Boxes)
+      const boxW = 286;
+      const boxH = 265;
+      const gap = 24;
+      const startX = (1080 - (boxW * 3 + gap * 2)) / 2;
+      const boxY = 300;
+
+      const planets = [
+        { role: 'СОЛНЦЕ', sub: 'ЯДРО ЛИЧНОСТИ', glyph: '☀️', sign: sun, deg: sunDeg, elem: getZodiacElement(sun) },
+        { role: 'ЛУНА', sub: 'ПОДСОЗНАНИЕ', glyph: '🌙', sign: moon, deg: moonDeg, elem: getZodiacElement(moon) },
+        { role: 'АСЦЕНДЕНТ', sub: 'СОЦИАЛЬНЫЙ КОД', glyph: '⬆️', sign: asc, deg: ascDeg, elem: getZodiacElement(asc) }
+      ];
+
+      planets.forEach((p, idx) => {
+        const bx = startX + idx * (boxW + gap);
+
+        roundRect(ctx, bx, boxY, boxW, boxH, 20);
+        ctx.fillStyle = 'rgba(20, 23, 36, 0.9)';
+        ctx.fill();
+        ctx.strokeStyle = idx === 0 ? 'rgba(0, 122, 255, 0.6)' : 'rgba(255, 255, 255, 0.12)';
+        ctx.lineWidth = 1.5;
+        ctx.stroke();
+
+        ctx.font = '36px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.textAlign = 'center';
+        ctx.fillText(p.glyph, bx + boxW / 2, boxY + 54);
+
+        ctx.font = '700 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#64748B';
+        ctx.fillText(p.sub, bx + boxW / 2, boxY + 86);
+
+        ctx.font = '800 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#93C5FD';
+        ctx.fillText(p.role, bx + boxW / 2, boxY + 112);
+
+        ctx.font = '800 24px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillText(p.sign, bx + boxW / 2, boxY + 175);
+
+        const elemPillW = 190;
+        const elemPillH = 34;
+        const elemPillX = bx + (boxW - elemPillW) / 2;
+        const elemPillY = boxY + 205;
+        roundRect(ctx, elemPillX, elemPillY, elemPillW, elemPillH, 17);
+        ctx.fillStyle = 'rgba(0, 122, 255, 0.15)';
+        ctx.fill();
+        ctx.strokeStyle = 'rgba(0, 122, 255, 0.35)';
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.font = '600 14px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+        ctx.fillStyle = '#38BDF8';
+        ctx.fillText(`${p.elem} • ${p.deg}`, bx + boxW / 2, elemPillY + 22);
+      });
+
+      // 9. Psychological Paradox Box (The Mirror Hook)
+      const paraX = startX;
+      const paraY = 600;
+      const paraW = boxW * 3 + gap * 2;
+      const paraH = 370;
+
+      roundRect(ctx, paraX, paraY, paraW, paraH, 24);
+      ctx.fillStyle = 'rgba(17, 20, 32, 0.94)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.14)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      ctx.textAlign = 'left';
+      ctx.font = '800 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#F8FAFC';
+      ctx.fillText('✨ ПАРАДОКС ТВОЕЙ ЛИЧНОСТИ', paraX + 36, paraY + 52);
+
+      ctx.font = '500 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#64748B';
+      ctx.fillText('Астропсихологический срез (Солнце • Луна • Асцендент):', paraX + 36, paraY + 84);
+
+      ctx.font = '400 23px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#E2E8F0';
+      wrapText(ctx, `«${paradox}»`, paraX + 36, paraY + 135, paraW - 72, 38, 4);
+
+      const archPillW = 380;
+      const archPillH = 38;
+      const archPillX = paraX + 36;
+      const archPillY = paraY + 300;
+      roundRect(ctx, archPillX, archPillY, archPillW, archPillH, 19);
+      ctx.fillStyle = 'rgba(56, 189, 248, 0.1)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(56, 189, 248, 0.3)';
+      ctx.lineWidth = 1;
+      ctx.stroke();
+
+      ctx.font = '700 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#38BDF8';
+      ctx.fillText('✦ Ключевой архетип: Неуязвимый эмпат', archPillX + 20, archPillY + 24);
+
+      // 10. Viral Footer with Scannable QR Code
+      const footX = startX;
+      const footY = 1005;
+      const footW = paraW;
+      const footH = 265;
+
+      roundRect(ctx, footX, footY, footW, footH, 24);
+      ctx.fillStyle = 'rgba(12, 14, 22, 0.98)';
+      ctx.fill();
+      ctx.strokeStyle = 'rgba(0, 122, 255, 0.4)';
+      ctx.lineWidth = 1.5;
+      ctx.stroke();
+
+      const qrSize = 180;
+      const qrX = footX + 36;
+      const qrY = footY + (footH - qrSize) / 2;
+      roundRect(ctx, qrX, qrY, qrSize, qrSize, 16);
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fill();
+
+      try {
+        const qrImage = new Image();
+        await new Promise((resolve) => {
+          qrImage.onload = resolve;
+          qrImage.onerror = resolve;
+          qrImage.src = DEFAULT_BOT_QR_BASE64;
+        });
+        ctx.drawImage(qrImage, qrX + 8, qrY + 8, qrSize - 16, qrSize - 16);
+      } catch (e) {}
+
+      const textX = qrX + qrSize + 32;
+      ctx.textAlign = 'left';
+
+      ctx.font = '800 28px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillText('🪐 АстроМАХ в мессенджере MAX', textX, footY + 68);
+
+      ctx.font = '500 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#94A3B8';
+      ctx.fillText('Персональный ИИ-астролог и Таро 24/7', textX, footY + 104);
+
+      ctx.font = '600 16px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#64748B';
+      ctx.fillText('Наведи камеру на QR или найди бота:', textX, footY + 142);
+
+      ctx.font = '800 22px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#38BDF8';
+      ctx.fillText('@id744510054693_4_bot', textX, footY + 180);
+
+      ctx.font = '600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
+      ctx.fillStyle = '#10B981';
+      ctx.fillText('✓ Эфемериды NASA • 100% точность • Бесплатно', textX, footY + 222);
+
+      // Outer delicate neon border
+      ctx.save();
+      roundRect(ctx, 4, 4, 1072, 1342, 44);
+      ctx.strokeStyle = 'rgba(0, 122, 255, 0.45)';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      ctx.restore();
+
+      return new Promise((resolve) => {
+        canvas.toBlob((blob) => {
+          const dataUrl = canvas.toDataURL('image/png');
+          resolve({ canvas, blob, dataUrl });
+        }, 'image/png');
+      });
+    }
+
+    async function openPassportShareModal() {
+      triggerHaptic();
+      const modal = document.getElementById('passportShareModal');
+      if (!modal) return;
+      modal.classList.add('active');
+
+      const loader = document.getElementById('passportCanvasLoading');
+      const previewImg = document.getElementById('passportPreviewImg');
+      if (loader) loader.classList.add('active');
+
+      try {
+        const { blob, dataUrl } = await renderPassportCardCanvas();
+        cachedPassportBlob = blob;
+        cachedPassportDataUrl = dataUrl;
+        if (previewImg) {
+          previewImg.src = dataUrl;
+        }
+      } catch (err) {
+        console.error('Ошибка рендеринга паспорта:', err);
+        showToast('Не удалось сформировать карточку');
+      } finally {
+        if (loader) loader.classList.remove('active');
+      }
+    }
+
+    function closePassportShareModal(event) {
+      if (event && event.target !== event.currentTarget) return;
+      const modal = document.getElementById('passportShareModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    async function sharePassportNative() {
       triggerHaptic();
       const chart = state.natalChart?.bigThree;
       const sun = chart?.sun?.sign || 'Скорпион';
       const moon = chart?.moon?.sign || 'Водолей';
       const asc = chart?.ascendant?.sign || 'Рак';
-      const name = state.profile.name || 'Александр';
+      const name = state.profile?.name || 'Александр';
 
       const shareText = `🌌 Мой Космический Паспорт в АстроМАХ:\n` +
         `👤 ${name}\n` +
-        `☀️ Солнце: ${sun}\n` +
-        `🌙 Луна: ${moon}\n` +
-        `⬆️ Асцендент: ${asc}\n\n` +
-        `Узнай свою Большую Тройку и совместимость в мессенджере MAX:\n` +
+        `☀️ Солнце: ${sun} (${getZodiacElement(sun)})\n` +
+        `🌙 Луна: ${moon} (${getZodiacElement(moon)})\n` +
+        `⬆️ Асцендент: ${asc} (${getZodiacElement(asc)})\n\n` +
+        `🪐 Рассчитай свой паспорт и совместимость в мессенджере MAX:\n` +
         `https://max.ru/id744510054693_4_bot`;
 
-      if (navigator.clipboard) {
+      if (!cachedPassportBlob) {
+        const res = await renderPassportCardCanvas();
+        cachedPassportBlob = res.blob;
+        cachedPassportDataUrl = res.dataUrl;
+      }
+
+      const file = new File([cachedPassportBlob], `astromax-passport-${name}.png`, { type: 'image/png' });
+
+      if (navigator.canShare && navigator.canShare({ files: [file] })) {
+        try {
+          await navigator.share({
+            title: 'Космический Паспорт — АстроМАХ',
+            text: shareText,
+            files: [file]
+          });
+          showToast('Паспорт успешно отправлен!');
+          return;
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+        }
+      }
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: 'Космический Паспорт — АстроМАХ',
+            text: shareText,
+            url: 'https://max.ru/id744510054693_4_bot'
+          });
+          showToast('Ссылка отправлена!');
+          return;
+        } catch (err) {
+          if (err.name === 'AbortError') return;
+        }
+      }
+
+      downloadPassportCard();
+      copyPassportText();
+      showToast('Карточка сохранена! Вставь её в чат MAX');
+    }
+
+    function downloadPassportCard() {
+      triggerHaptic();
+      const name = state.profile?.name || 'Александр';
+      if (!cachedPassportDataUrl) {
+        showToast('Формирование изображения...');
+        return;
+      }
+      const a = document.createElement('a');
+      a.href = cachedPassportDataUrl;
+      a.download = `astromax-passport-${name}.png`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      showToast('Паспорт сохранен в галерею!');
+    }
+
+    function copyPassportText() {
+      triggerHaptic();
+      const chart = state.natalChart?.bigThree;
+      const sun = chart?.sun?.sign || 'Скорпион';
+      const moon = chart?.moon?.sign || 'Водолей';
+      const asc = chart?.ascendant?.sign || 'Рак';
+      const name = state.profile?.name || 'Александр';
+
+      const shareText = `🌌 Мой Космический Паспорт в АстроМАХ:\n` +
+        `👤 ${name}\n` +
+        `☀️ Солнце: ${sun} (${getZodiacElement(sun)})\n` +
+        `🌙 Луна: ${moon} (${getZodiacElement(moon)})\n` +
+        `⬆️ Асцендент: ${asc} (${getZodiacElement(asc)})\n\n` +
+        `🪐 Рассчитай свой паспорт и совместимость в мессенджере MAX:\n` +
+        `https://max.ru/id744510054693_4_bot`;
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
         navigator.clipboard.writeText(shareText).then(() => {
-          showToast('Паспорт скопирован! Вставь его в чат MAX');
+          showToast('Текст и ссылка скопированы!');
         }).catch(() => {
           fallbackShare(shareText);
         });
@@ -2497,8 +3153,8 @@
       }
     }
 
-    function fallbackShare(text) {
-      prompt('Скопируй текст для отправки друзьям в MAX:', text);
+    function shareCosmicPassport() {
+      openPassportShareModal();
     }
 
     function showToast(msg) {
