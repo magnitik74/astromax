@@ -10,7 +10,22 @@ export class ChatEngine {
     this.memory = options.memoryStore || globalMemoryStore;
     this.ai = options.ai || new GroqAIClient();
     this.client = options.botClient;
-    this.miniAppUrl = options.miniAppUrl || process.env.MINI_APP_URL || 'https://astromax.app';
+    this.miniAppUrl = (options.miniAppUrl || process.env.MINI_APP_URL || 'https://astromax-nu.vercel.app').replace(/\/+$/, '');
+  }
+
+  /**
+   * Построение deep-link URL в Mini App с передачей user_id и name
+   */
+  getAppUrl(userId, userName = '', extra = {}) {
+    const base = this.miniAppUrl.replace(/\/+$/, '');
+    const params = new URLSearchParams();
+    if (userId) params.set('user_id', String(userId));
+    if (userName) params.set('name', userName);
+    for (const [k, v] of Object.entries(extra)) {
+      if (v) params.set(k, v);
+    }
+    const qs = params.toString();
+    return qs ? `${base}/?${qs}` : `${base}/`;
   }
 
   /**
@@ -19,15 +34,16 @@ export class ChatEngine {
   async processIncomingMessage(userId, text, options = {}) {
     const user = this.memory.getUser(userId);
     const trimmed = (text || '').trim();
+    const userName = options.userName || '';
 
     // 1. Команда перезапуска или начала
     if (trimmed.startsWith('/start') || trimmed.toLowerCase() === 'старт') {
-      return this.handleStart(userId, options.userName || '');
+      return this.handleStart(userId, userName);
     }
 
-    // 2. Быстрый расклад Таро
+    // 2. Расклад Таро -> Воронка в Mini App
     if (trimmed.startsWith('/tarot') || trimmed.toLowerCase() === 'таро' || trimmed.toLowerCase() === 'карта дня') {
-      return this.handleQuickTarot(userId);
+      return this.handleQuickTarot(userId, userName);
     }
 
     // 3. Проверка на Красные линии (Safety Guardrails: здоровье, диагнозы, экстремизм, суицид)
@@ -36,9 +52,9 @@ export class ChatEngine {
       return { text: safety.response, buttons: [] };
     }
 
-    // 4. Справка
+    // 4. Справка -> Воронка в Mini App
     if (trimmed.startsWith('/help') || trimmed.toLowerCase() === 'помощь') {
-      return this.handleHelp(userId);
+      return this.handleHelp(userId, userName);
     }
 
     // 5. Обработка шагов онбординга (если начат в чате)
@@ -50,12 +66,12 @@ export class ChatEngine {
       return this.handleOnboardingCity(userId, trimmed);
     }
 
-    // 6. Режим «Личный ИИ-Астролог 24/7» (Прямой диалог)
-    return this.handlePersonalChat(userId, trimmed);
+    // 6. Любое сообщение в чате строго перенаправляется в Mini App
+    return this.handlePersonalChat(userId, trimmed, { userName });
   }
 
   /**
-   * Шаг 1: Приветствие в боте с приглашением в Mini App
+   * Шаг 1: Приветствие в боте с единственным действием — открыть Mini App
    */
   async handleStart(userId, userName = '') {
     this.memory.setState(userId, 'IDLE');
@@ -74,17 +90,14 @@ export class ChatEngine {
 `${namePrefix}
 
 Чувствуешь, что сейчас время важных решений?
-Твой космический код готов — загляни, там пара неожиданных ответов про отношения, деньги и то, что ждет тебя дальше.`;
+Твой космический код готов — загляни, там ответы про отношения, деньги и то, что ждет тебя дальше.`;
 
-    // Deep link с передачей параметров сессии
-    const appUrl = `${this.miniAppUrl}${this.miniAppUrl.includes('?') ? '&' : '?'}user_id=${encodeURIComponent(userId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
+    // Строго один конверсионный CTA-переход в Mini App
+    const appUrl = this.getAppUrl(userId, userName);
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Узнать, что меня ждет', appUrl),
-      ],
-      [
-        this.client.buildCallbackButton('✦ Карта дня в чате', 'ACTION_TAROT_DAILY'),
+        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', appUrl),
       ],
     ];
 
@@ -92,26 +105,19 @@ export class ChatEngine {
   }
 
   /**
-   * Быстрый расклад Таро (Карта Дня)
+   * Расклад Таро — направление в интерактивный 3D-расклад в Mini App
    */
-  handleQuickTarot(userId) {
-    const spread = drawTarotSpread({ type: 'daily' });
-    const card = spread.cards[0].card;
+  handleQuickTarot(userId, userName = '') {
     const text = 
-`**Карта Дня: ${card.name}** (${card.status})
-Стихия: ${card.element} | Ключевые аспекты: ${card.keywords.join(', ')}
+`🔮 **Храм Таро АстроМАХ**
 
-**Смысл аркана:**
-${card.interpretation}
+Интерактивный расклад дня и ответы на волнующие вопросы уже ждут тебя в приложении.
 
-**Фокус внимания:** Прислушайтесь к внутреннему компасу перед принятием ключевых решений.`;
+Нажми кнопку ниже, чтобы вытянуть карту:`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Расклад на 3 карты в приложении', `${this.miniAppUrl}/tarot`),
-      ],
-      [
-        this.client.buildCallbackButton('✦ Другой вопрос', 'ACTION_TAROT_DAILY'),
+        this.client.buildOpenAppButton('✦ Вытянуть карту в приложении', this.getAppUrl(userId, userName)),
       ],
     ];
 
@@ -119,25 +125,22 @@ ${card.interpretation}
   }
 
   /**
-   * Справка по возможностям бота
+   * Справка по возможностям сервиса
    */
-  handleHelp(userId) {
+  handleHelp(userId, userName = '') {
     const text = 
-`**АстроМАХ — навигация и возможности:**
+`🌌 **АстроМАХ — твой персональный астролог**
 
-1. **Персональный ИИ-Астролог 24/7:** Задавайте любые вопросы прямо в чат — анализ отношений, карьеры, финансов и психологических состояний.
-2. **Точный расчет натальной карты:** Введите дату, время и город рождения для вычисления Большой Тройки и положения планет.
-3. **Храм Таро:** Команда /tarot или интерактивный 3D-расклад внутри приложения.
-4. **Космический паспорт:** Динамические транзиты планет и персональный прогноз каждого дня.
+Все сервисы работают внутри интерактивного мини-приложения:
+• Точный расчет Большой Тройки и натальной карты (эфемериды NASA)
+• 3D-расклады карт Таро на день и отношения
+• Личные консультации с экспертами (Алёна, Артём, Елена, София)
 
-Команды:
-• /start — Главное меню и вход в приложение
-• /tarot — Получить Карту Дня
-• /help — Справка по сервису`;
+Нажми кнопку ниже, чтобы открыть АстроМАХ:`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', this.miniAppUrl),
+        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', this.getAppUrl(userId, userName)),
       ],
     ];
     return { text, buttons };
@@ -271,41 +274,23 @@ ${aiInsight}
   }
 
   /**
-   * Диалог 24/7: Персональный контекстный астролог
+   * Любой диалог в чате — мягкий, конверсионный мостик в Mini App
    */
-  async handlePersonalChat(userId, text) {
-    const user = this.memory.getUser(userId);
-    this.memory.addMessage(userId, 'user', text);
+  async handlePersonalChat(userId, text, options = {}) {
+    const userName = options.userName || '';
+    const namePrefix = userName ? `**${userName}**, твой` : `**Твой**`;
 
-    const systemPrompt = buildAstrologerSystemPrompt(user);
-    const messages = [
-      { role: 'system', content: systemPrompt },
-      ...user.history.map(h => ({ role: h.role, content: h.content })),
-    ];
+    const replyText = 
+`✨ ${namePrefix} персональный разбор готов в АстроМАХ.
 
-    let aiReply = '';
-    try {
-      aiReply = await this.ai.chatCompletion({
-        messages,
-        model: this.ai.modelSmart, // Флагманская модель 120B
-        temperature: 0.72,
-        maxTokens: 600,
-      });
-    } catch (err) {
-      aiReply = `Я рядом, ${user.profile.name || 'друг'}. Твоя натальная карта показывает временное напряжение аспектов планет. Позволь себе глубокий вдох. Что именно сейчас тебя беспокоит?`;
-    }
-
-    this.memory.addMessage(userId, 'assistant', aiReply);
+Планеты и эфемериды NASA уже рассчитали твою матрицу. Загляни в приложение — там подробный анализ ситуации, расчет Большой Тройки и живой диалог с наставником:`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('🪐 Открыть АстроМАХ Mini App', this.miniAppUrl),
-      ],
-      [
-        this.client.buildCallbackButton('🃏 Вытянуть карту на ситуацию', 'ACTION_TAROT_DAILY'),
+        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', this.getAppUrl(userId, userName)),
       ],
     ];
 
-    return { text: aiReply, buttons };
+    return { text: replyText, buttons };
   }
 }

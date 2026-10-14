@@ -3,24 +3,26 @@ import assert from 'node:assert/strict';
 import { MaxBotClient } from '../src/bot/maxClient.js';
 import { BotDispatcher } from '../src/bot/dispatcher.js';
 
-test('MaxBotClient sandbox mode works without credentials', async () => {
+test('MaxBotClient sandbox mode works without credentials and includes format: markdown', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const me = await client.getMe();
   assert.equal(me.ok, true);
   assert.equal(me.sandbox, true);
 
-  const res = await client.sendMessage('test_chat_123', 'Привет, космос!', {
+  const res = await client.sendMessage('test_chat_123', '**Привет, космос!**', {
     buttons: [
-      [client.buildOpenAppButton('Открыть', 'https://astromax.app')],
+      [client.buildOpenAppButton('Открыть', 'https://astromax-nu.vercel.app')],
     ],
   });
   assert.equal(res.ok, true);
   assert.equal(res.receivedBody.chat_id, 'test_chat_123');
-  assert.equal(res.receivedBody.text, 'Привет, космос!');
+  assert.equal(res.receivedBody.text, '**Привет, космос!**');
+  assert.equal(res.receivedBody.format, 'markdown');
   assert.equal(res.receivedBody.attachments[0].type, 'inline_keyboard');
+  assert.equal(res.receivedBody.attachments[0].payload.buttons[0][0].url, 'https://astromax-nu.vercel.app');
 });
 
-test('BotDispatcher handles /start command with open_app button and onboarding', async () => {
+test('BotDispatcher handles /start command with strict single CTA button to Mini App', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);
 
@@ -33,14 +35,19 @@ test('BotDispatcher handles /start command with open_app button and onboarding',
 
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 'user_456');
+  assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('космический код готов'));
   
-  // Verify link button is attached
+  // Verify strict funnel: exactly 1 button row, 1 button, pointing to live Mini App
   const buttons = result.receivedBody.attachments[0].payload.buttons;
+  assert.equal(buttons.length, 1);
+  assert.equal(buttons[0].length, 1);
   assert.equal(buttons[0][0].type, 'link');
+  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
+  assert.ok(buttons[0][0].url.includes('user_id=user_456'));
 });
 
-test('BotDispatcher handles /tarot command with live card draw', async () => {
+test('BotDispatcher handles /tarot command by directing directly to Mini App', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);
 
@@ -52,11 +59,14 @@ test('BotDispatcher handles /tarot command with live card draw', async () => {
   });
 
   assert.ok(result);
-  assert.ok(result.receivedBody.text.includes('Карта Дня:'));
-  assert.ok(result.receivedBody.text.includes('Смысл аркана:'));
+  assert.equal(result.receivedBody.format, 'markdown');
+  assert.ok(result.receivedBody.text.includes('Храм Таро АстроМАХ'));
+  const buttons = result.receivedBody.attachments[0].payload.buttons;
+  assert.equal(buttons[0][0].type, 'link');
+  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
 });
 
-test('BotDispatcher handles native Max event: bot_started', async () => {
+test('BotDispatcher handles native Max event: bot_started with user_id & name deep links', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);
 
@@ -72,15 +82,20 @@ test('BotDispatcher handles native Max event: bot_started', async () => {
 
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 11223344);
+  assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('Елена'));
   assert.ok(result.receivedBody.text.includes('привет'));
   assert.ok(result.receivedBody.text.includes('космический код готов'));
+
   const buttons = result.receivedBody.attachments[0].payload.buttons;
+  assert.equal(buttons.length, 1);
   assert.equal(buttons[0][0].type, 'link');
+  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
   assert.ok(buttons[0][0].url.includes('user_id=11223344'));
+  assert.ok(buttons[0][0].url.includes('name=%D0%95%D0%BB%D0%B5%D0%BD%D0%B0'));
 });
 
-test('BotDispatcher handles native Max event: message_created and answers via Astrologer chat', async () => {
+test('BotDispatcher handles native Max event: message_created by guiding user into Mini App', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);
   const userId = 'user_chat_test';
@@ -96,10 +111,15 @@ test('BotDispatcher handles native Max event: message_created and answers via As
 
   assert.ok(res);
   assert.equal(res.receivedBody.chat_id, userId);
-  assert.ok(typeof res.receivedBody.text === 'string' && res.receivedBody.text.length > 10);
+  assert.equal(res.receivedBody.format, 'markdown');
+  assert.ok(res.receivedBody.text.includes('персональный разбор готов'));
+  const buttons = res.receivedBody.attachments[0].payload.buttons;
+  assert.equal(buttons[0][0].type, 'link');
+  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
+  assert.ok(buttons[0][0].url.includes('name=%D0%90%D0%BD%D0%BD%D0%B0'));
 });
 
-test('BotDispatcher handles native Max event: message_callback for quick Tarot', async () => {
+test('BotDispatcher handles native Max event: message_callback for quick Tarot with Mini App link', async () => {
   let answeredCallbackId = null;
   const client = new MaxBotClient({ isSandbox: true });
   client.answerCallback = async (cbId) => { answeredCallbackId = cbId; return { ok: true }; };
@@ -120,5 +140,9 @@ test('BotDispatcher handles native Max event: message_callback for quick Tarot',
 
   assert.equal(answeredCallbackId, 'cb_test_999');
   assert.ok(result);
-  assert.ok(result.receivedBody.text.includes('Карта Дня:'));
+  assert.equal(result.receivedBody.format, 'markdown');
+  assert.ok(result.receivedBody.text.includes('Храм Таро АстроМАХ'));
+  const buttons = result.receivedBody.attachments[0].payload.buttons;
+  assert.equal(buttons[0][0].type, 'link');
+  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
 });

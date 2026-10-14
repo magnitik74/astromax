@@ -1,0 +1,218 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1376 768" width="100%" height="100%">
+  <defs>
+    <!-- Deep Space Background Radial -->
+    <radialGradient id="spaceBg" cx="50%" cy="40%" r="75%">
+      <stop offset="0%" stop-color="#141938"/>
+      <stop offset="45%" stop-color="#090B16"/>
+      <stop offset="100%" stop-color="#030408"/>
+    </radialGradient>
+
+    <!-- MAX Signature Gradient for Letter A -->
+    <linearGradient id="bannerNeonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#00F5FF"/>
+      <stop offset="35%" stop-color="#0A66FF"/>
+      <stop offset="75%" stop-color="#7000FF"/>
+      <stop offset="100%" stop-color="#A800FF"/>
+    </linearGradient>
+
+    <!-- Hot Luminous Core Highlight -->
+    <linearGradient id="bannerCoreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="40%" stop-color="#E2F9FF"/>
+      <stop offset="100%" stop-color="#80BEFF"/>
+    </linearGradient>
+
+    <!-- Natal Grid Cyan Gradient (Fades to horizon) -->
+    <linearGradient id="gridGrad" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#00F5FF" stop-opacity="0.8"/>
+      <stop offset="40%" stop-color="#0A66FF" stop-opacity="0.4"/>
+      <stop offset="85%" stop-color="#7000FF" stop-opacity="0.15"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Orbital Ring Gradient -->
+    <linearGradient id="bannerOrbitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F5FF" stop-opacity="0.1"/>
+      <stop offset="25%" stop-color="#00F5FF" stop-opacity="0.95"/>
+      <stop offset="50%" stop-color="#FFFFFF"/>
+      <stop offset="75%" stop-color="#0A66FF" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#7000FF" stop-opacity="0.1"/>
+    </linearGradient>
+
+    <!-- Horizontal Lens Flare Gradient -->
+    <linearGradient id="flareGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F5FF" stop-opacity="0"/>
+      <stop offset="30%" stop-color="#00F5FF" stop-opacity="0.3"/>
+      <stop offset="50%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+      <stop offset="70%" stop-color="#0A66FF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#7000FF" stop-opacity="0"/>
+    </linearGradient>
+
+    <!-- Star Glow Radial -->
+    <radialGradient id="bannerStarGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="25%" stop-color="#00F5FF" stop-opacity="0.9"/>
+      <stop offset="60%" stop-color="#0A66FF" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Ground Floor Glow -->
+    <radialGradient id="floorReflection" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#0A66FF" stop-opacity="0.45"/>
+      <stop offset="40%" stop-color="#7000FF" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- Multi-stage Neon Glow Filter -->
+    <filter id="bannerGlow" x="-30%" y="-30%" width="160%" height="160%">
+      <feGaussianBlur stdDeviation="24" result="b1"/>
+      <feGaussianBlur stdDeviation="12" result="b2"/>
+      <feGaussianBlur stdDeviation="4" result="b3"/>
+      <feMerge>
+        <feMergeNode in="b1"/>
+        <feMergeNode in="b2"/>
+        <feMergeNode in="b3"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- 1. Background Universe -->
+  <rect width="1376" height="768" fill="url(#spaceBg)"/>
+
+  <!-- Cosmic Nebula Ambient Light -->
+  <circle cx="688" cy="340" r="380" fill="#0A66FF" opacity="0.14" filter="blur(80px)"/>
+  <circle cx="688" cy="200" r="240" fill="#00F5FF" opacity="0.16" filter="blur(60px)"/>
+  <circle cx="688" cy="520" r="300" fill="#7000FF" opacity="0.2" filter="blur(70px)"/>
+
+  <!-- 2. Distant Deep Space Constellations & Dust -->
+  <g opacity="0.7">
+    <!-- Starfield -->
+    <circle cx="160" cy="120" r="1.5" fill="#FFFFFF"/>
+    <circle cx="280" cy="180" r="2" fill="#00F5FF"/>
+    <circle cx="220" cy="340" r="1" fill="#FFFFFF"/>
+    <circle cx="340" cy="90" r="1.5" fill="#7000FF"/>
+    <circle cx="1180" cy="140" r="2" fill="#FFFFFF"/>
+    <circle cx="1260" cy="220" r="1.5" fill="#00F5FF"/>
+    <circle cx="1100" cy="280" r="1" fill="#FFFFFF"/>
+    <circle cx="1040" cy="110" r="2" fill="#0A66FF"/>
+    <circle cx="80" cy="460" r="1.5" fill="#00F5FF"/>
+    <circle cx="1300" cy="480" r="1.5" fill="#FFFFFF"/>
+    <!-- Subtle Constellation Link Lines -->
+    <line x1="160" y1="120" x2="280" y2="180" stroke="#00F5FF" stroke-width="0.7" opacity="0.3"/>
+    <line x1="280" y1="180" x2="340" y2="90" stroke="#00F5FF" stroke-width="0.7" opacity="0.25"/>
+    <line x1="1180" y1="140" x2="1260" y2="220" stroke="#0A66FF" stroke-width="0.7" opacity="0.3"/>
+    <line x1="1180" y1="140" x2="1040" y2="110" stroke="#7000FF" stroke-width="0.7" opacity="0.25"/>
+  </g>
+
+  <!-- 3. Perspective 3D Natal Grid Floor (Horizon at Y=460) -->
+  <g>
+    <!-- Ground Ambient Reflection Pool -->
+    <ellipse cx="688" cy="580" rx="480" ry="140" fill="url(#floorReflection)"/>
+
+    <!-- Concentric Elliptical Natal Coordinate Rings -->
+    <ellipse cx="688" cy="580" rx="640" ry="145" fill="none" stroke="url(#gridGrad)" stroke-width="1.8" opacity="0.6"/>
+    <ellipse cx="688" cy="570" rx="520" ry="115" fill="none" stroke="url(#gridGrad)" stroke-width="1.5" opacity="0.7"/>
+    <ellipse cx="688" cy="560" rx="400" ry="85" fill="none" stroke="url(#gridGrad)" stroke-width="1.5" opacity="0.8"/>
+    <ellipse cx="688" cy="550" rx="280" ry="60" fill="none" stroke="url(#gridGrad)" stroke-width="1.2" opacity="0.85"/>
+    <ellipse cx="688" cy="540" rx="160" ry="35" fill="none" stroke="url(#gridGrad)" stroke-width="1" opacity="0.9"/>
+
+    <!-- Radial Perspective Lines radiating from vanishing point (688, 470) -->
+    <line x1="688" y1="470" x2="100" y2="768" stroke="url(#gridGrad)" stroke-width="1.2" opacity="0.6"/>
+    <line x1="688" y1="470" x2="260" y2="768" stroke="url(#gridGrad)" stroke-width="1.2" opacity="0.7"/>
+    <line x1="688" y1="470" x2="430" y2="768" stroke="url(#gridGrad)" stroke-width="1.4" opacity="0.8"/>
+    <line x1="688" y1="470" x2="570" y2="768" stroke="url(#gridGrad)" stroke-width="1.5" opacity="0.9"/>
+    <line x1="688" y1="470" x2="688" y2="768" stroke="url(#gridGrad)" stroke-width="1.8" opacity="0.95"/>
+    <line x1="688" y1="470" x2="806" y2="768" stroke="url(#gridGrad)" stroke-width="1.5" opacity="0.9"/>
+    <line x1="688" y1="470" x2="946" y2="768" stroke="url(#gridGrad)" stroke-width="1.4" opacity="0.8"/>
+    <line x1="688" y1="470" x2="1116" y2="768" stroke="url(#gridGrad)" stroke-width="1.2" opacity="0.7"/>
+    <line x1="688" y1="470" x2="1276" y2="768" stroke="url(#gridGrad)" stroke-width="1.2" opacity="0.6"/>
+
+    <!-- Outer Degree Ticks on Main Circle -->
+    <g stroke="#00F5FF" stroke-width="1.5" opacity="0.75">
+      <line x1="280" y1="640" x2="260" y2="655"/>
+      <line x1="420" y1="685" x2="410" y2="705"/>
+      <line x1="580" y1="715" x2="575" y2="738"/>
+      <line x1="796" y1="715" x2="801" y2="738"/>
+      <line x1="956" y1="685" x2="966" y2="705"/>
+      <line x1="1096" y1="640" x2="1116" y2="655"/>
+    </g>
+  </g>
+
+  <!-- 4. Luminous Natal Energy Stream beneath letter A -->
+  <ellipse cx="688" cy="525" rx="140" ry="28" fill="#00F5FF" opacity="0.3" filter="blur(16px)"/>
+  <ellipse cx="688" cy="525" rx="70" ry="12" fill="#FFFFFF" opacity="0.6" filter="blur(6px)"/>
+
+  <!-- 5. MONUMENTAL LETTER "A" PORTAL (Hovering at Center 688, 320) -->
+  <g filter="url(#bannerGlow)">
+    <!-- Base Outer Neon Glow Silhouette (Scale 1.35x of icon) -->
+    <!-- Center X = 688, Apex Y = 160, Base Y = 500 -->
+    <path d="M 688 152 L 536 496 L 594 496 L 636 400 L 740 400 L 782 496 L 840 496 Z M 688 274 L 718 350 L 658 350 Z" 
+          fill="none" 
+          stroke="url(#bannerNeonGrad)" 
+          stroke-width="18" 
+          stroke-linejoin="round"
+          opacity="0.9"/>
+
+    <!-- Sharp Solid Geometric Glyph "A" -->
+    <path d="M 688 160 L 546 488 L 600 488 L 640 396 L 736 396 L 776 488 L 830 488 Z M 688 284 L 716 352 L 660 352 Z" 
+          fill="url(#bannerNeonGrad)"/>
+
+    <!-- Inner Luminous Highlight Spine -->
+    <path d="M 688 168 L 576 442 M 688 168 L 800 442" 
+          stroke="url(#bannerCoreGrad)" 
+          stroke-width="4.5" 
+          stroke-linecap="round" 
+          opacity="0.95"/>
+  </g>
+
+  <!-- 6. CELESTIAL PLANETARY ORBIT CROSSBAR -->
+  <g filter="url(#bannerGlow)">
+    <!-- Major Orbit crossing the A -->
+    <ellipse cx="688" cy="396" rx="195" ry="46" 
+             transform="rotate(-9 688 396)"
+             fill="none" 
+             stroke="url(#bannerOrbitGrad)" 
+             stroke-width="7" 
+             stroke-dasharray="320 20 80 20"/>
+    
+    <!-- Luminous Planetary Nodes -->
+    <circle cx="505" cy="428" r="6.5" fill="#00F5FF"/>
+    <circle cx="868" cy="362" r="5.5" fill="#A800FF"/>
+  </g>
+
+  <!-- 7. HORIZONTAL ANAMORPHIC CINEMATIC LENS FLARE (Through the Apex Star) -->
+  <line x1="188" y1="160" x2="1188" y2="160" 
+        stroke="url(#flareGrad)" 
+        stroke-width="3" 
+        opacity="0.9"/>
+  <line x1="388" y1="160" x2="988" y2="160" 
+        stroke="url(#flareGrad)" 
+        stroke-width="6" 
+        opacity="0.6"/>
+
+  <!-- 8. APEX POLAR STAR BURST (The Ascendant Nexus) -->
+  <g transform="translate(688, 160)">
+    <!-- Radial Star Halo -->
+    <circle cx="0" cy="0" r="56" fill="url(#bannerStarGlow)"/>
+
+    <!-- 4-Point Diamond Rays -->
+    <path d="M 0 -54 Q 0 0 8 0 Q 0 0 0 54 Q 0 0 -8 0 Q 0 0 0 -54 Z" fill="#FFFFFF"/>
+    <path d="M -54 0 Q 0 0 0 8 Q 0 0 54 0 Q 0 0 -8 0 Q 0 0 -54 0 Z" fill="#FFFFFF"/>
+    
+    <!-- Diagonal Sparks -->
+    <path d="M -24 -24 Q 0 0 0 2.5 Q 0 0 24 24 Q 0 0 0 -2.5 Z" fill="#00F5FF" opacity="0.9"/>
+    <path d="M 24 -24 Q 0 0 2.5 0 Q 0 0 -24 24 Q 0 0 -2.5 0 Z" fill="#00F5FF" opacity="0.9"/>
+
+    <!-- Brilliant Core -->
+    <circle cx="0" cy="0" r="5" fill="#FFFFFF"/>
+  </g>
+
+  <!-- Floating Ambient Sparkles around the Portal -->
+  <circle cx="610" cy="240" r="2" fill="#00F5FF" opacity="0.8"/>
+  <circle cx="765" cy="220" r="2.5" fill="#FFFFFF" opacity="0.9"/>
+  <circle cx="580" cy="330" r="2" fill="#FFFFFF" opacity="0.7"/>
+  <circle cx="795" cy="310" r="2" fill="#A800FF" opacity="0.8"/>
+  <circle cx="640" cy="460" r="2" fill="#00F5FF" opacity="0.6"/>
+  <circle cx="736" cy="460" r="2" fill="#FFFFFF" opacity="0.6"/>
+</svg>

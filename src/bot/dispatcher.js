@@ -5,7 +5,7 @@ import { ChatEngine } from '../chat/chatEngine.js';
 export class BotDispatcher {
   constructor(client, options = {}) {
     this.client = client;
-    this.miniAppUrl = options.miniAppUrl || process.env.MINI_APP_URL || 'https://astromax.app';
+    this.miniAppUrl = (options.miniAppUrl || process.env.MINI_APP_URL || 'https://astromax-nu.vercel.app').replace(/\/+$/, '');
     this.ai = options.ai || new GroqAIClient();
     this.chatEngine = new ChatEngine({
       botClient: this.client,
@@ -78,10 +78,10 @@ export class BotDispatcher {
           // Игнорируем ошибку ответа на callback если истек таймаут
         }
       }
-      return this.handleCallback(userId, callbackPayload);
+      return this.handleCallback(userId, callbackPayload, userName);
     }
 
-    // Делегирование ChatEngine (Онбординг + Личный астролог 24/7)
+    // Делегирование ChatEngine (Строгая воронка в Mini App)
     const result = await this.chatEngine.processIncomingMessage(userId, text, { userName });
     if (result) {
       return this.client.sendMessage(userId, result.text, { 
@@ -93,73 +93,49 @@ export class BotDispatcher {
     return null;
   }
 
-  async handleCallback(userId, payload) {
+  async handleCallback(userId, payload, userName = '') {
+    const appUrl = `${this.miniAppUrl}/?user_id=${encodeURIComponent(userId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
+
     if (payload === 'ACTION_TAROT_DAILY') {
-      const spread = drawTarotSpread({ type: 'daily' });
-      const card = spread.cards[0].card;
       const text = 
-`🃏 **Твоя Карта Дня: ${card.name}** (${card.status})
-*Стихия: ${card.element} | Ключи: ${card.keywords.join(', ')}*
+`🔮 **Храм Таро АстроМАХ**
 
-🔮 **Послание Вселенной на сегодня:**
-${card.interpretation}
+Интерактивный расклад дня и ответы на волнующие вопросы уже ждут тебя в приложении.
 
-⚡ *Совет дня:* Прислушайся к своей интуиции сегодня.`;
+Нажми кнопку ниже, чтобы вытянуть карту:`;
 
       const buttons = [
         [
-          this.client.buildOpenAppButton('🔮 Открыть Храм Таро на 3 карты', `${this.miniAppUrl}/tarot`),
-        ],
-        [
-          this.client.buildCallbackButton('🔄 Другой вопрос', 'ACTION_TAROT_DAILY'),
+          this.client.buildOpenAppButton('✦ Вытянуть карту в приложении', appUrl),
         ],
       ];
       return this.client.sendMessage(userId, text, { buttons });
-    }
-
-    if (payload === 'SET_TIME_1200') {
-      const res = await this.chatEngine.handleOnboardingTime(userId, '12:00');
-      return this.client.sendMessage(userId, res.text, { buttons: res.buttons, attachments: res.attachments });
-    }
-
-    if (payload === 'SET_CITY_MOSCOW') {
-      const res = await this.chatEngine.handleOnboardingCity(userId, 'Москва');
-      return this.client.sendMessage(userId, res.text, { buttons: res.buttons, attachments: res.attachments });
-    }
-
-    if (payload === 'SET_CITY_SPB') {
-      const res = await this.chatEngine.handleOnboardingCity(userId, 'Санкт-Петербург');
-      return this.client.sendMessage(userId, res.text, { buttons: res.buttons, attachments: res.attachments });
-    }
-
-    if (payload === 'PROMPT_RELATIONSHIPS') {
-      const res = await this.chatEngine.handlePersonalChat(userId, 'Что происходит в моих отношениях и как мне действовать?');
-      return this.client.sendMessage(userId, res.text, { buttons: res.buttons, attachments: res.attachments });
-    }
-
-    if (payload === 'PROMPT_MONEY') {
-      const res = await this.chatEngine.handlePersonalChat(userId, 'Где заблокирован мой финансовый потенциал по наталу?');
-      return this.client.sendMessage(userId, res.text, { buttons: res.buttons, attachments: res.attachments });
     }
 
     if (payload === 'ACTION_PREMIUM_INFO') {
       const text = 
 `💎 **Премиум Клуб АстроМАХ**
 
-Получи неограниченный доступ:
-• Личный ИИ-астролог 24/7 без ограничений
-• Ежедневные персональные транзиты
-• Безлимитные расклады Таро на 3 и 5 карт
-• Анализ совместимости пар (синастрия)
-
-Тариф: всего 490 ₽ в месяц (автопродление с легкой отменой в 1 клик).`;
+Все возможности клуба (безлимитные консультации 24/7, синастрия, транзиты и расклады Таро) активируются в один клик внутри приложения:`;
 
       const buttons = [
         [
-          this.client.buildOpenAppButton('🚀 Оформить подписку за 490 ₽', `${this.miniAppUrl}/subscribe`),
+          this.client.buildOpenAppButton('✦ Открыть АстроМАХ', appUrl),
         ],
       ];
       return this.client.sendMessage(userId, text, { buttons });
     }
+
+    const text = 
+`✨ **Твой личный разбор готов в АстроМАХ**
+
+Все расчеты натальной карты, Большая Тройка и диалог с наставником ждут тебя в интерактивном мини-приложении:`;
+
+    const buttons = [
+      [
+        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', appUrl),
+      ],
+    ];
+    return this.client.sendMessage(userId, text, { buttons });
   }
 }

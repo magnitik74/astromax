@@ -156,6 +156,7 @@ export class MaxBotClient {
 
     const payload = {
       text,
+      format: 'markdown',
     };
 
     const attachments = [];
@@ -167,9 +168,10 @@ export class MaxBotClient {
     if (options.buttons && options.buttons.length > 0) {
       // Преобразуем любые кнопки ссылок и open_app в валидные публичные https ссылки
       const sanitizeUrl = (rawUrl) => {
-        if (!rawUrl || typeof rawUrl !== 'string') return 'https://astromax.app';
+        const defaultUrl = process.env.MINI_APP_URL || 'https://astromax-nu.vercel.app';
+        if (!rawUrl || typeof rawUrl !== 'string') return defaultUrl;
         const str = rawUrl.trim();
-        if (str.includes('localhost') || str.includes('127.0.0.1')) return 'https://astromax.app';
+        if (str.includes('localhost') || str.includes('127.0.0.1')) return defaultUrl;
         if (!str.startsWith('http://') && !str.startsWith('https://')) return `https://${str}`;
         return str;
       };
