@@ -33,7 +33,8 @@ test('BotDispatcher handles /start command with open_app button and onboarding',
 
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 'user_456');
-  assert.ok(result.receivedBody.text.includes('Добро пожаловать в АстроМАХ'));
+  assert.ok(result.receivedBody.text.includes('АстроМАХ'));
+  assert.ok(result.receivedBody.text.includes('Космический Паспорт'));
   
   // Verify link button is attached
   const buttons = result.receivedBody.attachments[0].payload.buttons;
@@ -52,8 +53,8 @@ test('BotDispatcher handles /tarot command with live card draw', async () => {
   });
 
   assert.ok(result);
-  assert.ok(result.receivedBody.text.includes('Твоя Карта Дня:'));
-  assert.ok(result.receivedBody.text.includes('Послание Вселенной на сегодня:'));
+  assert.ok(result.receivedBody.text.includes('Карта Дня:'));
+  assert.ok(result.receivedBody.text.includes('Смысл аркана:'));
 });
 
 test('BotDispatcher handles native Max event: bot_started', async () => {
@@ -72,8 +73,8 @@ test('BotDispatcher handles native Max event: bot_started', async () => {
 
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 11223344);
-  assert.ok(result.receivedBody.text.includes('Добро пожаловать в АстроМАХ'));
-  assert.ok(result.receivedBody.text.includes('Твой Космический Паспорт готов'));
+  assert.ok(result.receivedBody.text.includes('АстроМАХ, Елена'));
+  assert.ok(result.receivedBody.text.includes('Космический Паспорт'));
   const buttons = result.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons[0][0].type, 'link');
   assert.ok(buttons[0][0].url.includes('user_id=11223344'));
@@ -119,5 +120,5 @@ test('BotDispatcher handles native Max event: message_callback for quick Tarot',
 
   assert.equal(answeredCallbackId, 'cb_test_999');
   assert.ok(result);
-  assert.ok(result.receivedBody.text.includes('Твоя Карта Дня:'));
+  assert.ok(result.receivedBody.text.includes('Карта Дня:'));
 });

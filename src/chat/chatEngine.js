@@ -64,23 +64,19 @@ export class ChatEngine {
 
     const nameGreeting = userName ? `, ${userName}` : '';
     const welcomeText = 
-`✨ **Добро пожаловать в АстроМАХ${nameGreeting}!** 🌌
+`**АстроМАХ${nameGreeting}** — персональный астрологический ассистент на базе эфемерид NASA и искусственного интеллекта.
 
-Я — твой персональный ИИ-астролог прямо в переписке.
-Помогу раскрыть твой космический код, снять тревогу перед важными решениями и найти ответы в звездах и картах Таро.
-
-🪐 **Твой Космический Паспорт готов:**
-Открой приложение, чтобы за 60 секунд узнать свою Большую Тройку (Солнце, Луну, Асцендент) и раскрыть парадокс своей личности.`;
+Откройте приложение, чтобы за 60 секунд рассчитать свой Космический Паспорт: точное положение Солнца, Луны и Асцендента, а также раскрыть внутренние парадоксы характера.`;
 
     // Deep link с передачей параметров сессии
     const appUrl = `${this.miniAppUrl}${this.miniAppUrl.includes('?') ? '&' : '?'}user_id=${encodeURIComponent(userId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('🪐 Открыть АстроМАХ', appUrl),
+        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', appUrl),
       ],
       [
-        this.client.buildCallbackButton('🃏 Карта дня в чате', 'ACTION_TAROT_DAILY'),
+        this.client.buildCallbackButton('✦ Карта дня в чате', 'ACTION_TAROT_DAILY'),
       ],
     ];
 
@@ -94,20 +90,20 @@ export class ChatEngine {
     const spread = drawTarotSpread({ type: 'daily' });
     const card = spread.cards[0].card;
     const text = 
-`🃏 **Твоя Карта Дня: ${card.name}** (${card.status})
-*Стихия: ${card.element} | Ключи: ${card.keywords.join(', ')}*
+`**Карта Дня: ${card.name}** (${card.status})
+Стихия: ${card.element} | Ключевые аспекты: ${card.keywords.join(', ')}
 
-🔮 **Послание Вселенной на сегодня:**
+**Смысл аркана:**
 ${card.interpretation}
 
-⚡ *Совет:* Прислушайся к своей внутренней мудрости прямо сейчас.`;
+**Фокус внимания:** Прислушайтесь к внутреннему компасу перед принятием ключевых решений.`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('🔮 Открыть Храм Таро на 3 карты', `${this.miniAppUrl}/tarot`),
+        this.client.buildOpenAppButton('✦ Расклад на 3 карты в приложении', `${this.miniAppUrl}/tarot`),
       ],
       [
-        this.client.buildCallbackButton('🔄 Другой вопрос', 'ACTION_TAROT_DAILY'),
+        this.client.buildCallbackButton('✦ Другой вопрос', 'ACTION_TAROT_DAILY'),
       ],
     ];
 
@@ -119,21 +115,21 @@ ${card.interpretation}
    */
   handleHelp(userId) {
     const text = 
-`✨ **Возможности АстроМАХ:** 🌌
+`**АстроМАХ — навигация и возможности:**
 
-1. 🪐 **Личный ИИ-Астролог 24/7:** Задавай любые вопросы прямо в чат — про отношения, карьеру, страхи, финансы.
-2. 📅 **Расчет натальной карты:** Введи дату, время и город рождения для построения Большой Тройки (Солнце, Луна, Асцендент).
-3. 🃏 **Храм Таро:** Отправь команду /tarot или открой интерактивный Mini App.
-4. 📱 **Mini App:** Визуальное колесо зодиака, 3D анимации и глубокие астро-разборы.
+1. **Персональный ИИ-Астролог 24/7:** Задавайте любые вопросы прямо в чат — анализ отношений, карьеры, финансов и психологических состояний.
+2. **Точный расчет натальной карты:** Введите дату, время и город рождения для вычисления Большой Тройки и положения планет.
+3. **Храм Таро:** Команда /tarot или интерактивный 3D-расклад внутри приложения.
+4. **Космический паспорт:** Динамические транзиты планет и персональный прогноз каждого дня.
 
 Команды:
-• /start — Перезапустить онбординг
-• /tarot — Вытянуть Карту Дня
-• /help — Это справочное меню`;
+• /start — Главное меню и вход в приложение
+• /tarot — Получить Карту Дня
+• /help — Справка по сервису`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('🪐 Открыть Mini App', this.miniAppUrl),
+        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', this.miniAppUrl),
       ],
     ];
     return { text, buttons };
