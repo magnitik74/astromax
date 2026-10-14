@@ -185,6 +185,7 @@ export class MaxBotClient {
               type: 'open_app',
               text: btn.text,
               web_app: btn.web_app || defaultWebApp,
+              url: btn.url ? sanitizeUrl(btn.url) : (btn.web_app || defaultWebApp),
             };
           }
           if (btn.type === 'link') {
@@ -210,9 +211,11 @@ export class MaxBotClient {
       payload.attachments = attachments;
     }
 
-    // Для sandbox-режима сохраняем поле chat_id
+    // Для sandbox-режима сохраняем нормализованный chat_id
     if (this.isSandbox) {
-      payload.chat_id = recipient;
+      payload.chat_id = (typeof recipient === 'object' && recipient !== null)
+        ? (recipient.chat_id ?? recipient.user_id)
+        : recipient;
     }
 
     return this.request(`/messages${queryParam}`, 'POST', payload);
@@ -295,7 +298,7 @@ export class MaxBotClient {
     const botUsername = process.env.MAX_BOT_USERNAME || 'id744510054693_4_bot';
     const webApp = options.webApp || `https://max.ru/${botUsername}?startapp`;
     return {
-      type: 'link',
+      type: 'open_app',
       text,
       web_app: webApp,
       url: appUrl,

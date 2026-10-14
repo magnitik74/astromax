@@ -31,28 +31,36 @@ export class BotDispatcher {
       return null;
     }
 
+    // Защита от бесконечного цикла: игнорируем сообщения от самого бота
+    if (update.message?.sender?.is_bot) {
+      return null;
+    }
+
     let userId = null;
+    let chatId = null;
     let text = '';
     let callbackPayload = null;
     let callbackId = null;
-
     let userName = '';
 
     // 1. Событие старта бота в Max Messenger
     if (update.update_type === 'bot_started') {
       userId = update.user?.user_id || update.chat_id;
+      chatId = update.chat_id || update.user?.user_id;
       userName = update.user?.first_name || '';
       text = '/start';
     } 
     // 2. Новое входящее сообщение
     else if (update.update_type === 'message_created') {
-      userId = update.message?.sender?.user_id || update.message?.recipient?.chat_id;
+      userId = update.message?.sender?.user_id;
+      chatId = update.message?.recipient?.chat_id || update.chat_id;
       userName = update.message?.sender?.first_name || '';
       text = update.message?.body?.text || update.message?.text || '';
     } 
     // 3. Нажатие интерактивной кнопки
     else if (update.update_type === 'message_callback') {
-      userId = update.callback?.user?.user_id || update.message?.sender?.user_id || update.message?.recipient?.chat_id;
+      userId = update.callback?.user?.user_id || update.message?.sender?.user_id;
+      chatId = update.message?.recipient?.chat_id || update.chat_id;
       userName = update.callback?.user?.first_name || '';
       callbackPayload = update.callback?.payload;
       callbackId = update.callback?.callback_id;
@@ -60,14 +68,21 @@ export class BotDispatcher {
     // 4. Универсальный формат / тестовые вебхуки
     else {
       const message = update.message || update;
-      userId = message.chat_id || message.from?.id || message.sender?.user_id || update.chat_id || update.user_id;
+      userId = message.from?.id || message.sender?.user_id || message.chat_id || update.chat_id || update.user_id;
+      chatId = message.chat_id || message.recipient?.chat_id || update.chat_id;
       userName = message.from?.first_name || message.sender?.first_name || '';
       text = (message.text || message.body?.text || '').trim();
       callbackPayload = update.callback?.payload;
       callbackId = update.callback?.callback_id;
     }
 
-    if (!userId) return null;
+    if (!userId && !chatId) return null;
+    if (!userId) userId = chatId;
+
+    // Определяем правильного адресата (приоритет chat_id для открытых диалогов)
+    const recipientTarget = chatId ? { chat_id: chatId } : { user_id: userId };
+
+    console.log(`[BotDispatcher] Входящее событие [${update.update_type || 'msg'}] от ${userName || userId} (chatId: ${chatId}): "${text}"`);
 
     // Обработка callback-кнопки
     if (callbackPayload) {
@@ -78,27 +93,30 @@ export class BotDispatcher {
           // Игнорируем ошибку ответа на callback если истек таймаут
         }
       }
-      return this.handleCallback(userId, callbackPayload, userName);
+      return this.handleCallback(recipientTarget, callbackPayload, userName, userId);
     }
 
     // Делегирование ChatEngine (Строгая воронка в Mini App)
     const result = await this.chatEngine.processIncomingMessage(userId, text, { userName });
     if (result) {
-      return this.client.sendMessage(userId, result.text, { 
+      const sendRes = await this.client.sendMessage(recipientTarget, result.text, { 
         buttons: result.buttons,
         attachments: result.attachments,
       });
+      console.log(`[BotDispatcher] Ответ успешно отправлен адресату:`, recipientTarget);
+      return sendRes;
     }
 
     return null;
   }
 
-  async handleCallback(userId, payload, userName = '') {
-    const appUrl = `${this.miniAppUrl}/?user_id=${encodeURIComponent(userId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
+  async handleCallback(target, payload, userName = '', rawUserId = null) {
+    const effectiveUserId = rawUserId || (typeof target === 'object' ? target.user_id || target.chat_id : target);
+    const appUrl = `${this.miniAppUrl}/?user_id=${encodeURIComponent(effectiveUserId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
 
     if (payload === 'ACTION_TAROT_DAILY') {
       const text = 
-`🔮 **Храм Таро АстроМАХ**
+`🔮 **Храм Таро АСТРА**
 
 Здесь нет банальных прогнозов. Карты Таро вытаскивают наружу то, что ты уже знаешь сердцем, но пока боишься признать умом.
 
@@ -109,33 +127,33 @@ export class BotDispatcher {
           this.client.buildOpenAppButton('✦ Вытянуть карту в приложении', appUrl),
         ],
       ];
-      return this.client.sendMessage(userId, text, { buttons });
+      return this.client.sendMessage(target, text, { buttons });
     }
 
     if (payload === 'ACTION_PREMIUM_INFO') {
       const text = 
-`💎 **Премиум Клуб АстроМАХ**
+`💎 **Премиум Клуб АСТРА**
 
 Личный наставник 24/7, глубокий синастрия-анализ отношений и персональный разбор каждого дня без ограничений:`;
 
       const buttons = [
         [
-          this.client.buildOpenAppButton('✦ Открыть АстроМАХ', appUrl),
+          this.client.buildOpenAppButton('✦ Открыть АСТРА', appUrl),
         ],
       ];
-      return this.client.sendMessage(userId, text, { buttons });
+      return this.client.sendMessage(target, text, { buttons });
     }
 
     const text = 
-`✨ **Твой персональный разбор ждет в АстроМАХ**
+`✨ **Твой персональный разбор ждет в АСТРА**
 
 Вскроем то, о чем ты молчишь: отношения, скрытые мотивы партнера и ключевые точки роста. Переходи в приложение:`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', appUrl),
+        this.client.buildOpenAppButton('✦ Открыть АСТРА', appUrl),
       ],
     ];
-    return this.client.sendMessage(userId, text, { buttons });
+    return this.client.sendMessage(target, text, { buttons });
   }
 }

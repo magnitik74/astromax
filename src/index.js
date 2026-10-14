@@ -12,7 +12,7 @@ const dispatcher = new BotDispatcher(botClient, { ai });
 const app = createServer({ botClient, dispatcher, ai });
 
 const server = app.listen(PORT, async () => {
-  console.log(`🌌 [АстроМАХ] Сервер успешно запущен на порту ${PORT}`);
+  console.log(`🌌 [АСТРА] Сервер успешно запущен на порту ${PORT}`);
   console.log(`📱 Mini App доступен: http://localhost:${PORT}`);
   console.log(`🤖 Webhook endpoint: http://localhost:${PORT}/webhook/max`);
 

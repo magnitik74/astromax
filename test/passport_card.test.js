@@ -20,7 +20,7 @@ export function formatPassportShareText(profile, bigThree) {
   const moon = bigThree?.moon?.sign || 'Не определено';
   const asc = bigThree?.ascendant?.sign || 'Не определено';
 
-  return `🌌 Мой Космический Паспорт в АстроМАХ:\n` +
+  return `🌌 Мой Космический Паспорт в АСТРА:\n` +
     `👤 ${name}\n` +
     `☀️ Солнце: ${sun} (${getZodiacElement(sun)})\n` +
     `🌙 Луна: ${moon} (${getZodiacElement(moon)})\n` +

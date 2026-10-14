@@ -98,7 +98,7 @@ export class ChatEngine {
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', appUrl),
+        this.client.buildOpenAppButton('✦ Открыть АСТРА', appUrl),
       ],
     ];
 
@@ -110,7 +110,7 @@ export class ChatEngine {
    */
   handleQuickTarot(userId, userName = '') {
     const text = 
-`🔮 **Храм Таро АстроМАХ**
+`🔮 **Храм Таро АСТРА**
 
 Здесь нет банальных прогнозов. Карты Таро вытаскивают наружу то, что ты уже знаешь сердцем, но пока боишься признать умом.
 
@@ -130,7 +130,7 @@ export class ChatEngine {
    */
   handleHelp(userId, userName = '') {
     const text = 
-`🌌 **АстроМАХ — твой личный наставник**
+`🌌 **АСТРА — твой личный наставник**
 
 Все ответы открываются внутри интерактивного приложения:
 • Внутренние парадоксы характера (Большая Тройка: Солнце, Луна, Асцендент)
@@ -141,7 +141,7 @@ export class ChatEngine {
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', this.getAppUrl(userId, userName)),
+        this.client.buildOpenAppButton('✦ Открыть АСТРА', this.getAppUrl(userId, userName)),
       ],
     ];
     return { text, buttons };
@@ -251,7 +251,7 @@ export class ChatEngine {
 • **Луна:** ${chart.bigThree.moon.formatted} (Подсознание, скрытые страхи и покой)
 • **Асцендент:** ${chart.bigThree.ascendant.formatted} (Социальная броня, первое впечатление)
 
-🔮 **Персональный анализ от АстроМАХ:**
+🔮 **Персональный анализ от АСТРА:**
 ${aiInsight}
 
 ---
@@ -260,7 +260,7 @@ ${aiInsight}
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', this.getAppUrl(userId, user.profile?.name)),
+        this.client.buildOpenAppButton('✦ Открыть АСТРА', this.getAppUrl(userId, user.profile?.name)),
       ],
       [
         this.client.buildCallbackButton('💔 Что в отношениях?', 'PROMPT_RELATIONSHIPS'),
@@ -288,7 +288,7 @@ ${aiInsight}
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', this.getAppUrl(userId, userName)),
+        this.client.buildOpenAppButton('✦ Открыть АСТРА', this.getAppUrl(userId, userName)),
       ],
     ];
 

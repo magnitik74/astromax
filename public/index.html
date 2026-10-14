@@ -3,46 +3,54 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>АстроМАХ — Твой личный астролог в MAX</title>
+  <title>АСТРА — Гороскоп, Натальная карта, Таро, Совместимость</title>
   
   <!-- MAX Messenger Official Mini App Bridge SDK -->
   <script src="https://st.max.ru/js/max-web-app.js"></script>
 
   <style>
     /* ==========================================================================
-       MAX MESSENGER NATIVE DESIGN SYSTEM (MAX.RU / VKUI TOKENS)
-       Pure Native: Ground #0D0D0D, Surface #17181C, MAX Electric Blue #007AFF
-       100% System Grotesque (Max Sans / Inter / -apple-system / Roboto)
-       Strictly zero AI-slop: No cheap neon, no garish purple gradients, zero gold.
+       CINEMATIC LUXURY NEBULA DESIGN SYSTEM (ASTRA × CELESTA)
+       Obsidian Ground #070811, Astral Surface #0E1224, Violet Glow #8B5CF6, Cyan #06B6D4
+       Fluid Modern Typography, Luxury Glassmorphism & Sacred Celestial Accents
        ========================================================================== */
     :root {
       /* Typography Stack */
-      --font-stack: "Max Sans", "TT Commons", -apple-system, BlinkMacSystemFont, "SF Pro Text", "SF Pro Display", "Inter", Roboto, sans-serif;
+      --font-stack: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Inter", "Max Sans", "TT Commons", Roboto, sans-serif;
 
-      /* MAX Native Backgrounds */
-      --bg-ground: #0D0D0D;
-      --bg-surface: #17181C;
-      --bg-surface-secondary: #232324;
-      --bg-input: #181818;
-      --bg-hover: #2C2C2D;
+      /* Cinematic Nebula Deep Space Backgrounds */
+      --bg-ground: #070811;
+      --bg-surface: #0E1224;
+      --bg-surface-secondary: #161C38;
+      --bg-input: #0F142A;
+      --bg-hover: #1E264D;
 
-      /* MAX Brand Electric Blue Accent Palette */
-      --max-blue: #007AFF;
-      --max-blue-hover: #2E90FB;
-      --max-blue-active: #0062CC;
-      --max-blue-tint: rgba(0, 122, 255, 0.12);
-      --max-blue-border: rgba(0, 122, 255, 0.28);
-      --max-blue-gradient: linear-gradient(135deg, #007AFF 0%, #0056B3 100%);
+      /* Nebula Astral Violet & Celestial Cyan Palette */
+      --astral-violet: #8B5CF6;
+      --astral-violet-glow: rgba(139, 92, 246, 0.35);
+      --celestial-cyan: #06B6D4;
+      --celestial-cyan-glow: rgba(6, 182, 212, 0.28);
+      --solar-gold: #F59E0B;
+      --solar-gold-glow: rgba(245, 158, 11, 0.25);
 
-      /* High-Contrast Neutral Typography */
+      /* Primary Brand Action Gradient (Nebula Astral Violet to Cyan) */
+      --max-blue: #8B5CF6;
+      --max-blue-hover: #A78BFA;
+      --max-blue-active: #7C3AED;
+      --max-blue-tint: rgba(139, 92, 246, 0.16);
+      --max-blue-border: rgba(139, 92, 246, 0.38);
+      --max-blue-gradient: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #06B6D4 100%);
+      --gold-gradient: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
+
+      /* High-Contrast Neutral & Ethereal Typography */
       --text-primary: #FFFFFF;
-      --text-secondary: rgba(255, 255, 255, 0.65);
-      --text-muted: rgba(255, 255, 255, 0.42);
-      --text-tertiary: #8B8B8B;
+      --text-secondary: rgba(255, 255, 255, 0.72);
+      --text-muted: rgba(255, 255, 255, 0.45);
+      --text-tertiary: #94A3B8;
 
-      /* Hairline Dividers & Borders */
+      /* Hairline Dividers & Glassmorphism Borders */
       --border-subtle: rgba(255, 255, 255, 0.08);
-      --border-contrast: rgba(255, 255, 255, 0.14);
+      --border-contrast: rgba(255, 255, 255, 0.16);
 
       /* Native Platform Radius Scale */
       --radius-sm: 8px;
@@ -51,8 +59,8 @@
       --radius-pill: 48px;
 
       /* Safe Area & Layout Geometry */
-      --header-height: 52px;
-      --bottom-bar-height: 56px;
+      --header-height: 54px;
+      --bottom-bar-height: 58px;
       --safe-bottom: max(16px, env(safe-area-inset-bottom));
       --safe-top: env(safe-area-inset-top, 0px);
     }
@@ -80,7 +88,12 @@
       display: flex;
       justify-content: center;
       overflow-x: hidden;
-      background: var(--bg-ground);
+      background: #070811;
+      background-image: 
+        radial-gradient(circle at 50% -10%, rgba(139, 92, 246, 0.22) 0%, transparent 60%),
+        radial-gradient(circle at 100% 30%, rgba(6, 182, 212, 0.12) 0%, transparent 45%),
+        radial-gradient(circle at 0% 70%, rgba(124, 58, 237, 0.12) 0%, transparent 50%);
+      background-attachment: fixed;
     }
 
     /* Container for Mobile Viewport in MAX Mini App */
@@ -91,14 +104,16 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      background: var(--bg-ground);
-      border-left: 1px solid rgba(255, 255, 255, 0.03);
-      border-right: 1px solid rgba(255, 255, 255, 0.03);
+      background: rgba(7, 8, 17, 0.88);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-left: 1px solid rgba(255, 255, 255, 0.05);
+      border-right: 1px solid rgba(255, 255, 255, 0.05);
       padding-bottom: calc(var(--bottom-bar-height) + var(--safe-bottom) + 12px);
     }
 
     /* ==========================================================================
-       NATIVE TOP APP HEADER (MAX PANEL HEADER STANDARD)
+       CINEMATIC APP HEADER (ASTRA STANDARD)
        ========================================================================== */
     .app-header {
       height: calc(var(--header-height) + var(--safe-top));
@@ -108,10 +123,10 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      border-bottom: 0.5px solid var(--border-subtle);
-      background: rgba(13, 13, 13, 0.88);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 0.5px solid rgba(255, 255, 255, 0.08);
+      background: rgba(7, 8, 17, 0.85);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
       position: sticky;
       top: 0;
       z-index: 40;
@@ -127,15 +142,16 @@
     .brand-sigil {
       width: 32px;
       height: 32px;
-      border-radius: var(--radius-sm);
-      background: var(--max-blue-tint);
-      border: 1px solid var(--max-blue-border);
+      border-radius: 9px;
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.3) 0%, rgba(6, 182, 212, 0.25) 100%);
+      border: 1px solid rgba(139, 92, 246, 0.5);
       display: flex;
       align-items: center;
       justify-content: center;
-      color: var(--max-blue);
+      color: #C4B5FD;
       font-size: 15px;
       font-weight: 700;
+      box-shadow: 0 0 14px rgba(139, 92, 246, 0.4);
     }
 
     .brand-title {
@@ -198,19 +214,21 @@
       background: var(--bg-surface);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-lg);
-      padding: 16px;
+      padding: 18px 16px;
       margin-bottom: 14px;
       position: relative;
       overflow: hidden;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 10px 32px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
     }
 
     .native-card::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, rgba(255,255,255,0.02) 0%, rgba(255,255,255,0.12) 50%, rgba(255,255,255,0.02) 100%);
+      height: 1.5px;
+      background: linear-gradient(90deg, transparent 0%, rgba(139, 92, 246, 0.6) 35%, rgba(6, 182, 212, 0.5) 65%, transparent 100%);
       pointer-events: none;
     }
 
@@ -218,8 +236,8 @@
       font-size: 11px;
       font-weight: 600;
       text-transform: uppercase;
-      letter-spacing: 0.6px;
-      color: var(--max-blue);
+      letter-spacing: 0.8px;
+      color: #A78BFA;
       margin-bottom: 4px;
     }
 
@@ -234,7 +252,7 @@
     .card-desc {
       font-size: 14px;
       color: var(--text-secondary);
-      line-height: 1.5;
+      line-height: 1.55;
       margin-top: 6px;
     }
 
@@ -254,14 +272,15 @@
       gap: 8px;
       border: none;
       cursor: pointer;
-      box-shadow: 0 4px 14px rgba(0, 122, 255, 0.28);
-      transition: transform 0.12s ease, opacity 0.12s ease;
+      box-shadow: 0 4px 18px rgba(139, 92, 246, 0.35);
+      transition: transform 0.12s ease, opacity 0.12s ease, box-shadow 0.12s ease;
       touch-action: manipulation;
       user-select: none;
     }
 
     .btn-max-primary:active {
       transform: scale(0.975);
+      box-shadow: 0 2px 10px rgba(139, 92, 246, 0.25);
       opacity: 0.90;
     }
 
@@ -1491,7 +1510,10 @@
     <header class="app-header">
       <div class="brand-mark">
         <div class="brand-sigil">✦</div>
-        <div class="brand-title">АСТРОМАХ</div>
+        <div style="display: flex; flex-direction: column;">
+          <div class="brand-title" style="line-height: 1.1;">АСТРА</div>
+          <span style="font-size: 9.5px; color: #F59E0B; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;">Селеста VIP</span>
+        </div>
       </div>
       <div class="header-astrologer-badge" onclick="switchNavTab('chat')">
         <div class="status-beacon"></div>
@@ -1509,7 +1531,7 @@
       <!-- 1. Космический Паспорт Личности -->
       <div class="native-card">
         <div class="passport-header-row">
-          <div class="passport-tag">✦ Космический паспорт</div>
+          <div class="passport-tag">✦ Космический паспорт АСТРА</div>
           <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;" id="passportCoordsLabel">Москва • 55.75°N</span>
         </div>
 
@@ -1780,18 +1802,18 @@
       </div>
 
       <!-- Premium Membership Card (Co-Star & Nebula Standard) -->
-      <div class="premium-status-card">
-        <div class="plan-anchor-badge">✦ Личный наставник 24/7</div>
-        <div class="card-headline" style="font-size: 18px;">АстроМАХ Club: Правда без фильтров</div>
-        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 4px;">
-          Прямой диалог с психологом-астрологом без цензуры и очередей • Ежедневный срез скрытых рисков • Неограниченные расклады Таро на любые ситуации
+      <div class="premium-status-card" style="border: 1px solid rgba(245, 158, 11, 0.35); box-shadow: 0 10px 32px rgba(0,0,0,0.5), 0 0 20px rgba(245, 158, 11, 0.12);">
+        <div class="plan-anchor-badge" style="background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.45); color: #F59E0B;">✦ Пространство Селеста VIP</div>
+        <div class="card-headline" style="font-size: 19px;">АСТРА Клуб • Пространство Селеста</div>
+        <div style="font-size: 13px; color: var(--text-secondary); margin-top: 5px; line-height: 1.55;">
+          Личный наставник 24/7 без цензуры • Глубокий синастрия-разбор отношений • Закрытый лунный транзит • Расклады Таро без ограничений
         </div>
-        <div class="premium-price">399 ₽ <span style="font-size: 13px; font-weight: 500; color: var(--text-muted);">/ месяц</span></div>
-        <div style="font-size: 11.5px; color: var(--max-blue); margin-bottom: 12px; font-weight: 600;">
-          Всего 13 ₽ в день • Дешевле чашки кофе в 10 раз
+        <div class="premium-price" style="color: #FDE68A;">399 ₽ <span style="font-size: 13px; font-weight: 500; color: var(--text-muted);">/ месяц</span></div>
+        <div style="font-size: 11.5px; color: #F59E0B; margin-bottom: 12px; font-weight: 600;">
+          Всего 13 ₽ в день • Твой персональный щит от сомнений и тревоги
         </div>
-        <button class="btn-max-primary" onclick="triggerRobokassaPayment()">
-          Активировать наставника (Robokassa / СБП)
+        <button class="btn-max-primary" style="background: var(--gold-gradient); box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35); color: #000; font-weight: 700;" onclick="triggerRobokassaPayment()">
+          Активировать Селеста VIP (Robokassa / СБП)
         </button>
         <div style="display: flex; justify-content: center; gap: 14px; margin-top: 10px;">
           <span style="font-size: 11px; color: var(--text-muted);">🔒 Безопасная оплата СБП</span>
@@ -1803,15 +1825,15 @@
     </main>
 
     <!-- ====================================================================
-         BOTTOM NAVIGATION BAR (NATIVE MAX TAB BAR - 56PX)
+         BOTTOM NAVIGATION BAR (CINEMATIC LUXURY ASTRA TAB BAR - 58PX)
          ==================================================================== -->
     <nav class="bottom-bar">
       <!-- 1. Космос (Паспорт) -->
       <button class="tab-bar-item active" id="nav-horoscope" onclick="switchNavTab('horoscope')">
-        <svg class="tab-icon" viewBox="0 0 24 24">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="9"/>
-          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(-25 12 12)"/>
-          <circle cx="12" cy="12" r="2.2" fill="currentColor"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3.2" transform="rotate(-28 12 12)"/>
+          <circle cx="12" cy="12" r="2" fill="currentColor"/>
         </svg>
         <span class="tab-label">Паспорт</span>
       </button>
@@ -1819,39 +1841,51 @@
       <!-- 2. Астролог 24/7 -->
       <button class="tab-bar-item" id="nav-chat" onclick="switchNavTab('chat')">
         <div class="tab-badge-dot"></div>
-        <svg class="tab-icon" viewBox="0 0 24 24">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          <path d="M12 8v2m0 4v2m-2-4h2m2 0h2" stroke-width="1.2"/>
+          <path d="M9.5 12h.01M14.5 12h.01" stroke-width="2.5"/>
         </svg>
-        <span class="tab-label">Астролог</span>
+        <span class="tab-label">Наставник</span>
       </button>
 
       <!-- 3. Таро -->
       <button class="tab-bar-item" id="nav-tarot" onclick="switchNavTab('tarot')">
-        <svg class="tab-icon" viewBox="0 0 24 24">
-          <rect x="5" y="3" width="14" height="18" rx="2.5"/>
-          <path d="M12 7v10M8.5 12h7"/>
-          <circle cx="12" cy="12" r="3.2"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="3" width="14" height="18" rx="3"/>
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M12 7.5v1M12 15.5v1M8.5 12h-1M16.5 12h-1"/>
         </svg>
         <span class="tab-label">Таро</span>
       </button>
 
-      <!-- 4. Профиль (ЛК) -->
+      <!-- 4. Селеста VIP (Профиль / Клуб) -->
       <button class="tab-bar-item" id="nav-profile" onclick="switchNavTab('profile')">
-        <svg class="tab-icon" viewBox="0 0 24 24">
-          <circle cx="12" cy="8" r="4"/>
-          <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
+          <path d="M19 5l.8 1.8L21.6 7l-1.8.8L19 9.6l-.8-1.8L16.4 7l1.8-.8L19 5z" fill="currentColor"/>
         </svg>
-        <span class="tab-label">Профиль</span>
+        <span class="tab-label">Селеста</span>
       </button>
     </nav>
 
     <!-- ====================================================================
-         NATIVE 3-STEP ONBOARDING WIZARD MODAL
+         CINEMATIC ONBOARDING WIZARD MODAL (ASTRA NEBULA STANDARD)
          ==================================================================== -->
     <div class="modal-backdrop" id="onboardingModal" style="z-index: 150;">
-      <div class="modal-sheet" style="padding-top: 16px;">
+      <div class="modal-sheet" style="padding-top: 14px;">
         <div class="sheet-handle"></div>
+
+        <!-- Cinematic Onboarding Hero Banner -->
+        <div style="width: 100%; height: 124px; border-radius: 14px; overflow: hidden; margin-bottom: 14px; position: relative; border: 1px solid rgba(245, 158, 11, 0.32); box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 16px rgba(139, 92, 246, 0.2);">
+          <img src="/onboarding_hero.jpg" alt="АСТРА Небула Портал" style="width: 100%; height: 100%; object-fit: cover; display: block;">
+          <div style="position: absolute; inset: 0; background: linear-gradient(180deg, rgba(7, 8, 17, 0.15) 0%, rgba(14, 18, 36, 0.92) 100%);"></div>
+          <div style="position: absolute; bottom: 8px; left: 12px; display: flex; align-items: center; gap: 7px;">
+            <div style="width: 7px; height: 7px; border-radius: 50%; background: #F59E0B; box-shadow: 0 0 8px #F59E0B;"></div>
+            <span style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #FDE68A; text-shadow: 0 1px 4px rgba(0,0,0,0.8);">
+              АСТРА • Кинематографичный портал судьбы
+            </span>
+          </div>
+        </div>
 
         <!-- Step Indicator Dots (4 Steps) -->
         <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 16px;">
@@ -2835,9 +2869,9 @@
       ctx.stroke();
 
       ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-      ctx.fillStyle = '#38BDF8';
+      ctx.fillStyle = '#C4B5FD';
       ctx.textAlign = 'center';
-      ctx.fillText('✦ АСТРОМАХ • КОСМИЧЕСКИЙ ПАСПОРТ', 540, pillY + 29);
+      ctx.fillText('✦ АСТРА • КОСМИЧЕСКИЙ ПАСПОРТ', 540, pillY + 29);
 
       // Subtitle line (City & NASA coordinates)
       ctx.font = '600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -2988,7 +3022,7 @@
 
       ctx.font = '800 28px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
       ctx.fillStyle = '#FFFFFF';
-      ctx.fillText('🪐 АстроМАХ в мессенджере MAX', textX, footY + 68);
+      ctx.fillText('✦ АСТРА в мессенджере MAX', textX, footY + 68);
 
       ctx.font = '500 18px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
       ctx.fillStyle = '#94A3B8';
@@ -3061,7 +3095,7 @@
       const asc = chart?.ascendant?.sign || 'Рак';
       const name = state.profile?.name || 'Александр';
 
-      const shareText = `🌌 Мой Космический Паспорт в АстроМАХ:\n` +
+      const shareText = `🌌 Мой Космический Паспорт в АСТРА:\n` +
         `👤 ${name}\n` +
         `☀️ Солнце: ${sun} (${getZodiacElement(sun)})\n` +
         `🌙 Луна: ${moon} (${getZodiacElement(moon)})\n` +
@@ -3075,12 +3109,12 @@
         cachedPassportDataUrl = res.dataUrl;
       }
 
-      const file = new File([cachedPassportBlob], `astromax-passport-${name}.png`, { type: 'image/png' });
+      const file = new File([cachedPassportBlob], `astra-passport-${name}.png`, { type: 'image/png' });
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
           await navigator.share({
-            title: 'Космический Паспорт — АстроМАХ',
+            title: 'Космический Паспорт — АСТРА',
             text: shareText,
             files: [file]
           });
@@ -3094,7 +3128,7 @@
       if (navigator.share) {
         try {
           await navigator.share({
-            title: 'Космический Паспорт — АстроМАХ',
+            title: 'Космический Паспорт — АСТРА',
             text: shareText,
             url: 'https://max.ru/id744510054693_4_bot'
           });
@@ -3119,7 +3153,7 @@
       }
       const a = document.createElement('a');
       a.href = cachedPassportDataUrl;
-      a.download = `astromax-passport-${name}.png`;
+      a.download = `astra-passport-${name}.png`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
@@ -3134,7 +3168,7 @@
       const asc = chart?.ascendant?.sign || 'Рак';
       const name = state.profile?.name || 'Александр';
 
-      const shareText = `🌌 Мой Космический Паспорт в АстроМАХ:\n` +
+      const shareText = `🌌 Мой Космический Паспорт в АСТРА:\n` +
         `👤 ${name}\n` +
         `☀️ Солнце: ${sun} (${getZodiacElement(sun)})\n` +
         `🌙 Луна: ${moon} (${getZodiacElement(moon)})\n` +
@@ -3417,7 +3451,7 @@
 
     function handleUnsubscribe() {
       triggerHaptic();
-      if (confirm('Вы уверены, что хотите отменить подписку АстроМАХ Премиум? Доступ сохранится до конца оплаченного периода.')) {
+      if (confirm('Вы уверены, что хотите отменить доступ к АСТРА Селеста VIP? Доступ сохранится до конца оплаченного периода.')) {
         showToast('Подписка отменена. Списаний больше не будет.');
       }
     }

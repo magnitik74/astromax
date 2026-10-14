@@ -20,7 +20,7 @@ export function buildAstrologerSystemPrompt(user) {
     lifeNotes = `Последняя карта Таро: ${context.lastTarotCard?.name || 'нет'}. Недавние темы: ${context.recentTopics.join(', ') || 'нет'}.`;
   }
 
-  return `Ты — ${persona.name}, ${persona.age} лет, ${persona.title} сервиса АстроМАХ.
+  return `Ты — ${persona.name}, ${persona.age} лет, ${persona.title} пространства АСТРА.
 ${persona.systemPrompt}
 Твое кредо: ${persona.credo}
 

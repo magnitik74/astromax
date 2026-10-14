@@ -19,6 +19,8 @@ test('MaxBotClient sandbox mode works without credentials and includes format: m
   assert.equal(res.receivedBody.text, '**Привет, космос!**');
   assert.equal(res.receivedBody.format, 'markdown');
   assert.equal(res.receivedBody.attachments[0].type, 'inline_keyboard');
+  assert.equal(res.receivedBody.attachments[0].payload.buttons[0][0].type, 'open_app');
+  assert.ok(res.receivedBody.attachments[0].payload.buttons[0][0].web_app.includes('startapp'));
   assert.equal(res.receivedBody.attachments[0].payload.buttons[0][0].url, 'https://astromax-nu.vercel.app');
 });
 
@@ -42,7 +44,8 @@ test('BotDispatcher handles /start command with strict single CTA button to Mini
   const buttons = result.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons.length, 1);
   assert.equal(buttons[0].length, 1);
-  assert.equal(buttons[0][0].type, 'link');
+  assert.equal(buttons[0][0].type, 'open_app');
+  assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
   assert.ok(buttons[0][0].url.includes('user_id=user_456'));
 });
@@ -60,9 +63,10 @@ test('BotDispatcher handles /tarot command by directing directly to Mini App', a
 
   assert.ok(result);
   assert.equal(result.receivedBody.format, 'markdown');
-  assert.ok(result.receivedBody.text.includes('Храм Таро АстроМАХ'));
+  assert.ok(result.receivedBody.text.includes('Храм Таро АСТРА'));
   const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons[0][0].type, 'link');
+  assert.equal(buttons[0][0].type, 'open_app');
+  assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
 });
 
@@ -88,7 +92,8 @@ test('BotDispatcher handles native Max event: bot_started with user_id & name de
 
   const buttons = result.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons.length, 1);
-  assert.equal(buttons[0][0].type, 'link');
+  assert.equal(buttons[0][0].type, 'open_app');
+  assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
   assert.ok(buttons[0][0].url.includes('user_id=11223344'));
   assert.ok(buttons[0][0].url.includes('name=%D0%95%D0%BB%D0%B5%D0%BD%D0%B0'));
@@ -113,7 +118,8 @@ test('BotDispatcher handles native Max event: message_created by guiding user in
   assert.equal(res.receivedBody.format, 'markdown');
   assert.ok(res.receivedBody.text.includes('внутри приложения'));
   const buttons = res.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons[0][0].type, 'link');
+  assert.equal(buttons[0][0].type, 'open_app');
+  assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
   assert.ok(buttons[0][0].url.includes('name=%D0%90%D0%BD%D0%BD%D0%B0'));
 });
@@ -140,8 +146,9 @@ test('BotDispatcher handles native Max event: message_callback for quick Tarot w
   assert.equal(answeredCallbackId, 'cb_test_999');
   assert.ok(result);
   assert.equal(result.receivedBody.format, 'markdown');
-  assert.ok(result.receivedBody.text.includes('Храм Таро АстроМАХ'));
+  assert.ok(result.receivedBody.text.includes('Храм Таро АСТРА'));
   const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons[0][0].type, 'link');
+  assert.equal(buttons[0][0].type, 'open_app');
+  assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
 });

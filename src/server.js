@@ -106,7 +106,7 @@ export function createServer(options = {}) {
       const signature = crypto.createHash('md5').update(signatureString).digest('hex');
 
       const isTest = process.env.ROBOKASSA_TEST ? '1' : '1'; // тестовый режим по умолчанию
-      let paymentUrl = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=${merchantLogin}&OutSum=${outSumFormatted}&InvId=${invId}&Description=${encodeURIComponent('Подписка АстроМАХ')}&SignatureValue=${signature}&IsTest=${isTest}`;
+      let paymentUrl = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=${merchantLogin}&OutSum=${outSumFormatted}&InvId=${invId}&Description=${encodeURIComponent('Подписка АСТРА Селеста VIP')}&SignatureValue=${signature}&IsTest=${isTest}`;
       
       if (isRecurring) {
         paymentUrl += `&Recurring=true`;
