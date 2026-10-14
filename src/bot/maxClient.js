@@ -178,11 +178,20 @@ export class MaxBotClient {
 
       const sanitizedButtons = options.buttons.map(row =>
         row.map(btn => {
-          if (btn.type === 'open_app' || btn.type === 'link') {
+          if (btn.type === 'open_app') {
+            const botUsername = process.env.MAX_BOT_USERNAME || 'id744510054693_4_bot';
+            const defaultWebApp = `https://max.ru/${botUsername}?startapp`;
+            return {
+              type: 'open_app',
+              text: btn.text,
+              web_app: btn.web_app || defaultWebApp,
+            };
+          }
+          if (btn.type === 'link') {
             return {
               type: 'link',
               text: btn.text,
-              url: sanitizeUrl(btn.url || btn.webApp),
+              url: sanitizeUrl(btn.url),
             };
           }
           return btn;
@@ -280,12 +289,15 @@ export class MaxBotClient {
   }
 
   /**
-   * Создание кнопки для открытия Mini App
+   * Создание кнопки для открытия Mini App (нативно внутри MAX WebView)
    */
-  buildOpenAppButton(text, appUrl) {
+  buildOpenAppButton(text, appUrl, options = {}) {
+    const botUsername = process.env.MAX_BOT_USERNAME || 'id744510054693_4_bot';
+    const webApp = options.webApp || `https://max.ru/${botUsername}?startapp`;
     return {
       type: 'link',
       text,
+      web_app: webApp,
       url: appUrl,
     };
   }

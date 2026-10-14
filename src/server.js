@@ -147,12 +147,21 @@ export function createServer(options = {}) {
         ...user.history.map(h => ({ role: h.role, content: h.content })),
       ];
 
-      const reply = await ai.chatCompletion({
-        messages,
-        model: ai.modelSmart, // Флагманская модель 120B
-        temperature: 0.72,
-        maxTokens: 750,
-      });
+      let reply = '';
+      try {
+        reply = await ai.chatCompletion({
+          messages,
+          model: ai.modelSmart, // Флагманская модель 120B
+          temperature: 0.72,
+          maxTokens: 750,
+        });
+      } catch (aiErr) {
+        console.warn('[Server] Сбой AI генерации, fallback:', aiErr.message);
+      }
+
+      if (!reply || typeof reply !== 'string' || reply.trim().length === 0) {
+        reply = `Звезды подсказывают, что сейчас время довериться интуиции. В твоей натальной карте заложен огромный потенциал для раскрытия и решения текущей ситуации.`;
+      }
 
       dispatcher.chatEngine.memory.addMessage(userId, 'assistant', reply);
 

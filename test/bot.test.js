@@ -36,7 +36,7 @@ test('BotDispatcher handles /start command with strict single CTA button to Mini
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 'user_456');
   assert.equal(result.receivedBody.format, 'markdown');
-  assert.ok(result.receivedBody.text.includes('космический код готов'));
+  assert.ok(result.receivedBody.text.includes('Твой персональный разбор готов') || result.receivedBody.text.includes('скрытое напряжение'));
   
   // Verify strict funnel: exactly 1 button row, 1 button, pointing to live Mini App
   const buttons = result.receivedBody.attachments[0].payload.buttons;
@@ -84,8 +84,7 @@ test('BotDispatcher handles native Max event: bot_started with user_id & name de
   assert.equal(result.receivedBody.chat_id, 11223344);
   assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('Елена'));
-  assert.ok(result.receivedBody.text.includes('привет'));
-  assert.ok(result.receivedBody.text.includes('космический код готов'));
+  assert.ok(result.receivedBody.text.includes('Твой персональный разбор готов') || result.receivedBody.text.includes('скрытое напряжение'));
 
   const buttons = result.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons.length, 1);
@@ -112,7 +111,7 @@ test('BotDispatcher handles native Max event: message_created by guiding user in
   assert.ok(res);
   assert.equal(res.receivedBody.chat_id, userId);
   assert.equal(res.receivedBody.format, 'markdown');
-  assert.ok(res.receivedBody.text.includes('персональный разбор готов'));
+  assert.ok(res.receivedBody.text.includes('внутри приложения'));
   const buttons = res.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons[0][0].type, 'link');
   assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));

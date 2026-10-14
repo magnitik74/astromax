@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>АстроМАХ — Твой личный астролог в MAX</title>
   
+  <!-- MAX Messenger Official Mini App Bridge SDK -->
+  <script src="https://st.max.ru/js/max-web-app.js"></script>
+
   <style>
     /* ==========================================================================
        MAX MESSENGER NATIVE DESIGN SYSTEM (MAX.RU / VKUI TOKENS)
@@ -1418,12 +1421,12 @@
         </button>
       </div>
 
-      <!-- 2. Космическая погода дня -->
+      <!-- 2. Космическая погода дня (Co-Star Reality Check) -->
       <div class="native-card">
-        <div class="card-eyebrow">Транзиты на сегодня</div>
-        <h2 class="card-headline" id="dailyTransitHeadline">Гармония мысли и действий</h2>
+        <div class="card-eyebrow">Твоя реальность сегодня</div>
+        <h2 class="card-headline" id="dailyTransitHeadline">Не путай уязвимость со слабостью</h2>
         <div class="card-desc" id="dailyTransitDesc">
-          Венера и Меркурий находятся в продуктивном аспекте. Удачный момент для открытых диалогов, пересмотра бюджета и закрытия старых обязательств.
+          Сегодня окружающий мир захочет проверить твои личные границы на прочность. Главное искушение дня — снова согласиться на меньшее из страха кого-то задеть или разочаровать. Не делай этого. Твое «нет» сегодня защитит твое будущее.
         </div>
 
         <div class="transit-strip">
@@ -1437,12 +1440,12 @@
           </div>
           <div class="transit-badge">
             <div class="label">Фокус дня</div>
-            <div class="val" style="color: var(--max-blue);">Решения</div>
+            <div class="val" style="color: var(--max-blue);">Границы</div>
           </div>
         </div>
 
         <button class="btn-max-secondary" onclick="switchNavTab('tarot')">
-          Вытянуть карту дня в Храме Таро →
+          Вытянуть аркан дня: что скрыто от глаз →
         </button>
       </div>
     </main>
@@ -1489,7 +1492,7 @@
       <!-- Chat Messages Stream -->
       <div class="chat-stream" id="chatStream">
         <div class="chat-bubble astrologer">
-          Здравствуй. Я настроилась на твою натальную карту. Спроси меня о том, что волнует прямо сейчас: любовь, предназначение, карьерный поворот или скрытые мотивы партнера.
+          Ты можешь снять броню — здесь тебя никто не осудит. О чем болит голова прямо сейчас: затянувшийся тупик в отношениях, внезапный холод от близкого человека или ощущение, что ты застрял(а) на месте?
           <span class="chat-timestamp">Сейчас</span>
         </div>
       </div>
@@ -1499,20 +1502,20 @@
         <div class="typing-dot"></div>
         <div class="typing-dot"></div>
         <div class="typing-dot"></div>
-        <span style="font-size: 11.5px; color: var(--text-muted); margin-left: 6px;">Елена изучает аспекты...</span>
+        <span style="font-size: 11.5px; color: var(--text-muted); margin-left: 6px;">Алёна анализирует аспекты...</span>
       </div>
 
       <!-- Quick Question Prompt Pills -->
       <div class="prompt-pills-row">
-        <div class="prompt-pill" onclick="sendPromptPill('В чем мое главное предназначение?')">✦ Предназначение</div>
-        <div class="prompt-pill" onclick="sendPromptPill('Что происходит в моих отношениях?')">✦ Отношения</div>
-        <div class="prompt-pill" onclick="sendPromptPill('Где заблокирован мой финансовый потенциал?')">✦ Денежный блок</div>
-        <div class="prompt-pill" onclick="sendPromptPill('Сделай расклад Таро на текущую тревогу')">✦ Расклад на ситуацию</div>
+        <div class="prompt-pill" onclick="sendPromptPill('Почему я застрял(а) на месте и не могу сдвинуться?')">✦ Почему я застрял?</div>
+        <div class="prompt-pill" onclick="sendPromptPill('Что происходит в отношениях и почему он отдаляется?')">✦ Что он скрывает?</div>
+        <div class="prompt-pill" onclick="sendPromptPill('Где заблокирован мой финансовый рост и где слив денег?')">✦ Где слив денег?</div>
+        <div class="prompt-pill" onclick="sendPromptPill('Сделай расклад Таро на скрытые мысли и истинные намерения')">✦ Вскрыть правду Таро</div>
       </div>
 
       <!-- Chat Input Field -->
       <form class="chat-input-bar" onsubmit="handleChatSubmit(event)">
-        <input type="text" id="chatMessageInput" class="chat-input" placeholder="Напиши вопрос астрологу..." autocomplete="off">
+        <input type="text" id="chatMessageInput" class="chat-input" placeholder="Напиши вопрос наставнику..." autocomplete="off">
         <button type="submit" class="chat-send-btn" title="Отправить">
           <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
@@ -1527,15 +1530,15 @@
          ==================================================================== -->
     <main id="tab-screen-tarot" class="tab-screen">
       <div class="native-card">
-        <div class="card-eyebrow">Оракул Арканов</div>
+        <div class="card-eyebrow">Зеркало подсознания</div>
         <h2 class="card-headline">Храм Таро</h2>
         <div class="card-desc">
-          Полная колода Райдера-Уэйта на 78 карт. Вытяни карту для прояснения скрытых мотивов и развития событий.
+          Здесь нет слепых предсказаний. Карты Таро вытаскивают наружу то, что ты уже чувствуешь сердцем, но пока боишься признать разумом: скрытые мотивы, слепые зоны и тайные страхи.
         </div>
 
         <div class="tarot-mode-switch" style="margin-top: 14px;">
           <button class="mode-switch-btn active" id="btnModeDaily" onclick="setTarotMode('daily')">Карта дня</button>
-          <button class="mode-switch-btn" id="btnModeThree" onclick="setTarotMode('three_cards')">3 Карты (Прошлое / Настоящее / Исход)</button>
+          <button class="mode-switch-btn" id="btnModeThree" onclick="setTarotMode('three_cards')">3 Карты: Причина • Точка слома • Исход</button>
         </div>
 
         <!-- 3D Card Dealing Table -->
@@ -1551,12 +1554,12 @@
         </div>
 
         <button class="btn-max-primary" id="btnDealTarot" onclick="dealTarotSpread()">
-          Вытянуть карты Арканов
+          ✦ Вскрыть карты Арканов
         </button>
 
         <!-- AI Deep Synthesis -->
         <div class="tarot-synthesis-box" id="tarotAiBox">
-          <div class="card-eyebrow">Толкование Оракула</div>
+          <div class="card-eyebrow">Правда Арканов</div>
           <div id="tarotAiText" style="margin-top: 6px;"></div>
         </div>
       </div>
@@ -1721,14 +1724,14 @@
 
         <!-- Step 1: Имя -->
         <div id="obStep1">
-          <div class="card-eyebrow">Шаг 1 из 4 • Знакомство</div>
+          <div class="card-eyebrow">Шаг 1 из 4 • Твое отражение</div>
           <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Как к тебе обращаться?</h3>
           <p class="card-desc" style="font-size: 13.5px; margin-bottom: 18px;">
-            Имя станет ключом к персональному прогнозу и расчету солярного кода.
+            Твое имя задает звук первого впечатления. Мы будем называть тебя так, как ты привык чувствовать себя.
           </p>
           <div class="form-field">
             <label>Твое имя</label>
-            <input type="text" id="obInputName" placeholder="Например, Анна или Алексей" required>
+            <input type="text" id="obInputName" placeholder="Например: Александр, Анна, Макс..." required>
           </div>
           <button class="btn-max-primary" onclick="nextOnboardingStep(2)" style="margin-top: 14px;">
             Продолжить →
@@ -1737,10 +1740,10 @@
 
         <!-- Step 2: Дата и время -->
         <div id="obStep2" style="display: none;">
-          <div class="card-eyebrow">Шаг 2 из 4 • Момент рождения</div>
-          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Когда ты родился?</h3>
+          <div class="card-eyebrow">Шаг 2 из 4 • Момент первого вдоха</div>
+          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Когда ты пришел в этот мир?</h3>
           <p class="card-desc" style="font-size: 13.5px; margin-bottom: 18px;">
-            Дата и точное время определяют положение Луны и твой восходящий знак (Асцендент).
+            Минута рождения фиксирует твой Асцендент — маску, которую видят другие, и твое глубинное подсознание.
           </p>
           <div class="form-field">
             <label>Дата рождения</label>
@@ -1750,7 +1753,7 @@
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
               <label style="margin-bottom: 0;">Время рождения</label>
               <label style="font-size: 11px; text-transform: none; color: var(--max-blue); cursor: pointer;">
-                <input type="checkbox" id="obUnknownTime" onchange="toggleObTime()" style="vertical-align: middle; width: auto; height: auto;"> Не знаю точное время
+                <input type="checkbox" id="obUnknownTime" onchange="toggleObTime()" style="vertical-align: middle; width: auto; height: auto;"> Не помню бирку (настроимся по полудню)
               </label>
             </div>
             <input type="time" id="obInputTime" value="12:00">
@@ -1763,16 +1766,16 @@
 
         <!-- Step 3: Место рождения (Сёла, деревни, хутора, города) -->
         <div id="obStep3" style="display: none;">
-          <div class="card-eyebrow">Шаг 3 из 4 • Место рождения</div>
-          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Где ты родился?</h3>
+          <div class="card-eyebrow">Шаг 3 из 4 • Точка старта</div>
+          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Где началась твоя история?</h3>
           <p class="card-desc" style="font-size: 13.5px; margin-bottom: 14px;">
-            Географические координаты необходимы для расчета астрологических домов и градусов планет.
+            Город, село, деревня или хутор. Место старта определяет карту домов: где заблокированы твои деньги и где расцветает любовь.
           </p>
           <div class="form-field">
             <label>Город, посёлок, село или хутор</label>
             <input type="text" id="obInputCity" list="russianPlacesDatalist" placeholder="Например: д. Сосновка, с. Усть-Цильма, Москва..." autocomplete="off">
             <div style="font-size: 11.5px; color: var(--text-muted); line-height: 1.45; margin-top: 7px;">
-              💡 Для натальной карты важен часовой пояс. Если вашей деревни, хутора или села нет в подсказках — просто напишите его название (или укажите ближайший районный центр). Система автоматически сопоставит часовой пояс.
+              💡 Даже если это небольшой посёлок или деревня — пиши смело. Мы точно определим твою сетку жизненных домов.
             </div>
           </div>
           <div style="display: flex; gap: 8px; margin-top: 14px;">
@@ -1784,25 +1787,25 @@
         <!-- Step 4: Выбор эксперта-наставника -->
         <div id="obStep4" style="display: none;">
           <div class="card-eyebrow">Шаг 4 из 4 • Твой личный наставник</div>
-          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 6px;">Кто станет твоим проводником?</h3>
+          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 6px;">Кто назовет вещи своими именами?</h3>
           <p class="card-desc" style="font-size: 13px; margin-bottom: 12px;">
-            Все эксперты опираются на расчеты эфемерид NASA, но обладают уникальной специализацией:
+            Выбери наставника, чей голос откликается тебе прямо сейчас. Сменить эксперта можно в любой момент в 1 клик:
           </p>
           <div class="persona-selection-list" id="onboardingPersonaList">
             <!-- Dynamically populated via JS -->
           </div>
           <div style="display: flex; gap: 8px; margin-top: 14px;">
             <button class="btn-max-secondary" onclick="nextOnboardingStep(3)" style="flex: 1; margin-top: 0;">← Назад</button>
-            <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">🪐 Рассчитать карту</button>
+            <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">🪐 Вскрыть космический код</button>
           </div>
         </div>
 
         <!-- Step Loading: Labor Illusion (Calculation Screen) -->
         <div id="obStepLoading" style="display: none; text-align: center; padding: 24px 8px;">
           <div style="width: 52px; height: 52px; border-radius: 50%; border: 3px solid var(--border-subtle); border-top-color: var(--max-blue); animation: spin 1s infinite linear; margin: 0 auto 18px;"></div>
-          <h3 class="card-headline" style="font-size: 18px; margin-bottom: 6px;">Вычисляем натальную карту</h3>
+          <h3 class="card-headline" style="font-size: 18px; margin-bottom: 6px;">Вскрываем твою матрицу...</h3>
           <p id="obLoadingStatusText" style="font-size: 13.5px; color: var(--max-blue); font-weight: 500;">
-            Сверяем координаты планет по эфемеридам...
+            Считываем парадокс характера: внешняя сила vs внутренняя уязвимость...
           </p>
           <div style="width: 100%; height: 6px; background: var(--bg-surface-secondary); border-radius: 3px; overflow: hidden; margin-top: 16px;">
             <div id="obProgressBar" style="width: 10%; height: 100%; background: var(--max-blue); transition: width 0.4s ease;"></div>
@@ -1950,59 +1953,59 @@
 
   <!-- Client-side Application Logic -->
   <script>
-    // 4 Russian Astrologer Personas Catalog
+    // 4 Russian Astrologer Personas Catalog (Nebula & Co-Star Psychological Standard)
     const PERSONAS_CATALOG = [
       {
         id: 'alena',
         name: 'Алёна Смирнова',
         age: '31 год',
         title: 'Астропсихолог',
-        subtitle: 'Любовь, отношения & снятие тревоги',
+        subtitle: 'Любовь, скрытые мотивы & снятие тревоги',
         avatar: '/avatars/alena.jpg',
         rating: '4.98',
         consultations: '1 840+ разборов',
-        credo: '«Звезды показывают не приговор, а ключ к сердцу и вашей внутренней гармонии.»',
-        tags: ['Отношения', 'Совместимость', 'Эмоциональный баланс', 'Самооценка'],
-        greeting: 'Здравствуй. Я настроилась на твою натальную карту. Расскажи, что тревожит прямо сейчас: отношения, внутренние сомнения или выбор пути? Я рядом.'
+        credo: '«Сниму тревогу за 10 минут. Разберем, почему он отдаляется, что происходит на самом деле и как вернуть контроль над своей жизнью.»',
+        tags: ['Почему он молчит', 'Совместимость пар', 'Снятие тревоги', 'Самоценность'],
+        greeting: 'Не пытайся казаться сильным со мной. Расскажи, о чем болит сердце прямо сейчас: отношения, холод в переписке или внутренний тупик? Я рядом.'
       },
       {
         id: 'artem',
         name: 'Артём Соколов',
         age: '39 лет',
         title: 'Бизнес-астролог & стратег',
-        subtitle: 'Карьера, финансы & циклы решений',
+        subtitle: 'Деньги, карьера & жесткая правда',
         avatar: '/avatars/artem.jpg',
         rating: '4.99',
         consultations: '2 150+ консультаций',
-        credo: '«Время и транзиты планет — это главный бизнес-ресурс. Действуй на волне, а не против течения.»',
-        tags: ['Карьера', 'Финансы', 'Бизнес-интуиция', 'Стратегия'],
-        greeting: 'Приветствую. Давай перейдем к сути твоих натальных транзитов. Где сейчас застряли ресурсы: карьера, масштабирование дохода или выбор точки приложения усилий?'
+        credo: '«Без розовых очков и мистики. Где застряли твои деньги, почему ты топчешься на одном уровне и в какие даты делать главный рывок.»',
+        tags: ['Где мои деньги', 'Карьерный прорыв', 'Точки роста', 'Тайминг сделок'],
+        greeting: 'Давай сразу к делу. Где сейчас главный затык: доход уперся в потолок, выгорание на работе или не можешь принять ключевое решение? Разложим по полочкам.'
       },
       {
         id: 'elena',
         name: 'Елена Васильева',
         age: '52 года',
-        title: 'Мастер натальных карт',
-        subtitle: 'Предназначение, кармические узлы & род',
+        title: 'Классический мастер натала & рода',
+        subtitle: 'Кармические узлы, предназначение & род',
         avatar: '/avatars/elena.jpg',
         rating: '4.99',
         consultations: '4 600+ карт',
-        credo: '«Каждая планета в карте рождения — это дар и задача вашей души. Поняв их, вы обретаете покой.»',
-        tags: ['Большая Тройка', 'Кармические узлы', 'Родовой сценарий', 'Судьба'],
-        greeting: 'Мир тебе, душа. Я вижу твои планетарные аспекты. О чем болит сердце: о кармических уроках, истинном призвании или покое в душе? Спроси меня.'
+        credo: '«Пока ты не поймешь свой кармический узел, жизнь будет сталкивать тебя с одними и теми же граблями. Вскроем родовой сценарий и найдем твой истинный путь.»',
+        tags: ['Кармический узел', 'Повторяющийся сценарий', 'Большая Тройка', 'Родовая сила'],
+        greeting: 'Твоя натальная карта — это контракт твоей души. О чем молчишь: о чувстве чужой жизни, повторяющихся ошибках или поиске своего истинного места? Спроси меня.'
       },
       {
         id: 'sofia',
         name: 'София Романова',
         age: '26 лет',
         title: 'Мастер Таро & интуиции',
-        subtitle: 'Символические расклады & скрытые мотивы',
+        subtitle: 'Скрытые мысли, намерения & правда без фильтров',
         avatar: '/avatars/sofia.jpg',
         rating: '4.97',
         consultations: '1 290+ раскладов',
-        credo: '«Карты Таро — это зеркало подсознания. Они высвечивают то, что уже знает ваша интуиция.»',
-        tags: ['Расклады Таро', 'Скрытые мотивы', 'Выбор из двух', 'Интуиция'],
-        greeting: 'Привет! Колода и космические циклы синхронизированы. Что тебя беспокоит в данный миг? Напиши вопрос, или мы сразу вытянем аркан на скрытые намерения человека.'
+        credo: '«Карты Таро не врут. Вскроем его истинные мысли, тайные страхи и то, о чем он думает, когда выключает телефон.»',
+        tags: ['Что он скрывает', 'Истинные чувства', 'Выбор из двух', 'Что будет дальше'],
+        greeting: 'Карты уже лежат перед нами. Что тебя гложет прямо сейчас? Напиши мне его имя или вопрос — и я вытяну аркан на его скрытые намерения.'
       }
     ];
 
@@ -2155,7 +2158,27 @@
 
     // Initial Load
     document.addEventListener('DOMContentLoaded', async () => {
-      // 1. Читаем параметры сессии из URL
+      // 1. Поддержка MAX Messenger Bridge (нативный WebView)
+      if (window.WebApp) {
+        try {
+          window.WebApp.ready?.();
+          window.WebApp.expand?.();
+          const initUser = window.WebApp.initDataUnsafe?.user;
+          if (initUser) {
+            if (initUser.id) {
+              state.userId = String(initUser.id);
+              localStorage.setItem('astromax_user_id', state.userId);
+            }
+            if (initUser.first_name && !localStorage.getItem('astromax_profile')) {
+              state.profile.name = initUser.first_name;
+            }
+          }
+        } catch(e) {
+          console.warn('MAX WebApp bridge init:', e);
+        }
+      }
+
+      // 2. Читаем параметры сессии из URL
       const urlParams = new URLSearchParams(window.location.search);
       const urlUserId = urlParams.get('user_id');
       const urlName = urlParams.get('name');
@@ -2819,11 +2842,11 @@
       const progressBar = document.getElementById('obProgressBar');
 
       progressBar.style.width = '35%';
-      statusText.textContent = 'Сверяем координаты планет по эфемеридам NASA...';
+      statusText.textContent = 'Считываем парадокс характера: внешняя сила vs скрытая уязвимость...';
       await new Promise(r => setTimeout(r, 650));
 
       progressBar.style.width = '70%';
-      statusText.textContent = 'Вычисляем Асцендент, сетку домов и аспекты...';
+      statusText.textContent = 'Расшифровываем Большую Тройку: истинные эмоции, волю и социальную броню...';
       await new Promise(r => setTimeout(r, 750));
 
       await calculateAndSyncChart();
@@ -2831,7 +2854,7 @@
 
       const persona = getPersona(state.profile.personaId || 'alena');
       progressBar.style.width = '100%';
-      statusText.textContent = `Ваш наставник ${persona.name} на связи!`;
+      statusText.textContent = `${persona.name} открывает твой персональный разбор...`;
       await new Promise(r => setTimeout(r, 550));
 
       localStorage.setItem('astromax_onboarded', 'true');
