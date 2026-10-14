@@ -1,0 +1,13 @@
+node_modules/
+.env
+.env.*
+*.env
+*.rtf
+токены*
+.system_generated/
+.gemini/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
