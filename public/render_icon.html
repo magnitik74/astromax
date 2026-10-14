@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      width: 1024px;
+      height: 1024px;
+      overflow: hidden;
+      background: #080A12;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    svg {
+      width: 1024px;
+      height: 1024px;
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="1024" height="1024">
+    <defs>
+      <!-- Background Gradient -->
+      <radialGradient id="bgGrad" cx="50%" cy="40%" r="65%">
+        <stop offset="0%" stop-color="#141936"/>
+        <stop offset="55%" stop-color="#090B14"/>
+        <stop offset="100%" stop-color="#040508"/>
+      </radialGradient>
+
+      <!-- MAX Signature Neon Gradient -->
+      <linearGradient id="neonMaxGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#00F5FF"/>
+        <stop offset="35%" stop-color="#0A66FF"/>
+        <stop offset="75%" stop-color="#7000FF"/>
+        <stop offset="100%" stop-color="#A800FF"/>
+      </linearGradient>
+
+      <!-- Luminous Core Gradient -->
+      <linearGradient id="coreGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF"/>
+        <stop offset="40%" stop-color="#E2F9FF"/>
+        <stop offset="100%" stop-color="#80BEFF"/>
+      </linearGradient>
+
+      <!-- Orbital Gradient -->
+      <linearGradient id="orbitGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="#00F5FF" stop-opacity="0.1"/>
+        <stop offset="25%" stop-color="#00F5FF" stop-opacity="0.85"/>
+        <stop offset="50%" stop-color="#FFFFFF"/>
+        <stop offset="75%" stop-color="#0A66FF" stop-opacity="0.9"/>
+        <stop offset="100%" stop-color="#7000FF" stop-opacity="0.1"/>
+      </linearGradient>
+
+      <!-- Outer Ambient Glow Filter -->
+      <filter id="neonGlow" x="-30%" y="-30%" width="160%" height="160%">
+        <feGaussianBlur stdDeviation="16" result="blur1"/>
+        <feGaussianBlur stdDeviation="8" result="blur2"/>
+        <feGaussianBlur stdDeviation="3" result="blur3"/>
+        <feMerge>
+          <feMergeNode in="blur1"/>
+          <feMergeNode in="blur2"/>
+          <feMergeNode in="blur3"/>
+          <feMergeNode in="SourceGraphic"/>
+        </feMerge>
+      </filter>
+
+      <!-- Star Burst Radial Halo -->
+      <radialGradient id="starGlow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stop-color="#FFFFFF"/>
+        <stop offset="20%" stop-color="#00F5FF" stop-opacity="0.9"/>
+        <stop offset="60%" stop-color="#0A66FF" stop-opacity="0.3"/>
+        <stop offset="100%" stop-color="#000000" stop-opacity="0"/>
+      </radialGradient>
+    </defs>
+
+    <!-- Background Canvas with Squircle corners -->
+    <rect width="512" height="512" rx="112" fill="url(#bgGrad)"/>
+
+    <!-- Subtle Ambient Glow in Center -->
+    <circle cx="256" cy="260" r="140" fill="#0A66FF" opacity="0.18" filter="blur(40px)"/>
+    <circle cx="256" cy="140" r="80" fill="#00F5FF" opacity="0.2" filter="blur(30px)"/>
+
+    <!-- ==================== THE LETTER "A" ==================== -->
+    <g filter="url(#neonGlow)">
+      <!-- Base Outer Neon Bloom (Thick Silhouette) -->
+      <path d="M 256 108 L 136 384 L 184 384 L 216 308 L 296 308 L 328 384 L 376 384 Z M 256 206 L 280 268 L 232 268 Z" 
+            fill="none" 
+            stroke="url(#neonMaxGrad)" 
+            stroke-width="14" 
+            stroke-linejoin="round"
+            opacity="0.85"/>
+
+      <!-- Sharp Solid Geometric Glyph "A" -->
+      <path d="M 256 116 L 146 376 L 190 376 L 220 304 L 292 304 L 322 376 L 366 376 Z M 256 216 L 278 270 L 234 270 Z" 
+            fill="url(#neonMaxGrad)"/>
+
+      <!-- Inner Luminous Highlight Spine -->
+      <path d="M 256 122 L 170 340 M 256 122 L 342 340" 
+            stroke="url(#coreGrad)" 
+            stroke-width="3.5" 
+            stroke-linecap="round" 
+            opacity="0.95"/>
+    </g>
+
+    <!-- ==================== CELESTIAL ORBIT CROSSBAR ==================== -->
+    <g filter="url(#neonGlow)">
+      <ellipse cx="256" cy="304" rx="145" ry="34" 
+               transform="rotate(-10 256 304)"
+               fill="none" 
+               stroke="url(#orbitGrad)" 
+               stroke-width="5.5" 
+               stroke-dasharray="240 15 60 15"/>
+      
+      <!-- Planetary Nodes -->
+      <circle cx="120" cy="328" r="5" fill="#00F5FF"/>
+      <circle cx="390" cy="278" r="4" fill="#A800FF"/>
+    </g>
+
+    <!-- ==================== APEX POLAR STAR BURST ==================== -->
+    <g transform="translate(256, 116)">
+      <!-- Ambient Star Halo -->
+      <circle cx="0" cy="0" r="46" fill="url(#starGlow)"/>
+
+      <!-- 4-Point Diamond Rays -->
+      <path d="M 0 -40 Q 0 0 6.5 0 Q 0 0 0 40 Q 0 0 -6.5 0 Q 0 0 0 -40 Z" fill="#FFFFFF"/>
+      <path d="M -40 0 Q 0 0 0 6.5 Q 0 0 40 0 Q 0 0 0 -6.5 Q 0 0 -40 0 Z" fill="#FFFFFF"/>
+      
+      <!-- Diagonal Glints -->
+      <path d="M -18 -18 Q 0 0 0 2 Q 0 0 18 18 Q 0 0 0 -2 Z" fill="#00F5FF" opacity="0.85"/>
+      <path d="M 18 -18 Q 0 0 2 0 Q 0 0 -18 18 Q 0 0 -2 0 Z" fill="#00F5FF" opacity="0.85"/>
+
+      <!-- Bright Center Sparkle -->
+      <circle cx="0" cy="0" r="4" fill="#FFFFFF"/>
+    </g>
+
+    <!-- Background Stars -->
+    <circle cx="110" cy="140" r="2" fill="#00F5FF" opacity="0.6"/>
+    <circle cx="400" cy="170" r="2.5" fill="#FFFFFF" opacity="0.7"/>
+    <circle cx="380" cy="410" r="2" fill="#7000FF" opacity="0.6"/>
+    <circle cx="130" cy="420" r="2" fill="#00F5FF" opacity="0.5"/>
+  </svg>
+</body>
+</html>

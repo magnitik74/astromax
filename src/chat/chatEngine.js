@@ -3,6 +3,7 @@ import { buildAstrologerSystemPrompt } from './astrologerPersona.js';
 import { calculateNatalChart } from '../core/astrology.js';
 import { drawTarotSpread } from '../core/tarot.js';
 import { GroqAIClient } from '../ai/groqClient.js';
+import { checkSafetyGuardrails } from '../safety/guardrails.js';
 
 export class ChatEngine {
   constructor(options = {}) {
@@ -29,12 +30,18 @@ export class ChatEngine {
       return this.handleQuickTarot(userId);
     }
 
-    // 3. Справка
+    // 3. Проверка на Красные линии (Safety Guardrails: здоровье, диагнозы, экстремизм, суицид)
+    const safety = checkSafetyGuardrails(trimmed);
+    if (!safety.safe) {
+      return { text: safety.response, buttons: [] };
+    }
+
+    // 4. Справка
     if (trimmed.startsWith('/help') || trimmed.toLowerCase() === 'помощь') {
       return this.handleHelp(userId);
     }
 
-    // 4. Обработка шагов онбординга (если начат в чате)
+    // 5. Обработка шагов онбординга (если начат в чате)
     if (user.state === 'WAITING_NAME_DATE') {
       return this.handleOnboardingDate(userId, trimmed);
     } else if (user.state === 'WAITING_TIME') {
@@ -43,7 +50,7 @@ export class ChatEngine {
       return this.handleOnboardingCity(userId, trimmed);
     }
 
-    // 5. Режим «Личный ИИ-Астролог 24/7» (Прямой диалог)
+    // 6. Режим «Личный ИИ-Астролог 24/7» (Прямой диалог)
     return this.handlePersonalChat(userId, trimmed);
   }
 
@@ -62,18 +69,19 @@ export class ChatEngine {
       }
     }
 
-    const nameGreeting = userName ? `, ${userName}` : '';
+    const namePrefix = userName ? `**${userName}**, привет.` : `**Привет.**`;
     const welcomeText = 
-`**АстроМАХ${nameGreeting}** — персональный астрологический ассистент на базе эфемерид NASA и искусственного интеллекта.
+`${namePrefix}
 
-Откройте приложение, чтобы за 60 секунд рассчитать свой Космический Паспорт: точное положение Солнца, Луны и Асцендента, а также раскрыть внутренние парадоксы характера.`;
+Чувствуешь, что сейчас время важных решений?
+Твой космический код готов — загляни, там пара неожиданных ответов про отношения, деньги и то, что ждет тебя дальше.`;
 
     // Deep link с передачей параметров сессии
     const appUrl = `${this.miniAppUrl}${this.miniAppUrl.includes('?') ? '&' : '?'}user_id=${encodeURIComponent(userId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АстроМАХ', appUrl),
+        this.client.buildOpenAppButton('✦ Узнать, что меня ждет', appUrl),
       ],
       [
         this.client.buildCallbackButton('✦ Карта дня в чате', 'ACTION_TAROT_DAILY'),

@@ -1,15 +1,10 @@
-/**
- * AstroMAX 24/7 Astrologer Persona & Context Builder
- * Designed by Karpathy Tier 3/4 standards:
- * - High emotional empathy & psychological depth
- * - Grounded in exact natal placements & current celestial transits
- * - Non-fatalistic, anxiety de-escalation, empowering questions
- */
+import { getPersonaById } from './personas.js';
 
 export function buildAstrologerSystemPrompt(user) {
   const profile = user.profile || {};
   const chart = user.natalChart;
   const context = user.lifeContext || {};
+  const persona = getPersonaById(profile.personaId || 'alena');
 
   let natalSummary = 'Натальные данные еще уточняются.';
   if (chart && chart.bigThree) {
@@ -25,8 +20,9 @@ export function buildAstrologerSystemPrompt(user) {
     lifeNotes = `Последняя карта Таро: ${context.lastTarotCard?.name || 'нет'}. Недавние темы: ${context.recentTopics.join(', ') || 'нет'}.`;
   }
 
-  return `Ты — АстроМАХ, персональный ИИ-астролог, юнгианский психоаналитик и доверенный ментор кверента.
-Ты доступен 24/7 и общаешься так, как общался бы самый мудрый, глубокий и чуткий проводник души.
+  return `Ты — ${persona.name}, ${persona.age} лет, ${persona.title} сервиса АстроМАХ.
+${persona.systemPrompt}
+Твое кредо: ${persona.credo}
 
 КВЕРЕНТ:
 • Имя: ${profile.name || 'Путник'}

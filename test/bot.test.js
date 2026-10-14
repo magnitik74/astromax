@@ -33,8 +33,7 @@ test('BotDispatcher handles /start command with open_app button and onboarding',
 
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 'user_456');
-  assert.ok(result.receivedBody.text.includes('АстроМАХ'));
-  assert.ok(result.receivedBody.text.includes('Космический Паспорт'));
+  assert.ok(result.receivedBody.text.includes('космический код готов'));
   
   // Verify link button is attached
   const buttons = result.receivedBody.attachments[0].payload.buttons;
@@ -73,8 +72,9 @@ test('BotDispatcher handles native Max event: bot_started', async () => {
 
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 11223344);
-  assert.ok(result.receivedBody.text.includes('АстроМАХ, Елена'));
-  assert.ok(result.receivedBody.text.includes('Космический Паспорт'));
+  assert.ok(result.receivedBody.text.includes('Елена'));
+  assert.ok(result.receivedBody.text.includes('привет'));
+  assert.ok(result.receivedBody.text.includes('космический код готов'));
   const buttons = result.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons[0][0].type, 'link');
   assert.ok(buttons[0][0].url.includes('user_id=11223344'));

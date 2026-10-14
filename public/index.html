@@ -449,54 +449,307 @@
     }
 
     /* ==========================================================================
-       TAB 2: ИИ-АСТРОЛОГ 24/7 (INTERACTIVE NATIVE CHAT)
+       TAB 2: ИИ-АСТРОЛОГ 24/7 (INTERACTIVE NATIVE CHAT & NANO-BANNER)
        ========================================================================== */
-    .astrologer-hero {
+    /* FOMO Live Ticker Bar */
+    .fomo-ticker-bar {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 7px 12px;
+      background: rgba(0, 122, 255, 0.08);
+      border: 1px solid var(--max-blue-border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 10px;
+      overflow: hidden;
+    }
+
+    .fomo-ticker-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #FF3B30;
+      box-shadow: 0 0 8px rgba(255, 59, 48, 0.8);
+      animation: pulseAlert 1.6s infinite ease-in-out;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulseAlert {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.3); opacity: 0.6; }
+    }
+
+    .fomo-ticker-content {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      flex: 1;
+    }
+
+    /* Astrologer Nano-Banner */
+    .astrologer-nano-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 10px 14px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-contrast);
+      border-radius: var(--radius-lg);
+      margin-bottom: 12px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+    }
+
+    .astrologer-nano-banner:active {
+      transform: scale(0.985);
+      border-color: var(--max-blue);
+      background: var(--bg-hover);
+    }
+
+    .nano-banner-left {
       display: flex;
       align-items: center;
       gap: 12px;
-      padding: 12px 14px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-lg);
-      margin-bottom: 12px;
+      flex: 1;
+      min-width: 0;
     }
 
-    .astrologer-avatar-wrap {
+    .nano-avatar-wrap {
+      position: relative;
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+    }
+
+    .nano-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      border: 2px solid var(--max-blue);
+      object-fit: cover;
+      display: block;
+      background: var(--bg-surface-secondary);
+    }
+
+    .nano-avatar-beacon {
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      width: 11px;
+      height: 11px;
+      background: #30D158;
+      border: 2px solid var(--bg-surface);
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(48, 209, 88, 0.9);
+    }
+
+    .nano-meta {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .nano-name-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nano-name {
+      font-size: 14.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .nano-age {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .nano-role {
+      font-size: 11.5px;
+      color: var(--max-blue);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-top: 1px;
+    }
+
+    .nano-rating-row {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .nano-stars {
+      color: #FFB300;
+      font-size: 10px;
+      letter-spacing: 0.5px;
+    }
+
+    .nano-rating {
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .nano-sep {
+      color: rgba(255, 255, 255, 0.2);
+    }
+
+    .nano-online {
+      color: #30D158;
+      font-weight: 500;
+    }
+
+    .nano-switch-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 10px;
+      background: var(--bg-surface-secondary);
+      border: 1px solid var(--border-contrast);
+      border-radius: var(--radius-pill);
+      color: var(--text-secondary);
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+    }
+
+    .nano-switch-btn:active {
+      background: var(--max-blue-tint);
+      color: var(--max-blue);
+    }
+
+    /* Persona Selector Card Styles */
+    .persona-selection-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      max-height: 420px;
+      overflow-y: auto;
+      padding: 4px 2px 10px;
+    }
+
+    .persona-card-item {
+      display: flex;
+      gap: 12px;
+      padding: 12px;
+      background: var(--bg-surface-secondary);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      touch-action: manipulation;
+      position: relative;
+    }
+
+    .persona-card-item:active {
+      transform: scale(0.985);
+    }
+
+    .persona-card-item.selected {
+      border-color: var(--max-blue);
+      background: rgba(0, 122, 255, 0.08);
+      box-shadow: 0 0 14px rgba(0, 122, 255, 0.22);
+    }
+
+    .persona-card-avatar-wrap {
+      width: 48px;
+      height: 48px;
       position: relative;
       flex-shrink: 0;
     }
 
-    .astrologer-avatar {
-      width: 44px;
-      height: 44px;
+    .persona-card-avatar {
+      width: 48px;
+      height: 48px;
       border-radius: 50%;
       border: 1.5px solid var(--max-blue);
       object-fit: cover;
       display: block;
+      background: var(--bg-surface);
     }
 
-    .astrologer-avatar-dot {
+    .persona-card-beacon {
       position: absolute;
       bottom: 0px;
       right: 0px;
-      width: 10px;
-      height: 10px;
+      width: 11px;
+      height: 11px;
       background: #30D158;
-      border: 2px solid var(--bg-surface);
+      border: 2px solid var(--bg-surface-secondary);
       border-radius: 50%;
     }
 
-    .astrologer-meta .name {
-      font-size: 15px;
+    .persona-card-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .persona-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .persona-card-name {
+      font-size: 14.5px;
       font-weight: 700;
       color: var(--text-primary);
     }
 
-    .astrologer-meta .role {
+    .persona-card-badge {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: var(--radius-pill);
+      background: var(--max-blue-tint);
+      color: var(--max-blue);
+      border: 1px solid var(--max-blue-border);
+    }
+
+    .persona-card-title {
       font-size: 12px;
-      color: var(--text-muted);
+      color: var(--max-blue);
+      font-weight: 600;
       margin-top: 1px;
+    }
+
+    .persona-card-credo {
+      font-size: 11.5px;
+      color: var(--text-secondary);
+      line-height: 1.4;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    .persona-card-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 6px;
+    }
+
+    .persona-card-tag {
+      font-size: 10px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: var(--text-muted);
     }
 
     /* Chat Messages Stream */
@@ -1198,15 +1451,39 @@
          TAB 2: ИИ-АСТРОЛОГ 24/7 (ЖИВОЙ ЧАТ)
          ==================================================================== -->
     <main id="tab-screen-chat" class="tab-screen">
-      <div class="astrologer-hero">
-        <div class="astrologer-avatar-wrap">
-          <img src="/astromax_logo.jpg" class="astrologer-avatar" alt="Астролог">
-          <div class="astrologer-avatar-dot"></div>
+      <!-- FOMO Social Proof Live Ticker -->
+      <div class="fomo-ticker-bar">
+        <div class="fomo-ticker-pulse"></div>
+        <div class="fomo-ticker-content" id="fomoTickerText">
+          🔥 Прямо сейчас: 142 человека разбирают совместимость • 38 новых раскладов за 15 мин
         </div>
-        <div class="astrologer-meta">
-          <div class="name">Елена Селестия</div>
-          <div class="role">Персональный ИИ-Астролог • Онлайн 24/7</div>
+      </div>
+
+      <!-- Astrologer Interactive Nano-Banner -->
+      <div class="astrologer-nano-banner" onclick="openPersonaSheet()">
+        <div class="nano-banner-left">
+          <div class="nano-avatar-wrap">
+            <img id="chatPersonaAvatar" src="/avatars/alena.jpg" class="nano-avatar" alt="Астролог">
+            <div class="nano-avatar-beacon"></div>
+          </div>
+          <div class="nano-meta">
+            <div class="nano-name-row">
+              <span id="chatPersonaName" class="nano-name">Алёна Смирнова</span>
+              <span id="chatPersonaAge" class="nano-age">31 год</span>
+            </div>
+            <div id="chatPersonaRole" class="nano-role">Астропсихолог • Отношения & Баланс</div>
+            <div class="nano-rating-row">
+              <span class="nano-stars">★★★★★</span>
+              <span id="chatPersonaRating" class="nano-rating">4.98</span>
+              <span class="nano-sep">•</span>
+              <span class="nano-online">🟢 24/7 на связи</span>
+            </div>
+          </div>
         </div>
+        <button class="nano-switch-btn" type="button" title="Сменить наставника">
+          <span>Сменить</span>
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
       </div>
 
       <!-- Chat Messages Stream -->
@@ -1434,16 +1711,17 @@
       <div class="modal-sheet" style="padding-top: 16px;">
         <div class="sheet-handle"></div>
 
-        <!-- Step Indicator Dots -->
+        <!-- Step Indicator Dots (4 Steps) -->
         <div style="display: flex; justify-content: center; gap: 6px; margin-bottom: 16px;">
           <div id="obDot1" style="width: 24px; height: 4px; border-radius: 2px; background: var(--max-blue); transition: all 0.2s;"></div>
           <div id="obDot2" style="width: 8px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.18); transition: all 0.2s;"></div>
           <div id="obDot3" style="width: 8px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.18); transition: all 0.2s;"></div>
+          <div id="obDot4" style="width: 8px; height: 4px; border-radius: 2px; background: rgba(255,255,255,0.18); transition: all 0.2s;"></div>
         </div>
 
         <!-- Step 1: Имя -->
         <div id="obStep1">
-          <div class="card-eyebrow">Шаг 1 из 3 • Знакомство</div>
+          <div class="card-eyebrow">Шаг 1 из 4 • Знакомство</div>
           <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Как к тебе обращаться?</h3>
           <p class="card-desc" style="font-size: 13.5px; margin-bottom: 18px;">
             Имя станет ключом к персональному прогнозу и расчету солярного кода.
@@ -1459,7 +1737,7 @@
 
         <!-- Step 2: Дата и время -->
         <div id="obStep2" style="display: none;">
-          <div class="card-eyebrow">Шаг 2 из 3 • Момент рождения</div>
+          <div class="card-eyebrow">Шаг 2 из 4 • Момент рождения</div>
           <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Когда ты родился?</h3>
           <p class="card-desc" style="font-size: 13.5px; margin-bottom: 18px;">
             Дата и точное время определяют положение Луны и твой восходящий знак (Асцендент).
@@ -1483,36 +1761,43 @@
           </div>
         </div>
 
-        <!-- Step 3: Город -->
+        <!-- Step 3: Место рождения (Сёла, деревни, хутора, города) -->
         <div id="obStep3" style="display: none;">
-          <div class="card-eyebrow">Шаг 3 из 3 • Место рождения</div>
+          <div class="card-eyebrow">Шаг 3 из 4 • Место рождения</div>
           <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 8px;">Где ты родился?</h3>
-          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 18px;">
+          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 14px;">
             Географические координаты необходимы для расчета астрологических домов и градусов планет.
           </p>
           <div class="form-field">
-            <label>Город рождения</label>
-            <select id="obInputCity">
-              <option value="Москва|55.7558|37.6173|3">Москва (+3 UTC)</option>
-              <option value="Санкт-Петербург|59.9343|30.3351|3">Санкт-Петербург (+3 UTC)</option>
-              <option value="Екатеринбург|56.8389|60.6057|5">Екатеринбург (+5 UTC)</option>
-              <option value="Новосибирск|55.0084|82.9357|7">Новосибирск (+7 UTC)</option>
-              <option value="Краснодар|45.0355|38.9753|3">Краснодар (+3 UTC)</option>
-              <option value="Казань|55.7961|49.1064|3">Казань (+3 UTC)</option>
-              <option value="Нижний Новгород|56.3269|44.0059|3">Нижний Новгород (+3 UTC)</option>
-              <option value="Самара|53.1959|50.1002|4">Самара (+4 UTC)</option>
-              <option value="Ростов-на-Дону|47.2357|39.7015|3">Ростов-на-Дону (+3 UTC)</option>
-              <option value="Уфа|54.7388|55.9721|5">Уфа (+5 UTC)</option>
-              <option value="Владивосток|43.1155|131.8855|10">Владивосток (+10 UTC)</option>
-            </select>
+            <label>Город, посёлок, село или хутор</label>
+            <input type="text" id="obInputCity" list="russianPlacesDatalist" placeholder="Например: д. Сосновка, с. Усть-Цильма, Москва..." autocomplete="off">
+            <div style="font-size: 11.5px; color: var(--text-muted); line-height: 1.45; margin-top: 7px;">
+              💡 Для натальной карты важен часовой пояс. Если вашей деревни, хутора или села нет в подсказках — просто напишите его название (или укажите ближайший районный центр). Система автоматически сопоставит часовой пояс.
+            </div>
           </div>
           <div style="display: flex; gap: 8px; margin-top: 14px;">
             <button class="btn-max-secondary" onclick="nextOnboardingStep(2)" style="flex: 1; margin-top: 0;">← Назад</button>
+            <button class="btn-max-primary" onclick="nextOnboardingStep(4)" style="flex: 2;">Выбрать наставника →</button>
+          </div>
+        </div>
+
+        <!-- Step 4: Выбор эксперта-наставника -->
+        <div id="obStep4" style="display: none;">
+          <div class="card-eyebrow">Шаг 4 из 4 • Твой личный наставник</div>
+          <h3 class="card-headline" style="font-size: 19px; margin: 4px 0 6px;">Кто станет твоим проводником?</h3>
+          <p class="card-desc" style="font-size: 13px; margin-bottom: 12px;">
+            Все эксперты опираются на расчеты эфемерид NASA, но обладают уникальной специализацией:
+          </p>
+          <div class="persona-selection-list" id="onboardingPersonaList">
+            <!-- Dynamically populated via JS -->
+          </div>
+          <div style="display: flex; gap: 8px; margin-top: 14px;">
+            <button class="btn-max-secondary" onclick="nextOnboardingStep(3)" style="flex: 1; margin-top: 0;">← Назад</button>
             <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">🪐 Рассчитать карту</button>
           </div>
         </div>
 
-        <!-- Step 4: Labor Illusion (Calculation Screen) -->
+        <!-- Step Loading: Labor Illusion (Calculation Screen) -->
         <div id="obStepLoading" style="display: none; text-align: center; padding: 24px 8px;">
           <div style="width: 52px; height: 52px; border-radius: 50%; border: 3px solid var(--border-subtle); border-top-color: var(--max-blue); animation: spin 1s infinite linear; margin: 0 auto 18px;"></div>
           <h3 class="card-headline" style="font-size: 18px; margin-bottom: 6px;">Вычисляем натальную карту</h3>
@@ -1524,6 +1809,107 @@
           </div>
         </div>
 
+      </div>
+    </div>
+
+    <!-- Datalist of Russian Cities & Regional Hubs across all 11 Time Zones -->
+    <datalist id="russianPlacesDatalist">
+      <option value="Москва (UTC+3)">
+      <option value="Санкт-Петербург (UTC+3)">
+      <option value="Новосибирск (UTC+7)">
+      <option value="Екатеринбург (UTC+5)">
+      <option value="Казань (UTC+3)">
+      <option value="Нижний Новгород (UTC+3)">
+      <option value="Челябинск (UTC+5)">
+      <option value="Красноярск (UTC+7)">
+      <option value="Самара (UTC+4)">
+      <option value="Уфа (UTC+5)">
+      <option value="Ростов-на-Дону (UTC+3)">
+      <option value="Омск (UTC+6)">
+      <option value="Краснодар (UTC+3)">
+      <option value="Воронеж (UTC+3)">
+      <option value="Пермь (UTC+5)">
+      <option value="Волгоград (UTC+3)">
+      <option value="Саратов (UTC+4)">
+      <option value="Тюмень (UTC+5)">
+      <option value="Тольятти (UTC+4)">
+      <option value="Барнаул (UTC+7)">
+      <option value="Ижевск (UTC+4)">
+      <option value="Ульяновск (UTC+4)">
+      <option value="Иркутск (UTC+8)">
+      <option value="Хабаровск (UTC+10)">
+      <option value="Ярославль (UTC+3)">
+      <option value="Владивосток (UTC+10)">
+      <option value="Махачкала (UTC+3)">
+      <option value="Томск (UTC+7)">
+      <option value="Оренбург (UTC+5)">
+      <option value="Кемерово (UTC+7)">
+      <option value="Новокузнецк (UTC+7)">
+      <option value="Рязань (UTC+3)">
+      <option value="Астрахань (UTC+4)">
+      <option value="Пенза (UTC+3)">
+      <option value="Липецк (UTC+3)">
+      <option value="Киров (UTC+3)">
+      <option value="Чебоксары (UTC+3)">
+      <option value="Калининград (UTC+2)">
+      <option value="Тула (UTC+3)">
+      <option value="Курск (UTC+3)">
+      <option value="Ставрополь (UTC+3)">
+      <option value="Сочи (UTC+3)">
+      <option value="Тверь (UTC+3)">
+      <option value="Магнитогорск (UTC+5)">
+      <option value="Иваново (UTC+3)">
+      <option value="Брянск (UTC+3)">
+      <option value="Белгород (UTC+3)">
+      <option value="Сургут (UTC+5)">
+      <option value="Владимир (UTC+3)">
+      <option value="Чита (UTC+9)">
+      <option value="Архангельск (UTC+3)">
+      <option value="Симферополь (UTC+3)">
+      <option value="Калуга (UTC+3)">
+      <option value="Смоленск (UTC+3)">
+      <option value="Якутск (UTC+9)">
+      <option value="Курган (UTC+5)">
+      <option value="Череповец (UTC+3)">
+      <option value="Вологда (UTC+3)">
+      <option value="Орёл (UTC+3)">
+      <option value="Владикавказ (UTC+3)">
+      <option value="Грозный (UTC+3)">
+      <option value="Мурманск (UTC+3)">
+      <option value="Тамбов (UTC+3)">
+      <option value="Петрозаводск (UTC+3)">
+      <option value="Кострома (UTC+3)">
+      <option value="Новороссийск (UTC+3)">
+      <option value="Йошкар-Ола (UTC+3)">
+      <option value="Таганрог (UTC+3)">
+      <option value="Комсомольск-на-Амуре (UTC+10)">
+      <option value="Сыктывкар (UTC+3)">
+      <option value="Нальчик (UTC+3)">
+      <option value="Нижнекамск (UTC+3)">
+      <option value="Южно-Сахалинск (UTC+11)">
+      <option value="Абакан (UTC+7)">
+      <option value="Норильск (UTC+7)">
+      <option value="Петропавловск-Камчатский (UTC+12)">
+      <option value="Магадан (UTC+11)">
+    </datalist>
+
+    <!-- ====================================================================
+         PERSONA SELECTOR MODAL (NATIVE BOTTOM SHEET)
+         ==================================================================== -->
+    <div class="modal-backdrop" id="personaSheetModal" onclick="closePersonaSheet(event)">
+      <div class="modal-sheet" onclick="event.stopPropagation()">
+        <div class="sheet-handle"></div>
+        <div class="card-eyebrow">Команда наставников 24/7</div>
+        <h3 class="card-headline" style="font-size: 17px; margin-bottom: 4px;">Выбор личного астролога</h3>
+        <p class="card-desc" style="font-size: 13px; margin-bottom: 14px;">
+          Все эксперты опираются на расчеты вашей натальной карты, но имеют разный жизненный опыт и фокус.
+        </p>
+        <div class="persona-selection-list" id="personaSheetList">
+          <!-- Populated via JS -->
+        </div>
+        <button class="btn-max-secondary" onclick="closePersonaSheet()" style="margin-top: 10px;">
+          Закрыть
+        </button>
       </div>
     </div>
 
@@ -1550,15 +1936,8 @@
             <input type="time" id="editBirthTime" value="14:30">
           </div>
           <div class="form-field">
-            <label>Город рождения</label>
-            <select id="editCitySelect">
-              <option value="Москва|55.7558|37.6173|3">Москва (+3 UTC)</option>
-              <option value="Санкт-Петербург|59.9343|30.3351|3">Санкт-Петербург (+3 UTC)</option>
-              <option value="Екатеринбург|56.8389|60.6057|5">Екатеринбург (+5 UTC)</option>
-              <option value="Новосибирск|55.0084|82.9357|7">Новосибирск (+7 UTC)</option>
-              <option value="Краснодар|45.0355|38.9753|3">Краснодар (+3 UTC)</option>
-              <option value="Казань|55.7961|49.1064|3">Казань (+3 UTC)</option>
-            </select>
+            <label>Город или посёлок рождения</label>
+            <input type="text" id="editCityInput" list="russianPlacesDatalist" value="Москва (UTC+3)" required>
           </div>
           <button type="submit" class="btn-max-primary" style="margin-top: 8px;">
             Сохранить и пересчитать карту
@@ -1571,7 +1950,189 @@
 
   <!-- Client-side Application Logic -->
   <script>
-    // State store
+    // 4 Russian Astrologer Personas Catalog
+    const PERSONAS_CATALOG = [
+      {
+        id: 'alena',
+        name: 'Алёна Смирнова',
+        age: '31 год',
+        title: 'Астропсихолог',
+        subtitle: 'Любовь, отношения & снятие тревоги',
+        avatar: '/avatars/alena.jpg',
+        rating: '4.98',
+        consultations: '1 840+ разборов',
+        credo: '«Звезды показывают не приговор, а ключ к сердцу и вашей внутренней гармонии.»',
+        tags: ['Отношения', 'Совместимость', 'Эмоциональный баланс', 'Самооценка'],
+        greeting: 'Здравствуй. Я настроилась на твою натальную карту. Расскажи, что тревожит прямо сейчас: отношения, внутренние сомнения или выбор пути? Я рядом.'
+      },
+      {
+        id: 'artem',
+        name: 'Артём Соколов',
+        age: '39 лет',
+        title: 'Бизнес-астролог & стратег',
+        subtitle: 'Карьера, финансы & циклы решений',
+        avatar: '/avatars/artem.jpg',
+        rating: '4.99',
+        consultations: '2 150+ консультаций',
+        credo: '«Время и транзиты планет — это главный бизнес-ресурс. Действуй на волне, а не против течения.»',
+        tags: ['Карьера', 'Финансы', 'Бизнес-интуиция', 'Стратегия'],
+        greeting: 'Приветствую. Давай перейдем к сути твоих натальных транзитов. Где сейчас застряли ресурсы: карьера, масштабирование дохода или выбор точки приложения усилий?'
+      },
+      {
+        id: 'elena',
+        name: 'Елена Васильева',
+        age: '52 года',
+        title: 'Мастер натальных карт',
+        subtitle: 'Предназначение, кармические узлы & род',
+        avatar: '/avatars/elena.jpg',
+        rating: '4.99',
+        consultations: '4 600+ карт',
+        credo: '«Каждая планета в карте рождения — это дар и задача вашей души. Поняв их, вы обретаете покой.»',
+        tags: ['Большая Тройка', 'Кармические узлы', 'Родовой сценарий', 'Судьба'],
+        greeting: 'Мир тебе, душа. Я вижу твои планетарные аспекты. О чем болит сердце: о кармических уроках, истинном призвании или покое в душе? Спроси меня.'
+      },
+      {
+        id: 'sofia',
+        name: 'София Романова',
+        age: '26 лет',
+        title: 'Мастер Таро & интуиции',
+        subtitle: 'Символические расклады & скрытые мотивы',
+        avatar: '/avatars/sofia.jpg',
+        rating: '4.97',
+        consultations: '1 290+ раскладов',
+        credo: '«Карты Таро — это зеркало подсознания. Они высвечивают то, что уже знает ваша интуиция.»',
+        tags: ['Расклады Таро', 'Скрытые мотивы', 'Выбор из двух', 'Интуиция'],
+        greeting: 'Привет! Колода и космические циклы синхронизированы. Что тебя беспокоит в данный миг? Напиши вопрос, или мы сразу вытянем аркан на скрытые намерения человека.'
+      }
+    ];
+
+    function getPersona(id) {
+      return PERSONAS_CATALOG.find(p => p.id === id) || PERSONAS_CATALOG[0];
+    }
+
+    // Comprehensive Russian Settlements Geo & Timezone Database
+    const RUSSIAN_REGIONS_GEO = {
+      'москва': { lat: 55.7558, lon: 37.6173, tz: 3 },
+      'санкт-петербург': { lat: 59.9343, lon: 30.3351, tz: 3 },
+      'питер': { lat: 59.9343, lon: 30.3351, tz: 3 },
+      'новосибирск': { lat: 55.0084, lon: 82.9357, tz: 7 },
+      'екатеринбург': { lat: 56.8389, lon: 60.6057, tz: 5 },
+      'казань': { lat: 55.7961, lon: 49.1064, tz: 3 },
+      'нижний новгород': { lat: 56.3269, lon: 44.0059, tz: 3 },
+      'челябинск': { lat: 55.1644, lon: 61.4368, tz: 5 },
+      'красноярск': { lat: 56.0153, lon: 92.8932, tz: 7 },
+      'самара': { lat: 53.1959, lon: 50.1002, tz: 4 },
+      'уфа': { lat: 54.7388, lon: 55.9721, tz: 5 },
+      'ростов-на-дону': { lat: 47.2357, lon: 39.7015, tz: 3 },
+      'ростов': { lat: 47.2357, lon: 39.7015, tz: 3 },
+      'омск': { lat: 54.9885, lon: 73.3242, tz: 6 },
+      'краснодар': { lat: 45.0355, lon: 38.9753, tz: 3 },
+      'воронеж': { lat: 51.6608, lon: 39.2003, tz: 3 },
+      'пермь': { lat: 58.0105, lon: 56.2502, tz: 5 },
+      'волгоград': { lat: 48.7080, lon: 44.5133, tz: 3 },
+      'саратов': { lat: 51.5406, lon: 46.0086, tz: 4 },
+      'тюмень': { lat: 57.1530, lon: 65.5343, tz: 5 },
+      'тольятти': { lat: 53.5303, lon: 49.3461, tz: 4 },
+      'барнаул': { lat: 53.3548, lon: 83.7698, tz: 7 },
+      'ижевск': { lat: 56.8498, lon: 53.2045, tz: 4 },
+      'ульяновск': { lat: 54.3142, lon: 48.4031, tz: 4 },
+      'иркутск': { lat: 52.2870, lon: 104.3050, tz: 8 },
+      'хабаровск': { lat: 48.4827, lon: 135.0838, tz: 10 },
+      'ярославль': { lat: 57.6261, lon: 39.8845, tz: 3 },
+      'владивосток': { lat: 43.1155, lon: 131.8855, tz: 10 },
+      'махачкала': { lat: 42.9849, lon: 47.5047, tz: 3 },
+      'томск': { lat: 56.5010, lon: 84.9924, tz: 7 },
+      'оренбург': { lat: 51.7727, lon: 55.0988, tz: 5 },
+      'кемерово': { lat: 55.3552, lon: 86.0868, tz: 7 },
+      'новокузнецк': { lat: 53.7596, lon: 87.1216, tz: 7 },
+      'рязань': { lat: 54.6269, lon: 39.6916, tz: 3 },
+      'астрахань': { lat: 46.3497, lon: 48.0408, tz: 4 },
+      'пенза': { lat: 53.2273, lon: 45.0000, tz: 3 },
+      'липецк': { lat: 52.6103, lon: 39.5947, tz: 3 },
+      'киров': { lat: 58.6035, lon: 49.6679, tz: 3 },
+      'чебоксары': { lat: 56.1114, lon: 47.2520, tz: 3 },
+      'калининград': { lat: 54.7104, lon: 20.4522, tz: 2 },
+      'тула': { lat: 54.1961, lon: 37.6182, tz: 3 },
+      'курск': { lat: 51.7304, lon: 36.1927, tz: 3 },
+      'ставрополь': { lat: 45.0428, lon: 41.9734, tz: 3 },
+      'сочи': { lat: 43.6028, lon: 39.7342, tz: 3 },
+      'тверь': { lat: 56.8587, lon: 35.9176, tz: 3 },
+      'магнитогорск': { lat: 53.4186, lon: 58.9708, tz: 5 },
+      'иваново': { lat: 56.9972, lon: 40.9714, tz: 3 },
+      'брянск': { lat: 53.2436, lon: 34.3634, tz: 3 },
+      'белгород': { lat: 50.5954, lon: 36.5873, tz: 3 },
+      'сургут': { lat: 61.2500, lon: 73.4167, tz: 5 },
+      'владимир': { lat: 56.1290, lon: 40.4066, tz: 3 },
+      'чита': { lat: 52.0336, lon: 113.5009, tz: 9 },
+      'архангельск': { lat: 64.5399, lon: 40.5158, tz: 3 },
+      'симферополь': { lat: 44.9521, lon: 34.1024, tz: 3 },
+      'калуга': { lat: 54.5138, lon: 36.2612, tz: 3 },
+      'смоленск': { lat: 54.7826, lon: 32.0453, tz: 3 },
+      'якутск': { lat: 62.0355, lon: 129.6755, tz: 9 },
+      'курган': { lat: 55.4411, lon: 65.3411, tz: 5 },
+      'череповец': { lat: 59.1227, lon: 37.9037, tz: 3 },
+      'вологда': { lat: 59.2205, lon: 39.8915, tz: 3 },
+      'орёл': { lat: 52.9685, lon: 36.0694, tz: 3 },
+      'владикавказ': { lat: 43.0367, lon: 44.6678, tz: 3 },
+      'грозный': { lat: 43.3178, lon: 45.6983, tz: 3 },
+      'мурманск': { lat: 68.9585, lon: 33.0827, tz: 3 },
+      'тамбов': { lat: 52.7212, lon: 41.4523, tz: 3 },
+      'петрозаводск': { lat: 61.7849, lon: 34.3469, tz: 3 },
+      'кострома': { lat: 57.7679, lon: 40.9269, tz: 3 },
+      'новороссийск': { lat: 44.7239, lon: 37.7689, tz: 3 },
+      'йошкар-ола': { lat: 56.6322, lon: 47.8860, tz: 3 },
+      'таганрог': { lat: 47.2362, lon: 38.8969, tz: 3 },
+      'сыктывкар': { lat: 61.6688, lon: 50.8365, tz: 3 },
+      'нальчик': { lat: 43.4853, lon: 43.6071, tz: 3 },
+      'нижнекамск': { lat: 55.6366, lon: 51.8214, tz: 3 },
+      'норильск': { lat: 69.3558, lon: 88.1893, tz: 7 },
+      'петропавловск-камчатский': { lat: 53.0452, lon: 158.6508, tz: 12 },
+      'южно-сахалинск': { lat: 46.9541, lon: 142.7360, tz: 11 },
+      'магадан': { lat: 59.5638, lon: 150.8034, tz: 11 }
+    };
+
+    function parseLocationInput(rawInput) {
+      if (!rawInput || !rawInput.trim()) {
+        return { city: 'Москва', lat: 55.7558, lon: 37.6173, tz: 3 };
+      }
+      const trimmed = rawInput.trim();
+
+      // Explicit timezone detection: (UTC+7), (UTC+3), etc.
+      let tz = null;
+      const tzMatch = trimmed.match(/UTC\s*([+-]\d+)/i);
+      if (tzMatch) {
+        tz = parseInt(tzMatch[1], 10);
+      }
+
+      const cleanName = trimmed.replace(/\s*\(UTC[+-]?\d+\)/i, '').trim();
+      const lower = cleanName.toLowerCase();
+
+      // Lookup in Russian regional database
+      for (const [key, val] of Object.entries(RUSSIAN_REGIONS_GEO)) {
+        if (lower.includes(key)) {
+          return {
+            city: cleanName,
+            lat: val.lat,
+            lon: val.lon,
+            tz: tz !== null ? tz : val.tz
+          };
+        }
+      }
+
+      // Small town, village (деревня, хутор, село, посёлок) graceful fallback:
+      // Uses browser client timezone offset or UTC+3
+      const browserTz = -Math.round(new Date().getTimezoneOffset() / 60);
+      const finalTz = tz !== null ? tz : (browserTz >= 2 && browserTz <= 12 ? browserTz : 3);
+
+      return {
+        city: cleanName,
+        lat: 55.7558,
+        lon: 37.6173,
+        tz: finalTz
+      };
+    }
+
+    // State Store
     const state = {
       activeTab: 'horoscope',
       userId: localStorage.getItem('astromax_user_id') || 'guest_' + Math.random().toString(36).substring(2, 9),
@@ -1583,6 +2144,7 @@
         lat: 55.7558,
         lon: 37.6173,
         timezoneOffset: 3,
+        personaId: 'alena',
       },
       natalChart: null,
       tarotMode: 'daily',
@@ -1593,7 +2155,7 @@
 
     // Initial Load
     document.addEventListener('DOMContentLoaded', async () => {
-      // 1. Читаем параметры сессии из URL (передаются из бота MAX)
+      // 1. Читаем параметры сессии из URL
       const urlParams = new URLSearchParams(window.location.search);
       const urlUserId = urlParams.get('user_id');
       const urlName = urlParams.get('name');
@@ -1606,10 +2168,12 @@
       }
 
       loadProfileFromStorage();
+      initPersonas();
+      startFomoTicker();
       await calculateAndSyncChart();
       loadChatFromStorage();
 
-      // 2. Если пользователь новый — запускаем нативный онбординг
+      // 2. Если пользователь новый — открываем 4-шаговый онбординг
       const isOnboarded = localStorage.getItem('astromax_onboarded');
       if (!isOnboarded) {
         openOnboardingModal();
@@ -1639,9 +2203,13 @@
     function loadProfileFromStorage() {
       const saved = localStorage.getItem('astromax_profile');
       if (saved) {
-        try { state.profile = JSON.parse(saved); } catch(e){}
+        try {
+          const parsed = JSON.parse(saved);
+          state.profile = { ...state.profile, ...parsed };
+        } catch(e){}
       }
       updateProfileUI();
+      applyPersonaUI(state.profile.personaId || 'alena');
     }
 
     function saveProfileToStorage() {
@@ -1662,6 +2230,125 @@
       document.getElementById('profileCity').textContent = `${state.profile.city} • UTC+${state.profile.timezoneOffset}`;
     }
 
+    // 3. Personas Management & Switching
+    function initPersonas() {
+      const currentId = state.profile.personaId || 'alena';
+      renderPersonaCards('onboardingPersonaList', currentId);
+      renderPersonaCards('personaSheetList', currentId);
+      applyPersonaUI(currentId);
+    }
+
+    function renderPersonaCards(containerId, activeId) {
+      const container = document.getElementById(containerId);
+      if (!container) return;
+
+      container.innerHTML = PERSONAS_CATALOG.map(p => {
+        const isSel = p.id === activeId;
+        return `
+          <div class="persona-card-item ${isSel ? 'selected' : ''}" onclick="selectPersona('${p.id}')">
+            <div class="persona-card-avatar-wrap">
+              <img src="${p.avatar}" class="persona-card-avatar" alt="${p.name}">
+              <div class="persona-card-beacon"></div>
+            </div>
+            <div class="persona-card-info">
+              <div class="persona-card-header">
+                <span class="persona-card-name">${p.name}, ${p.age}</span>
+                <span class="persona-card-badge">★ ${p.rating}</span>
+              </div>
+              <div class="persona-card-title">${p.title}</div>
+              <div class="persona-card-credo">${p.credo}</div>
+              <div class="persona-card-tags">
+                ${p.tags.map(t => `<span class="persona-card-tag">${t}</span>`).join('')}
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function selectPersona(personaId) {
+      triggerHaptic();
+      state.profile.personaId = personaId;
+      saveProfileToStorage();
+
+      renderPersonaCards('onboardingPersonaList', personaId);
+      renderPersonaCards('personaSheetList', personaId);
+      applyPersonaUI(personaId);
+
+      const persona = getPersona(personaId);
+      showToast(`Наставник: ${persona.name}`);
+
+      // If switching inside chat tab, add a greeting notice from the new expert
+      if (state.activeTab === 'chat' && state.chatHistory.length > 0) {
+        const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        state.chatHistory.push({
+          role: 'assistant',
+          content: `*${persona.name} присоединилась к диалогу:*\n${persona.greeting}`,
+          time: now
+        });
+        localStorage.setItem('astromax_chat_history', JSON.stringify(state.chatHistory));
+        renderChatMessages();
+      }
+    }
+
+    function applyPersonaUI(personaId) {
+      const p = getPersona(personaId);
+      const avatarEl = document.getElementById('chatPersonaAvatar');
+      const nameEl = document.getElementById('chatPersonaName');
+      const ageEl = document.getElementById('chatPersonaAge');
+      const roleEl = document.getElementById('chatPersonaRole');
+      const ratingEl = document.getElementById('chatPersonaRating');
+      const typingSpan = document.querySelector('#typingIndicator span');
+
+      if (avatarEl) avatarEl.src = p.avatar;
+      if (nameEl) nameEl.textContent = p.name;
+      if (ageEl) ageEl.textContent = p.age;
+      if (roleEl) roleEl.textContent = p.subtitle;
+      if (ratingEl) ratingEl.textContent = p.rating;
+      if (typingSpan) typingSpan.textContent = `${p.name.split(' ')[0]} изучает аспекты...`;
+
+      // Header badge
+      const headerSpan = document.querySelector('.header-astrologer-badge span');
+      if (headerSpan) headerSpan.textContent = `${p.name.split(' ')[0]} 24/7`;
+    }
+
+    function openPersonaSheet() {
+      triggerHaptic();
+      renderPersonaCards('personaSheetList', state.profile.personaId || 'alena');
+      const modal = document.getElementById('personaSheetModal');
+      if (modal) modal.classList.add('active');
+    }
+
+    function closePersonaSheet() {
+      const modal = document.getElementById('personaSheetModal');
+      if (modal) modal.classList.remove('active');
+    }
+
+    // 4. Live FOMO Ticker
+    function startFomoTicker() {
+      const tickerText = document.getElementById('fomoTickerText');
+      if (!tickerText) return;
+
+      const fomoMessages = [
+        '🔥 Прямо сейчас: 142 человека разбирают совместимость • 38 новых раскладов за 15 мин',
+        '✨ Алёна Смирнова завершила глубокий психологический разбор натальной карты',
+        '💼 Артём Соколов помог определить лучшее окно для крупной сделки и инвестиций',
+        '🌙 54 человека вытянули Карту Дня в Храме Таро за последний час',
+        '🪐 Елена Васильева составила кармический паспорт предназначения для нового участника'
+      ];
+
+      let idx = 0;
+      setInterval(() => {
+        idx = (idx + 1) % fomoMessages.length;
+        tickerText.style.opacity = '0';
+        setTimeout(() => {
+          tickerText.textContent = fomoMessages[idx];
+          tickerText.style.opacity = '1';
+        }, 300);
+      }, 9500);
+    }
+
+    // 5. Chart Engine
     async function calculateAndSyncChart() {
       try {
         const res = await fetch('/api/natal', {
@@ -1685,21 +2372,17 @@
       const moon = chart.bigThree.moon.sign;
       const asc = chart.bigThree.ascendant.sign;
 
-      // Update Big Three Cards
       document.getElementById('valSun').textContent = sun;
       document.getElementById('valMoon').textContent = moon;
       document.getElementById('valAsc').textContent = asc;
 
-      // Update Transits
       document.getElementById('stripSun').textContent = '☀️ ' + sun;
       document.getElementById('stripMoon').textContent = '🌙 ' + moon;
       document.getElementById('dailyTransitHeadline').textContent = `Солнце в ${sun} • Луна в ${moon}`;
       document.getElementById('profileArchetype').textContent = `${sun} • Зодиакальный Код`;
 
-      // Update Personality Paradox dynamically
       generateDynamicParadox(sun, moon, asc);
 
-      // Elements Matrix
       if (chart.elements) {
         document.getElementById('pctWater').textContent = chart.elements.water + '%';
         document.getElementById('barWater').style.width = chart.elements.water + '%';
@@ -1763,7 +2446,7 @@
       document.getElementById('paradoxText').textContent = details[planet] || '';
     }
 
-    // 3. 1-Click Viral Sharing in MAX Messenger
+    // 6. 1-Click Viral Sharing
     function shareCosmicPassport() {
       triggerHaptic();
       const chart = state.natalChart?.bigThree;
@@ -1802,7 +2485,7 @@
       setTimeout(() => toast.classList.remove('active'), 2400);
     }
 
-    // 4. Interactive Astrologer 24/7 Chat
+    // 7. Interactive Astrologer 24/7 Chat
     function loadChatFromStorage() {
       const saved = localStorage.getItem('astromax_chat_history');
       if (saved) {
@@ -1815,10 +2498,12 @@
 
     function renderChatMessages() {
       const stream = document.getElementById('chatStream');
+      const persona = getPersona(state.profile.personaId || 'alena');
       const sun = state.natalChart?.bigThree?.sun?.sign || 'Скорпион';
+
       stream.innerHTML = `
         <div class="chat-bubble astrologer">
-          Здравствуй, ${state.profile.name || 'друг'}. Я настроена на вибрации твоей натальной карты (Солнце в ${sun}). Задай мне любой вопрос о любви, деньгах или пути души.
+          ${persona.greeting} (Твоя карта: Солнце в знаке ${sun}).
           <span class="chat-timestamp">Сейчас</span>
         </div>
       `;
@@ -1896,7 +2581,7 @@
       }
     }
 
-    // 5. Tarot Sanctuary Engine
+    // 8. Tarot Sanctuary Engine
     function setTarotMode(mode) {
       triggerHaptic();
       state.tarotMode = mode;
@@ -1997,12 +2682,13 @@
       if (slot) slot.classList.toggle('flipped');
     }
 
-    // 6. Profile Edit Modal Handlers
+    // 9. Profile Edit Modal Handlers
     function openEditModal() {
       triggerHaptic();
       document.getElementById('editName').value = state.profile.name || '';
       document.getElementById('editBirthDate').value = state.profile.birthDate || '1990-05-12';
       document.getElementById('editBirthTime').value = state.profile.birthTime || '14:30';
+      document.getElementById('editCityInput').value = `${state.profile.city || 'Москва'} (UTC+${state.profile.timezoneOffset || 3})`;
       document.getElementById('editModalBackdrop').classList.add('active');
     }
 
@@ -2013,14 +2699,16 @@
     async function handleProfileSave(e) {
       e.preventDefault();
       triggerHaptic();
-      const cityData = document.getElementById('editCitySelect').value.split('|');
+      const rawCity = document.getElementById('editCityInput').value;
+      const parsedLoc = parseLocationInput(rawCity);
+
       state.profile.name = document.getElementById('editName').value.trim();
       state.profile.birthDate = document.getElementById('editBirthDate').value;
       state.profile.birthTime = document.getElementById('editBirthTime').value;
-      state.profile.city = cityData[0];
-      state.profile.lat = Number(cityData[1]);
-      state.profile.lon = Number(cityData[2]);
-      state.profile.timezoneOffset = Number(cityData[3]);
+      state.profile.city = parsedLoc.city;
+      state.profile.lat = parsedLoc.lat;
+      state.profile.lon = parsedLoc.lon;
+      state.profile.timezoneOffset = parsedLoc.tz;
 
       saveProfileToStorage();
       closeEditModal();
@@ -2028,7 +2716,7 @@
       showToast('Натальная карта пересчитана!');
     }
 
-    // 7. Payments & Subscriptions
+    // 10. Payments & Subscriptions
     async function triggerRobokassaPayment() {
       triggerHaptic();
       try {
@@ -2055,13 +2743,15 @@
       }
     }
 
-    // 8. Native 3-Step Onboarding Controller
+    // 11. Native 4-Step Onboarding Controller
     function openOnboardingModal() {
       const modal = document.getElementById('onboardingModal');
       if (modal) {
         document.getElementById('obInputName').value = state.profile.name || '';
         document.getElementById('obInputDate').value = state.profile.birthDate || '1995-05-15';
         document.getElementById('obInputTime').value = state.profile.birthTime || '12:00';
+        document.getElementById('obInputCity').value = '';
+        renderPersonaCards('onboardingPersonaList', state.profile.personaId || 'alena');
         nextOnboardingStep(1);
         modal.classList.add('active');
       }
@@ -2069,12 +2759,12 @@
 
     function nextOnboardingStep(step) {
       triggerHaptic();
-      ['obStep1', 'obStep2', 'obStep3', 'obStepLoading'].forEach(id => {
+      ['obStep1', 'obStep2', 'obStep3', 'obStep4', 'obStepLoading'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
       });
 
-      for (let i = 1; i <= 3; i++) {
+      for (let i = 1; i <= 4; i++) {
         const dot = document.getElementById(`obDot${i}`);
         if (dot) {
           dot.style.background = (i === step) ? 'var(--max-blue)' : 'rgba(255,255,255,0.18)';
@@ -2094,6 +2784,15 @@
         if (dateVal) state.profile.birthDate = dateVal;
         if (timeVal) state.profile.birthTime = timeVal;
         document.getElementById('obStep3').style.display = 'block';
+      } else if (step === 4) {
+        const cityVal = document.getElementById('obInputCity').value;
+        const loc = parseLocationInput(cityVal);
+        state.profile.city = loc.city;
+        state.profile.lat = loc.lat;
+        state.profile.lon = loc.lon;
+        state.profile.timezoneOffset = loc.tz;
+        renderPersonaCards('onboardingPersonaList', state.profile.personaId || 'alena');
+        document.getElementById('obStep4').style.display = 'block';
       }
     }
 
@@ -2110,14 +2809,9 @@
 
     async function finishOnboarding() {
       triggerHaptic();
-      const cityData = document.getElementById('obInputCity').value.split('|');
-      state.profile.city = cityData[0];
-      state.profile.lat = Number(cityData[1]);
-      state.profile.lon = Number(cityData[2]);
-      state.profile.timezoneOffset = Number(cityData[3]);
-
-      ['obStep1', 'obStep2', 'obStep3'].forEach(id => {
-        document.getElementById(id).style.display = 'none';
+      ['obStep1', 'obStep2', 'obStep3', 'obStep4'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
       });
       document.getElementById('obStepLoading').style.display = 'block';
 
@@ -2125,27 +2819,30 @@
       const progressBar = document.getElementById('obProgressBar');
 
       progressBar.style.width = '35%';
-      statusText.textContent = 'Сверяем координаты планет по эфемеридам...';
-      await new Promise(r => setTimeout(r, 700));
+      statusText.textContent = 'Сверяем координаты планет по эфемеридам NASA...';
+      await new Promise(r => setTimeout(r, 650));
 
       progressBar.style.width = '70%';
-      statusText.textContent = 'Вычисляем Асцендент и градусы домов...';
-      await new Promise(r => setTimeout(r, 800));
+      statusText.textContent = 'Вычисляем Асцендент, сетку домов и аспекты...';
+      await new Promise(r => setTimeout(r, 750));
 
       await calculateAndSyncChart();
       saveProfileToStorage();
 
+      const persona = getPersona(state.profile.personaId || 'alena');
       progressBar.style.width = '100%';
-      statusText.textContent = 'Формируем твой Космический Паспорт...';
-      await new Promise(r => setTimeout(r, 600));
+      statusText.textContent = `Ваш наставник ${persona.name} на связи!`;
+      await new Promise(r => setTimeout(r, 550));
 
       localStorage.setItem('astromax_onboarded', 'true');
       document.getElementById('onboardingModal').classList.remove('active');
+      applyPersonaUI(state.profile.personaId || 'alena');
+      renderChatMessages();
       triggerHaptic();
       showToast('Космический паспорт построен! 🌌');
     }
 
-    // 9. Taptic Feedback Helper
+    // 12. Taptic Feedback Helper
     function triggerHaptic() {
       try {
         if (window.navigator?.vibrate) {

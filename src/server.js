@@ -7,6 +7,8 @@ import { MaxBotClient } from './bot/maxClient.js';
 import { BotDispatcher } from './bot/dispatcher.js';
 import { GroqAIClient } from './ai/groqClient.js';
 import { buildAstrologerSystemPrompt } from './chat/astrologerPersona.js';
+import { checkSafetyGuardrails } from './safety/guardrails.js';
+import { ASTROLOGER_PERSONAS, getPersonaById } from './chat/personas.js';
 
 export function createServer(options = {}) {
   const app = express();
@@ -21,6 +23,11 @@ export function createServer(options = {}) {
   // 1. Healthcheck
   app.get('/health', (req, res) => {
     res.json({ status: 'ok', service: 'AstroMAX API', timestamp: new Date().toISOString() });
+  });
+
+  // 1.1 Список 4 экспертов
+  app.get('/api/personas', (req, res) => {
+    res.json(ASTROLOGER_PERSONAS);
   });
 
   // 2. Расчет натальной карты (Core Engine + AI)
@@ -104,6 +111,16 @@ export function createServer(options = {}) {
       const { userId = 'guest_web_user', message, profile } = req.body;
       if (!message || typeof message !== 'string') {
         return res.status(400).json({ error: 'Поле message обязательно' });
+      }
+
+      // Проверка на законодательные и этические красные линии (Safety Guardrails)
+      const safety = checkSafetyGuardrails(message.trim());
+      if (!safety.safe) {
+        return res.json({
+          reply: safety.response,
+          timestamp: new Date().toISOString(),
+          history: dispatcher.chatEngine.memory.getUser(userId).history,
+        });
       }
 
       // Синхронизация профиля и натальной карты пользователя

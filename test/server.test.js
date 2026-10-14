@@ -145,3 +145,44 @@ test('Server GET and POST /api/user/profile manages profile dossier correctly', 
     server.close();
   }
 });
+
+test('Server GET /api/personas returns 4 authentic Russian personas', async () => {
+  const app = createServer();
+  const server = app.listen(0);
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/personas`);
+    const data = await res.json();
+    assert.equal(res.status, 200);
+    assert.equal(data.length, 4);
+    const ids = data.map(p => p.id);
+    assert.deepEqual(ids, ['alena', 'artem', 'elena', 'sofia']);
+    assert.equal(data[0].name, 'Алёна Смирнова');
+  } finally {
+    server.close();
+  }
+});
+
+test('Server POST /api/chat/ask intercepts safety crisis triggers with hotline', async () => {
+  const app = createServer();
+  const server = app.listen(0);
+  const port = server.address().port;
+
+  try {
+    const res = await fetch(`http://localhost:${port}/api/chat/ask`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        userId: 'crisis_user',
+        message: 'Я не хочу больше жить, всё бессмысленно',
+      }),
+    });
+    const data = await res.json();
+    assert.equal(res.status, 200);
+    assert.ok(data.reply.includes('8-800-2000-122'));
+  } finally {
+    server.close();
+  }
+});
+
