@@ -75,6 +75,27 @@ test('BotDispatcher handles /tarot command by directing directly to Mini App', a
   assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
 });
 
+test('BotDispatcher handles /reset command by clearing memory and providing reset link', async () => {
+  const client = new MaxBotClient({ isSandbox: true });
+  const dispatcher = new BotDispatcher(client);
+
+  const result = await dispatcher.handleUpdate({
+    message: {
+      chat_id: 'user_reset_test',
+      text: '/reset',
+    },
+  });
+
+  assert.ok(result);
+  assert.equal(result.receivedBody.chat_id, 'user_reset_test');
+  assert.ok(result.receivedBody.text.includes('Сессия сброшена'));
+  const buttons = result.receivedBody.attachments[0].payload.buttons;
+  assert.equal(buttons.length, 1);
+  assert.equal(buttons[0][0].type, 'open_app');
+  assert.ok(buttons[0][0].url.includes('reset=1'));
+  assert.ok(buttons[0][0].url.includes('user_id=user_reset_test'));
+});
+
 test('BotDispatcher handles native Max event: bot_started with user_id & name deep links', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);

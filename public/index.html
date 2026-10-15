@@ -2078,7 +2078,12 @@
         </div>
 
         <div class="passport-user-title" id="passportUserName">Александр</div>
-        <div class="passport-user-sub" id="passportBirthMeta">Родился 12 мая 1990 в 14:30</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px; margin-bottom: 4px;">
+          <div class="passport-user-sub" id="passportBirthMeta">Родился 12 мая 1990 в 14:30</div>
+          <button type="button" onclick="resetAstroMaxSession()" title="Сбросить профиль и рассчитать заново" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 9999px; padding: 3px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s; white-space: nowrap;">
+            <span style="font-size: 12px;">↺</span> Начать заново
+          </button>
+        </div>
 
         <!-- The Big Three Interactive Grid -->
         <div class="big-three-grid">
@@ -3047,6 +3052,19 @@
 
       // 2. Читаем параметры сессии из URL
       const urlParams = new URLSearchParams(window.location.search);
+      const isReset = urlParams.get('reset') === '1' || urlParams.get('reset') === 'true';
+
+      if (isReset) {
+        localStorage.removeItem('astromax_onboarded');
+        localStorage.removeItem('astromax_profile');
+        localStorage.removeItem('astromax_chat_history');
+        if (window.history && window.history.replaceState) {
+          const cleanUrl = new URL(window.location);
+          cleanUrl.searchParams.delete('reset');
+          window.history.replaceState({}, document.title, cleanUrl.toString());
+        }
+      }
+
       const urlUserId = urlParams.get('user_id');
       const urlName = urlParams.get('name');
       if (urlUserId) {
@@ -3063,12 +3081,22 @@
       loadChatFromStorage();
       calculateAndSyncChart(); // Non-blocking instant render + async sync
 
-      // 2. Если пользователь новый — открываем 4-шаговый онбординг сразу
+      // 3. Если пользователь новый (или был выполнен сброс) — открываем онбординг с нуля
       const isOnboarded = localStorage.getItem('astromax_onboarded');
       if (!isOnboarded) {
         openOnboardingModal();
       }
     });
+
+    // Функция ручного сброса сессии (вызывается из интерфейса)
+    window.resetAstroMaxSession = function() {
+      if (confirm('Сбросить текущий Космический Паспорт и пройти онбординг заново?')) {
+        localStorage.removeItem('astromax_onboarded');
+        localStorage.removeItem('astromax_profile');
+        localStorage.removeItem('astromax_chat_history');
+        location.reload();
+      }
+    };
 
     // 1. Tab Switching
     function switchNavTab(tabName, initialMessage = null) {

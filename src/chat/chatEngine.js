@@ -41,7 +41,12 @@ export class ChatEngine {
       return this.handleStart(userId, userName);
     }
 
-    // 2. Расклад Таро -> Воронка в Mini App
+    // 2. Команда полного сброса сессии и запуска с чистого листа
+    if (trimmed.startsWith('/reset') || trimmed.toLowerCase() === 'сброс' || trimmed.toLowerCase() === 'заново') {
+      return this.handleReset(userId, userName);
+    }
+
+    // 3. Расклад Таро -> Воронка в Mini App
     if (trimmed.startsWith('/tarot') || trimmed.toLowerCase() === 'таро' || trimmed.toLowerCase() === 'карта дня') {
       return this.handleQuickTarot(userId, userName);
     }
@@ -110,6 +115,29 @@ export class ChatEngine {
     ];
 
     return { text: welcomeText, buttons, attachments };
+  }
+
+  /**
+   * Сброс сессии пользователя и выдача ссылки на перезапуск онбординга
+   */
+  async handleReset(userId, userName = '') {
+    if (this.memory?.users?.has(String(userId))) {
+      this.memory.users.delete(String(userId));
+    }
+
+    const resetAppUrl = this.getAppUrl(userId, userName, { reset: '1' });
+    const text = 
+`Сессия сброшена. Все предыдущие расчеты и данные профиля очищены.
+
+Чтобы открыть приложение и рассчитать Космический Паспорт с чистого листа, нажми кнопку ниже:`;
+
+    const buttons = [
+      [
+        this.client.buildOpenAppButton('✦ Начать с чистого листа', resetAppUrl),
+      ],
+    ];
+
+    return { text, buttons };
   }
 
   /**
