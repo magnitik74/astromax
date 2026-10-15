@@ -1,10 +1,10 @@
 import { checkSafetyGuardrails } from '../../src/safety/guardrails.js';
+import { GigaChatClient } from '../../src/ai/gigaChatClient.js';
 import { GroqAIClient } from '../../src/ai/groqClient.js';
 import { getPersonaById } from '../../src/chat/personas.js';
 
-const DEFAULT_GROQ_KEY = [103,115,107,95,66,122,100,76,88,113,117,75,110,65,86,90,70,79,70,112,77,82,107,88,87,71,100,121,98,51,70,89,114,112,121,82,48,108,68,88,79,115,56,104,83,101,103,85,106,51,70,84,101,69,108,78].map(c => String.fromCharCode(c)).join('');
-const GROQ_KEY = process.env.GROQ_API_KEY || DEFAULT_GROQ_KEY;
-const ai = new GroqAIClient({ apiKey: GROQ_KEY });
+const giga = new GigaChatClient();
+const groq = new GroqAIClient();
 
 function sanitizeMentorReply(text) {
   if (!text) return '';
@@ -62,43 +62,53 @@ export default async function handler(req, res) {
     const personaId = profile?.personaId || 'elena';
     const persona = getPersonaById(personaId);
 
-    // AI answer via Groq with persona-specific prompt and live dialog constraints
+    // AI answer via GigaChat (primary junior model) with Groq failover
     let reply = '';
+    const userName = profile?.name || 'собеседник';
+    const sunSign = profile?.sunSign || 'не указано';
+    const ascendant = profile?.ascendant || 'не указан';
+
+    const conversationMessages = [
+      {
+        role: 'system',
+        content: `${persona.systemPrompt}\n\nКОНТЕКСТ СОБЕСЕДНИКА:\nИмя: ${userName}. Солнце: ${sunSign}, Асцендент: ${ascendant}.\n\nВАЖНО: Обращайся на «ты», используя естественный русский язык БЕЗ роботизированных скобок рода вроде «сделал(а)» или «понял(а)». Формулируй фразы изящно и органично.`
+      }
+    ];
+
+    if (Array.isArray(history) && history.length > 0) {
+      const recentHistory = history.slice(-4).map(h => ({
+        role: h.role === 'assistant' ? 'assistant' : 'user',
+        content: String(h.content || '')
+      })).filter(h => h.content.trim().length > 0);
+      conversationMessages.push(...recentHistory);
+    }
+
+    conversationMessages.push({
+      role: 'user',
+      content: message
+    });
+
+    // 1. Попытка через GigaChat (младшая модель GigaChat от Сбера)
     try {
-      if (GROQ_KEY) {
-        const userName = profile?.name || 'собеседник';
-        const sunSign = profile?.sunSign || 'не указано';
-        const ascendant = profile?.ascendant || 'не указан';
-
-        const conversationMessages = [
-          {
-            role: 'system',
-            content: `${persona.systemPrompt}\n\nКОНТЕКСТ СОБЕСЕДНИКА:\nИмя: ${userName}. Солнце: ${sunSign}, Асцендент: ${ascendant}.\n\nВАЖНО: Обращайся на «ты», используя естественный русский язык БЕЗ роботизированных скобок рода вроде «сделал(а)» или «понял(а)». Формулируй фразы изящно и органично.`
-          }
-        ];
-
-        if (Array.isArray(history) && history.length > 0) {
-          const recentHistory = history.slice(-4).map(h => ({
-            role: h.role === 'assistant' ? 'assistant' : 'user',
-            content: String(h.content || '')
-          })).filter(h => h.content.trim().length > 0);
-          conversationMessages.push(...recentHistory);
-        }
-
-        conversationMessages.push({
-          role: 'user',
-          content: message
-        });
-
-        reply = await ai.chatCompletion({
+      reply = await giga.chatCompletion({
+        messages: conversationMessages,
+        model: 'GigaChat',
+        temperature: 0.7,
+        maxTokens: 500
+      });
+    } catch (gigaErr) {
+      console.warn('[API /api/chat/ask] GigaChat error, trying Groq fallback:', gigaErr.message);
+      // 2. Резервный шлюз Groq
+      try {
+        reply = await groq.chatCompletion({
           messages: conversationMessages,
           model: 'openai/gpt-oss-20b',
           temperature: 0.7,
           maxTokens: 500
         });
+      } catch (groqErr) {
+        console.warn('[API /api/chat/ask] Groq fallback error:', groqErr.message);
       }
-    } catch (e) {
-      console.warn('Groq API error in serverless function:', e.message);
     }
 
     if (!reply) {

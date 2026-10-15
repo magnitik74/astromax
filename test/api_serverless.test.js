@@ -135,3 +135,33 @@ test('api/chat/ask.js generates dynamic live responses for Elena without hitting
   assert.equal(/\*\*/.test(reply1), false, 'Reply 1 must not contain raw markdown bold');
 });
 
+test('api/chat/ask.js verifies all 4 experts respond properly to user inquiry via GigaChat', { timeout: 30000 }, async () => {
+  const askHandler = (await import('../api/chat/ask.js')).default;
+  const experts = [
+    { personaId: 'sofia', name: 'София Романова', msg: 'привет' },
+    { personaId: 'elena', name: 'Елена Васильева', msg: 'привет, в чем мой урок?' },
+    { personaId: 'artem', name: 'Артём Соколов', msg: 'привет, как пробить стеклянный потолок?' },
+    { personaId: 'alena', name: 'Алёна Смирнова', msg: 'привет, почему он закрылся?' }
+  ];
+
+  for (const exp of experts) {
+    const req = mockReqRes('POST', {
+      message: exp.msg,
+      profile: {
+        name: 'Александр',
+        personaId: exp.personaId,
+        sunSign: 'Скорпион',
+        ascendant: 'Лев'
+      }
+    });
+
+    await askHandler(req.req, req.res);
+    assert.equal(req.getStatus(), 200, `${exp.name} should return 200`);
+    const reply = req.getData().reply;
+    assert.ok(reply && reply.length > 20, `${exp.name} response should not be empty`);
+    assert.ok(reply.trim().endsWith('?'), `${exp.name} response must end with an open question: "${reply}"`);
+    assert.equal(/#+/.test(reply), false, `${exp.name} must not contain markdown headers`);
+    assert.equal(/\*\*/.test(reply), false, `${exp.name} must not contain markdown bold`);
+  }
+});
+

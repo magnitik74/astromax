@@ -5,6 +5,7 @@ import { calculateNatalChart } from './core/astrology.js';
 import { drawTarotSpread } from './core/tarot.js';
 import { MaxBotClient } from './bot/maxClient.js';
 import { BotDispatcher } from './bot/dispatcher.js';
+import { GigaChatClient } from './ai/gigaChatClient.js';
 import { GroqAIClient } from './ai/groqClient.js';
 import { buildAstrologerSystemPrompt } from './chat/astrologerPersona.js';
 import { checkSafetyGuardrails } from './safety/guardrails.js';
@@ -26,7 +27,7 @@ export function createServer(options = {}) {
   });
 
   const botClient = options.botClient || new MaxBotClient();
-  const ai = options.ai || new GroqAIClient();
+  const ai = options.ai || new GigaChatClient();
   const dispatcher = options.dispatcher || new BotDispatcher(botClient, { ai });
 
   // 1. Healthcheck
@@ -178,7 +179,6 @@ export function createServer(options = {}) {
       try {
         reply = await ai.chatCompletion({
           messages,
-          model: 'qwen/qwen3.8-27b',
           temperature: 0.72,
           maxTokens: 500,
         });
