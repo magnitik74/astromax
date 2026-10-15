@@ -1,4 +1,6 @@
 {
+  "outputDirectory": "public",
+  "cleanUrls": true,
   "functions": {
     "api/index.js": {
       "includeFiles": "src/**"

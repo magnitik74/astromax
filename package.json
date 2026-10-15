@@ -2,7 +2,6 @@
   "name": "astromax",
   "version": "1.0.0",
   "description": "АстроМАХ — AI Astrologer & Tarot for Max Messenger",
-  "main": "src/index.js",
   "type": "module",
   "scripts": {
     "start": "node src/index.js",

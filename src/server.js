@@ -17,6 +17,14 @@ export function createServer(options = {}) {
   app.use(express.json());
   app.use(express.static('public'));
 
+  // Нормализатор URL для совместимости с Vercel serverless (поддерживает и /api/..., и /...)
+  app.use((req, res, next) => {
+    if (!req.url.startsWith('/api') && req.url !== '/health' && !req.url.startsWith('/webhook')) {
+      req.url = '/api' + (req.url.startsWith('/') ? req.url : '/' + req.url);
+    }
+    next();
+  });
+
   const botClient = options.botClient || new MaxBotClient();
   const ai = options.ai || new GroqAIClient();
   const dispatcher = options.dispatcher || new BotDispatcher(botClient, { ai });
@@ -232,6 +240,17 @@ export function createServer(options = {}) {
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
+  });
+
+  // 404 handler
+  app.use((req, res) => {
+    res.status(404).json({ error: `Not found: ${req.method} ${req.url}` });
+  });
+
+  // Error handler
+  app.use((err, req, res, next) => {
+    console.error('[Server] Uncaught error:', err);
+    res.status(500).json({ error: err.message || 'Internal server error' });
   });
 
   return app;
