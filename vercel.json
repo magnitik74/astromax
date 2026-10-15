@@ -18,14 +18,11 @@
       ]
     }
   ],
-  "redirects": [
+  "rewrites": [
     {
       "source": "/",
-      "destination": "/index.html",
-      "permanent": false
-    }
-  ],
-  "rewrites": [
+      "destination": "/index.html"
+    },
     {
       "source": "/health",
       "destination": "/api/health"
