@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer-core');
 const path = require('path');
 const fs = require('fs');
 
-const artifactDir = process.env.ARTIFACT_DIR || 'C:\\Users\\Александр\\.gemini\\antigravity\\brain\\6128637c-569a-46b9-a878-ddbc409b6e58';
+const artifactDir = process.env.ARTIFACT_DIR || 'C:\\Users\\Александр\\.gemini\\antigravity\\brain\\195a1bf2-4075-4dfb-a19a-afcc2ad23c80';
 const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 
 (async () => {
@@ -53,11 +53,19 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
   await page.screenshot({ path: step5Path });
   console.log('Step 5 captured:', step5Path);
 
-  // Wait for Cosmic Passport to render
+  // Wait for Natal Chart Wheel to render
   await new Promise(r => setTimeout(r, 4000));
-  const passportPath = path.join(artifactDir, 'screen_cosmic_passport.png');
-  await page.screenshot({ path: passportPath });
-  console.log('Cosmic Passport captured:', passportPath);
+  const natalPath = path.join(artifactDir, 'screen_natal_wheel.png');
+  await page.screenshot({ path: natalPath });
+  console.log('Natal Chart Wheel captured:', natalPath);
+
+  // Test interactive planet inspection on the wheel (tap Moon)
+  console.log('Inspecting Moon planet node...');
+  await page.evaluate(() => inspectNatalPlanet('moon'));
+  await new Promise(r => setTimeout(r, 800));
+  const inspectPath = path.join(artifactDir, 'screen_natal_planet_inspect.png');
+  await page.screenshot({ path: inspectPath });
+  console.log('Natal Planet Inspection captured:', inspectPath);
 
   // Switch to Tarot Temple
   await page.evaluate(() => switchNavTab('tarot'));
@@ -85,9 +93,16 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
   await page.screenshot({ path: tarotOraclePath, fullPage: false });
   console.log('Tarot Oracle Yes/No captured:', tarotOraclePath);
 
-  // Switch to Mentor Chat
+  // Switch to Mentor Chat and test 1-tap send
   await page.evaluate(() => switchNavTab('chat'));
   await new Promise(r => setTimeout(r, 1500));
+
+  // Test chat message input and 1-tap send
+  await page.type('#chatMessageInput', 'В чем моя главная сила?');
+  await new Promise(r => setTimeout(r, 500));
+  await page.click('.chat-send-btn');
+  await new Promise(r => setTimeout(r, 3500));
+
   const chatPath = path.join(artifactDir, 'screen_mentor_chat.png');
   await page.screenshot({ path: chatPath });
   console.log('Mentor Chat captured:', chatPath);

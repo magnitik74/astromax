@@ -629,6 +629,105 @@
     .element-mini-tag.earth { background: rgba(16, 185, 129, 0.2); color: #6EE7B7; border: 1px solid rgba(16, 185, 129, 0.3); }
     .element-mini-tag.air { background: rgba(168, 85, 247, 0.2); color: #D8B4FE; border: 1px solid rgba(168, 85, 247, 0.3); }
 
+    /* ==========================================================================
+       INTERACTIVE 3D NATAL CHART WHEEL
+       ========================================================================== */
+    .natal-wheel-container {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 10px auto 12px;
+      perspective: 900px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .natal-wheel-svg {
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+      aspect-ratio: 1 / 1;
+      transform: rotateX(10deg);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+      filter: drop-shadow(0 10px 24px rgba(139, 92, 246, 0.32));
+      touch-action: manipulation;
+    }
+
+    .natal-wheel-svg:hover, .natal-wheel-svg.active {
+      transform: rotateX(0deg);
+    }
+
+    .wheel-planet-node {
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .wheel-planet-node:hover {
+      transform: scale(1.15);
+    }
+
+    .natal-planet-card {
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin: 10px 0;
+      animation: astraFadeIn 0.35s ease;
+    }
+
+    .planet-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .planet-card-glyph {
+      font-size: 22px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .planet-card-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .planet-card-meta {
+      font-size: 11px;
+      color: #C4B5FD;
+      margin-top: 1px;
+    }
+
+    .planet-card-ask-btn {
+      background: linear-gradient(135deg, #7C3AED, #9333EA);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .planet-card-desc {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+
     .cell-glyph {
       font-size: 20px;
       margin-bottom: 3px;
@@ -1606,54 +1705,77 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2px;
-      padding: 4px 2px;
+      gap: 3px;
+      padding: 6px 2px;
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: #A1A1AA;
       cursor: pointer;
       position: relative;
-      transition: color 0.15s ease;
+      transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       touch-action: manipulation;
     }
 
     .tab-bar-item .tab-icon {
-      width: 20px;
-      height: 20px;
-      stroke-width: 1.8;
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.2;
       stroke: currentColor;
       fill: none;
-      transition: transform 0.15s ease, stroke 0.15s ease;
+      transition: transform 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
     }
 
     .tab-bar-item .tab-label {
-      font-size: 10.5px;
-      font-weight: 500;
+      font-size: 11px;
+      font-weight: 600;
       letter-spacing: -0.2px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
       max-width: 100%;
+      transition: color 0.2s ease, font-weight 0.2s ease;
     }
 
     .tab-bar-item.active {
-      color: var(--max-blue);
+      color: #FFFFFF;
     }
 
     .tab-bar-item.active .tab-icon {
-      stroke: var(--max-blue);
-      transform: translateY(-1px);
+      stroke: #A855F7;
+      color: #A855F7;
+      transform: translateY(-2px);
+      filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.65));
+    }
+
+    .tab-bar-item.active .tab-label {
+      color: #F59E0B;
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+    }
+
+    .tab-bar-item.active::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 2.5px;
+      background: linear-gradient(90deg, #A855F7, #F59E0B);
+      border-radius: 0 0 3px 3px;
+      box-shadow: 0 2px 8px rgba(168, 85, 247, 0.7);
     }
 
     .tab-badge-dot {
       position: absolute;
-      top: 8px;
-      right: calc(50% - 13px);
-      width: 6px;
-      height: 6px;
-      background: #30D158;
+      top: 6px;
+      right: calc(50% - 15px);
+      width: 7px;
+      height: 7px;
+      background: #34D399;
+      border: 1.5px solid #070811;
       border-radius: 50%;
-      box-shadow: 0 0 6px rgba(48, 209, 88, 0.8);
+      box-shadow: 0 0 8px rgba(52, 211, 153, 0.9);
     }
 
     /* Native Bottom Sheet Modal */
@@ -2634,16 +2756,16 @@
         </button>
       </div>
 
-      <!-- 5. Кнопка быстрого перехода к Космическому Паспорту -->
+      <!-- 5. Кнопка быстрого перехода к Натальной карте -->
       <div style="text-align: center; padding: 10px 0 24px;">
         <button type="button" onclick="switchNavTab('horoscope')" style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); border-radius: 9999px; padding: 10px 20px; font-size: 12.5px; font-weight: 600; color: #C4B5FD; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-          <span>✦ Открыть мой Космический Паспорт личности →</span>
+          <span>✦ Открыть мою натальную карту →</span>
         </button>
       </div>
     </main>
 
     <!-- ====================================================================
-         TAB 1: КОСМИЧЕСКИЙ ПАСПОРТ (AHA-MOMENT & БОЛЬШАЯ ТРОЙКА)
+         TAB 1: НАТАЛЬНАЯ КАРТА (3D ZODIAC WHEEL & БОЛЬШАЯ ТРОЙКА)
          ==================================================================== -->
     <main id="tab-screen-horoscope" class="tab-screen active">
       <!-- 0. Quick Link to Daily Horoscope -->
@@ -2658,19 +2780,42 @@
         <span style="font-size: 12px; color: var(--max-blue); font-weight: 700;">Смотреть →</span>
       </div>
 
-      <!-- 1. Космический Паспорт Личности (Чистая VIP-карта) -->
+      <!-- 1. Натальная карта Личности (Интерактивное Колесо) -->
       <div class="native-card">
         <div class="passport-header-row">
-          <div class="passport-tag">✦ Космический паспорт АСТРА</div>
-          <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;" id="passportCoordsLabel">Москва • 55.75°N</span>
+          <div class="passport-tag">✦ Твоя натальная карта</div>
         </div>
 
         <div class="passport-user-title" id="passportUserName">Александр</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px; margin-bottom: 4px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px; margin-bottom: 8px;">
           <div class="passport-user-sub" id="passportBirthMeta">Родился 12 мая 1990 в 14:30</div>
           <button type="button" onclick="resetAstroMaxSession()" title="Сбросить профиль и рассчитать заново" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 9999px; padding: 3px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s; white-space: nowrap;">
             <span style="font-size: 12px;">↺</span> Начать заново
           </button>
+        </div>
+
+        <!-- 3D Interactive Zodiac Wheel -->
+        <div class="natal-wheel-container">
+          <svg class="natal-wheel-svg" id="natalWheelSvg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+            <!-- Rendered dynamically by renderNatalWheel() -->
+          </svg>
+        </div>
+
+        <!-- Selected Planet / Node Breakdown Card -->
+        <div class="natal-planet-card" id="natalPlanetCard" style="display: none;">
+          <div class="planet-card-header">
+            <span class="planet-card-glyph" id="npcGlyph">☀️</span>
+            <div style="flex: 1;">
+              <div class="planet-card-title" id="npcTitle">Солнце в Скорпионе</div>
+              <div class="planet-card-meta" id="npcMeta">Ядро личности • Водная стихия</div>
+            </div>
+            <button class="planet-card-ask-btn" id="npcAskBtn" onclick="askAboutSelectedPlanet()">
+              ✦ Спросить
+            </button>
+          </div>
+          <div class="planet-card-desc" id="npcDesc">
+            Твое Солнце отвечает за жизненную силу, истинную волю и самореализацию.
+          </div>
         </div>
 
         <!-- The Big Three Interactive Grid -->
@@ -2712,7 +2857,7 @@
             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
           </svg>
-          <span>Поделиться паспортом (Стильная карточка)</span>
+          <span>Поделиться натальной картой</span>
         </button>
 
         <button class="btn-max-secondary" onclick="switchNavTab('chat', 'Расскажи подробно, как мои Солнце, Луна и Асцендент влияют на карьеру и любовь?')">
@@ -2812,7 +2957,7 @@
         <div class="chat-input-wrap">
           <input type="text" id="chatMessageInput" class="chat-input" placeholder="Напиши вопрос наставнику..." autocomplete="off">
         </div>
-        <button type="submit" class="chat-send-btn" title="Отправить">
+        <button type="button" class="chat-send-btn" onpointerdown="handleSendPointerDown(event)" onclick="handleChatSubmit(event)" title="Отправить">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -2999,50 +3144,52 @@
          BOTTOM NAVIGATION BAR (CINEMATIC LUXURY ASTRA TAB BAR - 58PX)
          ==================================================================== -->
     <nav class="bottom-bar">
-      <!-- 1. Индивидуальный Гороскоп (Обновление в 24:00 по часам телефона) -->
+      <!-- 1. Индивидуальный Гороскоп -->
       <button class="tab-bar-item" id="nav-daily" onclick="switchNavTab('daily')">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
+          <circle cx="12" cy="12" r="3" fill="currentColor" fill-opacity="0.3"/>
         </svg>
         <span class="tab-label">Гороскоп</span>
       </button>
 
-      <!-- 2. Космос (Паспорт) -->
+      <!-- 2. Натальная Карта -->
       <button class="tab-bar-item active" id="nav-horoscope" onclick="switchNavTab('horoscope')">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="9"/>
-          <ellipse cx="12" cy="12" rx="9" ry="3.2" transform="rotate(-28 12 12)"/>
-          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(-30 12 12)"/>
+          <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
         </svg>
-        <span class="tab-label">Паспорт</span>
+        <span class="tab-label">Карта</span>
       </button>
 
       <!-- 3. Астролог 24/7 -->
       <button class="tab-bar-item" id="nav-chat" onclick="switchNavTab('chat')">
         <div class="tab-badge-dot"></div>
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          <path d="M9.5 12h.01M14.5 12h.01" stroke-width="2.5"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 0 1-4.2-.9L3 20l1.3-3.8A7.7 7.7 0 0 1 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          <circle cx="8.5" cy="12" r="1.2" fill="currentColor"/>
+          <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+          <circle cx="15.5" cy="12" r="1.2" fill="currentColor"/>
         </svg>
         <span class="tab-label">Наставник</span>
       </button>
 
       <!-- 4. Таро -->
       <button class="tab-bar-item" id="nav-tarot" onclick="switchNavTab('tarot')">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="5" y="3" width="14" height="18" rx="3"/>
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M12 7.5v1M12 15.5v1M8.5 12h-1M16.5 12h-1"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="3" width="14" height="18" rx="2.5"/>
+          <path d="M12 7l3.5 5L12 17l-3.5-5z" fill="currentColor" fill-opacity="0.25"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
         </svg>
         <span class="tab-label">Таро</span>
       </button>
 
       <!-- 5. Селеста VIP (Профиль / Клуб) -->
       <button class="tab-bar-item" id="nav-profile" onclick="switchNavTab('profile')">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
-          <path d="M19 5l.8 1.8L21.6 7l-1.8.8L19 9.6l-.8-1.8L16.4 7l1.8-.8L19 5z" fill="currentColor"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M19 4l.6 1.4L21 6l-1.4.6L19 8l-.6-1.4L17 6l1.4-.6L19 4z" fill="currentColor"/>
         </svg>
         <span class="tab-label">Селеста</span>
       </button>
@@ -3798,6 +3945,9 @@
       if (tabName === 'daily') {
         renderDailyHoroscope();
       }
+      if (tabName === 'horoscope') {
+        renderNatalWheel(state.natalChart);
+      }
 
       if (tabName === 'chat' && initialMessage) {
         sendUserMessage(initialMessage);
@@ -4304,6 +4454,7 @@
           setElemPct('pctAir', 'barAir', elems.air || 25);
         }
         renderDailyHoroscope();
+        renderNatalWheel(chart);
       } catch (err) {
         console.warn('applyChartToUI safe error catch:', err);
       }
@@ -4366,30 +4517,358 @@
         `Мир считывает в тебе ${ascT} (Асцендент в ${asc}). Но твое подлинное ядро — ${sunT} (Солнце в ${sun}). Твой главный тайный конфликт кроется в подсознании: ${moonT} (Луна в ${moon}). Внешне ты кажешься скалой для окружающих, но внутри ведешь битву, о которой никому не рассказываешь.`;
     }
 
-    function inspectBigThree(planet) {
+    // =========================================================================
+    // 5.2 INTERACTIVE 3D NATAL WHEEL ENGINE (SVG ZODIAC, HOUSES & PLANET NODES)
+    // =========================================================================
+    const ZODIAC_SIGNS = [
+      { name: 'Овен', symbol: '♈', elem: 'fire', color: '#F59E0B' },
+      { name: 'Телец', symbol: '♉', elem: 'earth', color: '#10B981' },
+      { name: 'Близнецы', symbol: '♊', elem: 'air', color: '#38BDF8' },
+      { name: 'Рак', symbol: '♋', elem: 'water', color: '#A78BFA' },
+      { name: 'Лев', symbol: '♌', elem: 'fire', color: '#F59E0B' },
+      { name: 'Дева', symbol: '♍', elem: 'earth', color: '#10B981' },
+      { name: 'Весы', symbol: '♎', elem: 'air', color: '#38BDF8' },
+      { name: 'Скорпион', symbol: '♏', elem: 'water', color: '#A78BFA' },
+      { name: 'Стрелец', symbol: '♐', elem: 'fire', color: '#F59E0B' },
+      { name: 'Козерог', symbol: '♑', elem: 'earth', color: '#10B981' },
+      { name: 'Водолей', symbol: '♒', elem: 'air', color: '#38BDF8' },
+      { name: 'Рыбы', symbol: '♓', elem: 'water', color: '#A78BFA' }
+    ];
+
+    const ROMAN_HOUSES = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+
+    const PLANET_METADATA = {
+      sun: {
+        id: 'Sun',
+        name: 'Солнце',
+        glyph: '☀️',
+        role: 'Ядро личности и сознание',
+        color: '#F59E0B',
+        desc: (sign) => `Твое Солнце в знаке ${sign}. Это источник твоей жизненной силы, истинной воли, творческой искры и осознанности. Оно показывает, в чем твоя уникальная миссия и как ты вдохновляешь мир.`
+      },
+      moon: {
+        id: 'Moon',
+        name: 'Луна',
+        glyph: '🌙',
+        role: 'Душа, эмоции и интуиция',
+        color: '#93C5FD',
+        desc: (sign) => `Твоя Луна в знаке ${sign}. Она управляет подсознанием, глубинными реакциями на стресс, интуитивным восприятием и эмоциональной безопасностью. Это то, где твое сердце обретает покой.`
+      },
+      ascendant: {
+        id: 'Ascendant',
+        name: 'Асцендент',
+        glyph: '⬆️',
+        role: 'Социальная маска и импульс',
+        color: '#C084FC',
+        desc: (sign) => `Твой Асцендент в знаке ${sign}. Это твоя энергетическая аура и первое впечатление, которое ты производишь на мир. Твой персональный ключ к открытию дверей и взаимодействию с людьми.`
+      },
+      mercury: {
+        id: 'Mercury',
+        name: 'Меркурий',
+        glyph: '☿',
+        role: 'Мышление, речь и контакты',
+        color: '#67E8F9',
+        desc: (sign) => `Меркурий в знаке ${sign}. Определяет скорость анализа, стиль ведения переговоров, стратегическое мышление и способность конвертировать мысли в точные формулировки.`
+      },
+      venus: {
+        id: 'Venus',
+        name: 'Венера',
+        glyph: '♀',
+        role: 'Любовь, ценности и эстетика',
+        color: '#F472B6',
+        desc: (sign) => `Венера в знаке ${sign}. Управляет твоим языком близости, романтическими притяжениями, эстетическим вкусом и финансовой интуицией.`
+      },
+      mars: {
+        id: 'Mars',
+        name: 'Марс',
+        glyph: '♂',
+        role: 'Действие, воля и страсть',
+        color: '#EF4444',
+        desc: (sign) => `Марс в знаке ${sign}. Это внутренний двигатель, решимость действовать, спортивная выносливость и умение бескомпромиссно отстаивать свои личные границы.`
+      },
+      jupiter: {
+        id: 'Jupiter',
+        name: 'Юпитер',
+        glyph: '♃',
+        role: 'Удача, масштабирование и мудрость',
+        color: '#FBBF24',
+        desc: (sign) => `Юпитер в знаке ${sign}. Планета расширения горизонтов, духовного авторитета, великих возможностей и неожиданных подарков судьбы.`
+      }
+    };
+
+    let activeChartData = null;
+
+    function renderNatalWheel(chart) {
+      const svg = document.getElementById('natalWheelSvg');
+      if (!svg) return;
+      activeChartData = chart || state.natalChart;
+
+      const cx = 160;
+      const cy = 160;
+      const rOuter = 152;
+      const rZodiacInner = 124;
+      const rHousesInner = 86;
+      const rCore = 46;
+
+      let svgHtml = `
+        <defs>
+          <radialGradient id="wheelCoreGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#1E1338" stop-opacity="0.95"/>
+            <stop offset="70%" stop-color="#0E0A1D" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#070811" stop-opacity="0.95"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Outer Background Circle -->
+        <circle cx="${cx}" cy="${cy}" r="${rOuter}" fill="rgba(14, 11, 26, 0.85)" stroke="#382952" stroke-width="1.5"/>
+
+        <!-- Zodiac Ring (r: 124..152) -->
+        <circle cx="${cx}" cy="${cy}" r="${rZodiacInner}" fill="rgba(8, 7, 18, 0.9)" stroke="rgba(168, 85, 247, 0.3)" stroke-width="1"/>
+      `;
+
+      // 12 Zodiac Segments and Glyphs
+      for (let i = 0; i < 12; i++) {
+        const sign = ZODIAC_SIGNS[i];
+        const angDeg = i * 30 - 90;
+        const angRad = (angDeg * Math.PI) / 180;
+        const x1 = cx + rZodiacInner * Math.cos(angRad);
+        const y1 = cy + rZodiacInner * Math.sin(angRad);
+        const x2 = cx + rOuter * Math.cos(angRad);
+        const y2 = cy + rOuter * Math.sin(angRad);
+
+        svgHtml += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="rgba(168, 85, 247, 0.25)" stroke-width="1"/>`;
+
+        const midDeg = i * 30 + 15 - 90;
+        const midRad = (midDeg * Math.PI) / 180;
+        const sx = cx + 138 * Math.cos(midRad);
+        const sy = cy + 138 * Math.sin(midRad);
+        svgHtml += `<text x="${sx.toFixed(1)}" y="${sy.toFixed(1)}" fill="${sign.color}" font-size="11" font-weight="700" text-anchor="middle" dominant-baseline="central">${sign.symbol}</text>`;
+      }
+
+      // Houses Ring (r: 86..124)
+      svgHtml += `<circle cx="${cx}" cy="${cy}" r="${rHousesInner}" fill="url(#wheelCoreGrad)" stroke="rgba(168, 85, 247, 0.35)" stroke-width="1"/>`;
+      for (let i = 0; i < 12; i++) {
+        const angDeg = i * 30 - 90;
+        const angRad = (angDeg * Math.PI) / 180;
+        const x1 = cx + rHousesInner * Math.cos(angRad);
+        const y1 = cy + rHousesInner * Math.sin(angRad);
+        const x2 = cx + rZodiacInner * Math.cos(angRad);
+        const y2 = cy + rZodiacInner * Math.sin(angRad);
+
+        svgHtml += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" stroke-dasharray="2,2"/>`;
+
+        const midDeg = i * 30 + 15 - 90;
+        const midRad = (midDeg * Math.PI) / 180;
+        const hx = cx + 116 * Math.cos(midRad);
+        const hy = cy + 116 * Math.sin(midRad);
+        svgHtml += `<text x="${hx.toFixed(1)}" y="${hy.toFixed(1)}" fill="rgba(255, 255, 255, 0.3)" font-size="7" font-family="sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="central">${ROMAN_HOUSES[i]}</text>`;
+      }
+
+      // Calculate Planet Placements
+      const planetKeys = ['sun', 'moon', 'ascendant', 'mercury', 'venus', 'mars', 'jupiter'];
+      const planetPositions = [];
+
+      planetKeys.forEach((key, idx) => {
+        const meta = PLANET_METADATA[key];
+        let lon = 0;
+        let signName = 'Телец';
+        let degInSign = 15;
+
+        if (chart?.planets && Array.isArray(chart.planets)) {
+          const found = chart.planets.find(p => p.id?.toLowerCase() === meta.id.toLowerCase());
+          if (found) {
+            lon = found.longitude || 0;
+            signName = found.sign || 'Телец';
+            degInSign = found.degrees || 15;
+          }
+        }
+        if (!lon && key === 'ascendant' && chart?.angles?.ascendant) {
+          lon = chart.angles.ascendant.longitude || 0;
+          signName = chart.angles.ascendant.sign || 'Скорпион';
+          degInSign = chart.angles.ascendant.degrees || 12;
+        }
+
+        // Fallback calculations if longitude not directly populated
+        if (!lon) {
+          const signFromBig3 = chart?.bigThree?.[key === 'ascendant' ? 'ascendant' : key]?.sign;
+          if (signFromBig3) signName = signFromBig3;
+          const sIdx = ZODIAC_SIGNS.findIndex(s => s.name === signName);
+          const baseIdx = sIdx >= 0 ? sIdx : 0;
+          if (key === 'sun') {
+            lon = baseIdx * 30 + 15;
+          } else if (key === 'moon') {
+            lon = (baseIdx * 30 + 18) % 360;
+          } else if (key === 'ascendant') {
+            lon = (baseIdx * 30 + 12) % 360;
+          } else if (key === 'mercury') {
+            lon = (baseIdx * 30 + 32) % 360;
+          } else if (key === 'venus') {
+            lon = (baseIdx * 30 + 338) % 360;
+          } else if (key === 'mars') {
+            lon = (baseIdx * 30 + 72) % 360;
+          } else if (key === 'jupiter') {
+            lon = (baseIdx * 30 + 145) % 360;
+          }
+        }
+
+        const angDeg = lon - 90;
+        const angRad = (angDeg * Math.PI) / 180;
+        const rPlanet = 100 + (idx % 2 === 0 ? 3 : -3);
+        const px = cx + rPlanet * Math.cos(angRad);
+        const py = cy + rPlanet * Math.sin(angRad);
+
+        planetPositions.push({
+          key,
+          meta,
+          lon,
+          signName,
+          degInSign,
+          px,
+          py
+        });
+      });
+
+      // Aspect Chords (Connecting planet pairs in inner circle)
+      const aspectPairs = [
+        [0, 1], // Sun - Moon
+        [0, 2], // Sun - Ascendant
+        [1, 4], // Moon - Venus
+        [3, 5], // Mercury - Mars
+        [0, 6]  // Sun - Jupiter
+      ];
+
+      aspectPairs.forEach(([i1, i2], idx) => {
+        const p1 = planetPositions[i1];
+        const p2 = planetPositions[i2];
+        if (p1 && p2) {
+          const strokeCol = idx % 2 === 0 ? '#10B981' : '#A855F7';
+          svgHtml += `<line x1="${p1.px.toFixed(1)}" y1="${p1.py.toFixed(1)}" x2="${p2.px.toFixed(1)}" y2="${p2.py.toFixed(1)}" stroke="${strokeCol}" stroke-width="1" stroke-opacity="0.32" stroke-dasharray="${idx % 3 === 0 ? 'none' : '3,3'}"/>`;
+        }
+      });
+
+      // Center Core Astrolabe Medallion
+      svgHtml += `
+        <circle cx="${cx}" cy="${cy}" r="${rCore}" fill="#0A0815" stroke="rgba(168, 85, 247, 0.4)" stroke-width="1.2"/>
+        <circle cx="${cx}" cy="${cy}" r="${rCore - 8}" fill="none" stroke="rgba(245, 158, 11, 0.3)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <text x="${cx}" y="${cy}" fill="#F59E0B" font-size="16" text-anchor="middle" dominant-baseline="central">✦</text>
+      `;
+
+      // Planet Nodes (Interactive Medallions)
+      planetPositions.forEach(p => {
+        const isCurrentSelected = state.selectedNatalPlanet?.key === p.key;
+        const selClass = isCurrentSelected ? ' selected' : '';
+        svgHtml += `
+          <g class="wheel-planet-node${selClass}" id="wpn-${p.key}" data-planet-key="${p.key}" onclick="inspectNatalPlanet('${p.key}')">
+            <circle cx="${p.px.toFixed(1)}" cy="${p.py.toFixed(1)}" r="13" fill="none" stroke="${p.meta.color}" stroke-opacity="0.25" stroke-width="1.5"/>
+            <circle cx="${p.px.toFixed(1)}" cy="${p.py.toFixed(1)}" r="9" fill="#0C0A19" stroke="${p.meta.color}" stroke-width="1.6"/>
+            <text x="${p.px.toFixed(1)}" y="${p.py.toFixed(1)}" fill="#FFFFFF" font-size="8.5" text-anchor="middle" dominant-baseline="central">${p.meta.glyph}</text>
+          </g>
+        `;
+      });
+
+      svg.innerHTML = svgHtml;
+
+      // Auto-inspect Sun if no planet is selected yet
+      if (!state.selectedNatalPlanet) {
+        inspectNatalPlanet('sun');
+      }
+    }
+
+    function inspectNatalPlanet(key) {
       triggerHaptic();
-      document.querySelectorAll('.big-three-cell').forEach(c => c.classList.remove('active-inspect'));
-      const idMap = { sun: 'cellSun', moon: 'cellMoon', asc: 'cellAsc' };
-      const el = document.getElementById(idMap[planet]);
-      if (el) el.classList.add('active-inspect');
+      const meta = PLANET_METADATA[key];
+      if (!meta) return;
 
-      const chart = state.natalChart?.bigThree;
-      if (!chart) return;
+      const chart = activeChartData || state.natalChart;
+      let signName = 'Скорпион';
+      let degInSign = 15;
 
-      const titles = {
-        sun: `☀️ Солнце в знаке ${chart.sun.sign}: Твое истинное Ядро`,
-        moon: `🌙 Луна в знаке ${chart.moon.sign}: Твое Подсознание и Тень`,
-        asc: `⬆️ Асцендент в знаке ${chart.ascendant.sign}: Твоя Социальная Броня`
+      if (chart?.planets && Array.isArray(chart.planets)) {
+        const found = chart.planets.find(p => p.id?.toLowerCase() === meta.id.toLowerCase());
+        if (found) {
+          signName = found.sign || signName;
+          degInSign = found.degrees || degInSign;
+        }
+      }
+      if (key === 'ascendant') {
+        signName = chart?.angles?.ascendant?.sign || chart?.bigThree?.ascendant?.sign || signName;
+        degInSign = chart?.angles?.ascendant?.degrees || 12;
+      } else if (key === 'sun' && chart?.bigThree?.sun?.sign) {
+        signName = chart.bigThree.sun.sign;
+      } else if (key === 'moon' && chart?.bigThree?.moon?.sign) {
+        signName = chart.bigThree.moon.sign;
+      }
+
+      state.selectedNatalPlanet = {
+        key,
+        name: meta.name,
+        glyph: meta.glyph,
+        sign: signName,
+        degStr: `${degInSign}° ${signName}`
       };
 
-      const details = {
-        sun: `Солнце — это твоя истинная воля, внутренний генератор и то, кем ты становишься, когда сбрасываешь чужие ожидания и социальные маски.`,
-        moon: `Луна — это то, как ты реагируешь на стресс в 2 часа ночи, твои скрытые страхи, потребность в душевной безопасности и эмоциональная память.`,
-        asc: `Асцендент — твой энергетический фасад: первое впечатление, которое ты производишь на незнакомцев, и способ защиты своего личного пространства от вторжения.`
-      };
+      // Update Planet Card UI
+      const card = document.getElementById('natalPlanetCard');
+      if (card) {
+        card.style.display = 'block';
+        const glyphEl = document.getElementById('npcGlyph');
+        const titleEl = document.getElementById('npcTitle');
+        const metaEl = document.getElementById('npcMeta');
+        const descEl = document.getElementById('npcDesc');
 
-      document.getElementById('paradoxTitle').textContent = titles[planet] || 'Анализ аспекта';
-      document.getElementById('paradoxText').textContent = details[planet] || '';
+        if (glyphEl) glyphEl.textContent = meta.glyph;
+        if (titleEl) titleEl.textContent = `${meta.name} в знаке ${signName}`;
+        if (metaEl) metaEl.textContent = `${meta.role} • ${degInSign}° ${signName}`;
+        if (descEl) descEl.textContent = meta.desc(signName);
+      }
+
+      // Highlight corresponding SVG node
+      document.querySelectorAll('.wheel-planet-node').forEach(node => {
+        if (node.getAttribute('data-planet-key') === key) {
+          node.classList.add('selected');
+        } else {
+          node.classList.remove('selected');
+        }
+      });
+
+      // Sync Big Three cell highlight and Paradox description
+      if (key === 'sun' || key === 'moon' || key === 'ascendant') {
+        const cellMap = { sun: 'cellSun', moon: 'cellMoon', ascendant: 'cellAsc' };
+        document.querySelectorAll('.big-three-cell').forEach(c => c.classList.remove('active-inspect'));
+        const cellEl = document.getElementById(cellMap[key]);
+        if (cellEl) cellEl.classList.add('active-inspect');
+
+        const big3 = chart?.bigThree;
+        if (big3) {
+          const titles = {
+            sun: `☀️ Солнце в знаке ${big3.sun.sign}: Твое истинное Ядро`,
+            moon: `🌙 Луна в знаке ${big3.moon.sign}: Твое Подсознание и Тень`,
+            ascendant: `⬆️ Асцендент в знаке ${big3.ascendant.sign}: Твоя Социальная Броня`
+          };
+          const details = {
+            sun: `Солнце — это твоя истинная воля, внутренний генератор и то, кем ты становишься, когда сбрасываешь чужие ожидания и социальные маски.`,
+            moon: `Луна — это то, как ты реагируешь на стресс в 2 часа ночи, твои скрытые страхи, потребность в душевной безопасности и эмоциональная память.`,
+            ascendant: `Асцендент — твой энергетический фасад: первое впечатление, которое ты производишь на незнакомцев, и способ защиты своего личного пространства от вторжения.`
+          };
+          const pTitle = document.getElementById('paradoxTitle');
+          const pText = document.getElementById('paradoxText');
+          if (pTitle && titles[key]) pTitle.textContent = titles[key];
+          if (pText && details[key]) pText.textContent = details[key];
+        }
+      }
+    }
+
+    function askAboutSelectedPlanet() {
+      const p = state.selectedNatalPlanet;
+      if (!p) return;
+      const question = `Расскажи подробно, как положение ${p.name} в знаке ${p.sign} влияет на мою жизнь, таланты и скрытые ресурсы?`;
+      switchNavTab('chat', question);
+    }
+
+    function inspectBigThree(planet) {
+      const map = { sun: 'sun', moon: 'moon', asc: 'ascendant' };
+      const key = map[planet] || planet;
+      inspectNatalPlanet(key);
     }
 
     // 6. 1-Click Viral Sharing with Canvas 4:5 Card (Tier 3/4 Standard)
@@ -4949,10 +5428,21 @@
       }
     }
 
-    async function handleChatSubmit(e) {
-      e.preventDefault();
+    function handleSendPointerDown(e) {
+      if (e) {
+        e.preventDefault();
+      }
       const input = document.getElementById('chatMessageInput');
-      const text = input.value.trim();
+      const text = input ? input.value.trim() : '';
+      if (!text) return;
+      input.value = '';
+      sendUserMessage(text);
+    }
+
+    async function handleChatSubmit(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('chatMessageInput');
+      const text = input ? input.value.trim() : '';
       if (!text) return;
       input.value = '';
       await sendUserMessage(text);
