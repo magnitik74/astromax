@@ -9,6 +9,37 @@
   
   <!-- MAX Messenger Official Mini App Bridge SDK -->
   <script src="https://st.max.ru/js/max-web-app.js"></script>
+  <script>
+    (function() {
+      function notifyBridge() {
+        try {
+          if (window.WebApp && typeof window.WebApp.ready === 'function') {
+            window.WebApp.ready();
+          }
+        } catch (e) {}
+        try {
+          if (window.WebViewHandler && typeof window.WebViewHandler.postEvent === 'function') {
+            window.WebViewHandler.postEvent('WebAppReady', '{}');
+          }
+        } catch (e) {}
+        try {
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage(JSON.stringify({ type: 'WebAppReady' }), '*');
+          }
+        } catch (e) {}
+        try {
+          if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.ready === 'function') {
+            window.Telegram.WebApp.ready();
+          }
+        } catch (e) {}
+      }
+      notifyBridge();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', notifyBridge);
+      }
+      window.addEventListener('load', notifyBridge);
+    })();
+  </script>
 
   <style>
     /* ==========================================================================
@@ -2078,7 +2109,12 @@
         </div>
 
         <div class="passport-user-title" id="passportUserName">Александр</div>
-        <div class="passport-user-sub" id="passportBirthMeta">Родился 12 мая 1990 в 14:30</div>
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px; margin-bottom: 4px;">
+          <div class="passport-user-sub" id="passportBirthMeta">Родился 12 мая 1990 в 14:30</div>
+          <button type="button" onclick="resetAstroMaxSession()" title="Сбросить профиль и рассчитать заново" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 9999px; padding: 3px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s; white-space: nowrap;">
+            <span style="font-size: 12px;">↺</span> Начать заново
+          </button>
+        </div>
 
         <!-- The Big Three Interactive Grid -->
         <div class="big-three-grid">
@@ -3047,6 +3083,19 @@
 
       // 2. Читаем параметры сессии из URL
       const urlParams = new URLSearchParams(window.location.search);
+      const isReset = urlParams.get('reset') === '1' || urlParams.get('reset') === 'true';
+
+      if (isReset) {
+        localStorage.removeItem('astromax_onboarded');
+        localStorage.removeItem('astromax_profile');
+        localStorage.removeItem('astromax_chat_history');
+        if (window.history && window.history.replaceState) {
+          const cleanUrl = new URL(window.location);
+          cleanUrl.searchParams.delete('reset');
+          window.history.replaceState({}, document.title, cleanUrl.toString());
+        }
+      }
+
       const urlUserId = urlParams.get('user_id');
       const urlName = urlParams.get('name');
       if (urlUserId) {
@@ -3063,12 +3112,50 @@
       loadChatFromStorage();
       calculateAndSyncChart(); // Non-blocking instant render + async sync
 
-      // 2. Если пользователь новый — открываем 4-шаговый онбординг сразу
+      // 3. Если пользователь новый (или был выполнен сброс) — открываем онбординг с нуля
       const isOnboarded = localStorage.getItem('astromax_onboarded');
       if (!isOnboarded) {
         openOnboardingModal();
       }
+
+      // 4. Глубокие ссылки (Deep-links) из мессенджера: переход в нужный таб / к наставнику
+      const startParam = window.WebApp?.initDataUnsafe?.start_param || urlParams.get('startapp') || urlParams.get('start_param') || '';
+      let urlTab = urlParams.get('tab');
+      let urlPersona = urlParams.get('persona');
+      let urlFocus = urlParams.get('focus');
+
+      if (startParam) {
+        if (startParam.includes('tarot')) urlTab = 'tarot';
+        else if (startParam.includes('alena')) { urlTab = 'chat'; urlPersona = 'alena'; }
+        else if (startParam.includes('artem')) { urlTab = 'chat'; urlPersona = 'artem'; }
+        else if (startParam.includes('big3')) { urlTab = 'horoscope'; urlFocus = 'big3'; }
+      }
+
+      if (urlPersona) {
+        state.profile.personaId = urlPersona;
+        applyPersonaUI(urlPersona);
+      }
+
+      if (isOnboarded && urlTab) {
+        switchNavTab(urlTab);
+        if (urlFocus === 'big3') {
+          setTimeout(() => {
+            const el = document.getElementById('cellSun');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 300);
+        }
+      }
     });
+
+    // Функция ручного сброса сессии (вызывается из интерфейса)
+    window.resetAstroMaxSession = function() {
+      if (confirm('Сбросить текущий Космический Паспорт и пройти онбординг заново?')) {
+        localStorage.removeItem('astromax_onboarded');
+        localStorage.removeItem('astromax_profile');
+        localStorage.removeItem('astromax_chat_history');
+        location.reload();
+      }
+    };
 
     // 1. Tab Switching
     function switchNavTab(tabName, initialMessage = null) {

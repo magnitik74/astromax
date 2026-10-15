@@ -20,10 +20,6 @@
   ],
   "rewrites": [
     {
-      "source": "/",
-      "destination": "/index.html"
-    },
-    {
       "source": "/health",
       "destination": "/api/health"
     }
