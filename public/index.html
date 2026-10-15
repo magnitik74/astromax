@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>АСТРА — Гороскоп, Натальная карта, Таро, Совместимость</title>
+  <link rel="icon" type="image/jpeg" href="/avatar.jpg">
+  <link rel="apple-touch-icon" href="/avatar.jpg">
   
   <!-- MAX Messenger Official Mini App Bridge SDK -->
   <script src="https://st.max.ru/js/max-web-app.js"></script>
@@ -309,6 +311,90 @@
       transform: scale(0.98);
     }
 
+    /* Brand Avatar in Header */
+    .brand-avatar-img {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid rgba(245, 158, 11, 0.6);
+      box-shadow: 0 0 14px rgba(139, 92, 246, 0.55);
+    }
+
+    /* Cinematic Hero Visuals across Tabs */
+    .passport-hero-visual, .transit-hero-visual, .tarot-hero-visual, .celesta-hero-visual {
+      width: 100%;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6), 0 0 20px rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .passport-hero-visual {
+      height: 140px;
+      border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    .transit-hero-visual {
+      height: 120px;
+      border-color: rgba(6, 182, 212, 0.35);
+    }
+
+    .tarot-hero-visual {
+      height: 180px;
+      border-color: rgba(139, 92, 246, 0.45);
+    }
+
+    .celesta-hero-visual {
+      height: 160px;
+      border-color: rgba(245, 158, 11, 0.45);
+    }
+
+    .hero-visual-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s ease;
+    }
+
+    .hero-visual-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7, 8, 17, 0.15) 0%, rgba(14, 18, 36, 0.94) 100%);
+      pointer-events: none;
+    }
+
+    .hero-visual-badge {
+      position: absolute;
+      bottom: 10px;
+      left: 12px;
+      right: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      pointer-events: none;
+    }
+
+    .hero-visual-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 10px;
+      background: rgba(7, 8, 17, 0.8);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: var(--radius-sm);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #FDE68A;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+    }
+
     /* ==========================================================================
        TAB 1: КОСМИЧЕСКИЙ ПАСПОРТ (AHA-MOMENT & BIG THREE)
        ========================================================================== */
@@ -329,7 +415,7 @@
       border-radius: var(--radius-sm);
       font-size: 11px;
       font-weight: 600;
-      color: var(--max-blue);
+      color: #C4B5FD;
     }
 
     .passport-user-title {
@@ -357,18 +443,77 @@
       background: var(--bg-surface-secondary);
       border: 1px solid var(--border-subtle);
       border-radius: var(--radius-md);
-      padding: 12px 8px;
+      padding: 12px 6px;
       text-align: center;
       cursor: pointer;
-      transition: all 0.15s ease;
+      transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       touch-action: manipulation;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .big-three-cell::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.14;
+      pointer-events: none;
+    }
+
+    .big-three-cell.sun {
+      border-color: rgba(245, 158, 11, 0.4);
+      box-shadow: 0 4px 16px rgba(245, 158, 11, 0.12);
+    }
+    .big-three-cell.sun::before {
+      background: radial-gradient(circle at 50% 0%, #F59E0B 0%, transparent 70%);
+    }
+
+    .big-three-cell.moon {
+      border-color: rgba(6, 182, 212, 0.4);
+      box-shadow: 0 4px 16px rgba(6, 182, 212, 0.12);
+    }
+    .big-three-cell.moon::before {
+      background: radial-gradient(circle at 50% 0%, #06B6D4 0%, transparent 70%);
+    }
+
+    .big-three-cell.asc {
+      border-color: rgba(139, 92, 246, 0.4);
+      box-shadow: 0 4px 16px rgba(139, 92, 246, 0.14);
+    }
+    .big-three-cell.asc::before {
+      background: radial-gradient(circle at 50% 0%, #8B5CF6 0%, transparent 70%);
     }
 
     .big-three-cell:active, .big-three-cell.active-inspect {
-      border-color: var(--max-blue);
-      background: rgba(0, 122, 255, 0.08);
-      transform: scale(0.98);
+      transform: scale(0.96);
     }
+    .big-three-cell.sun.active-inspect {
+      border-color: #F59E0B;
+      box-shadow: 0 0 16px rgba(245, 158, 11, 0.35);
+    }
+    .big-three-cell.moon.active-inspect {
+      border-color: #06B6D4;
+      box-shadow: 0 0 16px rgba(6, 182, 212, 0.35);
+    }
+    .big-three-cell.asc.active-inspect {
+      border-color: #8B5CF6;
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.4);
+    }
+
+    .element-mini-tag {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-top: 5px;
+      text-transform: uppercase;
+    }
+    .element-mini-tag.fire { background: rgba(239, 68, 68, 0.2); color: #FCA5A5; border: 1px solid rgba(239, 68, 68, 0.3); }
+    .element-mini-tag.water { background: rgba(59, 130, 246, 0.2); color: #93C5FD; border: 1px solid rgba(59, 130, 246, 0.3); }
+    .element-mini-tag.earth { background: rgba(16, 185, 129, 0.2); color: #6EE7B7; border: 1px solid rgba(16, 185, 129, 0.3); }
+    .element-mini-tag.air { background: rgba(168, 85, 247, 0.2); color: #D8B4FE; border: 1px solid rgba(168, 85, 247, 0.3); }
 
     .cell-glyph {
       font-size: 20px;
@@ -1509,7 +1654,7 @@
     <!-- Top App Header -->
     <header class="app-header">
       <div class="brand-mark">
-        <div class="brand-sigil">✦</div>
+        <img src="/avatar.jpg" class="brand-avatar-img" alt="АСТРА">
         <div style="display: flex; flex-direction: column;">
           <div class="brand-title" style="line-height: 1.1;">АСТРА</div>
           <span style="font-size: 9.5px; color: #F59E0B; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase;">Селеста VIP</span>
@@ -1530,6 +1675,21 @@
     <main id="tab-screen-horoscope" class="tab-screen active">
       <!-- 1. Космический Паспорт Личности -->
       <div class="native-card">
+        <!-- Cinematic Passport Hero Visual -->
+        <div class="passport-hero-visual">
+          <img src="/onboarding_hero.jpg" class="hero-visual-img" alt="Зодиакальный портал АСТРА">
+          <div class="hero-visual-overlay"></div>
+          <div class="hero-visual-badge">
+            <div class="hero-visual-tag">
+              <span style="color: #F59E0B;">✦</span>
+              <span id="heroPassportName">Александр</span>
+            </div>
+            <div class="hero-visual-tag" style="border-color: rgba(6, 182, 212, 0.4); color: #67E8F9;">
+              <span>NASA Эфемериды</span>
+            </div>
+          </div>
+        </div>
+
         <div class="passport-header-row">
           <div class="passport-tag">✦ Космический паспорт АСТРА</div>
           <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;" id="passportCoordsLabel">Москва • 55.75°N</span>
@@ -1540,20 +1700,23 @@
 
         <!-- The Big Three Interactive Grid -->
         <div class="big-three-grid">
-          <div class="big-three-cell active-inspect" id="cellSun" onclick="inspectBigThree('sun')">
+          <div class="big-three-cell sun active-inspect" id="cellSun" onclick="inspectBigThree('sun')">
             <span class="cell-glyph">☀️</span>
             <div class="cell-role">Солнце</div>
             <div class="cell-sign" id="valSun">Скорпион</div>
+            <span class="element-mini-tag water" id="tagSun">Вода</span>
           </div>
-          <div class="big-three-cell" id="cellMoon" onclick="inspectBigThree('moon')">
+          <div class="big-three-cell moon" id="cellMoon" onclick="inspectBigThree('moon')">
             <span class="cell-glyph">🌙</span>
             <div class="cell-role">Луна</div>
             <div class="cell-sign" id="valMoon">Водолей</div>
+            <span class="element-mini-tag air" id="tagMoon">Воздух</span>
           </div>
-          <div class="big-three-cell" id="cellAsc" onclick="inspectBigThree('asc')">
+          <div class="big-three-cell asc" id="cellAsc" onclick="inspectBigThree('asc')">
             <span class="cell-glyph">⬆️</span>
             <div class="cell-role">Асцендент</div>
             <div class="cell-sign" id="valAsc">Рак</div>
+            <span class="element-mini-tag water" id="tagAsc">Вода</span>
           </div>
         </div>
 
@@ -1584,6 +1747,21 @@
 
       <!-- 2. Космическая погода дня (Co-Star Reality Check) -->
       <div class="native-card">
+        <!-- Cinematic Transit Hero Visual -->
+        <div class="transit-hero-visual">
+          <img src="/welcome_cosmic.jpg" class="hero-visual-img" alt="Космические транзиты дня">
+          <div class="hero-visual-overlay"></div>
+          <div class="hero-visual-badge">
+            <div class="hero-visual-tag">
+              <span style="color: #38BDF8;">●</span>
+              <span>Транзиты в реальном времени</span>
+            </div>
+            <div class="hero-visual-tag" style="border-color: rgba(139, 92, 246, 0.4); color: #C4B5FD;">
+              <span>Точный астрономический срез</span>
+            </div>
+          </div>
+        </div>
+
         <div class="card-eyebrow">Твоя реальность сегодня</div>
         <h2 class="card-headline" id="dailyTransitHeadline">Не путай уязвимость со слабостью</h2>
         <div class="card-desc" id="dailyTransitDesc">
@@ -1691,6 +1869,21 @@
          ==================================================================== -->
     <main id="tab-screen-tarot" class="tab-screen">
       <div class="native-card">
+        <!-- Cinematic Tarot Altar Hero Visual -->
+        <div class="tarot-hero-visual">
+          <img src="/tarot_altar.jpg" class="hero-visual-img" alt="Священный алтарь Таро">
+          <div class="hero-visual-overlay"></div>
+          <div class="hero-visual-badge">
+            <div class="hero-visual-tag">
+              <span style="color: #A855F7;">✦</span>
+              <span>Святилище Арканов</span>
+            </div>
+            <div class="hero-visual-tag" style="border-color: rgba(245, 158, 11, 0.4); color: #FDE68A;">
+              <span>Золотые Арканы 3D</span>
+            </div>
+          </div>
+        </div>
+
         <div class="card-eyebrow">Зеркало подсознания</div>
         <h2 class="card-headline">Храм Таро</h2>
         <div class="card-desc">
@@ -1803,6 +1996,21 @@
 
       <!-- Premium Membership Card (Co-Star & Nebula Standard) -->
       <div class="premium-status-card" style="border: 1px solid rgba(245, 158, 11, 0.35); box-shadow: 0 10px 32px rgba(0,0,0,0.5), 0 0 20px rgba(245, 158, 11, 0.12);">
+        <!-- Cinematic Celesta Sanctuary Hero Visual -->
+        <div class="celesta-hero-visual">
+          <img src="/welcome_cosmic.jpg" class="hero-visual-img" alt="Пространство Селеста VIP">
+          <div class="hero-visual-overlay"></div>
+          <div class="hero-visual-badge">
+            <div class="hero-visual-tag">
+              <span style="color: #F59E0B;">✦</span>
+              <span>Закрытый круг</span>
+            </div>
+            <div class="hero-visual-tag" style="border-color: rgba(245, 158, 11, 0.5); color: #FDE68A;">
+              <span>VIP Членство</span>
+            </div>
+          </div>
+        </div>
+
         <div class="plan-anchor-badge" style="background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.45); color: #F59E0B;">✦ Пространство Селеста VIP</div>
         <div class="card-headline" style="font-size: 19px;">АСТРА Клуб • Пространство Селеста</div>
         <div style="font-size: 13px; color: var(--text-secondary); margin-top: 5px; line-height: 1.55;">
@@ -2471,6 +2679,8 @@
     function updateProfileUI() {
       const name = state.profile.name || 'Странник';
       document.getElementById('passportUserName').textContent = name;
+      const heroPassportNameEl = document.getElementById('heroPassportName');
+      if (heroPassportNameEl) heroPassportNameEl.textContent = name;
       document.getElementById('profileName').textContent = name;
       document.getElementById('passportBirthMeta').textContent = `Рождение: ${state.profile.birthDate} в ${state.profile.birthTime || '12:00'}`;
       document.getElementById('passportCoordsLabel').textContent = `${state.profile.city} • Точка старта`;
@@ -2626,6 +2836,33 @@
       document.getElementById('valSun').textContent = sun;
       document.getElementById('valMoon').textContent = moon;
       document.getElementById('valAsc').textContent = asc;
+
+      const signToElem = {
+        'Овен': { name: 'Огонь', cls: 'fire' },
+        'Лев': { name: 'Огонь', cls: 'fire' },
+        'Стрелец': { name: 'Огонь', cls: 'fire' },
+        'Телец': { name: 'Земля', cls: 'earth' },
+        'Дева': { name: 'Земля', cls: 'earth' },
+        'Козерог': { name: 'Земля', cls: 'earth' },
+        'Близнецы': { name: 'Воздух', cls: 'air' },
+        'Весы': { name: 'Воздух', cls: 'air' },
+        'Водолей': { name: 'Воздух', cls: 'air' },
+        'Рак': { name: 'Вода', cls: 'water' },
+        'Скорпион': { name: 'Вода', cls: 'water' },
+        'Рыбы': { name: 'Вода', cls: 'water' }
+      };
+
+      const updateTag = (id, sign) => {
+        const el = document.getElementById(id);
+        const meta = signToElem[sign];
+        if (el && meta) {
+          el.textContent = meta.name;
+          el.className = 'element-mini-tag ' + meta.cls;
+        }
+      };
+      updateTag('tagSun', sun);
+      updateTag('tagMoon', moon);
+      updateTag('tagAsc', asc);
 
       document.getElementById('stripSun').textContent = '☀️ ' + sun;
       document.getElementById('stripMoon').textContent = '🌙 ' + moon;
