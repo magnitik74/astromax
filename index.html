@@ -128,9 +128,7 @@
       display: flex;
       flex-direction: column;
       position: relative;
-      background: rgba(7, 8, 17, 0.88);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
+      background: #070811;
       border-left: 1px solid rgba(255, 255, 255, 0.05);
       border-right: 1px solid rgba(255, 255, 255, 0.05);
       padding-bottom: calc(var(--bottom-bar-height) + var(--safe-bottom) + 12px);
@@ -1434,23 +1432,34 @@
     /* Native Bottom Sheet Modal */
     .modal-backdrop {
       display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(0, 0, 0, 0.65);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
-      z-index: 100;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      width: 100dvw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      z-index: 99990 !important;
       align-items: flex-end;
       justify-content: center;
     }
 
     .modal-backdrop.active {
-      display: flex;
+      display: flex !important;
     }
 
     .modal-sheet {
       width: 100%;
       max-width: 480px;
+      max-height: 88vh;
+      max-height: 88dvh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       background: var(--bg-surface);
       border-top: 1px solid var(--border-contrast);
       border-radius: 20px 20px 0 0;
@@ -1472,24 +1481,30 @@
     }
 
     /* ==========================================================================
-    /* ==========================================================================
        CINEMATIC MODAL SHEET ONBOARDING (STRICT 1 SCREEN PER STEP, NO SCROLL)
        ========================================================================== */
     #onboardingModal.modal-backdrop {
       display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(4, 5, 11, 0.85);
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      width: 100vw !important;
+      width: 100dvw !important;
+      height: 100vh !important;
+      height: 100dvh !important;
+      background: rgba(4, 5, 11, 0.88);
       backdrop-filter: blur(16px);
       -webkit-backdrop-filter: blur(16px);
-      z-index: 250;
+      z-index: 99999 !important;
       align-items: flex-end;
       justify-content: center;
       animation: modalFadeIn 0.22s ease-out;
     }
 
     #onboardingModal.modal-backdrop.active {
-      display: flex;
+      display: flex !important;
     }
 
     #onboardingModal .modal-sheet {
@@ -1497,6 +1512,8 @@
       max-width: 480px;
       max-height: 88vh;
       max-height: 88dvh;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       background: rgba(14, 18, 36, 0.98);
       border-top-left-radius: 24px;
       border-top-right-radius: 24px;
@@ -2355,11 +2372,12 @@
         <span class="tab-label">Селеста</span>
       </button>
     </nav>
+  </div> <!-- /.app-viewport -->
 
-    <!-- ====================================================================
-         CINEMATIC MODAL SHEET ONBOARDING (STRICT 1 SCREEN PER STEP, NO SCROLL)
-         ==================================================================== -->
-    <div class="modal-backdrop" id="onboardingModal" style="z-index: 250;">
+  <!-- ====================================================================
+       CINEMATIC MODAL SHEET ONBOARDING (STRICT 1 SCREEN PER STEP, NO SCROLL)
+       ==================================================================== -->
+  <div class="modal-backdrop" id="onboardingModal">
       <div class="modal-sheet" style="padding-top: 14px; max-height: 88vh; display: flex; flex-direction: column;">
         <div class="sheet-handle"></div>
 
@@ -2698,8 +2716,6 @@
         </div>
       </div>
     </div>
-
-  </div>
 
   <!-- Client-side Application Logic -->
   <script>
@@ -3217,57 +3233,69 @@
 
     function applyChartToUI(chart) {
       if (!chart || !chart.bigThree) return;
-      const sun = chart.bigThree.sun.sign;
-      const moon = chart.bigThree.moon.sign;
-      const asc = chart.bigThree.ascendant.sign;
+      try {
+        const sun = chart.bigThree.sun?.sign || 'Телец';
+        const moon = chart.bigThree.moon?.sign || 'Водолей';
+        const asc = chart.bigThree.ascendant?.sign || 'Стрелец';
 
-      document.getElementById('valSun').textContent = sun;
-      document.getElementById('valMoon').textContent = moon;
-      document.getElementById('valAsc').textContent = asc;
+        const setSafeText = (id, txt) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = txt;
+        };
 
-      const signToElem = {
-        'Овен': { name: 'Огонь', cls: 'fire' },
-        'Лев': { name: 'Огонь', cls: 'fire' },
-        'Стрелец': { name: 'Огонь', cls: 'fire' },
-        'Телец': { name: 'Земля', cls: 'earth' },
-        'Дева': { name: 'Земля', cls: 'earth' },
-        'Козерог': { name: 'Земля', cls: 'earth' },
-        'Близнецы': { name: 'Воздух', cls: 'air' },
-        'Весы': { name: 'Воздух', cls: 'air' },
-        'Водолей': { name: 'Воздух', cls: 'air' },
-        'Рак': { name: 'Вода', cls: 'water' },
-        'Скорпион': { name: 'Вода', cls: 'water' },
-        'Рыбы': { name: 'Вода', cls: 'water' }
-      };
+        setSafeText('valSun', sun);
+        setSafeText('valMoon', moon);
+        setSafeText('valAsc', asc);
 
-      const updateTag = (id, sign) => {
-        const el = document.getElementById(id);
-        const meta = signToElem[sign];
-        if (el && meta) {
-          el.textContent = meta.name;
-          el.className = 'element-mini-tag ' + meta.cls;
+        const signToElem = {
+          'Овен': { name: 'Огонь', cls: 'fire' },
+          'Лев': { name: 'Огонь', cls: 'fire' },
+          'Стрелец': { name: 'Огонь', cls: 'fire' },
+          'Телец': { name: 'Земля', cls: 'earth' },
+          'Дева': { name: 'Земля', cls: 'earth' },
+          'Козерог': { name: 'Земля', cls: 'earth' },
+          'Близнецы': { name: 'Воздух', cls: 'air' },
+          'Весы': { name: 'Воздух', cls: 'air' },
+          'Водолей': { name: 'Воздух', cls: 'air' },
+          'Рак': { name: 'Вода', cls: 'water' },
+          'Скорпион': { name: 'Вода', cls: 'water' },
+          'Рыбы': { name: 'Вода', cls: 'water' }
+        };
+
+        const updateTag = (id, sign) => {
+          const el = document.getElementById(id);
+          const meta = signToElem[sign];
+          if (el && meta) {
+            el.textContent = meta.name;
+            el.className = 'element-mini-tag ' + meta.cls;
+          }
+        };
+        updateTag('tagSun', sun);
+        updateTag('tagMoon', moon);
+        updateTag('tagAsc', asc);
+
+        setSafeText('stripSun', '☀️ ' + sun);
+        setSafeText('stripMoon', '🌙 ' + moon);
+        setSafeText('dailyTransitHeadline', `Солнце в ${sun} • Луна в ${moon}`);
+        setSafeText('profileArchetype', `${sun} • Зодиакальный Код`);
+
+        generateDynamicParadox(sun, moon, asc);
+
+        const elems = chart.elements || chart.balance?.elements;
+        if (elems) {
+          const setElemPct = (pctId, barId, val) => {
+            const pEl = document.getElementById(pctId);
+            const bEl = document.getElementById(barId);
+            if (pEl) pEl.textContent = val + '%';
+            if (bEl) bEl.style.width = val + '%';
+          };
+          setElemPct('pctWater', 'barWater', elems.water || 25);
+          setElemPct('pctEarth', 'barEarth', elems.earth || 25);
+          setElemPct('pctFire', 'barFire', elems.fire || 25);
+          setElemPct('pctAir', 'barAir', elems.air || 25);
         }
-      };
-      updateTag('tagSun', sun);
-      updateTag('tagMoon', moon);
-      updateTag('tagAsc', asc);
-
-      document.getElementById('stripSun').textContent = '☀️ ' + sun;
-      document.getElementById('stripMoon').textContent = '🌙 ' + moon;
-      document.getElementById('dailyTransitHeadline').textContent = `Солнце в ${sun} • Луна в ${moon}`;
-      document.getElementById('profileArchetype').textContent = `${sun} • Зодиакальный Код`;
-
-      generateDynamicParadox(sun, moon, asc);
-
-      if (chart.elements) {
-        document.getElementById('pctWater').textContent = chart.elements.water + '%';
-        document.getElementById('barWater').style.width = chart.elements.water + '%';
-        document.getElementById('pctEarth').textContent = chart.elements.earth + '%';
-        document.getElementById('barEarth').style.width = chart.elements.earth + '%';
-        document.getElementById('pctFire').textContent = chart.elements.fire + '%';
-        document.getElementById('barFire').style.width = chart.elements.fire + '%';
-        document.getElementById('pctAir').textContent = chart.elements.air + '%';
-        document.getElementById('barAir').style.width = chart.elements.air + '%';
+      } catch (err) {
+        console.warn('applyChartToUI safe error catch:', err);
       }
     }
 
