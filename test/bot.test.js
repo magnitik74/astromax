@@ -40,14 +40,19 @@ test('BotDispatcher handles /start command with strict single CTA button to Mini
   assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('Твой персональный разбор готов') || result.receivedBody.text.includes('скрытое напряжение'));
   
-  // Verify strict funnel: 2 button rows (open_app native + link guaranteed direct)
+  // Verify conversion funnel: 4 button rows (open_app native + link guaranteed direct + 2 rows of curiosity hooks)
   const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 2);
+  assert.equal(buttons.length, 4);
   assert.equal(buttons[0][0].type, 'open_app');
   assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.equal(buttons[1][0].type, 'link');
   assert.ok(buttons[1][0].url.includes('https://astromax-nu.vercel.app'));
   assert.ok(buttons[1][0].url.includes('user_id=user_456'));
+  assert.equal(buttons[2][0].type, 'callback');
+  assert.equal(buttons[2][0].payload, 'TOPIC_RELATIONSHIPS');
+  assert.equal(buttons[2][1].payload, 'TOPIC_MONEY');
+  assert.equal(buttons[3][0].payload, 'ACTION_TAROT_DAILY');
+  assert.equal(buttons[3][1].payload, 'TOPIC_BIG_THREE');
 });
 
 test('BotDispatcher handles /tarot command by directing directly to Mini App', async () => {
@@ -93,13 +98,17 @@ test('BotDispatcher handles native Max event: bot_started with user_id & name de
   assert.ok(result.receivedBody.text.includes('Твой персональный разбор готов') || result.receivedBody.text.includes('скрытое напряжение'));
 
   const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 2);
+  assert.equal(buttons.length, 4);
   assert.equal(buttons[0][0].type, 'open_app');
   assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.equal(buttons[1][0].type, 'link');
   assert.ok(buttons[1][0].url.includes('https://astromax-nu.vercel.app'));
   assert.ok(buttons[1][0].url.includes('user_id=11223344'));
   assert.ok(buttons[1][0].url.includes('name=%D0%95%D0%BB%D0%B5%D0%BD%D0%B0'));
+  assert.equal(buttons[2][0].payload, 'TOPIC_RELATIONSHIPS');
+  assert.equal(buttons[2][1].payload, 'TOPIC_MONEY');
+  assert.equal(buttons[3][0].payload, 'ACTION_TAROT_DAILY');
+  assert.equal(buttons[3][1].payload, 'TOPIC_BIG_THREE');
 });
 
 test('BotDispatcher handles native Max event: message_created by guiding user into Mini App', async () => {
@@ -121,12 +130,14 @@ test('BotDispatcher handles native Max event: message_created by guiding user in
   assert.equal(res.receivedBody.format, 'markdown');
   assert.ok(res.receivedBody.text.includes('внутри приложения'));
   const buttons = res.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 2);
+  assert.equal(buttons.length, 3);
   assert.equal(buttons[0][0].type, 'open_app');
   assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.equal(buttons[1][0].type, 'link');
   assert.ok(buttons[1][0].url.includes('https://astromax-nu.vercel.app'));
   assert.ok(buttons[1][0].url.includes('name=%D0%90%D0%BD%D0%BD%D0%B0'));
+  assert.equal(buttons[2][0].payload, 'TOPIC_RELATIONSHIPS');
+  assert.equal(buttons[2][1].payload, 'TOPIC_MONEY');
 });
 
 test('BotDispatcher handles native Max event: message_callback for quick Tarot with Mini App link', async () => {
@@ -158,4 +169,53 @@ test('BotDispatcher handles native Max event: message_callback for quick Tarot w
   assert.ok(buttons[0][0].web_app.includes('startapp'));
   assert.equal(buttons[1][0].type, 'link');
   assert.ok(buttons[1][0].url.includes('https://astromax-nu.vercel.app'));
+});
+
+test('BotDispatcher handles topic callbacks: TOPIC_RELATIONSHIPS, TOPIC_MONEY, and TOPIC_BIG_THREE', async () => {
+  const client = new MaxBotClient({ isSandbox: true });
+  client.answerCallback = async () => ({ ok: true });
+  const dispatcher = new BotDispatcher(client);
+
+  // 1. Relationships
+  const relRes = await dispatcher.handleUpdate({
+    update_type: 'message_callback',
+    callback: {
+      callback_id: 'cb_rel_1',
+      payload: 'TOPIC_RELATIONSHIPS',
+      user: { user_id: 777111 },
+    },
+    message: { recipient: { chat_id: 777111 } },
+  });
+  assert.ok(relRes.receivedBody.text.includes('Отношения & Любовь'));
+  assert.ok(relRes.receivedBody.text.includes('Алёна Смирнова'));
+  assert.equal(relRes.receivedBody.attachments[0].payload.buttons.length, 2);
+
+  // 2. Money
+  const moneyRes = await dispatcher.handleUpdate({
+    update_type: 'message_callback',
+    callback: {
+      callback_id: 'cb_mon_1',
+      payload: 'TOPIC_MONEY',
+      user: { user_id: 777222 },
+    },
+    message: { recipient: { chat_id: 777222 } },
+  });
+  assert.ok(moneyRes.receivedBody.text.includes('Деньги & Карьера'));
+  assert.ok(moneyRes.receivedBody.text.includes('Артём Соколов'));
+  assert.equal(moneyRes.receivedBody.attachments[0].payload.buttons.length, 2);
+
+  // 3. Big Three
+  const b3Res = await dispatcher.handleUpdate({
+    update_type: 'message_callback',
+    callback: {
+      callback_id: 'cb_b3_1',
+      payload: 'TOPIC_BIG_THREE',
+      user: { user_id: 777333 },
+    },
+    message: { recipient: { chat_id: 777333 } },
+  });
+  assert.ok(b3Res.receivedBody.text.includes('Большая Тройка'));
+  assert.ok(b3Res.receivedBody.text.includes('Солнце'));
+  assert.ok(b3Res.receivedBody.text.includes('Асцендент'));
+  assert.equal(b3Res.receivedBody.attachments[0].payload.buttons.length, 2);
 });

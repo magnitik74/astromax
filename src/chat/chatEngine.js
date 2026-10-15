@@ -89,20 +89,34 @@ export class ChatEngine {
     const appUrl = this.getAppUrl(userId, userName);
 
     const welcomeText = 
-`${namePrefix} это скрытое напряжение в последние дни?
+`✨ **АСТРА** • Твой звездный ментор нового поколения
 
-В твоей карте есть редкий парадокс: внешне ты кажешься собранным и неуязвимым, но внутри отдаешь людям намного больше, чем они способны вернуть.
+${namePrefix} это скрытое напряжение в последние дни?
 
-Твой персональный разбор готов. Вскроем то, о чем ты молчишь: отношения, скрытые мотивы и поворотную точку этого месяца.
+В твоей натальной карте есть редкий парадокс: внешне ты кажешься спокойным(ой) и неуязвимым(ой), но внутри отдаешь людям намного больше, чем они способны оценить.
 
+Твой **Космический Паспорт** уже рассчитан по эфемеридам NASA:
+• **Большая Тройка:** скрытые страхи Луны, воля Солнца и маска Асцендента
+• **Личный наставник 24/7:** Алёна, Артём, Елена и София на связи
+• **Храм Таро:** арканы на истинные мысли партнера и слепые зоны
+
+Вскроем то, о чем ты молчишь:
 🔗 **Вход в приложение:** ${appUrl}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть Mini App (Нативно)', appUrl),
+        this.client.buildOpenAppButton('✦ Открыть АСТРА (Космический Паспорт)', appUrl),
       ],
       [
-        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
+        this.client.buildLinkButton('🌐 Войти через браузер (Прямой доступ)', appUrl),
+      ],
+      [
+        this.client.buildCallbackButton('💔 Что в отношениях?', 'TOPIC_RELATIONSHIPS'),
+        this.client.buildCallbackButton('💰 Где мои деньги?', 'TOPIC_MONEY'),
+      ],
+      [
+        this.client.buildCallbackButton('🃏 Карта Дня Таро', 'ACTION_TAROT_DAILY'),
+        this.client.buildCallbackButton('🪐 Моя Большая Тройка', 'TOPIC_BIG_THREE'),
       ],
     ];
 
@@ -294,20 +308,31 @@ ${aiInsight}
     const userName = options.userName || '';
     const namePrefix = userName ? `**${userName}**, я слышу тебя` : `Я слышу тебя`;
     const appUrl = this.getAppUrl(userId, userName);
+    const cleanText = (text || '').trim();
+    const excerpt = cleanText.length > 50 ? cleanText.slice(0, 50) + '...' : cleanText;
 
     const replyText = 
-`✨ ${namePrefix}. В твоем вопросе кроется то, о чем ты молчишь даже перед собой.
+`✨ ${namePrefix}.
 
-Ответ уже ждет внутри приложения. Твой личный наставник препарировал эту ситуацию: скрытые мотивы, слепые зоны и точный совет, что делать прямо сейчас:
+В твоем вопросе *«${excerpt}»* кроется скрытая точка напряжения. Мы сопоставили твои транзиты с натальной картой:
 
-🔗 **Вход в приложение:** ${appUrl}`;
+• Вскрыты скрытые мотивы ситуации и то, почему это задевает за живое
+• Подсвечена слепая зона, которую ты упорно игнорируешь
+• Наставник подготовил персональный разбор без эзотерической воды
+
+Полный ответ и диалог с экспертом открыты внутри приложения:
+🔗 **Вход в кабинет:** ${appUrl}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
+        this.client.buildOpenAppButton('✦ Читать персональный ответ в АСТРА', appUrl),
       ],
       [
         this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
+      ],
+      [
+        this.client.buildCallbackButton('💔 Что в отношениях?', 'TOPIC_RELATIONSHIPS'),
+        this.client.buildCallbackButton('💰 Где мои деньги?', 'TOPIC_MONEY'),
       ],
     ];
 
