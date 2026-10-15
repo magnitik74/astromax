@@ -12,12 +12,16 @@ export default function handler(req, res) {
     ];
     for (const p of candidatePaths) {
       if (fs.existsSync(p)) {
-        return res.status(200).send(fs.readFileSync(p, 'utf8'));
+        const content = fs.readFileSync(p, 'utf8');
+        res.statusCode = 200;
+        return res.end(content);
       }
     }
   } catch (err) {
     console.error('Error reading index.html:', err);
   }
 
-  return res.redirect(302, '/index.html');
+  res.statusCode = 302;
+  res.setHeader('Location', '/index.html');
+  return res.end();
 }
