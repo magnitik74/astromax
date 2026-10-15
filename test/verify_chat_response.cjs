@@ -27,34 +27,34 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
   await page.evaluate(() => switchNavTab('chat'));
   await new Promise(r => setTimeout(r, 1000));
 
-  // Select Elena (id: elena)
-  await page.evaluate(() => selectPersona('elena'));
+  // Select Sofia (id: sofia) as requested by user
+  await page.evaluate(() => selectPersona('sofia'));
   await new Promise(r => setTimeout(r, 1000));
 
-  // Send test question to Elena
-  const testQuestion = 'Как мне услышать свой истинный внутренний голос?';
-  console.log('Sending message to Elena:', testQuestion);
+  // Send "привет" to Sofia
+  const testQuestion = 'привет';
+  console.log('Sending message to Sofia:', testQuestion);
   await page.evaluate((q) => sendUserMessage(q), testQuestion);
 
-  // Wait for typing indicator and live reply streaming (approx 4-5 seconds)
-  console.log('Waiting for live reply stream...');
-  await new Promise(r => setTimeout(r, 5500));
+  // Wait for typing indicator and live reply streaming (approx 5-6 seconds)
+  console.log('Waiting for Sofia live reply stream...');
+  await new Promise(r => setTimeout(r, 6000));
 
-  const liveChatPath = path.join(artifactDir, 'screen_elena_live_chat.png');
+  const liveChatPath = path.join(artifactDir, 'screen_sofia_live_chat.png');
   await page.screenshot({ path: liveChatPath });
-  console.log('Live Elena chat screenshot captured at:', liveChatPath);
+  console.log('Live Sofia chat screenshot captured at:', liveChatPath);
 
   // Extract last assistant message text
   const lastMessage = await page.evaluate(() => {
-    const messages = document.querySelectorAll('.msg-bubble.assistant');
+    const messages = document.querySelectorAll('.chat-bubble.astrologer, .chat-message.assistant');
     if (messages.length === 0) return 'NO_MESSAGES';
     return messages[messages.length - 1].innerText;
   });
 
-  console.log('\n--- EXTRACTED MENTOR BUBBLE FROM LIVE DOM ---');
+  console.log('\n--- EXTRACTED SOFIA BUBBLE FROM LIVE DOM ---');
   console.log(lastMessage);
-  console.log('---------------------------------------------');
+  console.log('-------------------------------------------');
 
   await browser.close();
-  console.log('Elena live chat verified successfully!');
+  console.log('Sofia live chat verified successfully!');
 })();

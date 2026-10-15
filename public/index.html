@@ -730,189 +730,182 @@
     }
 
     /* ==========================================================================
-       TAB 2: ИИ-АСТРОЛОГ 24/7 (INTERACTIVE NATIVE CHAT & NANO-BANNER)
+       TAB 2: ИИ-НАСТАВНИК 24/7 (LUXURY NATIVE CHAT ARCHITECTURE)
        ========================================================================== */
-    /* FOMO Live Ticker Bar */
-    .fomo-ticker-bar {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      padding: 7px 12px;
-      background: rgba(0, 122, 255, 0.08);
-      border: 1px solid var(--max-blue-border);
-      border-radius: var(--radius-sm);
-      margin-bottom: 10px;
+    body.tab-chat-active {
+      overflow: hidden !important;
+    }
+
+    body.tab-chat-active .app-header {
+      display: none !important;
+    }
+
+    body.tab-chat-active .app-viewport {
+      padding-bottom: calc(var(--bottom-bar-height) + var(--safe-bottom)) !important;
+      height: 100vh;
+      height: 100dvh;
       overflow: hidden;
     }
 
-    .fomo-ticker-pulse {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: #FF3B30;
-      box-shadow: 0 0 8px rgba(255, 59, 48, 0.8);
-      animation: pulseAlert 1.6s infinite ease-in-out;
-      flex-shrink: 0;
-    }
-
-    @keyframes pulseAlert {
-      0%, 100% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.3); opacity: 0.6; }
-    }
-
-    .fomo-ticker-content {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+    body.tab-chat-active #tab-screen-chat {
+      height: 100% !important;
       flex: 1;
+      min-height: 0;
+      display: flex;
+      flex-direction: column;
+      padding: 0 !important;
+      overflow: hidden;
     }
 
-    /* Astrologer Nano-Banner */
-    .astrologer-nano-banner {
+    /* Virtual Keyboard Active State */
+    body.keyboard-active .bottom-bar {
+      display: none !important;
+    }
+
+    body.tab-chat-active.keyboard-active .app-viewport {
+      padding-bottom: 0 !important;
+    }
+
+    /* Native Telegram/ChatGPT Standard Chat TopBar */
+    .chat-topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
-      padding: 10px 14px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-contrast);
-      border-radius: var(--radius-lg);
-      margin-bottom: 12px;
+      padding: calc(var(--safe-top) + 8px) 16px 10px;
+      background: rgba(11, 12, 19, 0.94);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      flex-shrink: 0;
       cursor: pointer;
-      transition: all 0.15s ease;
+      z-index: 30;
+      transition: background 0.15s ease;
+      user-select: none;
       touch-action: manipulation;
     }
 
-    .astrologer-nano-banner:active {
-      transform: scale(0.985);
-      border-color: var(--max-blue);
-      background: var(--bg-hover);
+    .chat-topbar:active {
+      background: rgba(22, 24, 38, 0.96);
     }
 
-    .nano-banner-left {
+    .chat-topbar-profile {
       display: flex;
       align-items: center;
       gap: 12px;
-      flex: 1;
       min-width: 0;
+      flex: 1;
     }
 
-    .nano-avatar-wrap {
+    .chat-topbar-avatar-wrap {
       position: relative;
+      width: 42px;
+      height: 42px;
       flex-shrink: 0;
-      width: 46px;
-      height: 46px;
     }
 
-    .nano-avatar {
-      width: 46px;
-      height: 46px;
+    .chat-topbar-avatar {
+      width: 42px;
+      height: 42px;
       border-radius: 50%;
-      border: 2px solid var(--max-blue);
+      border: 1.5px solid var(--max-blue);
       object-fit: cover;
       display: block;
       background: var(--bg-surface-secondary);
     }
 
-    .nano-avatar-beacon {
+    .chat-topbar-beacon {
       position: absolute;
       bottom: 0px;
       right: 0px;
-      width: 11px;
-      height: 11px;
+      width: 10px;
+      height: 10px;
       background: #30D158;
-      border: 2px solid var(--bg-surface);
+      border: 2px solid #0B0C13;
       border-radius: 50%;
       box-shadow: 0 0 6px rgba(48, 209, 88, 0.9);
     }
 
-    .nano-meta {
-      flex: 1;
-      min-width: 0;
-    }
-
-    .nano-name-row {
+    .chat-topbar-meta {
       display: flex;
-      align-items: center;
-      gap: 6px;
+      flex-direction: column;
+      min-width: 0;
+      flex: 1;
+      justify-content: center;
     }
 
-    .nano-name {
-      font-size: 14.5px;
+    .chat-topbar-name {
+      font-size: 15px;
       font-weight: 700;
       color: var(--text-primary);
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      letter-spacing: -0.2px;
+      line-height: 1.25;
     }
 
-    .nano-age {
-      font-size: 11.5px;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .nano-role {
-      font-size: 11.5px;
-      color: var(--max-blue);
-      font-weight: 500;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      margin-top: 1px;
-    }
-
-    .nano-rating-row {
+    .chat-topbar-sub-row {
       display: flex;
       align-items: center;
       gap: 5px;
-      font-size: 10.5px;
-      color: var(--text-muted);
+      font-size: 11.5px;
       margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .nano-stars {
-      color: #FFB300;
-      font-size: 10px;
-      letter-spacing: 0.5px;
+    .chat-topbar-status-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #30D158;
+      box-shadow: 0 0 4px rgba(48, 209, 88, 0.8);
+      flex-shrink: 0;
     }
 
-    .nano-rating {
-      font-weight: 600;
-      color: var(--text-secondary);
-    }
-
-    .nano-sep {
-      color: rgba(255, 255, 255, 0.2);
-    }
-
-    .nano-online {
+    .chat-topbar-status-text {
       color: #30D158;
       font-weight: 500;
+      font-size: 11px;
     }
 
-    .nano-switch-btn {
+    .chat-topbar-sep {
+      color: rgba(255, 255, 255, 0.25);
+      font-size: 10px;
+    }
+
+    .chat-topbar-role-text {
+      color: var(--text-muted);
+      font-size: 11px;
+      font-weight: 450;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .chat-topbar-switch-btn {
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 6px 10px;
-      background: var(--bg-surface-secondary);
-      border: 1px solid var(--border-contrast);
+      padding: 6px 11px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
       border-radius: var(--radius-pill);
       color: var(--text-secondary);
-      font-size: 11px;
+      font-size: 11.5px;
       font-weight: 600;
       cursor: pointer;
       flex-shrink: 0;
       transition: all 0.15s ease;
+      touch-action: manipulation;
     }
 
-    .nano-switch-btn:active {
-      background: var(--max-blue-tint);
-      color: var(--max-blue);
+    .chat-topbar-switch-btn:active {
+      background: rgba(139, 92, 246, 0.2);
+      color: #FFFFFF;
+      border-color: rgba(139, 92, 246, 0.4);
     }
 
     /* Persona Selector Card Styles */
@@ -1033,48 +1026,56 @@
       color: var(--text-muted);
     }
 
-    /* Chat Messages Stream */
+    /* Chat Messages Stream (Dynamic High-Breathing Canvas) */
     .chat-stream {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      padding: 16px 14px 12px;
       display: flex;
       flex-direction: column;
       gap: 12px;
-      min-height: 290px;
-      max-height: 480px;
-      overflow-y: auto;
-      padding: 4px 2px 14px;
       scroll-behavior: smooth;
     }
 
     .chat-bubble {
-      max-width: 85%;
-      padding: 12px 15px;
+      max-width: 84%;
+      padding: 12px 16px;
       font-size: 14.5px;
       line-height: 1.55;
-      border-radius: var(--radius-md);
+      border-radius: 18px;
       position: relative;
+      word-break: break-word;
     }
 
     .chat-bubble.astrologer {
       align-self: flex-start;
-      background: var(--bg-surface-secondary);
-      border: 1px solid var(--border-subtle);
-      color: var(--text-primary);
+      background: rgba(23, 25, 38, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #F8FAFC;
       border-bottom-left-radius: 4px;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
     }
 
     .chat-bubble.user {
       align-self: flex-end;
-      background: var(--max-blue);
+      background: linear-gradient(135deg, #7C3AED 0%, #6366F1 50%, #06B6D4 100%);
       color: #FFFFFF;
       border-bottom-right-radius: 4px;
+      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35);
+      font-weight: 450;
     }
 
     .chat-timestamp {
       font-size: 10px;
       color: rgba(255, 255, 255, 0.45);
-      margin-top: 4px;
+      margin-top: 5px;
       display: block;
       text-align: right;
+      letter-spacing: 0.2px;
     }
 
     .chat-bubble.astrologer .chat-timestamp {
@@ -1085,12 +1086,17 @@
     .typing-indicator {
       display: none;
       align-self: flex-start;
-      background: var(--bg-surface-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-md);
-      padding: 10px 14px;
-      gap: 4px;
+      margin: 0 14px 8px;
+      background: rgba(23, 25, 38, 0.85);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      border-bottom-left-radius: 4px;
+      padding: 8px 14px;
+      gap: 5px;
       align-items: center;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
     }
 
     .typing-dot {
@@ -1109,47 +1115,35 @@
       40% { opacity: 1; transform: scale(1.2); }
     }
 
-    /* Quick Question Prompt Pills */
-    .prompt-pills-row {
-      display: flex;
-      gap: 8px;
-      overflow-x: auto;
-      padding: 6px 0 10px;
-      scrollbar-width: none;
-    }
-
-    .prompt-pills-row::-webkit-scrollbar { display: none; }
-
-    .prompt-pill {
-      white-space: nowrap;
-      background: var(--bg-surface-secondary);
-      border: 1px solid var(--border-subtle);
-      border-radius: var(--radius-pill);
-      padding: 6px 12px;
-      font-size: 12px;
-      font-weight: 500;
-      color: var(--text-secondary);
-      cursor: pointer;
-      transition: all 0.15s ease;
-      touch-action: manipulation;
-    }
-
-    .prompt-pill:active {
-      border-color: var(--max-blue);
-      color: var(--max-blue);
-      transform: scale(0.97);
-    }
-
-    /* Chat Input Bar */
+    /* Luxury Single-Row Native Chat Input Bar */
     .chat-input-bar {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: var(--bg-surface);
-      border: 1px solid var(--border-contrast);
-      border-radius: var(--radius-md);
-      padding: 6px 8px 6px 14px;
-      margin-top: 4px;
+      background: rgba(11, 12, 19, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 8px 12px;
+      flex-shrink: 0;
+      z-index: 20;
+    }
+
+    .chat-input-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 22px;
+      padding: 7px 14px;
+      transition: all 0.2s ease;
+    }
+
+    .chat-input-wrap:focus-within {
+      border-color: rgba(139, 92, 246, 0.6);
+      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 0 12px rgba(139, 92, 246, 0.25);
     }
 
     .chat-input {
@@ -1157,27 +1151,28 @@
       background: none;
       border: none;
       outline: none;
-      color: var(--text-primary);
+      color: #FFFFFF;
       font-size: 14.5px;
       font-family: inherit;
     }
 
     .chat-input::placeholder {
-      color: var(--text-muted);
+      color: rgba(255, 255, 255, 0.35);
     }
 
     .chat-send-btn {
-      width: 36px;
-      height: 36px;
-      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
       border: none;
-      background: var(--max-blue);
+      background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
       color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
+      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
       transition: transform 0.12s ease;
       touch-action: manipulation;
     }
@@ -2273,40 +2268,28 @@
          TAB 2: ИИ-АСТРОЛОГ 24/7 (ЖИВОЙ ЧАТ)
          ==================================================================== -->
     <main id="tab-screen-chat" class="tab-screen">
-      <!-- FOMO Social Proof Live Ticker -->
-      <div class="fomo-ticker-bar">
-        <div class="fomo-ticker-pulse"></div>
-        <div class="fomo-ticker-content" id="fomoTickerText">
-          🔥 Прямо сейчас: 142 человека разбирают совместимость • 38 новых раскладов за 15 мин
-        </div>
-      </div>
-
-      <!-- Astrologer Interactive Nano-Banner -->
-      <div class="astrologer-nano-banner" onclick="openPersonaSheet()">
-        <div class="nano-banner-left">
-          <div class="nano-avatar-wrap">
-            <img id="chatPersonaAvatar" src="/avatars/alena.jpg" class="nano-avatar" alt="Астролог">
-            <div class="nano-avatar-beacon"></div>
+      <!-- Native Telegram/ChatGPT Standard Chat TopBar -->
+      <header class="chat-topbar" onclick="openPersonaSheet()">
+        <div class="chat-topbar-profile">
+          <div class="chat-topbar-avatar-wrap">
+            <img id="chatPersonaAvatar" src="/avatars/alena.jpg" class="chat-topbar-avatar" alt="Наставник">
+            <div class="chat-topbar-beacon"></div>
           </div>
-          <div class="nano-meta">
-            <div class="nano-name-row">
-              <span id="chatPersonaName" class="nano-name">Алёна Смирнова</span>
-              <span id="chatPersonaAge" class="nano-age">31 год</span>
-            </div>
-            <div id="chatPersonaRole" class="nano-role">Астропсихолог • Отношения & Баланс</div>
-            <div class="nano-rating-row">
-              <span class="nano-stars">★★★★★</span>
-              <span id="chatPersonaRating" class="nano-rating">4.98</span>
-              <span class="nano-sep">•</span>
-              <span class="nano-online">🟢 24/7 на связи</span>
+          <div class="chat-topbar-meta">
+            <span id="chatPersonaName" class="chat-topbar-name">Алёна Смирнова</span>
+            <div class="chat-topbar-sub-row">
+              <span class="chat-topbar-status-dot"></span>
+              <span id="chatTopBarStatusText" class="chat-topbar-status-text">Онлайн 24/7</span>
+              <span class="chat-topbar-sep">•</span>
+              <span id="chatPersonaRoleBadge" class="chat-topbar-role-text">Астропсихолог</span>
             </div>
           </div>
         </div>
-        <button class="nano-switch-btn" type="button" title="Сменить наставника">
+        <button class="chat-topbar-switch-btn" type="button" title="Выбрать наставника">
           <span>Сменить</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
-      </div>
+      </header>
 
       <!-- Chat Messages Stream -->
       <div class="chat-stream" id="chatStream">
@@ -2324,19 +2307,13 @@
         <span style="font-size: 11.5px; color: var(--text-muted); margin-left: 6px;">Алёна анализирует аспекты...</span>
       </div>
 
-      <!-- Quick Question Prompt Pills -->
-      <div class="prompt-pills-row">
-        <div class="prompt-pill" onclick="sendPromptPill('Почему всё застопорилось и как сдвинуться с мертвой точки?')">✦ Почему я в тупике?</div>
-        <div class="prompt-pill" onclick="sendPromptPill('Что происходит в отношениях и почему он отдаляется?')">✦ Что он скрывает?</div>
-        <div class="prompt-pill" onclick="sendPromptPill('Где заблокирован мой финансовый рост и где слив денег?')">✦ Где слив денег?</div>
-        <div class="prompt-pill" onclick="sendPromptPill('Сделай расклад Таро на скрытые мысли и истинные намерения')">✦ Вскрыть правду Таро</div>
-      </div>
-
-      <!-- Chat Input Field -->
+      <!-- Luxury Single-Row Native Chat Input Field -->
       <form class="chat-input-bar" onsubmit="handleChatSubmit(event)">
-        <input type="text" id="chatMessageInput" class="chat-input" placeholder="Напиши вопрос наставнику..." autocomplete="off">
+        <div class="chat-input-wrap">
+          <input type="text" id="chatMessageInput" class="chat-input" placeholder="Напиши вопрос наставнику..." autocomplete="off">
+        </div>
         <button type="submit" class="chat-send-btn" title="Отправить">
-          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
           </svg>
@@ -3207,6 +3184,33 @@
           }, 300);
         }
       }
+
+      // 5. Chat Input & Virtual Keyboard Event Handlers
+      const chatInput = document.getElementById('chatMessageInput');
+      const chatStream = document.getElementById('chatStream');
+
+      if (chatInput) {
+        if (!chatInput.value.trim() && state.chatHistory.length === 0) {
+          chatInput.value = 'Привет! На что мне обратить внимание прямо сейчас?';
+        }
+        chatInput.addEventListener('focus', () => {
+          document.body.classList.add('keyboard-active');
+          setTimeout(() => {
+            if (chatStream) chatStream.scrollTop = chatStream.scrollHeight;
+          }, 150);
+        });
+        chatInput.addEventListener('blur', () => {
+          document.body.classList.remove('keyboard-active');
+        });
+      }
+
+      if (chatStream) {
+        chatStream.addEventListener('click', () => {
+          if (document.activeElement === chatInput) {
+            chatInput.blur();
+          }
+        });
+      }
     });
 
     // Функция ручного сброса сессии (вызывается из интерфейса)
@@ -3231,7 +3235,21 @@
       if (targetScreen) targetScreen.classList.add('active');
       if (targetNav) targetNav.classList.add('active');
 
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (tabName === 'chat') {
+        document.body.classList.add('tab-chat-active');
+        const input = document.getElementById('chatMessageInput');
+        if (input && !input.value.trim() && state.chatHistory.length === 0) {
+          input.value = 'Привет! На что мне обратить внимание прямо сейчас?';
+        }
+        setTimeout(() => {
+          const stream = document.getElementById('chatStream');
+          if (stream) stream.scrollTop = stream.scrollHeight;
+        }, 50);
+      } else {
+        document.body.classList.remove('tab-chat-active');
+        document.body.classList.remove('keyboard-active');
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
 
       if (tabName === 'chat' && initialMessage) {
         sendUserMessage(initialMessage);
@@ -3339,7 +3357,7 @@
         const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         state.chatHistory.push({
           role: 'assistant',
-          content: `*${persona.name} присоединилась к диалогу:*\n${persona.greeting}`,
+          content: `${persona.name} присоединилась к диалогу:\n${persona.greeting}`,
           time: now
         });
         localStorage.setItem('astromax_chat_history', JSON.stringify(state.chatHistory));
@@ -3351,16 +3369,17 @@
       const p = getPersona(personaId);
       const avatarEl = document.getElementById('chatPersonaAvatar');
       const nameEl = document.getElementById('chatPersonaName');
-      const ageEl = document.getElementById('chatPersonaAge');
-      const roleEl = document.getElementById('chatPersonaRole');
-      const ratingEl = document.getElementById('chatPersonaRating');
+      const roleBadgeEl = document.getElementById('chatPersonaRoleBadge');
+      const statusTextEl = document.getElementById('chatTopBarStatusText');
       const typingSpan = document.querySelector('#typingIndicator span');
 
       if (avatarEl) avatarEl.src = p.avatar;
       if (nameEl) nameEl.textContent = p.name;
-      if (ageEl) ageEl.textContent = p.age;
-      if (roleEl) roleEl.textContent = p.subtitle;
-      if (ratingEl) ratingEl.textContent = p.rating;
+      if (roleBadgeEl) {
+        const role = p.id === 'artem' ? 'Бизнес & деньги' : p.id === 'elena' ? 'Карма & натал' : p.id === 'sofia' ? 'Таро & интуиция' : 'Астропсихолог';
+        roleBadgeEl.textContent = role;
+      }
+      if (statusTextEl) statusTextEl.textContent = 'Онлайн 24/7';
       if (typingSpan) typingSpan.textContent = `${p.name.split(' ')[0]} изучает аспекты...`;
 
       // Header badge
