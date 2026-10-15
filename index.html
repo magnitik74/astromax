@@ -1563,6 +1563,150 @@
       box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);
     }
 
+    /* =========================================================================
+       Cinematic Animated Onboarding Medallions (Hardware-Accelerated 60 FPS)
+       ========================================================================= */
+    .ob-medallion-container {
+      position: relative;
+      width: 66px;
+      height: 66px;
+      margin: 0 auto 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: astraFloat 3.8s ease-in-out infinite;
+      will-change: transform;
+    }
+
+    .ob-medallion-halo {
+      position: absolute;
+      inset: -5px;
+      border-radius: 50%;
+      background: conic-gradient(from 0deg, #8B5CF6, #06B6D4, #F59E0B, #8B5CF6);
+      filter: blur(8px);
+      opacity: 0.7;
+      animation: astraRingSpin 6s linear infinite;
+      will-change: transform;
+    }
+
+    .ob-medallion-halo.large {
+      inset: -8px;
+      filter: blur(12px);
+      opacity: 0.85;
+      animation: astraRingSpin 4s linear infinite;
+    }
+
+    .ob-medallion-badge {
+      position: relative;
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      padding: 2px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(139, 92, 246, 0.6) 50%, rgba(6, 182, 212, 0.5) 100%);
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.45), inset 0 0 8px rgba(255, 255, 255, 0.25);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: astraAuraPulse 3.8s ease-in-out infinite;
+      z-index: 2;
+    }
+
+    .ob-medallion-badge.large {
+      width: 78px;
+      height: 78px;
+    }
+
+    .ob-medallion-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      display: block;
+      transform: scale(1.04);
+      filter: contrast(1.06) brightness(1.04);
+    }
+
+    .ob-medallion-shimmer {
+      position: absolute;
+      top: -50%;
+      left: -120%;
+      width: 60%;
+      height: 200%;
+      background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.65) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transform: rotate(28deg);
+      pointer-events: none;
+      animation: astraSpecularSweep 3.6s ease-in-out infinite;
+    }
+
+    /* Mentor cluster preview in Step 4 */
+    .ob-mentor-cluster {
+      position: relative;
+      width: 96px;
+      height: 38px;
+      margin: 0 auto;
+    }
+    .ob-cluster-avatar {
+      position: absolute;
+      top: 0;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      border: 1.5px solid var(--solar-gold);
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.8), 0 0 8px rgba(139, 92, 246, 0.5);
+      object-fit: cover;
+    }
+
+    @keyframes astraFloat {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+      }
+      50% {
+        transform: translateY(-3px) scale(1.02);
+      }
+    }
+
+    @keyframes astraRingSpin {
+      0% {
+        transform: rotate(0deg);
+      }
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes astraAuraPulse {
+      0%, 100% {
+        box-shadow: 0 0 14px rgba(139, 92, 246, 0.4), 0 0 24px rgba(6, 182, 212, 0.2);
+      }
+      50% {
+        box-shadow: 0 0 22px rgba(139, 92, 246, 0.7), 0 0 38px rgba(6, 182, 212, 0.45);
+      }
+    }
+
+    @keyframes astraSpecularSweep {
+      0% {
+        left: -120%;
+        opacity: 0;
+      }
+      15% {
+        opacity: 0.85;
+      }
+      35% {
+        left: 140%;
+        opacity: 0;
+      }
+      100% {
+        left: 140%;
+        opacity: 0;
+      }
+    }
+
     .onboarding-loading-bar-wrap {
       width: 100%;
       height: 7px;
@@ -2240,9 +2384,16 @@
 
         <!-- Step 1: Имя -->
         <div id="obStep1">
-          <div class="card-eyebrow" style="margin-bottom: 4px;">Шаг 1 из 4 • Зеркало личности</div>
-          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px;">Как к тебе обращаться?</h3>
-          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 16px;">
+          <div class="ob-medallion-container">
+            <div class="ob-medallion-halo"></div>
+            <div class="ob-medallion-badge">
+              <img src="/onboarding_step1_portal.jpg" class="ob-medallion-img" alt="Врата Судьбы">
+              <div class="ob-medallion-shimmer"></div>
+            </div>
+          </div>
+          <div class="card-eyebrow" style="margin-bottom: 4px; text-align: center;">Шаг 1 из 4 • Зеркало личности</div>
+          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px; text-align: center;">Как к тебе обращаться?</h3>
+          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 16px; text-align: center;">
             Имя задает вибрацию первого контакта. Назови себя так, как ты ощущаешь себя наедине с собой.
           </p>
           <div class="form-field" style="margin-bottom: 16px;">
@@ -2256,9 +2407,16 @@
 
         <!-- Step 2: Дата и время -->
         <div id="obStep2" style="display: none;">
-          <div class="card-eyebrow" style="margin-bottom: 4px;">Шаг 2 из 4 • Момент первого вдоха</div>
-          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px;">Когда ты пришел(ла) в этот мир?</h3>
-          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 16px;">
+          <div class="ob-medallion-container">
+            <div class="ob-medallion-halo"></div>
+            <div class="ob-medallion-badge">
+              <img src="/onboarding_step2_astrolabe.jpg" class="ob-medallion-img" alt="Астролябия Времени">
+              <div class="ob-medallion-shimmer"></div>
+            </div>
+          </div>
+          <div class="card-eyebrow" style="margin-bottom: 4px; text-align: center;">Шаг 2 из 4 • Момент первого вдоха</div>
+          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px; text-align: center;">Когда ты пришел(ла) в этот мир?</h3>
+          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 16px; text-align: center;">
             Дата и минута фиксируют твой Асцендент — маску, которую видят другие, и глубинное подсознание.
           </p>
           <div class="form-field" style="margin-bottom: 12px;">
@@ -2282,9 +2440,16 @@
 
         <!-- Step 3: Место рождения -->
         <div id="obStep3" style="display: none;">
-          <div class="card-eyebrow" style="margin-bottom: 4px;">Шаг 3 из 4 • Точка старта</div>
-          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px;">Где началась твоя история?</h3>
-          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 14px;">
+          <div class="ob-medallion-container">
+            <div class="ob-medallion-halo"></div>
+            <div class="ob-medallion-badge">
+              <img src="/onboarding_step3_coords.jpg" class="ob-medallion-img" alt="Сфера Координат">
+              <div class="ob-medallion-shimmer"></div>
+            </div>
+          </div>
+          <div class="card-eyebrow" style="margin-bottom: 4px; text-align: center;">Шаг 3 из 4 • Точка старта</div>
+          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px; text-align: center;">Где началась твоя история?</h3>
+          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 14px; text-align: center;">
             Город, село, деревня или хутор. Место рождения раскрывает карту жизненных домов: где деньги и где любовь.
           </p>
           <div class="form-field" style="margin-bottom: 16px;">
@@ -2302,9 +2467,17 @@
 
         <!-- Step 4: Выбор наставника -->
         <div id="obStep4" style="display: none;">
-          <div class="card-eyebrow" style="margin-bottom: 4px;">Шаг 4 из 4 • Твой личный наставник</div>
-          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 6px;">Кто назовет вещи своими именами?</h3>
-          <p class="card-desc" style="font-size: 13px; margin-bottom: 12px;">
+          <div class="ob-medallion-container" style="width: 104px; height: 42px; margin: 0 auto 8px;">
+            <div class="ob-mentor-cluster">
+              <img src="/avatars/alena.jpg" class="ob-cluster-avatar" style="left: 0; z-index: 4;" alt="Алёна">
+              <img src="/avatars/artem.jpg" class="ob-cluster-avatar" style="left: 22px; z-index: 3;" alt="Артём">
+              <img src="/avatars/elena.jpg" class="ob-cluster-avatar" style="left: 44px; z-index: 2;" alt="Елена">
+              <img src="/avatars/sofia.jpg" class="ob-cluster-avatar" style="left: 66px; z-index: 1;" alt="София">
+            </div>
+          </div>
+          <div class="card-eyebrow" style="margin-bottom: 4px; text-align: center;">Шаг 4 из 4 • Твой личный наставник</div>
+          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 6px; text-align: center;">Кто назовет вещи своими именами?</h3>
+          <p class="card-desc" style="font-size: 13px; margin-bottom: 12px; text-align: center;">
             Выбери наставника, чей голос откликается прямо сейчас (сменить можно в 1 клик):
           </p>
           <div class="persona-selection-list" id="onboardingPersonaList" style="max-height: 220px; overflow-y: auto; margin-bottom: 16px; padding-right: 4px;">
@@ -2317,8 +2490,14 @@
         </div>
 
         <!-- Step Loading: Labor Illusion (Calculation Screen) -->
-        <div id="obStepLoading" style="display: none; text-align: center; padding: 32px 12px;">
-          <div style="width: 52px; height: 52px; border-radius: 50%; border: 3.5px solid rgba(255, 255, 255, 0.12); border-top-color: var(--astral-violet); border-right-color: var(--celestial-cyan); animation: spin 1s infinite linear; margin: 0 auto 18px; box-shadow: 0 0 20px rgba(139, 92, 246, 0.4);"></div>
+        <div id="obStepLoading" style="display: none; text-align: center; padding: 20px 12px;">
+          <div class="ob-medallion-container" style="width: 78px; height: 78px; margin: 0 auto 16px;">
+            <div class="ob-medallion-halo large"></div>
+            <div class="ob-medallion-badge large">
+              <img src="/avatar.jpg" class="ob-medallion-img" alt="Печать Паспорта">
+              <div class="ob-medallion-shimmer"></div>
+            </div>
+          </div>
           <h3 class="card-headline" style="font-size: 19px; margin-bottom: 6px;">Вскрываем твою матрицу...</h3>
           <p id="obLoadingStatusText" style="font-size: 13.5px; color: #C4B5FD; font-weight: 500; min-height: 40px;">
             Считываем скрытый парадокс: внешняя броня vs внутренняя уязвимость...
