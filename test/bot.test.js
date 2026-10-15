@@ -38,7 +38,7 @@ test('BotDispatcher handles /start command with strict single CTA button to Mini
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 'user_456');
   assert.equal(result.receivedBody.format, 'markdown');
-  assert.ok(result.receivedBody.text.includes('Твой персональный разбор готов') || result.receivedBody.text.includes('скрытое напряжение'));
+  assert.ok(result.receivedBody.text.includes('С каким вопросом ты пришел') || result.receivedBody.text.includes('твой личный ИИ-астролог'));
   
   // Verify conversion funnel: 4 button rows (open_app native + link guaranteed direct + 2 rows of curiosity hooks)
   const buttons = result.receivedBody.attachments[0].payload.buttons;
@@ -95,7 +95,7 @@ test('BotDispatcher handles native Max event: bot_started with user_id & name de
   assert.equal(result.receivedBody.chat_id, 11223344);
   assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('Елена'));
-  assert.ok(result.receivedBody.text.includes('Твой персональный разбор готов') || result.receivedBody.text.includes('скрытое напряжение'));
+  assert.ok(result.receivedBody.text.includes('С каким вопросом ты пришел') || result.receivedBody.text.includes('твой личный ИИ-астролог'));
 
   const buttons = result.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons.length, 4);
@@ -128,7 +128,7 @@ test('BotDispatcher handles native Max event: message_created by guiding user in
   assert.ok(res);
   assert.equal(res.receivedBody.chat_id, userId);
   assert.equal(res.receivedBody.format, 'markdown');
-  assert.ok(res.receivedBody.text.includes('внутри приложения'));
+  assert.ok(res.receivedBody.text.includes('Приняла твой вопрос') || res.receivedBody.text.includes('Вход в АСТРА'));
   const buttons = res.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons.length, 3);
   assert.equal(buttons[0][0].type, 'open_app');
