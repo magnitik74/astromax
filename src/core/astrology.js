@@ -1,4 +1,6 @@
-import * as Astronomy from 'astronomy-engine';
+import { createRequire } from 'node:module';
+const require = createRequire(import.meta.url);
+const Astronomy = require('astronomy-engine');
 
 /**
  * 12 Знаков Зодиака (Тропический Зодиак)
