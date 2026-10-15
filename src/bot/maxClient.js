@@ -180,13 +180,12 @@ export class MaxBotClient {
       const sanitizedButtons = options.buttons.map(row =>
         row.map(btn => {
           if (btn.type === 'open_app') {
-            const botUsername = process.env.MAX_BOT_USERNAME || 'id744510054693_4_bot';
-            const defaultWebApp = `https://max.ru/${botUsername}?startapp`;
+            const cleanUrl = sanitizeUrl(btn.url || btn.web_app);
             return {
               type: 'open_app',
               text: btn.text,
-              web_app: btn.web_app || defaultWebApp,
-              url: btn.url ? sanitizeUrl(btn.url) : (btn.web_app || defaultWebApp),
+              url: cleanUrl,
+              web_app: cleanUrl,
             };
           }
           if (btn.type === 'link') {
@@ -296,13 +295,12 @@ export class MaxBotClient {
    * Создание кнопки для открытия Mini App (нативно внутри MAX WebView)
    */
   buildOpenAppButton(text, appUrl, options = {}) {
-    const botUsername = process.env.MAX_BOT_USERNAME || 'id744510054693_4_bot';
-    const webApp = options.webApp || `https://max.ru/${botUsername}?startapp`;
+    const cleanUrl = appUrl || process.env.MINI_APP_URL || 'https://astromax-nu.vercel.app';
     return {
       type: 'open_app',
       text,
-      web_app: webApp,
-      url: appUrl,
+      url: cleanUrl,
+      web_app: cleanUrl,
     };
   }
 

@@ -3086,6 +3086,26 @@
       if (!isOnboarded) {
         openOnboardingModal();
       }
+
+      // 4. Глубокие ссылки (Deep-links) из мессенджера: переход в нужный таб / к наставнику
+      const urlTab = urlParams.get('tab');
+      const urlPersona = urlParams.get('persona');
+      const urlFocus = urlParams.get('focus');
+
+      if (urlPersona) {
+        state.profile.personaId = urlPersona;
+        applyPersonaUI(urlPersona);
+      }
+
+      if (isOnboarded && urlTab) {
+        switchNavTab(urlTab);
+        if (urlFocus === 'big3') {
+          setTimeout(() => {
+            const el = document.getElementById('cellSun');
+            if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          }, 300);
+        }
+      }
     });
 
     // Функция ручного сброса сессии (вызывается из интерфейса)

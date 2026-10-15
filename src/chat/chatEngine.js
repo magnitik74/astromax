@@ -100,17 +100,22 @@ export class ChatEngine {
 
 Выбери тему кнопкой ниже или заходи в приложение — твой персональный расчет готов:`;
 
+    const relAppUrl = this.getAppUrl(userId, userName, { tab: 'chat', persona: 'alena' });
+    const moneyAppUrl = this.getAppUrl(userId, userName, { tab: 'chat', persona: 'artem' });
+    const tarotAppUrl = this.getAppUrl(userId, userName, { tab: 'tarot' });
+    const b3AppUrl = this.getAppUrl(userId, userName, { tab: 'horoscope', focus: 'big3' });
+
     const buttons = [
       [
         this.client.buildOpenAppButton('✦ Открыть АСТРА (Космический Паспорт)', appUrl),
       ],
       [
-        this.client.buildCallbackButton('💔 Что в отношениях?', 'TOPIC_RELATIONSHIPS'),
-        this.client.buildCallbackButton('💰 Где мои деньги?', 'TOPIC_MONEY'),
+        this.client.buildOpenAppButton('💔 Что в отношениях?', relAppUrl),
+        this.client.buildOpenAppButton('💰 Где мои деньги?', moneyAppUrl),
       ],
       [
-        this.client.buildCallbackButton('🃏 Карта Дня Таро', 'ACTION_TAROT_DAILY'),
-        this.client.buildCallbackButton('🪐 Моя Большая Тройка', 'TOPIC_BIG_THREE'),
+        this.client.buildOpenAppButton('🃏 Карта Дня Таро', tarotAppUrl),
+        this.client.buildOpenAppButton('🪐 Моя Большая Тройка', b3AppUrl),
       ],
     ];
 
@@ -323,13 +328,16 @@ ${aiInsight}
 
 Нажми кнопку ниже, чтобы войти в диалог:`;
 
+    const relAppUrl = this.getAppUrl(userId, userName, { tab: 'chat', persona: 'alena' });
+    const moneyAppUrl = this.getAppUrl(userId, userName, { tab: 'chat', persona: 'artem' });
+
     const buttons = [
       [
         this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
       ],
       [
-        this.client.buildCallbackButton('💔 Что в отношениях?', 'TOPIC_RELATIONSHIPS'),
-        this.client.buildCallbackButton('💰 Где мои деньги?', 'TOPIC_MONEY'),
+        this.client.buildOpenAppButton('💔 Что в отношениях?', relAppUrl),
+        this.client.buildOpenAppButton('💰 Где мои деньги?', moneyAppUrl),
       ],
     ];
 
