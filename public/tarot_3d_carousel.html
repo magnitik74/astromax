@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>АстроМАХ • 3D Вихрь Карт Таро (Three.js WebGL)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #080910 url('tarot_table_bg.jpg') center bottom / cover no-repeat;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      color: #fff;
+    }
+    #canvas-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+    /* UI Overlay */
+    .ui-layer {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 24px;
+    }
+    .header {
+      text-align: center;
+      transition: opacity 0.5s ease;
+    }
+    .badge {
+      display: inline-block;
+      padding: 5px 14px;
+      background: rgba(229, 192, 123, 0.15);
+      border: 1px solid rgba(229, 192, 123, 0.4);
+      border-radius: 20px;
+      font-size: 12px;
+      color: #E5C07B;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      margin-bottom: 8px;
+    }
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #FFFFFF 20%, #E5C07B 70%, #D4AF37 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    }
+    .instruction {
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.75);
+      margin-top: 4px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.9);
+    }
+
+    /* Modal reading overlay for chosen card */
+    .card-reading-modal {
+      position: absolute;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(40px);
+      width: calc(100% - 40px);
+      max-width: 440px;
+      background: rgba(14, 18, 30, 0.92);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(229, 192, 123, 0.35);
+      border-radius: 20px;
+      padding: 22px 24px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(229, 192, 123, 0.2);
+      pointer-events: auto;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      text-align: center;
+      z-index: 20;
+    }
+    .card-reading-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateX(-50%) translateY(0);
+    }
+    .card-title {
+      font-size: 19px;
+      font-weight: 800;
+      color: #E5C07B;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .card-keywords {
+      font-size: 12px;
+      color: #9DB2D4;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+    }
+    .card-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 18px;
+    }
+    .btn-return {
+      background: linear-gradient(135deg, #E5C07B 0%, #B8860B 100%);
+      color: #0E121E;
+      font-weight: 700;
+      font-size: 14px;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(229, 192, 123, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-return:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 20px rgba(229, 192, 123, 0.6);
+    }
+
+    /* Ambient Candle Light Glow */
+    .candle-glow-left {
+      position: absolute;
+      bottom: 10%;
+      left: 12%;
+      width: 260px;
+      height: 260px;
+      background: radial-gradient(circle, rgba(255, 170, 60, 0.28) 0%, rgba(255, 130, 20, 0.08) 50%, transparent 75%);
+      pointer-events: none;
+      filter: blur(25px);
+      z-index: 2;
+      animation: flickerLeft 3s infinite alternate ease-in-out;
+    }
+    .candle-glow-right {
+      position: absolute;
+      bottom: 14%;
+      right: 14%;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle, rgba(255, 180, 80, 0.25) 0%, rgba(255, 140, 30, 0.06) 50%, transparent 75%);
+      pointer-events: none;
+      filter: blur(20px);
+      z-index: 2;
+      animation: flickerRight 2.5s infinite alternate ease-in-out;
+    }
+    @keyframes flickerLeft {
+      0% { opacity: 0.8; transform: scale(0.96); }
+      50% { opacity: 1.05; transform: scale(1.04); }
+      100% { opacity: 0.88; transform: scale(0.98); }
+    }
+    @keyframes flickerRight {
+      0% { opacity: 0.9; transform: scale(1.03); }
+      50% { opacity: 0.75; transform: scale(0.95); }
+      100% { opacity: 1.0; transform: scale(1.02); }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <div class="candle-glow-left"></div>
+  <div class="candle-glow-right"></div>
+
+  <div id="canvas-container"></div>
+
+  <div class="ui-layer">
+    <div class="header" id="header-bar">
+      <div class="badge">✦ Храм Таро • АстроМАХ ✦</div>
+      <h1>Космический Вихрь Арканов</h1>
+      <p class="instruction">Вращайте кольцо свайпом • Нажмите на любую карту, чтобы открыть судьбу</p>
+    </div>
+
+    <div class="card-reading-modal" id="card-modal">
+      <div class="card-title" id="modal-card-title">✦ Колесо Фортуны ✦</div>
+      <div class="card-keywords" id="modal-card-keywords">Судьба • Поворотная точка • Удача</div>
+      <div class="card-desc" id="modal-card-desc">
+        Цикл завершился, и судьба совершает квантовый скачок. То, что казалось тупиком, открывает главный коридор возможностей этого года.
+      </div>
+      <button class="btn-return" id="btn-close-card">Вернуть в вихрь ✦</button>
+    </div>
+  </div>
+
+  <script>
+    // 1. DATA: 22 MAJOR ARCANA CARDS OF TAROT
+    const TAROT_CARDS = [
+      { id: 0, num: "0", name: "Шут", title: "Дурак (The Fool)", keys: "Начало • Чистый лист • Смелость", desc: "Шаг в неизведанное без оглядки на прошлый опыт. Вселенная держит вас за руку — доверьтесь квантовому скачку." },
+      { id: 1, num: "I", name: "Маг", title: "Маг (The Magician)", keys: "Воля • Мастерство • Материализация", desc: "Все 4 стихии в ваших руках. Хватит сомневаться в ресурсах: слово, сказанное сейчас, формирует реальность." },
+      { id: 2, num: "II", name: "Жрица", title: "Верховная Жрица (The High Priestess)", keys: "Интуиция • Тайна • Знание", desc: "Ответ не в логике, а в тишине. Ваша глубинная интуиция уже знает исход — прислушайтесь к шепоту подсознания." },
+      { id: 3, num: "III", name: "Императрица", title: "Императрица (The Empress)", keys: "Изобилие • Плодородие • Любовь", desc: "Время расцвета и материального роста. Ваши идеи приносят богатый урожай, окружайте себя красотой." },
+      { id: 4, num: "IV", name: "Император", title: "Император (The Emperor)", keys: "Структура • Власть • Опора", desc: "Установите нерушимые личные границы. Пришло время стратегического порядка, твердой воли и контроля." },
+      { id: 5, num: "V", name: "Иерофант", title: "Иерофант (The Hierophant)", keys: "Мудрость • Традиции • Наставник", desc: "Ищите глубокий духовный смысл, а не сиюминутную выгоду. Скоро в вашей жизни появится учитель или озарение." },
+      { id: 6, num: "VI", name: "Влюбленные", title: "Влюбленные (The Lovers)", keys: "Выбор сердца • Союз • Гармония", desc: "Развилка судьбы. Решение должно быть принято не из страха потерять, а из истинного зова сердца." },
+      { id: 7, num: "VII", name: "Колесница", title: "Колесница (The Chariot)", keys: "Прорыв • Победа • Концентрация", desc: "Препятствия позади. Соберите противоположные силы в один вектор и сделайте решительный рывок к цели." },
+      { id: 8, num: "VIII", name: "Сила", title: "Сила (Strength)", keys: "Мягкая мощь • Терпение • Страсть", desc: "Победа достигается не агрессией, а внутренней непоколебимой любовью. Укротите зверя внутри себя лаской." },
+      { id: 9, num: "IX", name: "Отшельник", title: "Отшельник (The Hermit)", keys: "Самопознание • Свет истины • Покой", desc: "Отойдите от внешнего шума. В глубине вашей души горит негасимый фонарь истины — побудьте наедине с собой." },
+      { id: 10, num: "X", name: "Колесо Фортуны", title: "Колесо Фортуны (Wheel of Fortune)", keys: "Судьба • Перемены • Удача", desc: "Великий космический цикл разворачивается в вашу пользу. Черная полоса растворяется, готовьтесь взлетать." },
+      { id: 11, num: "XI", name: "Справедливость", title: "Справедливость (Justice)", keys: "Баланс • Карма • Истина", desc: "Все встает на свои места по закону причины и следствия. Будьте предельно честны с собой и партнерами." },
+      { id: 12, num: "XII", name: "Повешенный", title: "Повешенный (The Hanged Man)", keys: "Смена взгляда • Пауза • Прозрение", desc: "Взгляните на ситуацию вверх ногами. То, что казалось жертвой, станет величайшим духовным освобождением." },
+      { id: 13, num: "XIII", name: "Смерть", title: "Трансформация (Death)", keys: "Перерождение • Завершение • Новый рассвет", desc: "Старая глава умерла навсегда. Не держитесь за пепел — прямо сейчас пробиваются ростки новой грандиозной жизни." },
+      { id: 14, num: "XIV", name: "Умеренность", title: "Умеренность (Temperance)", keys: "Алхимия • Гармония • Исцеление", desc: "Вода жизни переливается из сосуда в сосуд. Терпение и синтез противоположностей исцеляют любую рану." },
+      { id: 15, num: "XV", name: "Дьявол", title: "Дьявол (The Devil)", keys: "Искушение • Тень • Материя", desc: "Осознайте свои тайные зависимости и страхи. Ваша цепь иллюзорна: сделайте шаг, и оковы спадут сами." },
+      { id: 16, num: "XVI", name: "Башня", title: "Башня (The Tower)", keys: "Крушение иллюзий • Очищение молнией", desc: "Молния сносит то, что было построено на лжи. Это не трагедия, а спасительное освобождение для истинного пути." },
+      { id: 17, num: "XVII", name: "Звезда", title: "Звезда (The Star)", keys: "Надежда • Вдохновение • Божественный свет", desc: "Ваша путеводная звезда ярко сияет на ночном небе. Ваши мечты слышат высшие сферы — продолжайте верить." },
+      { id: 18, num: "XVIII", name: "Луна", title: "Луна (The Moon)", keys: "Тайны • Сны • Преодоление страха", desc: "Дорога сквозь сумерки и туман. Остерегайтесь самообмана, но верьте своей глубинной мистической интуиции." },
+      { id: 19, num: "XIX", name: "Солнце", title: "Солнце (The Sun)", keys: "Триумф • Радость • Чистый свет", desc: "Абсолютный триумф, тепло и ясность. Все сомнения рассеяны, вас ждет период огромного счастья и признания." },
+      { id: 20, num: "XX", name: "Суд", title: "Возрождение (Judgement)", keys: "Пробуждение • Призвание • Второй шанс", desc: "Труба архангела призывает вас к истинному масштабу. Сбросьте вину прошлого: пришло время вашего триумфа." },
+      { id: 21, num: "XXI", name: "Мир", title: "Мир (The World)", keys: "Целостность • Триумф • Завершение", desc: "Вселенская гармония. Вы достигли вершины мастерства, круг замкнулся, и перед вами открыт весь космос." }
+    ];
+
+    // 2. PROCEDURAL TEXTURE GENERATION
+    function createCardBackTexture() {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 820;
+      const ctx = canvas.getContext('2d');
+
+      const grad = ctx.createLinearGradient(0, 0, 512, 820);
+      grad.addColorStop(0, '#101728');
+      grad.addColorStop(0.5, '#070A14');
+      grad.addColorStop(1, '#131B30');
+      ctx.fillStyle = grad;
+      ctx.fillRect(0, 0, 512, 820);
+
+      ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
+      for (let i = 0; i < 3000; i++) {
+        ctx.fillRect(Math.random() * 512, Math.random() * 820, 1, 1);
+      }
+
+      ctx.strokeStyle = '#E5C07B';
+      ctx.lineWidth = 6;
+      ctx.strokeRect(20, 20, 472, 780);
+
+      ctx.strokeStyle = 'rgba(229, 192, 123, 0.4)';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(32, 32, 448, 756);
+
+      ctx.save();
+      ctx.translate(256, 410);
+
+      const centerGlow = ctx.createRadialGradient(0, 0, 10, 0, 0, 160);
+      centerGlow.addColorStop(0, 'rgba(229, 192, 123, 0.35)');
+      centerGlow.addColorStop(0.7, 'rgba(10, 102, 255, 0.15)');
+      centerGlow.addColorStop(1, 'transparent');
+      ctx.fillStyle = centerGlow;
+      ctx.beginPath();
+      ctx.arc(0, 0, 160, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#E5C07B';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      ctx.arc(0, 0, 120, 0, Math.PI * 2);
+      ctx.stroke();
+
+      for (let i = 0; i < 24; i++) {
+        const angle = (i * Math.PI) / 12;
+        ctx.save();
+        ctx.rotate(angle);
+        ctx.strokeStyle = i % 2 === 0 ? '#E5C07B' : 'rgba(229, 192, 123, 0.5)';
+        ctx.lineWidth = i % 2 === 0 ? 3 : 1.5;
+        ctx.beginPath();
+        ctx.moveTo(120, 0);
+        ctx.lineTo(138, 0);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      ctx.strokeStyle = 'rgba(229, 192, 123, 0.85)';
+      ctx.lineWidth = 2;
+      for (let r = 0; r < 4; r++) {
+        ctx.save();
+        ctx.rotate((r * Math.PI) / 4);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, 85, 32, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      ctx.arc(0, 0, 8, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.strokeStyle = '#E5C07B';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      ctx.restore();
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.generateMipmaps = true;
+      return texture;
+    }
+
+    function createCardFrontTexture(card) {
+      const canvas = document.createElement('canvas');
+      canvas.width = 512;
+      canvas.height = 820;
+      const ctx = canvas.getContext('2d');
+
+      const bgGrad = ctx.createRadialGradient(256, 410, 50, 256, 410, 420);
+      bgGrad.addColorStop(0, '#FFFDF8');
+      bgGrad.addColorStop(0.7, '#F4EDE0');
+      bgGrad.addColorStop(1, '#E6DAC4');
+      ctx.fillStyle = bgGrad;
+      ctx.fillRect(0, 0, 512, 820);
+
+      ctx.strokeStyle = '#B8860B';
+      ctx.lineWidth = 6;
+      ctx.strokeRect(24, 24, 464, 772);
+      ctx.strokeStyle = '#E5C07B';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(34, 34, 444, 752);
+
+      ctx.fillStyle = '#6B4A12';
+      ctx.font = 'bold 36px serif';
+      ctx.textAlign = 'center';
+      ctx.fillText(card.num, 256, 90);
+
+      ctx.fillStyle = '#1A1815';
+      ctx.font = 'bold 32px serif';
+      ctx.fillText(card.name.toUpperCase(), 256, 730);
+
+      ctx.fillStyle = '#8C6826';
+      ctx.font = '16px sans-serif';
+      ctx.fillText(card.keys.split('•')[0].trim().toUpperCase(), 256, 762);
+
+      ctx.strokeStyle = '#B8860B';
+      ctx.lineWidth = 2;
+      ctx.strokeRect(60, 130, 392, 540);
+
+      const artGrad = ctx.createLinearGradient(60, 130, 452, 670);
+      artGrad.addColorStop(0, '#10152B');
+      artGrad.addColorStop(0.5, '#1A234A');
+      artGrad.addColorStop(1, '#0C0F1D');
+      ctx.fillStyle = artGrad;
+      ctx.fillRect(62, 132, 388, 536);
+
+      ctx.save();
+      ctx.translate(256, 380);
+
+      const aura = ctx.createRadialGradient(0, 0, 10, 0, 0, 150);
+      aura.addColorStop(0, 'rgba(229, 192, 123, 0.6)');
+      aura.addColorStop(0.6, 'rgba(10, 102, 255, 0.2)');
+      aura.addColorStop(1, 'transparent');
+      ctx.fillStyle = aura;
+      ctx.beginPath();
+      ctx.arc(0, 0, 150, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.strokeStyle = '#E5C07B';
+      ctx.lineWidth = 4;
+      ctx.beginPath();
+      for (let p = 0; p < 8; p++) {
+        const rad = (p * Math.PI) / 4;
+        ctx.lineTo(Math.cos(rad) * 80, Math.sin(rad) * 80);
+        ctx.lineTo(Math.cos(rad + Math.PI/8) * 32, Math.sin(rad + Math.PI/8) * 32);
+      }
+      ctx.closePath();
+      ctx.stroke();
+
+      ctx.fillStyle = '#FFFFFF';
+      ctx.beginPath();
+      ctx.arc(0, 0, 14, 0, Math.PI * 2);
+      ctx.fill();
+
+      ctx.restore();
+
+      const texture = new THREE.CanvasTexture(canvas);
+      texture.generateMipmaps = true;
+      return texture;
+    }
+
+    // 3. THREE.JS SCENE SETUP
+    const container = document.getElementById('canvas-container');
+    const scene = new THREE.Scene();
+    
+    const camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 2.8, 8.8);
+    camera.lookAt(0, 0.1, 0);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0x000000, 0); // Transparent canvas so background table shows
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.toneMapping = THREE.ACESFilmicToneMapping;
+    renderer.toneMappingExposure = 1.15;
+    container.appendChild(renderer.domElement);
+
+    // 4. LIGHTING
+    const ambientLight = new THREE.AmbientLight(0x2A3859, 1.4);
+    scene.add(ambientLight);
+
+    const candleLeft = new THREE.PointLight(0xFFB852, 2.4, 14);
+    candleLeft.position.set(-3.5, 0.5, 2.0);
+    scene.add(candleLeft);
+
+    const candleRight = new THREE.PointLight(0xFFA028, 2.6, 14);
+    candleRight.position.set(3.2, 0.4, 1.5);
+    scene.add(candleRight);
+
+    const rimLight = new THREE.DirectionalLight(0x5088FF, 1.0);
+    rimLight.position.set(0, 6, -2);
+    scene.add(rimLight);
+
+    // 5. BUILD 3D TAROT CARDS VORTEX (CAROUSEL)
+    const CARD_WIDTH = 0.95;
+    const CARD_HEIGHT = 1.52;
+    const CARD_THICKNESS = 0.018;
+
+    const cardGeometry = new THREE.BoxGeometry(CARD_WIDTH, CARD_HEIGHT, CARD_THICKNESS);
+
+    const goldEdgeMaterial = new THREE.MeshStandardMaterial({
+      color: 0xE5C07B,
+      metalness: 0.88,
+      roughness: 0.22,
+    });
+    const cardBackTex = createCardBackTexture();
+    const cardBackMaterial = new THREE.MeshStandardMaterial({
+      map: cardBackTex,
+      metalness: 0.2,
+      roughness: 0.5,
+    });
+
+    const vortexGroup = new THREE.Group();
+    scene.add(vortexGroup);
+
+    const NUM_CARDS = TAROT_CARDS.length; // 22 cards
+    const RADIUS_X = 3.6;   // Horizontal spread
+    const RADIUS_Z = 2.4;   // Depth spread
+    const VORTEX_TILT_X = 0.24; // Forward tilt in radians (~14 degrees)
+    vortexGroup.rotation.x = VORTEX_TILT_X;
+
+    const cardsMeshes = [];
+
+    for (let i = 0; i < NUM_CARDS; i++) {
+      const cardData = TAROT_CARDS[i];
+      const cardFrontTex = createCardFrontTexture(cardData);
+      const cardFrontMaterial = new THREE.MeshStandardMaterial({
+        map: cardFrontTex,
+        metalness: 0.15,
+        roughness: 0.4,
+      });
+
+      const materials = [
+        goldEdgeMaterial,  // right
+        goldEdgeMaterial,  // left
+        goldEdgeMaterial,  // top
+        goldEdgeMaterial,  // bottom
+        cardFrontMaterial, // front face
+        cardBackMaterial,  // back face
+      ];
+
+      const mesh = new THREE.Mesh(cardGeometry, materials);
+      mesh.userData = {
+        index: i,
+        data: cardData,
+        baseAngle: (i / NUM_CARDS) * Math.PI * 2,
+        isSelected: false,
+        originPos: new THREE.Vector3(),
+        originRot: new THREE.Euler(),
+      };
+
+      vortexGroup.add(mesh);
+      cardsMeshes.push(mesh);
+    }
+
+    // 6. GOLDEN PARTICLES (MAGIC DUST)
+    const PARTICLE_COUNT = 320;
+    const particleGeo = new THREE.BufferGeometry();
+    const particlePositions = new Float32Array(PARTICLE_COUNT * 3);
+    const particleSpeeds = new Float32Array(PARTICLE_COUNT);
+    const particleAngles = new Float32Array(PARTICLE_COUNT);
+    const particleRadii = new Float32Array(PARTICLE_COUNT);
+    const particleYOffsets = new Float32Array(PARTICLE_COUNT);
+
+    for (let p = 0; p < PARTICLE_COUNT; p++) {
+      particleAngles[p] = Math.random() * Math.PI * 2;
+      particleSpeeds[p] = 0.003 + Math.random() * 0.008;
+      particleRadii[p] = 2.0 + Math.random() * 2.2;
+      particleYOffsets[p] = (Math.random() - 0.5) * 1.6;
+
+      particlePositions[p * 3] = Math.cos(particleAngles[p]) * particleRadii[p];
+      particlePositions[p * 3 + 1] = particleYOffsets[p];
+      particlePositions[p * 3 + 2] = Math.sin(particleAngles[p]) * (particleRadii[p] * 0.7);
+    }
+
+    particleGeo.setAttribute('position', new THREE.BufferAttribute(particlePositions, 3));
+
+    const particleCanvas = document.createElement('canvas');
+    particleCanvas.width = 32;
+    particleCanvas.height = 32;
+    const pCtx = particleCanvas.getContext('2d');
+    const pGrad = pCtx.createRadialGradient(16, 16, 0, 16, 16, 16);
+    pGrad.addColorStop(0, 'rgba(255, 240, 200, 1)');
+    pGrad.addColorStop(0.3, 'rgba(229, 192, 123, 0.8)');
+    pGrad.addColorStop(0.7, 'rgba(10, 102, 255, 0.2)');
+    pGrad.addColorStop(1, 'transparent');
+    pCtx.fillStyle = pGrad;
+    pCtx.fillRect(0, 0, 32, 32);
+    const particleTexture = new THREE.CanvasTexture(particleCanvas);
+
+    const particleMat = new THREE.PointsMaterial({
+      size: 0.16,
+      map: particleTexture,
+      transparent: true,
+      blending: THREE.AdditiveBlending,
+      depthWrite: false,
+    });
+
+    const particles = new THREE.Points(particleGeo, particleMat);
+    vortexGroup.add(particles);
+
+    // 7. INTERACTION & ROTATION DYNAMICS
+    let rotationAngle = 0;
+    let autoRotateSpeed = 0.004;
+    let dragVelocity = 0;
+    let isDragging = false;
+    let previousPointerX = 0;
+    let selectedCard = null;
+    let selectionProgress = 0;
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    function onPointerDown(e) {
+      if (selectedCard) return;
+      isDragging = true;
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      previousPointerX = clientX;
+      dragVelocity = 0;
+    }
+
+    function onPointerMove(e) {
+      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+
+      mouse.x = (clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+
+      if (isDragging) {
+        const deltaX = clientX - previousPointerX;
+        previousPointerX = clientX;
+        dragVelocity = deltaX * 0.0045;
+        rotationAngle += dragVelocity;
+      }
+    }
+
+    function onPointerUp() {
+      isDragging = false;
+    }
+
+    function onPointerClick(e) {
+      if (selectedCard) return;
+      if (Math.abs(dragVelocity) > 0.006) return;
+
+      const clientX = e.clientX || (e.changedTouches && e.changedTouches[0].clientX);
+      const clientY = e.clientY || (e.changedTouches && e.changedTouches[0].clientY);
+      if (!clientX || !clientY) return;
+
+      mouse.x = (clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObjects(cardsMeshes);
+
+      if (intersects.length > 0) {
+        selectCard(intersects[0].object);
+      }
+    }
+
+    window.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('mouseup', onPointerUp);
+    window.addEventListener('click', onPointerClick);
+
+    window.addEventListener('touchstart', onPointerDown, { passive: true });
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('touchend', onPointerUp);
+
+    // 8. CARD DRAW ANIMATION & MODAL
+    const headerBar = document.getElementById('header-bar');
+    const cardModal = document.getElementById('card-modal');
+    const modalCardTitle = document.getElementById('modal-card-title');
+    const modalCardKeywords = document.getElementById('modal-card-keywords');
+    const modalCardDesc = document.getElementById('modal-card-desc');
+    const btnCloseCard = document.getElementById('btn-close-card');
+
+    function selectCard(cardMesh) {
+      selectedCard = cardMesh;
+      selectedCard.userData.isSelected = true;
+      selectionProgress = 0;
+
+      selectedCard.userData.originPos.copy(selectedCard.position);
+      selectedCard.userData.originRot.copy(selectedCard.rotation);
+
+      const data = selectedCard.userData.data;
+      modalCardTitle.textContent = `✦ ${data.title} ✦`;
+      modalCardKeywords.textContent = data.keys;
+      modalCardDesc.textContent = data.desc;
+
+      headerBar.style.opacity = '0.2';
+      setTimeout(() => {
+        cardModal.classList.add('active');
+      }, 500);
+    }
+
+    btnCloseCard.addEventListener('click', () => {
+      cardModal.classList.remove('active');
+      headerBar.style.opacity = '1';
+      
+      if (selectedCard) {
+        selectedCard.userData.isSelected = false;
+        const returnInterval = setInterval(() => {
+          selectionProgress -= 0.05;
+          if (selectionProgress <= 0) {
+            selectionProgress = 0;
+            selectedCard = null;
+            clearInterval(returnInterval);
+          }
+        }, 16);
+      }
+    });
+
+    // 9. ANIMATION LOOP
+    let clock = new THREE.Clock();
+
+    function animate() {
+      requestAnimationFrame(animate);
+
+      const elapsedTime = clock.getElapsedTime();
+
+      candleLeft.intensity = 2.4 + Math.sin(elapsedTime * 6.5) * 0.25 + Math.cos(elapsedTime * 14.0) * 0.12;
+      candleRight.intensity = 2.6 + Math.cos(elapsedTime * 7.2) * 0.28 + Math.sin(elapsedTime * 11.0) * 0.15;
+
+      if (!isDragging && !selectedCard) {
+        dragVelocity *= 0.94;
+        rotationAngle += autoRotateSpeed + dragVelocity;
+      }
+
+      for (let i = 0; i < NUM_CARDS; i++) {
+        const mesh = cardsMeshes[i];
+        
+        if (mesh.userData.isSelected) {
+          if (selectionProgress < 1.0) {
+            selectionProgress = Math.min(1.0, selectionProgress + 0.035);
+          }
+          
+          const targetPos = new THREE.Vector3(0, 0.4, 4.2);
+          const targetRot = new THREE.Euler(0, Math.PI, 0);
+
+          mesh.position.lerpVectors(mesh.userData.originPos, targetPos, selectionProgress);
+          mesh.rotation.x = THREE.MathUtils.lerp(mesh.userData.originRot.x, targetRot.x, selectionProgress);
+          mesh.rotation.y = THREE.MathUtils.lerp(mesh.userData.originRot.y, targetRot.y, selectionProgress);
+          mesh.rotation.z = THREE.MathUtils.lerp(mesh.userData.originRot.z, targetRot.z, selectionProgress);
+          mesh.scale.setScalar(1 + selectionProgress * 0.35);
+
+        } else if (mesh === selectedCard && selectionProgress > 0) {
+          const targetPos = new THREE.Vector3(0, 0.4, 4.2);
+          mesh.position.lerpVectors(mesh.userData.originPos, targetPos, selectionProgress);
+          mesh.scale.setScalar(1 + selectionProgress * 0.35);
+
+        } else {
+          const currentAngle = mesh.userData.baseAngle + rotationAngle;
+
+          const x = Math.sin(currentAngle) * RADIUS_X;
+          const z = Math.cos(currentAngle) * RADIUS_Z;
+          const y = Math.sin(currentAngle * 2 + elapsedTime * 1.2) * 0.16;
+
+          mesh.position.set(x, y, z);
+
+          mesh.rotation.y = -currentAngle + Math.PI / 2;
+          mesh.rotation.z = 0.28;
+          mesh.rotation.x = Math.sin(currentAngle) * 0.1;
+
+          mesh.scale.set(1, 1, 1);
+        }
+      }
+
+      const positions = particleGeo.attributes.position.array;
+      for (let p = 0; p < PARTICLE_COUNT; p++) {
+        particleAngles[p] += particleSpeeds[p];
+        const angle = particleAngles[p] + rotationAngle * 0.5;
+        const rad = particleRadii[p];
+
+        positions[p * 3] = Math.cos(angle) * rad;
+        positions[p * 3 + 1] = particleYOffsets[p] + Math.sin(angle * 3 + elapsedTime) * 0.18;
+        positions[p * 3 + 2] = Math.sin(angle) * (rad * 0.7);
+      }
+      particleGeo.attributes.position.needsUpdate = true;
+
+      renderer.render(scene, camera);
+    }
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    animate();
+  </script>
+</body>
+</html>

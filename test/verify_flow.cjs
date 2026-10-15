@@ -2,7 +2,7 @@ const puppeteer = require('puppeteer-core');
 const path = require('path');
 const fs = require('fs');
 
-const artifactDir = 'C:\\Users\\Александр\\.gemini\\antigravity\\brain\\195a1bf2-4075-4dfb-a19a-afcc2ad23c80';
+const artifactDir = process.env.ARTIFACT_DIR || 'C:\\Users\\Александр\\.gemini\\antigravity\\brain\\6128637c-569a-46b9-a878-ddbc409b6e58';
 const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 
 (async () => {
@@ -64,7 +64,26 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
   await new Promise(r => setTimeout(r, 1500));
   const tarotPath = path.join(artifactDir, 'screen_tarot_temple.png');
   await page.screenshot({ path: tarotPath });
-  console.log('Tarot Temple captured:', tarotPath);
+  console.log('Tarot Temple initial captured:', tarotPath);
+
+  // Deal Daily Card & wait for flip
+  console.log('Dealing Tarot daily card...');
+  await page.evaluate(() => dealTarotSpread());
+  await new Promise(r => setTimeout(r, 3500));
+  const tarotDealtPath = path.join(artifactDir, 'screen_tarot_daily_dealt.png');
+  await page.screenshot({ path: tarotDealtPath, fullPage: false });
+  console.log('Tarot Daily Dealt captured:', tarotDealtPath);
+
+  // Switch to Oracle Yes/No mode and deal
+  console.log('Testing Tarot Oracle Yes/No mode...');
+  await page.evaluate(() => {
+    setTarotMode('oracle_yes_no');
+    dealTarotSpread();
+  });
+  await new Promise(r => setTimeout(r, 3500));
+  const tarotOraclePath = path.join(artifactDir, 'screen_tarot_oracle_yes_no.png');
+  await page.screenshot({ path: tarotOraclePath, fullPage: false });
+  console.log('Tarot Oracle Yes/No captured:', tarotOraclePath);
 
   // Switch to Mentor Chat
   await page.evaluate(() => switchNavTab('chat'));
