@@ -94,6 +94,7 @@ test('BotDispatcher handles native Max event: bot_started with user_id & name de
   assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('Елена'));
   assert.ok(result.receivedBody.text.includes('С каким вопросом ты пришел') || result.receivedBody.text.includes('твой личный ИИ-астролог'));
+  assert.equal(/https?:\/\//.test(result.receivedBody.text), false, 'Welcome text must NOT contain raw URLs');
 
   const buttons = result.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons.length, 3);
@@ -125,7 +126,8 @@ test('BotDispatcher handles native Max event: message_created by guiding user in
   assert.ok(res);
   assert.equal(res.receivedBody.chat_id, userId);
   assert.equal(res.receivedBody.format, 'markdown');
-  assert.ok(res.receivedBody.text.includes('Приняла твой вопрос') || res.receivedBody.text.includes('Вход в АСТРА'));
+  assert.ok(res.receivedBody.text.includes('вопрос') || res.receivedBody.text.includes('АСТРА'));
+  assert.equal(/https?:\/\//.test(res.receivedBody.text), false, 'Chat reply text must NOT contain raw URLs');
   const buttons = res.receivedBody.attachments[0].payload.buttons;
   assert.equal(buttons.length, 2);
   assert.equal(buttons[0][0].type, 'open_app');
@@ -183,6 +185,7 @@ test('BotDispatcher handles topic callbacks: TOPIC_RELATIONSHIPS, TOPIC_MONEY, a
   });
   assert.ok(relRes.receivedBody.text.includes('Отношения & Любовь'));
   assert.ok(relRes.receivedBody.text.includes('Алёна Смирнова'));
+  assert.equal(/https?:\/\//.test(relRes.receivedBody.text), false, 'Relationships reply must NOT contain raw URLs');
   assert.equal(relRes.receivedBody.attachments[0].payload.buttons.length, 1);
   assert.equal(relRes.receivedBody.attachments[0].payload.buttons[0][0].type, 'open_app');
 
@@ -198,6 +201,7 @@ test('BotDispatcher handles topic callbacks: TOPIC_RELATIONSHIPS, TOPIC_MONEY, a
   });
   assert.ok(moneyRes.receivedBody.text.includes('Деньги & Карьера'));
   assert.ok(moneyRes.receivedBody.text.includes('Артём Соколов'));
+  assert.equal(/https?:\/\//.test(moneyRes.receivedBody.text), false, 'Money reply must NOT contain raw URLs');
   assert.equal(moneyRes.receivedBody.attachments[0].payload.buttons.length, 1);
   assert.equal(moneyRes.receivedBody.attachments[0].payload.buttons[0][0].type, 'open_app');
 
@@ -214,6 +218,7 @@ test('BotDispatcher handles topic callbacks: TOPIC_RELATIONSHIPS, TOPIC_MONEY, a
   assert.ok(b3Res.receivedBody.text.includes('Большая Тройка'));
   assert.ok(b3Res.receivedBody.text.includes('Солнце'));
   assert.ok(b3Res.receivedBody.text.includes('Асцендент'));
+  assert.equal(/https?:\/\//.test(b3Res.receivedBody.text), false, 'Big Three reply must NOT contain raw URLs');
   assert.equal(b3Res.receivedBody.attachments[0].payload.buttons.length, 1);
   assert.equal(b3Res.receivedBody.attachments[0].payload.buttons[0][0].type, 'open_app');
 });
