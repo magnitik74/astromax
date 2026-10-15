@@ -8,7 +8,7 @@ const ai = new GroqAIClient({ apiKey: GROQ_KEY });
 
 function sanitizeMentorReply(text) {
   if (!text) return '';
-  return text
+  let cleaned = text
     // Remove markdown headers
     .replace(/^#+\s+/gm, '')
     // Remove bold/italic markdown
@@ -46,7 +46,7 @@ export default async function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
-    const { message, profile } = body;
+    const { message, profile, history } = body;
     if (!message || typeof message !== 'string') {
       return res.status(400).json({ error: 'Поле message обязательно' });
     }
@@ -59,7 +59,7 @@ export default async function handler(req, res) {
       });
     }
 
-    const personaId = profile?.personaId || 'alena';
+    const personaId = profile?.personaId || 'elena';
     const persona = getPersonaById(personaId);
 
     // AI answer via Groq with persona-specific prompt and live dialog constraints
@@ -70,19 +70,31 @@ export default async function handler(req, res) {
         const sunSign = profile?.sunSign || 'не указано';
         const ascendant = profile?.ascendant || 'не указан';
 
+        const conversationMessages = [
+          {
+            role: 'system',
+            content: `${persona.systemPrompt}\n\nКОНТЕКСТ СОБЕСЕДНИКА:\nИмя: ${userName}. Солнце: ${sunSign}, Асцендент: ${ascendant}.\n\nВАЖНО: Обращайся на «ты», используя естественный русский язык БЕЗ роботизированных скобок рода вроде «сделал(а)» или «понял(а)». Формулируй фразы изящно и органично.`
+          }
+        ];
+
+        if (Array.isArray(history) && history.length > 0) {
+          const recentHistory = history.slice(-4).map(h => ({
+            role: h.role === 'assistant' ? 'assistant' : 'user',
+            content: String(h.content || '')
+          })).filter(h => h.content.trim().length > 0);
+          conversationMessages.push(...recentHistory);
+        }
+
+        conversationMessages.push({
+          role: 'user',
+          content: message
+        });
+
         reply = await ai.chatCompletion({
-          messages: [
-            {
-              role: 'system',
-              content: `${persona.systemPrompt}\n\nКОНТЕКСТ СОБЕСЕДНИКА:\nИмя: ${userName}. Солнце: ${sunSign}, Асцендент: ${ascendant}.\n\nВАЖНО: Обращайся на «ты», используя естественный русский язык БЕЗ роботизированных скобок рода вроде «сделал(а)» или «понял(а)». Формулируй фразы изящно и органично.`
-            },
-            {
-              role: 'user',
-              content: message
-            }
-          ],
+          messages: conversationMessages,
+          model: 'openai/gpt-oss-20b',
           temperature: 0.7,
-          maxTokens: 280
+          maxTokens: 500
         });
       }
     } catch (e) {

@@ -92,3 +92,46 @@ test('api/chat/ask.js produces clean 2-paragraph dialogue without raw markdown e
   assert.ok(data.reply.trim().endsWith('?'), 'Must end with an engaging open question');
 });
 
+test('api/chat/ask.js generates dynamic live responses for Elena without hitting static fallback', async () => {
+  const askHandler = (await import('../api/chat/ask.js')).default;
+  const staticFallback = 'Эта ситуация пришла не случайно — она в точности повторяет развилку, которая уже встречалась на жизненном пути, когда не хватило решимости сделать выбор...\n\nЧто именно внутри так упорно держится за привычный дискомфорт вместо шага в неизвестность?';
+
+  // Question 1
+  const req1 = mockReqRes('POST', {
+    message: 'Как мне преодолеть финансовый тупик и сменить профессию?',
+    profile: {
+      name: 'Михаил',
+      personaId: 'elena',
+      sunSign: 'Телец',
+      ascendant: 'Скорпион'
+    }
+  });
+  await askHandler(req1.req, req1.res);
+  assert.equal(req1.getStatus(), 200);
+  const reply1 = req1.getData().reply;
+
+  // Question 2
+  const req2 = mockReqRes('POST', {
+    message: 'Чувствую постоянный упадок сил и апатию в отношениях, что делать?',
+    profile: {
+      name: 'Михаил',
+      personaId: 'elena',
+      sunSign: 'Телец',
+      ascendant: 'Скорпион'
+    }
+  });
+  await askHandler(req2.req, req2.res);
+  assert.equal(req2.getStatus(), 200);
+  const reply2 = req2.getData().reply;
+
+  assert.ok(reply1 && reply1.length > 50, 'Reply 1 must be substantial');
+  assert.ok(reply2 && reply2.length > 50, 'Reply 2 must be substantial');
+  assert.notEqual(reply1, staticFallback, 'Reply 1 must not be the hardcoded static fallback');
+  assert.notEqual(reply2, staticFallback, 'Reply 2 must not be the hardcoded static fallback');
+  assert.notEqual(reply1, reply2, 'Responses to different questions must be dynamic and unique');
+  assert.ok(reply1.trim().endsWith('?'), 'Reply 1 must end with open question');
+  assert.ok(reply2.trim().endsWith('?'), 'Reply 2 must end with open question');
+  assert.equal(/#+/.test(reply1), false, 'Reply 1 must not contain raw markdown headers');
+  assert.equal(/\*\*/.test(reply1), false, 'Reply 1 must not contain raw markdown bold');
+});
+

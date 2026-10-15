@@ -4213,7 +4213,8 @@
           body: JSON.stringify({
             userId: state.userId,
             message: text,
-            profile: state.profile
+            profile: state.profile,
+            history: state.chatHistory.slice(-4)
           })
         });
 

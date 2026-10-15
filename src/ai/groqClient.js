@@ -8,8 +8,8 @@ const DEFAULT_GROQ_KEY = [103,115,107,95,66,122,100,76,88,113,117,75,110,65,86,9
 export class GroqAIClient {
   constructor(options = {}) {
     this.apiKey = options.apiKey || process.env.GROQ_API_KEY || DEFAULT_GROQ_KEY;
-    this.modelFast = options.modelFast || process.env.GROQ_MODEL_FAST || 'openai/gpt-oss-20b';
-    this.modelSmart = options.modelSmart || process.env.GROQ_MODEL_SMART || 'openai/gpt-oss-120b';
+    this.modelFast = options.modelFast || process.env.GROQ_MODEL_FAST || 'qwen/qwen3.8-27b';
+    this.modelSmart = options.modelSmart || process.env.GROQ_MODEL_SMART || 'qwen/qwen3.8-27b';
     this.baseUrl = 'https://api.groq.com/openai/v1/chat/completions';
   }
 
@@ -18,29 +18,49 @@ export class GroqAIClient {
       throw new Error('GROQ_API_KEY is not defined');
     }
 
-    const targetModel = model || this.modelSmart;
+    const primaryModel = model || this.modelSmart || 'qwen/qwen3.8-27b';
+    const fallbackModel = primaryModel === 'openai/gpt-oss-20b' ? 'qwen/qwen3.8-27b' : 'openai/gpt-oss-20b';
+    const candidates = [primaryModel, fallbackModel];
 
-    const response = await fetch(this.baseUrl, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${this.apiKey}`,
-      },
-      body: JSON.stringify({
-        model: targetModel,
-        messages,
-        temperature,
-        max_tokens: maxTokens,
-      }),
-    });
+    let lastError = null;
+    for (const targetModel of candidates) {
+      try {
+        const reqBody = {
+          model: targetModel,
+          messages,
+          temperature,
+          max_tokens: maxTokens,
+        };
+        if (targetModel.includes('gpt-oss')) {
+          reqBody.reasoning_effort = 'low';
+        }
 
-    if (!response.ok) {
-      const errText = await response.text();
-      throw new Error(`Groq API Error [${response.status}]: ${errText}`);
+        const response = await fetch(this.baseUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${this.apiKey}`,
+          },
+          body: JSON.stringify(reqBody),
+        });
+
+        if (!response.ok) {
+          const errText = await response.text();
+          throw new Error(`Groq API Error [${response.status}]: ${errText}`);
+        }
+
+        const data = await response.json();
+        const content = data.choices?.[0]?.message?.content || '';
+        if (content && content.trim().length > 0) {
+          return content;
+        }
+      } catch (err) {
+        lastError = err;
+        console.warn(`[GroqAIClient] Model ${targetModel} failed (${err.message}). Trying fallback model...`);
+      }
     }
 
-    const data = await response.json();
-    return data.choices?.[0]?.message?.content || '';
+    throw lastError || new Error('All candidate Groq models failed');
   }
 
   /**

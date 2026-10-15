@@ -178,9 +178,9 @@ export function createServer(options = {}) {
       try {
         reply = await ai.chatCompletion({
           messages,
-          model: ai.modelSmart, // Флагманская модель 120B
+          model: 'qwen/qwen3.8-27b',
           temperature: 0.72,
-          maxTokens: 750,
+          maxTokens: 500,
         });
       } catch (aiErr) {
         console.warn('[Server] Сбой AI генерации, fallback:', aiErr.message);
