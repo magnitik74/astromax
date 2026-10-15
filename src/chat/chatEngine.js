@@ -101,9 +101,6 @@ export class ChatEngine {
         this.client.buildOpenAppButton('✦ Открыть АСТРА (Космический Паспорт)', appUrl),
       ],
       [
-        this.client.buildLinkButton('🌐 Войти через браузер (Прямой доступ)', appUrl),
-      ],
-      [
         this.client.buildCallbackButton('💔 Что в отношениях?', 'TOPIC_RELATIONSHIPS'),
         this.client.buildCallbackButton('💰 Где мои деньги?', 'TOPIC_MONEY'),
       ],
@@ -133,9 +130,6 @@ export class ChatEngine {
       [
         this.client.buildOpenAppButton('✦ Вытянуть карту в Mini App', appUrl),
       ],
-      [
-        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
-      ],
     ];
 
     return { text, buttons };
@@ -159,9 +153,6 @@ export class ChatEngine {
     const buttons = [
       [
         this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
-      ],
-      [
-        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
       ],
     ];
     return { text, buttons };
@@ -309,9 +300,6 @@ ${aiInsight}
     const buttons = [
       [
         this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
-      ],
-      [
-        this.client.buildLinkButton('🌐 Войти через браузер (Прямой доступ)', appUrl),
       ],
       [
         this.client.buildCallbackButton('💔 Что в отношениях?', 'TOPIC_RELATIONSHIPS'),

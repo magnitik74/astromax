@@ -130,9 +130,6 @@ export class BotDispatcher {
         [
           this.client.buildOpenAppButton('✦ Открыть разбор отношений в Mini App', appUrl),
         ],
-        [
-          this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
-        ],
       ];
       return this.client.sendMessage(target, text, { buttons });
     }
@@ -152,9 +149,6 @@ export class BotDispatcher {
       const buttons = [
         [
           this.client.buildOpenAppButton('✦ Вскрыть денежный код в Mini App', appUrl),
-        ],
-        [
-          this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
         ],
       ];
       return this.client.sendMessage(target, text, { buttons });
@@ -176,9 +170,6 @@ export class BotDispatcher {
         [
           this.client.buildOpenAppButton('✦ Посмотреть Большую Тройку в Mini App', appUrl),
         ],
-        [
-          this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
-        ],
       ];
       return this.client.sendMessage(target, text, { buttons });
     }
@@ -196,9 +187,6 @@ export class BotDispatcher {
         [
           this.client.buildOpenAppButton('✦ Вытянуть карту в Mini App', appUrl),
         ],
-        [
-          this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
-        ],
       ];
       return this.client.sendMessage(target, text, { buttons });
     }
@@ -214,9 +202,6 @@ export class BotDispatcher {
         [
           this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
         ],
-        [
-          this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
-        ],
       ];
       return this.client.sendMessage(target, text, { buttons });
     }
@@ -230,9 +215,6 @@ export class BotDispatcher {
     const buttons = [
       [
         this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
-      ],
-      [
-        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
       ],
     ];
     return this.client.sendMessage(target, text, { buttons });
