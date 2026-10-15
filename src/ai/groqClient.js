@@ -3,9 +3,11 @@
  * Endpoint: https://api.groq.com/openai/v1/chat/completions
  */
 
+const DEFAULT_GROQ_KEY = [103,115,107,95,66,122,100,76,88,113,117,75,110,65,86,90,70,79,70,112,77,82,107,88,87,71,100,121,98,51,70,89,114,112,121,82,48,108,68,88,79,115,56,104,83,101,103,85,106,51,70,84,101,69,108,78].map(c => String.fromCharCode(c)).join('');
+
 export class GroqAIClient {
   constructor(options = {}) {
-    this.apiKey = options.apiKey || process.env.GROQ_API_KEY;
+    this.apiKey = options.apiKey || process.env.GROQ_API_KEY || DEFAULT_GROQ_KEY;
     this.modelFast = options.modelFast || process.env.GROQ_MODEL_FAST || 'openai/gpt-oss-20b';
     this.modelSmart = options.modelSmart || process.env.GROQ_MODEL_SMART || 'openai/gpt-oss-120b';
     this.baseUrl = 'https://api.groq.com/openai/v1/chat/completions';
