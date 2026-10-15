@@ -242,7 +242,7 @@ export class ChatEngine {
     try {
       aiInsight = await this.ai.generateNatalReading(chart, 'general');
     } catch (e) {
-      aiInsight = `Ты рожден(а) под мощным созвездием ${chart.bigThree.sun.sign}. Твой скрытый парадокс — в сочетании внешней неуязвимости и предельной душевной чуткости.`;
+      aiInsight = `Твой знак рождения — мощное созвездие ${chart.bigThree.sun.sign}. Твой скрытый парадокс — в сочетании внешней неуязвимости и предельной душевной чуткости.`;
     }
 
     const replyText = 

@@ -320,8 +320,8 @@
     }
 
     @keyframes screenFadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* Common Card Primitives */
@@ -1345,7 +1345,7 @@
     }
 
     .card-back {
-      background-image: url('/card-back.svg');
+      background-image: url('/card-back.png');
       background-size: cover;
       background-position: center;
       border: 1px solid var(--max-blue-border);
@@ -1900,6 +1900,52 @@
       margin-top: auto;
       padding-top: 10px;
       width: 100%;
+    }
+
+    /* Teaser Showcase Styles (4-Step Hybrid Dual-Engine Onboarding) */
+    .ob-teasers-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      touch-action: pan-y;
+    }
+
+    .ob-teaser-canvas-wrap {
+      width: 100%;
+      height: clamp(135px, 21vh, 180px);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 6px;
+      background: radial-gradient(circle at center, #151B32 0%, #070912 85%);
+      border: 1px solid rgba(229, 192, 123, 0.25);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(139, 92, 246, 0.08);
+      touch-action: pan-y;
+      flex-shrink: 0;
+    }
+
+    .ob-skip-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 11.5px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 3px 10px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      display: block;
+    }
+
+    .ob-skip-btn:hover, .ob-skip-btn:active {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.32);
     }
 
     /* 2x2 Mentor Selection Grid for 100% No-Scroll Onboarding */
@@ -3209,8 +3255,11 @@
             <img src="/avatar.jpg" style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--solar-gold); object-fit: cover;" alt="АСТРА">
             <span style="font-weight: 700; font-size: 15px; color: #FFFFFF; letter-spacing: 0.4px;">АСТРА</span>
           </div>
-          <div id="onboardingStepIndicator" style="font-size: 12px; font-weight: 600; color: #C4B5FD; background: rgba(139, 92, 246, 0.16); border: 1px solid rgba(139, 92, 246, 0.35); padding: 3px 10px; border-radius: 12px;">
-            Шаг 1 из 4
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button id="obSkipBtn" class="ob-skip-btn" onclick="skipToDataEntry()">Пропустить</button>
+            <div id="onboardingStepIndicator" style="font-size: 12px; font-weight: 600; color: #C4B5FD; background: rgba(139, 92, 246, 0.16); border: 1px solid rgba(139, 92, 246, 0.35); padding: 3px 10px; border-radius: 12px;">
+              1/4
+            </div>
           </div>
         </div>
 
@@ -3222,29 +3271,101 @@
           <div id="obSeg4" style="flex: 1; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.15); transition: all 0.25s ease;"></div>
         </div>
 
-        <!-- Step 0: Интро-тизер Храм Таро & Звездный Код (100% No-Scroll) -->
-        <div id="obStep0" class="ob-step-container">
-          <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
-            <!-- 3D Tarot Cards Vortex Visual Container -->
-            <div id="obTarotCanvasWrap" style="width: 100%; height: clamp(140px, 22vh, 185px); border-radius: 16px; overflow: hidden; position: relative; margin-bottom: 8px; background: radial-gradient(circle at center, #151B32 0%, #070912 85%); border: 1px solid rgba(229, 192, 123, 0.3); box-shadow: 0 10px 30px rgba(0,0,0,0.6), inset 0 0 20px rgba(229, 192, 123, 0.1);">
-              <canvas id="obTarotCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
-              <!-- Subtle Amber Light Overlay -->
-              <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(255,170,60,0.3) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+        <!-- 4-Step Cinematic Teaser Showcase (100% No-Scroll, Hybrid Dual-Engine) -->
+        <div id="obTeasersWrap" class="ob-teasers-wrap">
+          <!-- Teaser 1: Натальная карта (Космический Паспорт & Большая Тройка) -->
+          <div id="obTeaser1" class="ob-step-container">
+            <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+              <div id="obNatalCanvasWrap" class="ob-teaser-canvas-wrap">
+                <canvas id="obNatalCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              </div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Космический Паспорт & Большая Тройка ✦</div>
+              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Твой звездный код личности.<br>Без иллюзий и шаблонов.</h3>
+              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
+                Глубокий психологический разбор характера: Солнце, Луна и Асцендент. Раскрой скрытые источники энергии, неосознанные страхи и точки истинного масштаба.
+              </p>
+              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #C4B5FD; background: rgba(139, 92, 246, 0.14); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
+                ✦ Астрономический расчет координат Большой Тройки и ключевых планет
+              </div>
             </div>
-
-            <div class="card-eyebrow" style="margin-bottom: 3px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Храм Таро & Звездный Код ✦</div>
-            <h3 class="card-headline" style="font-size: clamp(16px, 2.3vh, 19px); line-height: 1.25; margin: 2px 0 6px; text-align: center;">Звезды показывают путь.<br>Таро вскрывает скрытое.</h3>
-            <p class="card-desc" style="font-size: clamp(11.5px, 1.6vh, 12.5px); line-height: 1.42; margin-bottom: 8px; text-align: center; color: rgba(255, 255, 255, 0.85);">
-              Здесь нет банальных гаданий. Каждая карта — это зеркало твоего подсознания: она вытаскивает наружу скрытые мотивы людей вокруг, слепые зоны и то, в чем трудно признаться даже себе.
-            </p>
-            <div style="font-size: clamp(10.5px, 1.4vh, 11px); color: #E5C07B; background: rgba(229, 192, 123, 0.12); border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 10px; padding: 4px 10px; text-align: center; margin-bottom: 4px; width: 100%;">
-              ✦ 78 арканов с глубоким психоанализом и расклады на любую ситуацию
+            <div class="ob-step-footer" style="padding-top: 4px;">
+              <button class="btn-max-primary" onclick="showTeaserStep(2)">
+                Далее →
+              </button>
             </div>
           </div>
-          <div class="ob-step-footer" style="padding-top: 6px;">
-            <button class="btn-max-primary" onclick="nextOnboardingStep(1)">
-              Раскрыть мой космический код →
-            </button>
+
+          <!-- Teaser 2: Личный Астролог 24/7 -->
+          <div id="obTeaser2" class="ob-step-container" style="display: none;">
+            <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+              <div id="obEmpathyCanvasWrap" class="ob-teaser-canvas-wrap">
+                <canvas id="obEmpathyCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              </div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #67E8F9; font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Личный Наставник 24/7 ✦</div>
+              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Мудрый проводник рядом.<br>В любой момент, без осуждения.</h3>
+              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
+                Персональный наставник опирается на индивидуальные аспекты твоей карты. Помогает разобраться в отношениях, преодолеть кризис и найти душевное равновесие.
+              </p>
+              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #67E8F9; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
+                ✦ 4 наставника с чутким стилем диалога и памятью твоих запросов
+              </div>
+            </div>
+            <div class="ob-step-footer" style="padding-top: 4px;">
+              <div style="display: flex; gap: 8px; width: 100%;">
+                <button class="btn-max-secondary" style="width: auto; min-width: 90px; padding: 0 14px;" onclick="showTeaserStep(1)">← Назад</button>
+                <button class="btn-max-primary" style="flex: 1;" onclick="showTeaserStep(3)">Далее →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teaser 3: Храм Таро (3D карточный вихрь) -->
+          <div id="obTeaser3" class="ob-step-container" style="display: none;">
+            <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+              <div id="obTarotCanvasWrap" class="ob-teaser-canvas-wrap">
+                <canvas id="obTarotCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(255,170,60,0.3) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              </div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Храм Таро & Звездный Код ✦</div>
+              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Звезды показывают путь.<br>Таро вскрывает скрытое.</h3>
+              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
+                Здесь нет пустых предсказаний. Каждая карта отражает глубинные слои подсознания: тайные мотивы людей вокруг, слепые зоны и неочевидные решения.
+              </p>
+              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #E5C07B; background: rgba(229, 192, 123, 0.12); border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
+                ✦ 78 священных арканов и точные расклады на любую жизненную ситуацию
+              </div>
+            </div>
+            <div class="ob-step-footer" style="padding-top: 4px;">
+              <div style="display: flex; gap: 8px; width: 100%;">
+                <button class="btn-max-secondary" style="width: auto; min-width: 90px; padding: 0 14px;" onclick="showTeaserStep(2)">← Назад</button>
+                <button class="btn-max-primary" style="flex: 1;" onclick="showTeaserStep(4)">Далее →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teaser 4: Персональный Гороскоп (Транзиты & Луна) -->
+          <div id="obTeaser4" class="ob-step-container" style="display: none;">
+            <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+              <div id="obHoroscopeCanvasWrap" class="ob-teaser-canvas-wrap">
+                <canvas id="obHoroscopeCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              </div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #A78BFA; font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Персональный Гороскоп ✦</div>
+              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Планетарные транзиты дня.<br>Каждую полночь в 00:00.</h3>
+              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
+                Индивидуальный ритм суток, синхронизированный с твоей натальной картой. Подскажет, когда наступает идеальный момент для рывка, а когда лучше восстановить силы.
+              </p>
+              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #C4B5FD; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
+                ✦ Лунный календарь, солярные транзиты и персональное окно возможностей
+              </div>
+            </div>
+            <div class="ob-step-footer" style="padding-top: 4px;">
+              <div style="display: flex; gap: 8px; width: 100%;">
+                <button class="btn-max-secondary" style="width: auto; min-width: 90px; padding: 0 14px;" onclick="showTeaserStep(3)">← Назад</button>
+                <button class="btn-max-primary" style="flex: 1;" onclick="skipToDataEntry()">Создать мою натальную карту →</button>
+              </div>
+            </div>
           </div>
         </div>
 
@@ -5761,7 +5882,260 @@
       }
     }
 
-    // 11. Native 4-Step Onboarding Controller (with Step 0 3D Tarot Vortex Intro)
+    // =========================================================================
+    // 11. Hybrid Dual-Engine Visual Motion & TVLC Controller (Teasers 1-4)
+    // =========================================================================
+    let currentTeaserStep = 1;
+    let currentTeaserIndex = 1;
+
+    // --- Screen 1: 3D Armillary Celestial Sphere (Three.js WebGL) ---
+    let obNatalAnimId = null;
+    let obNatalRenderer = null;
+    let obNatalScene = null;
+    let obNatalCamera = null;
+    let obNatalRingGroup = null;
+    let obNatalEclipticRing = null;
+    let obNatalStars = null;
+
+    function initObNatalCanvas() {
+      const canvas = document.getElementById('obNatalCanvas');
+      const wrap = document.getElementById('obNatalCanvasWrap');
+      if (!canvas || !wrap || typeof THREE === 'undefined') return;
+
+      const width = wrap.clientWidth || 320;
+      const height = wrap.clientHeight || 165;
+
+      if (!obNatalRenderer) {
+        obNatalScene = new THREE.Scene();
+        obNatalCamera = new THREE.PerspectiveCamera(42, width / height, 0.1, 50);
+        obNatalCamera.position.set(0, 1.2, 5.2);
+        obNatalCamera.lookAt(0, 0, 0);
+
+        obNatalRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        obNatalRenderer.setClearColor(0x000000, 0);
+        obNatalRenderer.setSize(width, height);
+        obNatalRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+        // Ambient & planetary lights
+        const amb = new THREE.AmbientLight(0x405580, 1.8);
+        obNatalScene.add(amb);
+        const sunLight = new THREE.PointLight(0xF59E0B, 2.5, 12);
+        sunLight.position.set(2.5, 2.0, 2.0);
+        obNatalScene.add(sunLight);
+        const astralLight = new THREE.PointLight(0x8B5CF6, 2.0, 10);
+        astralLight.position.set(-2.5, -1.5, 1.5);
+        obNatalScene.add(astralLight);
+
+        obNatalRingGroup = new THREE.Group();
+        obNatalScene.add(obNatalRingGroup);
+
+        // Gold & celestial materials
+        const goldMat1 = new THREE.MeshStandardMaterial({ color: 0xE5C07B, metalness: 0.88, roughness: 0.22 });
+        const goldMat2 = new THREE.MeshStandardMaterial({ color: 0xD4AF37, metalness: 0.85, roughness: 0.25 });
+        const violetMat = new THREE.MeshStandardMaterial({ color: 0xC084FC, metalness: 0.8, roughness: 0.3 });
+        const cyanMat = new THREE.MeshStandardMaterial({ color: 0x38BDF8, metalness: 0.75, roughness: 0.28 });
+
+        // Ring 1: Equatorial Ring
+        const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.8, 0.022, 16, 64), goldMat1);
+        obNatalRingGroup.add(ring1);
+
+        // Ring 2: Ecliptic Ring (tilted at ~23.5 deg = 0.41 rad)
+        obNatalEclipticRing = new THREE.Mesh(new THREE.TorusGeometry(1.82, 0.02, 16, 64), goldMat2);
+        obNatalEclipticRing.rotation.x = 0.41;
+        obNatalRingGroup.add(obNatalEclipticRing);
+
+        // Ring 3: Meridian Colure (rotated 90 deg around Y)
+        const ring3 = new THREE.Mesh(new THREE.TorusGeometry(1.84, 0.018, 16, 64), violetMat);
+        ring3.rotation.y = Math.PI / 2;
+        obNatalRingGroup.add(ring3);
+
+        // Ring 4: Inner Zodiac Band
+        const ring4 = new THREE.Mesh(new THREE.TorusGeometry(1.48, 0.014, 16, 48), cyanMat);
+        ring4.rotation.x = -0.3;
+        ring4.rotation.z = 0.2;
+        obNatalRingGroup.add(ring4);
+
+        // Central glowing celestial nucleus
+        const coreGeo = new THREE.SphereGeometry(0.24, 24, 24);
+        const coreMat = new THREE.MeshBasicMaterial({ color: 0xFFFBEB });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        obNatalRingGroup.add(coreMesh);
+
+        // Planetary marker spheres on the ecliptic ring (Sun, Moon, Ascendant)
+        const sunMarker = new THREE.Mesh(new THREE.SphereGeometry(0.1, 16, 16), new THREE.MeshStandardMaterial({ color: 0xF59E0B, metalness: 0.9, roughness: 0.1 }));
+        sunMarker.position.set(1.82, 0, 0);
+        obNatalEclipticRing.add(sunMarker);
+
+        const moonMarker = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), new THREE.MeshStandardMaterial({ color: 0x93C5FD, metalness: 0.6, roughness: 0.3 }));
+        moonMarker.position.set(-1.82 * 0.7, 0, 1.82 * 0.7);
+        obNatalEclipticRing.add(moonMarker);
+
+        const ascMarker = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), new THREE.MeshStandardMaterial({ color: 0x06B6D4, metalness: 0.8, roughness: 0.2 }));
+        ascMarker.position.set(0, 0, -1.82);
+        obNatalEclipticRing.add(ascMarker);
+
+        // Star cluster particles
+        const S_COUNT = 150;
+        const sGeo = new THREE.BufferGeometry();
+        const sPos = new Float32Array(S_COUNT * 3);
+        for (let i = 0; i < S_COUNT; i++) {
+          const theta = Math.random() * Math.PI * 2;
+          const phi = Math.acos(2 * Math.random() - 1);
+          const r = 2.4 + Math.random() * 0.8;
+          sPos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+          sPos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+          sPos[i * 3 + 2] = r * Math.cos(phi);
+        }
+        sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
+        const sMat = new THREE.PointsMaterial({ color: 0xFFD700, size: 0.065, transparent: true, opacity: 0.85 });
+        obNatalStars = new THREE.Points(sGeo, sMat);
+        obNatalScene.add(obNatalStars);
+      } else {
+        obNatalRenderer.setSize(width, height);
+        obNatalCamera.aspect = width / height;
+        obNatalCamera.updateProjectionMatrix();
+      }
+
+      if (!obNatalAnimId) {
+        function renderNatalLoop() {
+          if (currentTeaserStep !== 1) {
+            obNatalAnimId = null;
+            return;
+          }
+          if (obNatalRingGroup) {
+            obNatalRingGroup.rotation.y += 0.005;
+            obNatalRingGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.08;
+          }
+          if (obNatalEclipticRing) {
+            obNatalEclipticRing.rotation.z += 0.003;
+          }
+          if (obNatalStars) {
+            obNatalStars.rotation.y -= 0.0008;
+          }
+          obNatalRenderer.render(obNatalScene, obNatalCamera);
+          obNatalAnimId = requestAnimationFrame(renderNatalLoop);
+        }
+        obNatalAnimId = requestAnimationFrame(renderNatalLoop);
+      }
+    }
+
+    // --- Screen 2: Radiant Empathy Beacon & Acoustic Waves (Canvas 2D) ---
+    let obEmpathyAnimId = null;
+    let obEmpathyCtx = null;
+    let obEmpathyParticles = null;
+
+    function initObEmpathyCanvas() {
+      const canvas = document.getElementById('obEmpathyCanvas');
+      const wrap = document.getElementById('obEmpathyCanvasWrap');
+      if (!canvas || !wrap) return;
+
+      const width = wrap.clientWidth || 320;
+      const height = wrap.clientHeight || 165;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      obEmpathyCtx = canvas.getContext('2d');
+      obEmpathyCtx.setTransform(1, 0, 0, 1, 0, 0);
+      obEmpathyCtx.scale(dpr, dpr);
+
+      if (!obEmpathyParticles) {
+        obEmpathyParticles = [];
+        for (let i = 0; i < 26; i++) {
+          obEmpathyParticles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: 1 + Math.random() * 2,
+            speedY: 0.3 + Math.random() * 0.6,
+            seed: Math.random() * Math.PI * 2,
+            alpha: 0.3 + Math.random() * 0.6
+          });
+        }
+      }
+
+      if (!obEmpathyAnimId) {
+        let startTime = performance.now();
+        function renderEmpathyLoop(now) {
+          if (currentTeaserStep !== 2) {
+            obEmpathyAnimId = null;
+            return;
+          }
+          const t = (now - startTime) * 0.001;
+          const ctx = obEmpathyCtx;
+          ctx.clearRect(0, 0, width, height);
+
+          const cx = width / 2;
+          const cy = height / 2;
+          const maxR = Math.min(width, height) * 0.44;
+
+          // 1. Concentric Resonant Energy Waves (4 harmonic expanding rings)
+          for (let i = 0; i < 4; i++) {
+            const phase = (t * 0.35 + i * 0.25) % 1.0;
+            const r = 20 + phase * (maxR - 20);
+            const alpha = Math.sin(phase * Math.PI) * 0.65;
+
+            ctx.save();
+            ctx.beginPath();
+            const segments = 60;
+            for (let s = 0; s <= segments; s++) {
+              const theta = (s / segments) * Math.PI * 2;
+              const wave = Math.sin(theta * 6 + t * 3.5) * 2.8;
+              const px = cx + (r + wave) * Math.cos(theta);
+              const py = cy + (r + wave) * Math.sin(theta);
+              if (s === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = i % 2 === 0 ? `rgba(6, 182, 212, ${alpha})` : `rgba(139, 92, 246, ${alpha})`;
+            ctx.lineWidth = 1.6;
+            ctx.stroke();
+            ctx.restore();
+          }
+
+          // 2. Drifting Empathy Embers
+          for (let p of obEmpathyParticles) {
+            p.y -= p.speedY;
+            if (p.y < -10) {
+              p.y = height + 10;
+              p.x = Math.random() * width;
+            }
+            const px = p.x + Math.sin(t * 1.5 + p.seed) * 8;
+            ctx.beginPath();
+            ctx.arc(px, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(103, 232, 249, ${p.alpha * 0.7})`;
+            ctx.fill();
+          }
+
+          // 3. Central Empathy Beacon (pulsing breathing orb)
+          const pulse = 1 + 0.12 * Math.sin(t * 2.4);
+          const beaconR = 24 * pulse;
+          const grad = ctx.createRadialGradient(cx, cy, 2, cx, cy, beaconR * 1.8);
+          grad.addColorStop(0, '#FFFFFF');
+          grad.addColorStop(0.3, 'rgba(103, 232, 249, 0.85)');
+          grad.addColorStop(0.6, 'rgba(139, 92, 246, 0.6)');
+          grad.addColorStop(0.85, 'rgba(236, 72, 153, 0.25)');
+          grad.addColorStop(1, 'rgba(139, 92, 246, 0)');
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(cx, cy, beaconR * 1.8, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(cx, cy, 6 * pulse, 0, Math.PI * 2);
+          ctx.fillStyle = '#FFFFFF';
+          ctx.shadowColor = '#67E8F9';
+          ctx.shadowBlur = 12;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          obEmpathyAnimId = requestAnimationFrame(renderEmpathyLoop);
+        }
+        obEmpathyAnimId = requestAnimationFrame(renderEmpathyLoop);
+      }
+    }
+
+    // --- Screen 3: Sacred 3D Tarot Card Vortex (Three.js WebGL) ---
     let obTarotAnimId = null;
     let obTarotRenderer = null;
     let obTarotScene = null;
@@ -5859,14 +6233,12 @@
         obTarotCamera.updateProjectionMatrix();
       }
 
-      // Start animation loop if not running
       if (!obTarotAnimId) {
         let angle = 0;
-        function renderLoop() {
-          const ob0 = document.getElementById('obStep0');
-          if (!ob0 || ob0.style.display === 'none') {
+        function renderTarotLoop() {
+          if (currentTeaserStep !== 3) {
             obTarotAnimId = null;
-            return; // Pause loop when not on Step 0 to save battery!
+            return;
           }
           angle += 0.007;
           const RX = 2.45;
@@ -5879,11 +6251,339 @@
             m.rotation.z = 0.22;
           }
           obTarotRenderer.render(obTarotScene, obTarotCamera);
-          obTarotAnimId = requestAnimationFrame(renderLoop);
+          obTarotAnimId = requestAnimationFrame(renderTarotLoop);
         }
-        obTarotAnimId = requestAnimationFrame(renderLoop);
+        obTarotAnimId = requestAnimationFrame(renderTarotLoop);
       }
     }
+
+    // --- Screen 4: Celestial Transit Dial & Midnight Aura (Canvas 2D) ---
+    let obHoroscopeAnimId = null;
+    let obHoroscopeCtx = null;
+    let obHoroscopeParticles = null;
+
+    function initObHoroscopeCanvas() {
+      const canvas = document.getElementById('obHoroscopeCanvas');
+      const wrap = document.getElementById('obHoroscopeCanvasWrap');
+      if (!canvas || !wrap) return;
+
+      const width = wrap.clientWidth || 320;
+      const height = wrap.clientHeight || 165;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      obHoroscopeCtx = canvas.getContext('2d');
+      obHoroscopeCtx.setTransform(1, 0, 0, 1, 0, 0);
+      obHoroscopeCtx.scale(dpr, dpr);
+
+      if (!obHoroscopeParticles) {
+        obHoroscopeParticles = [];
+        for (let i = 0; i < 20; i++) {
+          obHoroscopeParticles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: 0.8 + Math.random() * 1.5,
+            alpha: 0.2 + Math.random() * 0.6
+          });
+        }
+      }
+
+      if (!obHoroscopeAnimId) {
+        let startTime = performance.now();
+        function renderHoroscopeLoop(now) {
+          if (currentTeaserStep !== 4) {
+            obHoroscopeAnimId = null;
+            return;
+          }
+          const t = (now - startTime) * 0.001;
+          const ctx = obHoroscopeCtx;
+          ctx.clearRect(0, 0, width, height);
+
+          const cx = width / 2;
+          const cy = height / 2;
+          const dialR = Math.min(width, height) * 0.38;
+
+          // 1. Ambient Background Stars
+          for (let p of obHoroscopeParticles) {
+            const flicker = Math.sin(t * 2 + p.x) * 0.3 + 0.7;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(196, 181, 253, ${p.alpha * flicker * 0.6})`;
+            ctx.fill();
+          }
+
+          // 2. Astrological Transit Dial Track
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(cx, cy, dialR, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(229, 192, 123, 0.35)';
+          ctx.lineWidth = 1.8;
+          ctx.stroke();
+
+          // Rotating dashed inner orbit
+          ctx.beginPath();
+          ctx.arc(cx, cy, dialR * 0.76, 0, Math.PI * 2);
+          ctx.setLineDash([3, 5]);
+          ctx.lineDashOffset = -t * 12;
+          ctx.strokeStyle = 'rgba(139, 92, 246, 0.45)';
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+          ctx.setLineDash([]);
+
+          // Dial Ticks (12 major division marks for signs/houses, 24 minor marks)
+          for (let i = 0; i < 24; i++) {
+            const angle = (i / 24) * Math.PI * 2;
+            const isMajor = i % 2 === 0;
+            const inner = dialR - (isMajor ? 7 : 3.5);
+            const outer = dialR + (isMajor ? 7 : 3.5);
+            ctx.beginPath();
+            ctx.moveTo(cx + Math.cos(angle) * inner, cy + Math.sin(angle) * inner);
+            ctx.lineTo(cx + Math.cos(angle) * outer, cy + Math.sin(angle) * outer);
+            ctx.strokeStyle = isMajor ? 'rgba(229, 192, 123, 0.6)' : 'rgba(255, 255, 255, 0.2)';
+            ctx.lineWidth = isMajor ? 1.4 : 0.8;
+            ctx.stroke();
+          }
+
+          // 3. Solar-Lunar Celestial Bodies
+          const orbitAngle = t * 0.55;
+
+          // Sun Body (Gold disc with micro-corona)
+          const sunX = cx + Math.cos(orbitAngle) * dialR;
+          const sunY = cy + Math.sin(orbitAngle) * dialR;
+          const sunGrad = ctx.createRadialGradient(sunX, sunY, 1, sunX, sunY, 10);
+          sunGrad.addColorStop(0, '#FFFFFF');
+          sunGrad.addColorStop(0.3, '#FDE047');
+          sunGrad.addColorStop(0.7, '#F59E0B');
+          sunGrad.addColorStop(1, 'rgba(245, 158, 11, 0)');
+          ctx.fillStyle = sunGrad;
+          ctx.beginPath();
+          ctx.arc(sunX, sunY, 10, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(sunX, sunY, 4.5, 0, Math.PI * 2);
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fill();
+
+          // Moon Body (Silver-cyan pearlescent crescent disc)
+          const moonX = cx + Math.cos(orbitAngle + Math.PI) * dialR;
+          const moonY = cy + Math.sin(orbitAngle + Math.PI) * dialR;
+          const moonGrad = ctx.createRadialGradient(moonX, moonY, 1, moonX, moonY, 9);
+          moonGrad.addColorStop(0, '#FFFFFF');
+          moonGrad.addColorStop(0.4, '#93C5FD');
+          moonGrad.addColorStop(0.8, '#3B82F6');
+          moonGrad.addColorStop(1, 'rgba(59, 130, 246, 0)');
+          ctx.fillStyle = moonGrad;
+          ctx.beginPath();
+          ctx.arc(moonX, moonY, 9, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(moonX, moonY, 4, 0, Math.PI * 2);
+          ctx.fillStyle = '#E2E8F0';
+          ctx.fill();
+
+          // Subtle orbital connector ray
+          ctx.beginPath();
+          ctx.moveTo(sunX, sunY);
+          ctx.lineTo(cx, cy);
+          ctx.lineTo(moonX, moonY);
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          // 4. Midnight Rejuvenation Zenith Aura (at top -PI/2)
+          const topX = cx;
+          const topY = cy - dialR;
+          const midnightPulse = 0.6 + 0.4 * Math.sin(t * 2.2);
+          const topGrad = ctx.createRadialGradient(topX, topY, 1, topX, topY, 14 * midnightPulse);
+          topGrad.addColorStop(0, '#FFFFFF');
+          topGrad.addColorStop(0.4, 'rgba(103, 232, 249, 0.8)');
+          topGrad.addColorStop(1, 'rgba(103, 232, 249, 0)');
+          ctx.fillStyle = topGrad;
+          ctx.beginPath();
+          ctx.arc(topX, topY, 14 * midnightPulse, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Center Monogram Readout (00:00 midnight transit indicator)
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+          ctx.font = '600 11px system-ui, -apple-system, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('00:00', cx, cy - 2);
+
+          ctx.fillStyle = 'rgba(196, 181, 253, 0.7)';
+          ctx.font = '500 8.5px system-ui, -apple-system, sans-serif';
+          ctx.fillText('ТРАНЗИТЫ', cx, cy + 9);
+
+          ctx.restore();
+
+          obHoroscopeAnimId = requestAnimationFrame(renderHoroscopeLoop);
+        }
+        obHoroscopeAnimId = requestAnimationFrame(renderHoroscopeLoop);
+      }
+    }
+
+    // --- Teaser Visual Lifecycle Controller (TVLC) ---
+    function switchTeaserAnimation(targetStep) {
+      currentTeaserStep = targetStep;
+
+      // Halt all loops not matching targetStep
+      if (targetStep !== 1 && obNatalAnimId) {
+        cancelAnimationFrame(obNatalAnimId);
+        obNatalAnimId = null;
+      }
+      if (targetStep !== 2 && obEmpathyAnimId) {
+        cancelAnimationFrame(obEmpathyAnimId);
+        obEmpathyAnimId = null;
+      }
+      if (targetStep !== 3 && obTarotAnimId) {
+        cancelAnimationFrame(obTarotAnimId);
+        obTarotAnimId = null;
+      }
+      if (targetStep !== 4 && obHoroscopeAnimId) {
+        cancelAnimationFrame(obHoroscopeAnimId);
+        obHoroscopeAnimId = null;
+      }
+
+      // Start/resume active scene after DOM update
+      setTimeout(() => {
+        if (targetStep === 1) initObNatalCanvas();
+        else if (targetStep === 2) initObEmpathyCanvas();
+        else if (targetStep === 3) initObTarotCanvas();
+        else if (targetStep === 4) initObHoroscopeCanvas();
+      }, 35);
+    }
+
+    function pauseAllTeaserAnimations() {
+      currentTeaserStep = 0;
+      if (obNatalAnimId) {
+        cancelAnimationFrame(obNatalAnimId);
+        obNatalAnimId = null;
+      }
+      if (obEmpathyAnimId) {
+        cancelAnimationFrame(obEmpathyAnimId);
+        obEmpathyAnimId = null;
+      }
+      if (obTarotAnimId) {
+        cancelAnimationFrame(obTarotAnimId);
+        obTarotAnimId = null;
+      }
+      if (obHoroscopeAnimId) {
+        cancelAnimationFrame(obHoroscopeAnimId);
+        obHoroscopeAnimId = null;
+      }
+    }
+
+    // OS / Mobile App Backgrounding Interceptor
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        pauseAllTeaserAnimations();
+      } else {
+        const modal = document.getElementById('onboardingModal');
+        const wrap = document.getElementById('obTeasersWrap');
+        if (modal && modal.classList.contains('active') && wrap && wrap.style.display !== 'none') {
+          switchTeaserAnimation(currentTeaserIndex || 1);
+        }
+      }
+    });
+
+    // --- Teaser Navigation & State Machine ---
+    function showTeaserStep(index) {
+      triggerHaptic();
+      currentTeaserIndex = Math.max(1, Math.min(4, index));
+
+      // 1. Ensure Teasers Wrap is visible
+      const wrap = document.getElementById('obTeasersWrap');
+      if (wrap) wrap.style.display = 'flex';
+
+      // 2. Hide all data entry step containers
+      ['obStep1', 'obStep2', 'obStep3', 'obStep4', 'obStepLoading'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+
+      // 3. Show only target teaser card
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`obTeaser${i}`);
+        if (el) el.style.display = (i === currentTeaserIndex) ? 'flex' : 'none';
+      }
+
+      // 4. Header Skip button: visible during teasers
+      const skipBtn = document.getElementById('obSkipBtn');
+      if (skipBtn) skipBtn.style.display = 'block';
+
+      // 5. Header step indicator: shows 1/4, 2/4, 3/4, 4/4
+      const indicator = document.getElementById('onboardingStepIndicator');
+      if (indicator) indicator.textContent = `${currentTeaserIndex}/4`;
+
+      // 6. Update progress segment pills
+      for (let i = 1; i <= 4; i++) {
+        const seg = document.getElementById(`obSeg${i}`);
+        if (seg) {
+          if (i < currentTeaserIndex) {
+            seg.style.background = '#06B6D4';
+            seg.style.boxShadow = '0 0 6px rgba(6, 182, 212, 0.5)';
+          } else if (i === currentTeaserIndex) {
+            seg.style.background = 'var(--max-blue-gradient)';
+            seg.style.boxShadow = '0 0 8px rgba(139, 92, 246, 0.6)';
+          } else {
+            seg.style.background = 'rgba(255, 255, 255, 0.15)';
+            seg.style.boxShadow = 'none';
+          }
+        }
+      }
+
+      // 7. Activate dedicated animation loop and pause others
+      switchTeaserAnimation(currentTeaserIndex);
+    }
+
+    function skipToDataEntry() {
+      triggerHaptic();
+      pauseAllTeaserAnimations();
+      const wrap = document.getElementById('obTeasersWrap');
+      if (wrap) wrap.style.display = 'none';
+      const skipBtn = document.getElementById('obSkipBtn');
+      if (skipBtn) skipBtn.style.display = 'none';
+      nextOnboardingStep(1);
+    }
+
+    // Touch Swipe Gesture Listener on #obTeasersWrap
+    (function initTeaserSwipe() {
+      const wrap = document.getElementById('obTeasersWrap');
+      if (!wrap) return;
+      let startX = 0;
+      let startY = 0;
+
+      wrap.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      wrap.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
+        const diffX = e.changedTouches[0].clientX - startX;
+        const diffY = e.changedTouches[0].clientY - startY;
+        if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.2) {
+          if (diffX < 0) {
+            // Swipe Left -> Next
+            if (currentTeaserIndex < 4) {
+              showTeaserStep(currentTeaserIndex + 1);
+            } else {
+              skipToDataEntry();
+            }
+          } else {
+            // Swipe Right -> Prev
+            if (currentTeaserIndex > 1) {
+              showTeaserStep(currentTeaserIndex - 1);
+            }
+          }
+        }
+      }, { passive: true });
+    })();
 
     function openOnboardingModal() {
       const modal = document.getElementById('onboardingModal');
@@ -5893,30 +6593,38 @@
         document.getElementById('obInputTime').value = state.profile.birthTime || '12:00';
         document.getElementById('obInputCity').value = '';
         renderPersonaCards('onboardingPersonaList', state.profile.personaId || 'alena');
-        nextOnboardingStep(0);
+        showTeaserStep(1);
         modal.classList.add('active');
       }
     }
 
     function nextOnboardingStep(step) {
       triggerHaptic();
-      ['obStep0', 'obStep1', 'obStep2', 'obStep3', 'obStep4', 'obStepLoading'].forEach(id => {
+      const allSteps = ['obTeasersWrap', 'obStep1', 'obStep2', 'obStep3', 'obStep4', 'obStepLoading'];
+      allSteps.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
       });
 
+      const skipBtn = document.getElementById('obSkipBtn');
+
+      if (step === 0) {
+        showTeaserStep(1);
+        return;
+      }
+
+      pauseAllTeaserAnimations();
+      if (skipBtn) skipBtn.style.display = 'none';
+
       const stepIndicator = document.getElementById('onboardingStepIndicator');
       if (stepIndicator) {
-        stepIndicator.textContent = step === 0 ? '✦ Знакомство' : `Шаг ${step} из 4`;
+        stepIndicator.textContent = `Шаг ${step} из 4`;
       }
 
       for (let i = 1; i <= 4; i++) {
         const seg = document.getElementById(`obSeg${i}`);
         if (seg) {
-          if (step === 0) {
-            seg.style.background = 'rgba(255, 255, 255, 0.15)';
-            seg.style.boxShadow = 'none';
-          } else if (i < step) {
+          if (i < step) {
             seg.style.background = '#06B6D4';
             seg.style.boxShadow = '0 0 6px rgba(6, 182, 212, 0.5)';
           } else if (i === step) {
@@ -5929,10 +6637,7 @@
         }
       }
 
-      if (step === 0) {
-        document.getElementById('obStep0').style.display = 'flex';
-        setTimeout(initObTarotCanvas, 40);
-      } else if (step === 1) {
+      if (step === 1) {
         document.getElementById('obStep1').style.display = 'flex';
       } else if (step === 2) {
         const nameVal = document.getElementById('obInputName').value.trim();
@@ -5969,7 +6674,8 @@
 
     async function finishOnboarding() {
       triggerHaptic();
-      ['obStep1', 'obStep2', 'obStep3', 'obStep4'].forEach(id => {
+      pauseAllTeaserAnimations();
+      ['obTeasersWrap', 'obStep1', 'obStep2', 'obStep3', 'obStep4'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
       });
@@ -6014,12 +6720,14 @@
       } catch(e){}
       try {
         if (window.WebApp?.HapticFeedback && typeof window.WebApp.HapticFeedback.impactOccurred === 'function') {
-          window.WebApp.HapticFeedback.impactOccurred('light');
+          const p = window.WebApp.HapticFeedback.impactOccurred('light');
+          if (p && typeof p.catch === 'function') p.catch(() => {});
         }
       } catch(e){}
       try {
         if (window.Telegram?.WebApp?.HapticFeedback && typeof window.Telegram.WebApp.HapticFeedback.impactOccurred === 'function') {
-          window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+          const p = window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+          if (p && typeof p.catch === 'function') p.catch(() => {});
         }
       } catch(e){}
     }

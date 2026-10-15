@@ -320,8 +320,8 @@
     }
 
     @keyframes screenFadeIn {
-      from { opacity: 0; transform: translateY(4px); }
-      to { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
 
     /* Common Card Primitives */
@@ -5129,12 +5129,14 @@
       } catch(e){}
       try {
         if (window.WebApp?.HapticFeedback && typeof window.WebApp.HapticFeedback.impactOccurred === 'function') {
-          window.WebApp.HapticFeedback.impactOccurred('light');
+          const p = window.WebApp.HapticFeedback.impactOccurred('light');
+          if (p && typeof p.catch === 'function') p.catch(() => {});
         }
       } catch(e){}
       try {
         if (window.Telegram?.WebApp?.HapticFeedback && typeof window.Telegram.WebApp.HapticFeedback.impactOccurred === 'function') {
-          window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+          const p = window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
+          if (p && typeof p.catch === 'function') p.catch(() => {});
         }
       } catch(e){}
     }
