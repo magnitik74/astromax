@@ -65,3 +65,30 @@ test('api/payment/create-order.js generates payment order', async () => {
   assert.equal(getStatus(), 200);
   assert.ok(getData().paymentUrl);
 });
+
+test('api/chat/ask.js produces clean 2-paragraph dialogue without raw markdown ending with question', async () => {
+  const askHandler = (await import('../api/chat/ask.js')).default;
+  const { req, res, getStatus, getData } = mockReqRes('POST', {
+    message: 'Почему он не звонит и держит дистанцию?',
+    profile: {
+      name: 'Екатерина',
+      personaId: 'alena',
+      sunSign: 'Скорпион',
+      ascendant: 'Рак'
+    }
+  });
+
+  await askHandler(req, res);
+  assert.equal(getStatus(), 200);
+  const data = getData();
+  assert.ok(data.reply, 'Reply must exist');
+
+  // Verify no raw markdown headers or bold stars
+  assert.equal(/#+/.test(data.reply), false, 'Must not contain raw markdown headers');
+  assert.equal(/\*\*/.test(data.reply), false, 'Must not contain raw double stars');
+  assert.equal(/^[-*•]\s+/m.test(data.reply), false, 'Must not contain raw bullet lists');
+
+  // Verify ending with engaging question
+  assert.ok(data.reply.trim().endsWith('?'), 'Must end with an engaging open question');
+});
+

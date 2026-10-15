@@ -1510,58 +1510,158 @@
     #onboardingModal .modal-sheet {
       width: 100%;
       max-width: 480px;
-      max-height: 88vh;
-      max-height: 88dvh;
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-      background: rgba(14, 18, 36, 0.98);
-      border-top-left-radius: 24px;
-      border-top-right-radius: 24px;
-      border: 1px solid rgba(139, 92, 246, 0.3);
-      border-bottom: none;
-      box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.7), 0 0 24px rgba(139, 92, 246, 0.2);
-      padding: 14px 20px calc(20px + max(12px, env(safe-area-inset-bottom)));
+      height: 100vh;
+      height: 100dvh;
+      max-height: 100vh;
+      max-height: 100dvh;
+      overflow: hidden;
+      box-sizing: border-box;
+      background: radial-gradient(120% 90% at 50% 0%, #15182e 0%, #070811 100%);
+      border-radius: 0;
+      border: none;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+      padding: calc(12px + env(safe-area-inset-top, 0px)) 18px calc(16px + env(safe-area-inset-bottom, 12px));
       display: flex;
       flex-direction: column;
+      justify-content: space-between;
       position: relative;
       animation: sheetSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .onboarding-step-body {
+    .ob-step-container {
+      flex: 1;
       display: flex;
       flex-direction: column;
-      animation: screenFadeIn 0.24s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      justify-content: space-between;
+      min-height: 0;
+      overflow: hidden;
+      animation: screenFadeIn 0.22s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
 
-    .onboarding-headline {
-      font-size: var(--font-display-title-1);
-      line-height: var(--line-height-display-title-1);
+    .ob-step-body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .ob-step-footer {
+      margin-top: auto;
+      padding-top: 10px;
+      width: 100%;
+    }
+
+    /* 2x2 Mentor Selection Grid for 100% No-Scroll Onboarding */
+    .persona-grid-2x2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+      width: 100%;
+      margin: 4px 0 8px;
+    }
+
+    .ob-persona-grid-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 8px 6px 7px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1.5px solid rgba(255, 255, 255, 0.09);
+      border-radius: 14px;
+      cursor: pointer;
+      transition: all 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+      touch-action: manipulation;
+      user-select: none;
+    }
+
+    .ob-persona-grid-card:hover, .ob-persona-grid-card:active {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .ob-persona-grid-card.selected {
+      background: linear-gradient(135deg, rgba(139, 92, 246, 0.24) 0%, rgba(6, 182, 212, 0.14) 100%);
+      border-color: var(--astral-violet);
+      box-shadow: 0 0 16px rgba(139, 92, 246, 0.35), inset 0 0 10px rgba(139, 92, 246, 0.15);
+    }
+
+    .ob-persona-grid-avatar-wrap {
+      position: relative;
+      width: 44px;
+      height: 44px;
+      margin-bottom: 5px;
+    }
+
+    .ob-persona-grid-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .ob-persona-grid-card.selected .ob-persona-grid-avatar {
+      border-color: var(--solar-gold);
+      box-shadow: 0 0 10px rgba(245, 158, 11, 0.45);
+    }
+
+    .ob-persona-grid-beacon {
+      position: absolute;
+      bottom: 1px;
+      right: 1px;
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #10B981;
+      border: 1.5px solid #0E1224;
+      box-shadow: 0 0 6px #10B981;
+    }
+
+    .ob-persona-grid-name {
+      font-size: 13px;
       font-weight: 700;
       color: #FFFFFF;
-      letter-spacing: -0.4px;
-      margin: 6px 0 10px;
+      line-height: 1.2;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
     }
 
-    .onboarding-desc {
-      font-size: var(--font-body);
-      line-height: var(--line-height-body);
-      color: var(--text-secondary);
-      margin-bottom: 22px;
+    .ob-persona-grid-role {
+      font-size: 10.5px;
+      color: #C4B5FD;
+      line-height: 1.2;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 100%;
     }
 
-    .onboarding-actions {
-      margin-top: 24px;
+    .ob-persona-grid-check {
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: var(--astral-violet);
+      color: #FFFFFF;
+      font-size: 10px;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
     }
 
-    .onboarding-actions-split {
+    .ob-persona-grid-card.selected .ob-persona-grid-check {
       display: flex;
-      gap: 10px;
-      margin-top: 24px;
-    }
-
-    .onboarding-actions-split .btn-max-secondary {
-      flex: 1;
-      margin-top: 0;
     }
 
     .onboarding-actions-split .btn-max-primary {
@@ -1970,23 +2070,8 @@
          TAB 1: КОСМИЧЕСКИЙ ПАСПОРТ (AHA-MOMENT & БОЛЬШАЯ ТРОЙКА)
          ==================================================================== -->
     <main id="tab-screen-horoscope" class="tab-screen active">
-      <!-- 1. Космический Паспорт Личности -->
+      <!-- 1. Космический Паспорт Личности (Чистая VIP-карта) -->
       <div class="native-card">
-        <!-- Cinematic Passport Hero Visual -->
-        <div class="passport-hero-visual">
-          <img src="/onboarding_hero.jpg" class="hero-visual-img" alt="Зодиакальный портал АСТРА">
-          <div class="hero-visual-overlay"></div>
-          <div class="hero-visual-badge">
-            <div class="hero-visual-tag">
-              <span style="color: #F59E0B;">✦</span>
-              <span id="heroPassportName">Александр</span>
-            </div>
-            <div class="hero-visual-tag" style="border-color: rgba(6, 182, 212, 0.4); color: #67E8F9;">
-              <span>NASA Эфемериды</span>
-            </div>
-          </div>
-        </div>
-
         <div class="passport-header-row">
           <div class="passport-tag">✦ Космический паспорт АСТРА</div>
           <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;" id="passportCoordsLabel">Москва • 55.75°N</span>
@@ -2378,11 +2463,11 @@
        CINEMATIC MODAL SHEET ONBOARDING (STRICT 1 SCREEN PER STEP, NO SCROLL)
        ==================================================================== -->
   <div class="modal-backdrop" id="onboardingModal">
-      <div class="modal-sheet" style="padding-top: 14px; max-height: 88vh; display: flex; flex-direction: column;">
+      <div class="modal-sheet">
         <div class="sheet-handle"></div>
 
         <!-- Brand Title & Step Progress Bar -->
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; padding: 0 4px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; padding: 0 4px; flex-shrink: 0;">
           <div style="display: flex; align-items: center; gap: 8px;">
             <img src="/avatar.jpg" style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--solar-gold); object-fit: cover;" alt="АСТРА">
             <span style="font-weight: 700; font-size: 15px; color: #FFFFFF; letter-spacing: 0.4px;">АСТРА</span>
@@ -2393,7 +2478,7 @@
         </div>
 
         <!-- Segmented 4-Step Progress Indicator -->
-        <div style="display: flex; gap: 6px; margin-bottom: 16px;">
+        <div style="display: flex; gap: 6px; margin-bottom: 12px; flex-shrink: 0;">
           <div id="obSeg1" style="flex: 1; height: 4px; border-radius: 2px; background: var(--max-blue-gradient); box-shadow: 0 0 8px rgba(139, 92, 246, 0.6); transition: all 0.25s ease;"></div>
           <div id="obSeg2" style="flex: 1; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.15); transition: all 0.25s ease;"></div>
           <div id="obSeg3" style="flex: 1; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.15); transition: all 0.25s ease;"></div>
@@ -2401,114 +2486,130 @@
         </div>
 
         <!-- Step 1: Имя -->
-        <div id="obStep1">
-          <div class="ob-medallion-container">
-            <div class="ob-medallion-halo"></div>
-            <div class="ob-medallion-badge">
-              <img src="/onboarding_step1_portal.jpg" class="ob-medallion-img" alt="Врата Судьбы">
-              <div class="ob-medallion-shimmer"></div>
+        <div id="obStep1" class="ob-step-container">
+          <div class="ob-step-body">
+            <div class="ob-medallion-container">
+              <div class="ob-medallion-halo"></div>
+              <div class="ob-medallion-badge">
+                <img src="/onboarding_step1_portal.jpg" class="ob-medallion-img" alt="Врата Судьбы">
+                <div class="ob-medallion-shimmer"></div>
+              </div>
+            </div>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 1 из 4 • Зеркало личности</div>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Как к тебе обращаться?</h3>
+            <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
+              Имя задает вибрацию первого контакта. Назови себя так, как ты ощущаешь себя наедине с собой.
+            </p>
+            <div class="form-field" style="margin-bottom: 12px; width: 100%;">
+              <label>Твое имя</label>
+              <input type="text" id="obInputName" placeholder="Например: Александр, Анна, Макс..." required autocomplete="name">
             </div>
           </div>
-          <div class="card-eyebrow" style="margin-bottom: 4px; text-align: center;">Шаг 1 из 4 • Зеркало личности</div>
-          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px; text-align: center;">Как к тебе обращаться?</h3>
-          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 16px; text-align: center;">
-            Имя задает вибрацию первого контакта. Назови себя так, как ты ощущаешь себя наедине с собой.
-          </p>
-          <div class="form-field" style="margin-bottom: 16px;">
-            <label>Твое имя</label>
-            <input type="text" id="obInputName" placeholder="Например: Александр, Анна, Макс..." required autocomplete="name">
+          <div class="ob-step-footer">
+            <button class="btn-max-primary" onclick="nextOnboardingStep(2)">
+              Продолжить →
+            </button>
           </div>
-          <button class="btn-max-primary" onclick="nextOnboardingStep(2)">
-            Продолжить →
-          </button>
         </div>
 
         <!-- Step 2: Дата и время -->
-        <div id="obStep2" style="display: none;">
-          <div class="ob-medallion-container">
-            <div class="ob-medallion-halo"></div>
-            <div class="ob-medallion-badge">
-              <img src="/onboarding_step2_astrolabe.jpg" class="ob-medallion-img" alt="Астролябия Времени">
-              <div class="ob-medallion-shimmer"></div>
+        <div id="obStep2" class="ob-step-container" style="display: none;">
+          <div class="ob-step-body">
+            <div class="ob-medallion-container">
+              <div class="ob-medallion-halo"></div>
+              <div class="ob-medallion-badge">
+                <img src="/onboarding_step2_astrolabe.jpg" class="ob-medallion-img" alt="Астролябия Времени">
+                <div class="ob-medallion-shimmer"></div>
+              </div>
+            </div>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 2 из 4 • Момент первого вдоха</div>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Когда ты пришел(ла) в этот мир?</h3>
+            <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
+              Дата и минута фиксируют твой Асцендент — маску, которую видят другие, и глубинное подсознание.
+            </p>
+            <div class="form-field" style="margin-bottom: 10px; width: 100%;">
+              <label>Дата рождения</label>
+              <input type="date" id="obInputDate" value="1995-05-15" required>
+            </div>
+            <div class="form-field" style="margin-bottom: 12px; width: 100%;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                <label style="margin-bottom: 0;">Время рождения</label>
+                <label style="font-size: 11.5px; text-transform: none; color: #A78BFA; cursor: pointer; display: flex; align-items: center; gap: 4px;">
+                  <input type="checkbox" id="obUnknownTime" onchange="toggleObTime()" style="width: 14px; height: 14px; accent-color: var(--astral-violet);"> Не помню бирку (полдень)
+                </label>
+              </div>
+              <input type="time" id="obInputTime" value="12:00">
             </div>
           </div>
-          <div class="card-eyebrow" style="margin-bottom: 4px; text-align: center;">Шаг 2 из 4 • Момент первого вдоха</div>
-          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px; text-align: center;">Когда ты пришел(ла) в этот мир?</h3>
-          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 16px; text-align: center;">
-            Дата и минута фиксируют твой Асцендент — маску, которую видят другие, и глубинное подсознание.
-          </p>
-          <div class="form-field" style="margin-bottom: 12px;">
-            <label>Дата рождения</label>
-            <input type="date" id="obInputDate" value="1995-05-15" required>
-          </div>
-          <div class="form-field" style="margin-bottom: 16px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
-              <label style="margin-bottom: 0;">Время рождения</label>
-              <label style="font-size: 11.5px; text-transform: none; color: #A78BFA; cursor: pointer; display: flex; align-items: center; gap: 4px;">
-                <input type="checkbox" id="obUnknownTime" onchange="toggleObTime()" style="width: 14px; height: 14px; accent-color: var(--astral-violet);"> Не помню бирку (полдень)
-              </label>
+          <div class="ob-step-footer">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-max-secondary" onclick="nextOnboardingStep(1)" style="flex: 1; margin-top: 0;">← Назад</button>
+              <button class="btn-max-primary" onclick="nextOnboardingStep(3)" style="flex: 2;">Продолжить →</button>
             </div>
-            <input type="time" id="obInputTime" value="12:00">
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="btn-max-secondary" onclick="nextOnboardingStep(1)" style="flex: 1; margin-top: 0;">← Назад</button>
-            <button class="btn-max-primary" onclick="nextOnboardingStep(3)" style="flex: 2;">Продолжить →</button>
           </div>
         </div>
 
         <!-- Step 3: Место рождения -->
-        <div id="obStep3" style="display: none;">
-          <div class="ob-medallion-container">
-            <div class="ob-medallion-halo"></div>
-            <div class="ob-medallion-badge">
-              <img src="/onboarding_step3_coords.jpg" class="ob-medallion-img" alt="Сфера Координат">
-              <div class="ob-medallion-shimmer"></div>
+        <div id="obStep3" class="ob-step-container" style="display: none;">
+          <div class="ob-step-body">
+            <div class="ob-medallion-container">
+              <div class="ob-medallion-halo"></div>
+              <div class="ob-medallion-badge">
+                <img src="/onboarding_step3_coords.jpg" class="ob-medallion-img" alt="Сфера Координат">
+                <div class="ob-medallion-shimmer"></div>
+              </div>
+            </div>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 3 из 4 • Точка старта</div>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Где началась твоя история?</h3>
+            <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
+              Город, село, деревня или хутор. Место рождения раскрывает карту жизненных домов: где деньги и где любовь.
+            </p>
+            <div class="form-field" style="margin-bottom: 12px; width: 100%;">
+              <label>Город, посёлок, село или хутор</label>
+              <input type="text" id="obInputCity" list="russianPlacesDatalist" placeholder="Например: д. Сосновка, Москва, Казань..." autocomplete="off">
+              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin-top: 5px;">
+                💡 Поддерживаются любые населенные пункты РФ по всем 11 часовым поясам.
+              </div>
             </div>
           </div>
-          <div class="card-eyebrow" style="margin-bottom: 4px; text-align: center;">Шаг 3 из 4 • Точка старта</div>
-          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 8px; text-align: center;">Где началась твоя история?</h3>
-          <p class="card-desc" style="font-size: 13.5px; margin-bottom: 14px; text-align: center;">
-            Город, село, деревня или хутор. Место рождения раскрывает карту жизненных домов: где деньги и где любовь.
-          </p>
-          <div class="form-field" style="margin-bottom: 16px;">
-            <label>Город, посёлок, село или хутор</label>
-            <input type="text" id="obInputCity" list="russianPlacesDatalist" placeholder="Например: д. Сосновка, Москва, Казань..." autocomplete="off">
-            <div style="font-size: 11.5px; color: var(--text-muted); line-height: 1.45; margin-top: 6px;">
-              💡 Поддерживаются любые населенные пункты РФ по всем 11 часовым поясам.
+          <div class="ob-step-footer">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-max-secondary" onclick="nextOnboardingStep(2)" style="flex: 1; margin-top: 0;">← Назад</button>
+              <button class="btn-max-primary" onclick="nextOnboardingStep(4)" style="flex: 2;">Выбрать наставника →</button>
             </div>
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="btn-max-secondary" onclick="nextOnboardingStep(2)" style="flex: 1; margin-top: 0;">← Назад</button>
-            <button class="btn-max-primary" onclick="nextOnboardingStep(4)" style="flex: 2;">Выбрать наставника →</button>
           </div>
         </div>
 
         <!-- Step 4: Выбор наставника -->
-        <div id="obStep4" style="display: none;">
-          <div class="ob-medallion-container" style="width: 104px; height: 42px; margin: 0 auto 8px;">
-            <div class="ob-mentor-cluster">
-              <img src="/avatars/alena.jpg" class="ob-cluster-avatar" style="left: 0; z-index: 4;" alt="Алёна">
-              <img src="/avatars/artem.jpg" class="ob-cluster-avatar" style="left: 22px; z-index: 3;" alt="Артём">
-              <img src="/avatars/elena.jpg" class="ob-cluster-avatar" style="left: 44px; z-index: 2;" alt="Елена">
-              <img src="/avatars/sofia.jpg" class="ob-cluster-avatar" style="left: 66px; z-index: 1;" alt="София">
+        <div id="obStep4" class="ob-step-container" style="display: none;">
+          <div class="ob-step-body">
+            <div class="ob-medallion-container" style="width: 100px; height: 38px; margin: 0 auto 4px;">
+              <div class="ob-mentor-cluster">
+                <img src="/avatars/alena.jpg" class="ob-cluster-avatar" style="left: 0; z-index: 4;" alt="Алёна">
+                <img src="/avatars/artem.jpg" class="ob-cluster-avatar" style="left: 20px; z-index: 3;" alt="Артём">
+                <img src="/avatars/elena.jpg" class="ob-cluster-avatar" style="left: 40px; z-index: 2;" alt="Елена">
+                <img src="/avatars/sofia.jpg" class="ob-cluster-avatar" style="left: 60px; z-index: 1;" alt="София">
+              </div>
+            </div>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 4 из 4 • Твой личный наставник</div>
+            <h3 class="card-headline" style="font-size: clamp(16px, 2.4vh, 19px); margin: 2px 0 4px; text-align: center;">Кто назовет вещи своими именами?</h3>
+            <p class="card-desc" style="font-size: clamp(11.5px, 1.7vh, 12.5px); margin-bottom: 6px; text-align: center;">
+              Выбери наставника прямо сейчас (сменить можно в любой момент в 1 клик):
+            </p>
+            <div class="persona-grid-2x2" id="onboardingPersonaList">
+              <!-- Dynamically populated via JS: 2x2 grid -->
             </div>
           </div>
-          <div class="card-eyebrow" style="margin-bottom: 4px; text-align: center;">Шаг 4 из 4 • Твой личный наставник</div>
-          <h3 class="card-headline" style="font-size: 20px; margin: 4px 0 6px; text-align: center;">Кто назовет вещи своими именами?</h3>
-          <p class="card-desc" style="font-size: 13px; margin-bottom: 12px; text-align: center;">
-            Выбери наставника, чей голос откликается прямо сейчас (сменить можно в 1 клик):
-          </p>
-          <div class="persona-selection-list" id="onboardingPersonaList" style="max-height: 220px; overflow-y: auto; margin-bottom: 16px; padding-right: 4px;">
-            <!-- Dynamically populated via JS -->
-          </div>
-          <div style="display: flex; gap: 8px;">
-            <button class="btn-max-secondary" onclick="nextOnboardingStep(3)" style="flex: 1; margin-top: 0;">← Назад</button>
-            <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">✦ Вскрыть мой космический код</button>
+          <div class="ob-step-footer">
+            <div style="display: flex; gap: 8px;">
+              <button class="btn-max-secondary" onclick="nextOnboardingStep(3)" style="flex: 1; margin-top: 0;">← Назад</button>
+              <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">✦ Вскрыть мой космический код</button>
+            </div>
           </div>
         </div>
 
         <!-- Step Loading: Labor Illusion (Calculation Screen) -->
-        <div id="obStepLoading" style="display: none; text-align: center; padding: 20px 12px;">
+        <div id="obStepLoading" class="ob-step-container" style="display: none; text-align: center; justify-content: center; align-items: center; padding: 20px 12px;">
           <div class="ob-medallion-container" style="width: 78px; height: 78px; margin: 0 auto 16px;">
             <div class="ob-medallion-halo large"></div>
             <div class="ob-medallion-badge large">
@@ -2517,10 +2618,10 @@
             </div>
           </div>
           <h3 class="card-headline" style="font-size: 19px; margin-bottom: 6px;">Вскрываем твою матрицу...</h3>
-          <p id="obLoadingStatusText" style="font-size: 13.5px; color: #C4B5FD; font-weight: 500; min-height: 40px;">
+          <p id="obLoadingStatusText" style="font-size: 13px; color: #C4B5FD; font-weight: 500; min-height: 40px; max-width: 320px; margin: 0 auto;">
             Считываем скрытый парадокс: внешняя броня vs внутренняя уязвимость...
           </p>
-          <div style="width: 100%; height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; overflow: hidden; margin-top: 16px;">
+          <div style="width: 100%; max-width: 320px; height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; overflow: hidden; margin-top: 16px;">
             <div id="obProgressBar" style="width: 10%; height: 100%; background: var(--max-blue-gradient); transition: width 0.4s ease;"></div>
           </div>
         </div>
@@ -2681,7 +2782,7 @@
           <img id="passportPreviewImg" class="passport-preview-img" alt="Космический Паспорт" />
           <div id="passportCanvasLoading" class="passport-canvas-loading">
             <div class="spin-orbit"></div>
-            <span>Формирование карточки по эфемеридам NASA...</span>
+            <span>Сверка планетарных координат и домов...</span>
           </div>
         </div>
 
@@ -3037,19 +3138,16 @@
       container.innerHTML = PERSONAS_CATALOG.map(p => {
         const isSel = p.id === activeId;
         if (isOnboarding) {
+          const roleBadge = p.id === 'artem' ? 'Бизнес & деньги' : p.id === 'elena' ? 'Карма & натал' : p.id === 'sofia' ? 'Таро & интуиция' : 'Астропсихолог';
           return `
-            <div class="persona-card-item ${isSel ? 'selected' : ''}" onclick="selectPersona('${p.id}')" style="padding: 8px 12px; margin-bottom: 7px; min-height: 48px; border-radius: 12px;">
-              <div class="persona-card-avatar-wrap" style="width: 40px; height: 40px; min-width: 40px;">
-                <img src="${p.avatar}" class="persona-card-avatar" alt="${p.name}" style="width: 40px; height: 40px;">
-                <div class="persona-card-beacon" style="bottom: 1px; right: 1px; width: 8px; height: 8px;"></div>
+            <div class="ob-persona-grid-card ${isSel ? 'selected' : ''}" onclick="selectPersona('${p.id}')">
+              <div class="ob-persona-grid-check">✓</div>
+              <div class="ob-persona-grid-avatar-wrap">
+                <img src="${p.avatar}" class="ob-persona-grid-avatar" alt="${p.name}">
+                <div class="ob-persona-grid-beacon"></div>
               </div>
-              <div class="persona-card-info" style="gap: 2px;">
-                <div class="persona-card-header">
-                  <span class="persona-card-name" style="font-size: 14px;">${p.name}, ${p.age}</span>
-                  <span class="persona-card-badge" style="font-size: 10px; padding: 1px 6px;">★ ${p.rating}</span>
-                </div>
-                <div class="persona-card-title" style="font-size: 11.5px; margin-bottom: 0;">${p.title}</div>
-              </div>
+              <div class="ob-persona-grid-name">${p.name.split(' ')[0]}</div>
+              <div class="ob-persona-grid-role">${roleBadge}</div>
             </div>
           `;
         }
@@ -3526,10 +3624,10 @@
       ctx.textAlign = 'center';
       ctx.fillText('✦ АСТРА • КОСМИЧЕСКИЙ ПАСПОРТ', 540, pillY + 29);
 
-      // Subtitle line (City & NASA coordinates)
+      // Subtitle line (City & planetary coordinates)
       ctx.font = '600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
       ctx.fillStyle = '#7C8BA1';
-      ctx.fillText(`${city.toUpperCase()} • ${lat}°N • ТОЧНОСТЬ NASA 100%`, 540, 150);
+      ctx.fillText(`${city.toUpperCase()} • ${lat}°N • ТОЧНЫЙ РАСЧЕТ 100%`, 540, 150);
 
       // 7. User Identity
       ctx.font = '800 52px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -3691,7 +3789,7 @@
 
       ctx.font = '600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
       ctx.fillStyle = '#10B981';
-      ctx.fillText('✓ Эфемериды NASA • 100% точность • Бесплатно', textX, footY + 222);
+      ctx.fillText('✓ Астрономический расчет • 100% точность', textX, footY + 222);
 
       // Outer delicate neon border
       ctx.save();
@@ -3883,9 +3981,53 @@
     }
 
     function escapeHtml(text) {
+      if (!text) return '';
       const div = document.createElement('div');
-      div.textContent = text;
+      // Strip any raw markdown formatting from display
+      const cleaned = text
+        .replace(/^#+\s+/gm, '')
+        .replace(/\*\*([^*]+)\*\*/g, '$1')
+        .replace(/\*([^*]+)\*/g, '$1')
+        .replace(/__([^_]+)__/g, '$1')
+        .replace(/_([^_]+)_/g, '$1')
+        .replace(/^[\s-•*]\s+/gm, '')
+        .replace(/^\d+\.\s+/gm, '');
+      div.textContent = cleaned;
       return div.innerHTML.replace(/\n/g, '<br>');
+    }
+
+    async function typeMentorMessage(stream, fullText, replyTime) {
+      const bubble = document.createElement('div');
+      bubble.className = 'chat-bubble astrologer';
+
+      const contentSpan = document.createElement('span');
+      bubble.appendChild(contentSpan);
+
+      const timeSpan = document.createElement('span');
+      timeSpan.className = 'chat-timestamp';
+      timeSpan.textContent = replyTime || 'Сейчас';
+      bubble.appendChild(timeSpan);
+
+      stream.appendChild(bubble);
+
+      // Split into word tokens preserving spaces
+      const tokens = fullText.split(/(\s+)/);
+      let accumulated = '';
+
+      for (let i = 0; i < tokens.length; i++) {
+        accumulated += tokens[i];
+        contentSpan.innerHTML = escapeHtml(accumulated);
+        stream.scrollTop = stream.scrollHeight;
+
+        const token = tokens[i];
+        let delay = 22;
+        if (/[.?!]/.test(token)) {
+          delay = 85;
+        } else if (/[,]/.test(token)) {
+          delay = 45;
+        }
+        await new Promise(r => setTimeout(r, delay));
+      }
     }
 
     async function handleChatSubmit(e) {
@@ -3912,6 +4054,9 @@
       const stream = document.getElementById('chatStream');
       stream.scrollTop = stream.scrollHeight;
 
+      let replyText = '';
+      const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+
       try {
         const res = await fetch('/api/chat/ask', {
           method: 'POST',
@@ -3925,26 +4070,23 @@
 
         if (res.ok) {
           const data = await res.json();
-          const replyTime = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-          state.chatHistory.push({ role: 'assistant', content: data.reply, time: replyTime });
-          localStorage.setItem('astromax_chat_history', JSON.stringify(state.chatHistory));
+          replyText = data.reply;
         } else {
-          state.chatHistory.push({
-            role: 'assistant',
-            content: 'Аспекты планет временно скрыты. Попробуй задать вопрос еще раз.',
-            time: now
-          });
+          replyText = 'Аспекты планет временно скрыты. Попробуй задать вопрос еще раз.';
         }
       } catch (err) {
-        state.chatHistory.push({
-          role: 'assistant',
-          content: 'Соединение временно прервано. Проверь сеть и напиши снова.',
-          time: now
-        });
-      } finally {
-        typing.style.display = 'none';
-        renderChatMessages();
+        replyText = 'Соединение временно прервано. Проверь сеть и напиши снова.';
       }
+
+      // Естественная задержка на чтение вопроса и подготовку ответа (1.35 сек)
+      await new Promise(r => setTimeout(r, 1350));
+      typing.style.display = 'none';
+
+      // Живой пословный набор текста со скоростью естественной речи
+      await typeMentorMessage(stream, replyText, replyTime);
+
+      state.chatHistory.push({ role: 'assistant', content: replyText, time: replyTime });
+      localStorage.setItem('astromax_chat_history', JSON.stringify(state.chatHistory));
     }
 
     // 8. Tarot Sanctuary Engine
@@ -4152,17 +4294,17 @@
       }
 
       if (step === 1) {
-        document.getElementById('obStep1').style.display = 'block';
+        document.getElementById('obStep1').style.display = 'flex';
       } else if (step === 2) {
         const nameVal = document.getElementById('obInputName').value.trim();
         if (nameVal) state.profile.name = nameVal;
-        document.getElementById('obStep2').style.display = 'block';
+        document.getElementById('obStep2').style.display = 'flex';
       } else if (step === 3) {
         const dateVal = document.getElementById('obInputDate').value;
         const timeVal = document.getElementById('obInputTime').value;
         if (dateVal) state.profile.birthDate = dateVal;
         if (timeVal) state.profile.birthTime = timeVal;
-        document.getElementById('obStep3').style.display = 'block';
+        document.getElementById('obStep3').style.display = 'flex';
       } else if (step === 4) {
         const cityVal = document.getElementById('obInputCity').value;
         const loc = parseLocationInput(cityVal);
@@ -4171,7 +4313,7 @@
         state.profile.lon = loc.lon;
         state.profile.timezoneOffset = loc.tz;
         renderPersonaCards('onboardingPersonaList', state.profile.personaId || 'alena');
-        document.getElementById('obStep4').style.display = 'block';
+        document.getElementById('obStep4').style.display = 'flex';
       }
     }
 
@@ -4192,7 +4334,7 @@
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
       });
-      document.getElementById('obStepLoading').style.display = 'block';
+      document.getElementById('obStepLoading').style.display = 'flex';
 
       const statusText = document.getElementById('obLoadingStatusText');
       const progressBar = document.getElementById('obProgressBar');

@@ -17,6 +17,9 @@ test('ASTROLOGER_PERSONAS has 4 authentic Russian experts with avatars on disk',
     assert.ok(p.age > 20, 'Persona must have a realistic adult age');
     assert.ok(p.credo, 'Persona must have an inspiring credo');
     assert.ok(p.systemPrompt, 'Persona must have an AI prompt');
+    assert.ok(p.systemPrompt.includes('2 коротких абзаца'), 'Must require 2 short paragraphs');
+    assert.ok(p.systemPrompt.includes('ЗАПРЕТ РАЗМЕТКИ'), 'Must forbid markdown symbols');
+    assert.ok(p.systemPrompt.includes('вопросом'), 'Must require ending with an open question');
     assert.ok(p.avatar, 'Persona must have an avatar path');
 
     // Verify avatar exists in public/
