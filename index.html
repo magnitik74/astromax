@@ -629,6 +629,105 @@
     .element-mini-tag.earth { background: rgba(16, 185, 129, 0.2); color: #6EE7B7; border: 1px solid rgba(16, 185, 129, 0.3); }
     .element-mini-tag.air { background: rgba(168, 85, 247, 0.2); color: #D8B4FE; border: 1px solid rgba(168, 85, 247, 0.3); }
 
+    /* ==========================================================================
+       INTERACTIVE 3D NATAL CHART WHEEL
+       ========================================================================== */
+    .natal-wheel-container {
+      position: relative;
+      width: 100%;
+      max-width: 320px;
+      margin: 10px auto 12px;
+      perspective: 900px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .natal-wheel-svg {
+      width: 100%;
+      height: auto;
+      max-width: 300px;
+      aspect-ratio: 1 / 1;
+      transform: rotateX(10deg);
+      transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), filter 0.3s ease;
+      filter: drop-shadow(0 10px 24px rgba(139, 92, 246, 0.32));
+      touch-action: manipulation;
+    }
+
+    .natal-wheel-svg:hover, .natal-wheel-svg.active {
+      transform: rotateX(0deg);
+    }
+
+    .wheel-planet-node {
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .wheel-planet-node:hover {
+      transform: scale(1.15);
+    }
+
+    .natal-planet-card {
+      background: rgba(139, 92, 246, 0.08);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      margin: 10px 0;
+      animation: astraFadeIn 0.35s ease;
+    }
+
+    .planet-card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .planet-card-glyph {
+      font-size: 22px;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .planet-card-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.2;
+    }
+
+    .planet-card-meta {
+      font-size: 11px;
+      color: #C4B5FD;
+      margin-top: 1px;
+    }
+
+    .planet-card-ask-btn {
+      background: linear-gradient(135deg, #7C3AED, #9333EA);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 9999px;
+      color: #FFFFFF;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 6px 12px;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .planet-card-desc {
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-primary);
+    }
+
     .cell-glyph {
       font-size: 20px;
       margin-bottom: 3px;
@@ -1246,45 +1345,178 @@
     }
 
     .card-back {
-      background-image: url('/card-back.svg');
+      background-image: url('/card-back.png');
       background-size: cover;
       background-position: center;
       border: 1px solid var(--max-blue-border);
     }
 
     .card-front {
-      background-image: url('/card-front-bg.svg');
-      background-size: cover;
-      background-position: center;
-      border: 1px solid var(--max-blue);
+      background: #070811;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: inset 0 0 12px rgba(245, 158, 11, 0.15);
       transform: rotateY(180deg);
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 10px 6px;
-      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 0;
     }
 
-    .card-front-roman {
-      font-size: 13px;
-      color: var(--max-blue);
-      font-weight: 700;
+    .tarot-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .tarot-card-img.reversed {
+      transform: rotate(180deg);
+    }
+
+    .card-front-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(180deg, rgba(7, 8, 17, 0) 0%, rgba(7, 8, 17, 0.88) 35%, rgba(7, 8, 17, 0.98) 100%);
+      padding: 6px 4px 5px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      z-index: 2;
     }
 
     .card-front-title {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 700;
       color: #FFFFFF;
-      line-height: 1.25;
-      margin: 5px 0 3px;
+      line-height: 1.15;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+      margin: 0;
     }
 
-    .card-front-status {
-      font-size: 9px;
-      color: var(--text-muted);
+    .card-front-status-tag {
+      font-size: 8.5px;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+      margin-top: 2px;
+      padding: 1px 6px;
+      border-radius: 4px;
+    }
+
+    .card-front-status-tag.upright {
+      background: rgba(16, 185, 129, 0.25);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.45);
+    }
+
+    .card-front-status-tag.reversed {
+      background: rgba(245, 158, 11, 0.25);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.45);
+    }
+
+    .tarot-card-slot.large {
+      width: 140px;
+      height: 228px;
+    }
+
+    /* Oracle Result Badge */
+    .oracle-result-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      margin-bottom: 8px;
+    }
+
+    .oracle-result-badge.yes {
+      background: rgba(16, 185, 129, 0.2);
+      color: #34D399;
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      box-shadow: 0 0 14px rgba(16, 185, 129, 0.3);
+    }
+
+    .oracle-result-badge.no {
+      background: rgba(239, 68, 68, 0.2);
+      color: #F87171;
+      border: 1px solid rgba(239, 68, 68, 0.4);
+      box-shadow: 0 0 14px rgba(239, 68, 68, 0.3);
+    }
+
+    .oracle-result-badge.neutral {
+      background: rgba(245, 158, 11, 0.2);
+      color: #FBBF24;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 0 14px rgba(245, 158, 11, 0.3);
+    }
+
+    .tarot-readings-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .tarot-reading-card {
+      background: var(--bg-surface-secondary);
+      border: 1px solid var(--border-contrast);
+      border-radius: var(--radius-md);
+      padding: 14px;
+      text-align: left;
+    }
+
+    .tarot-reading-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .tarot-reading-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    .tarot-keywords {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      margin: 6px 0;
+    }
+
+    .tarot-keyword-tag {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 6px;
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      color: #DDD6FE;
+    }
+
+    .tarot-slices {
+      margin-top: 8px;
+      font-size: 12.5px;
+      line-height: 1.5;
+      color: var(--text-primary);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tarot-slice-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 6px;
     }
 
     .tarot-synthesis-box {
@@ -1473,54 +1705,77 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2px;
-      padding: 4px 2px;
+      gap: 3px;
+      padding: 6px 2px;
       background: none;
       border: none;
-      color: var(--text-muted);
+      color: #A1A1AA;
       cursor: pointer;
       position: relative;
-      transition: color 0.15s ease;
+      transition: color 0.2s cubic-bezier(0.16, 1, 0.3, 1);
       touch-action: manipulation;
     }
 
     .tab-bar-item .tab-icon {
-      width: 20px;
-      height: 20px;
-      stroke-width: 1.8;
+      width: 24px;
+      height: 24px;
+      stroke-width: 2.2;
       stroke: currentColor;
       fill: none;
-      transition: transform 0.15s ease, stroke 0.15s ease;
+      transition: transform 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
     }
 
     .tab-bar-item .tab-label {
-      font-size: 10.5px;
-      font-weight: 500;
+      font-size: 11px;
+      font-weight: 600;
       letter-spacing: -0.2px;
       white-space: nowrap;
       text-overflow: ellipsis;
       overflow: hidden;
       max-width: 100%;
+      transition: color 0.2s ease, font-weight 0.2s ease;
     }
 
     .tab-bar-item.active {
-      color: var(--max-blue);
+      color: #FFFFFF;
     }
 
     .tab-bar-item.active .tab-icon {
-      stroke: var(--max-blue);
-      transform: translateY(-1px);
+      stroke: #A855F7;
+      color: #A855F7;
+      transform: translateY(-2px);
+      filter: drop-shadow(0 0 8px rgba(168, 85, 247, 0.65));
+    }
+
+    .tab-bar-item.active .tab-label {
+      color: #F59E0B;
+      font-weight: 700;
+      text-shadow: 0 0 8px rgba(245, 158, 11, 0.4);
+    }
+
+    .tab-bar-item.active::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 22px;
+      height: 2.5px;
+      background: linear-gradient(90deg, #A855F7, #F59E0B);
+      border-radius: 0 0 3px 3px;
+      box-shadow: 0 2px 8px rgba(168, 85, 247, 0.7);
     }
 
     .tab-badge-dot {
       position: absolute;
-      top: 8px;
-      right: calc(50% - 13px);
-      width: 6px;
-      height: 6px;
-      background: #30D158;
+      top: 6px;
+      right: calc(50% - 15px);
+      width: 7px;
+      height: 7px;
+      background: #34D399;
+      border: 1.5px solid #070811;
       border-radius: 50%;
-      box-shadow: 0 0 6px rgba(48, 209, 88, 0.8);
+      box-shadow: 0 0 8px rgba(52, 211, 153, 0.9);
     }
 
     /* Native Bottom Sheet Modal */
@@ -1645,6 +1900,52 @@
       margin-top: auto;
       padding-top: 10px;
       width: 100%;
+    }
+
+    /* Teaser Showcase Styles (4-Step Hybrid Dual-Engine Onboarding) */
+    .ob-teasers-wrap {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+      overflow: hidden;
+      position: relative;
+      width: 100%;
+      touch-action: pan-y;
+    }
+
+    .ob-teaser-canvas-wrap {
+      width: 100%;
+      height: clamp(135px, 21vh, 180px);
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 6px;
+      background: radial-gradient(circle at center, #151B32 0%, #070912 85%);
+      border: 1px solid rgba(229, 192, 123, 0.25);
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(139, 92, 246, 0.08);
+      touch-action: pan-y;
+      flex-shrink: 0;
+    }
+
+    .ob-skip-btn {
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 11.5px;
+      font-weight: 500;
+      cursor: pointer;
+      padding: 3px 10px;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+      font-family: inherit;
+      display: block;
+    }
+
+    .ob-skip-btn:hover, .ob-skip-btn:active {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.16);
+      border-color: rgba(255, 255, 255, 0.32);
     }
 
     /* 2x2 Mentor Selection Grid for 100% No-Scroll Onboarding */
@@ -2501,16 +2802,16 @@
         </button>
       </div>
 
-      <!-- 5. Кнопка быстрого перехода к Космическому Паспорту -->
+      <!-- 5. Кнопка быстрого перехода к Натальной карте -->
       <div style="text-align: center; padding: 10px 0 24px;">
         <button type="button" onclick="switchNavTab('horoscope')" style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); border-radius: 9999px; padding: 10px 20px; font-size: 12.5px; font-weight: 600; color: #C4B5FD; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
-          <span>✦ Открыть мой Космический Паспорт личности →</span>
+          <span>✦ Открыть мою натальную карту →</span>
         </button>
       </div>
     </main>
 
     <!-- ====================================================================
-         TAB 1: КОСМИЧЕСКИЙ ПАСПОРТ (AHA-MOMENT & БОЛЬШАЯ ТРОЙКА)
+         TAB 1: НАТАЛЬНАЯ КАРТА (3D ZODIAC WHEEL & БОЛЬШАЯ ТРОЙКА)
          ==================================================================== -->
     <main id="tab-screen-horoscope" class="tab-screen active">
       <!-- 0. Quick Link to Daily Horoscope -->
@@ -2525,19 +2826,42 @@
         <span style="font-size: 12px; color: var(--max-blue); font-weight: 700;">Смотреть →</span>
       </div>
 
-      <!-- 1. Космический Паспорт Личности (Чистая VIP-карта) -->
+      <!-- 1. Натальная карта Личности (Интерактивное Колесо) -->
       <div class="native-card">
         <div class="passport-header-row">
-          <div class="passport-tag">✦ Космический паспорт АСТРА</div>
-          <span style="font-size: 11px; color: var(--text-muted); font-weight: 500;" id="passportCoordsLabel">Москва • 55.75°N</span>
+          <div class="passport-tag">✦ Твоя натальная карта</div>
         </div>
 
         <div class="passport-user-title" id="passportUserName">Александр</div>
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px; margin-bottom: 4px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px; margin-bottom: 8px;">
           <div class="passport-user-sub" id="passportBirthMeta">Родился 12 мая 1990 в 14:30</div>
           <button type="button" onclick="resetAstroMaxSession()" title="Сбросить профиль и рассчитать заново" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 9999px; padding: 3px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s; white-space: nowrap;">
             <span style="font-size: 12px;">↺</span> Начать заново
           </button>
+        </div>
+
+        <!-- 3D Interactive Zodiac Wheel -->
+        <div class="natal-wheel-container">
+          <svg class="natal-wheel-svg" id="natalWheelSvg" viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+            <!-- Rendered dynamically by renderNatalWheel() -->
+          </svg>
+        </div>
+
+        <!-- Selected Planet / Node Breakdown Card -->
+        <div class="natal-planet-card" id="natalPlanetCard" style="display: none;">
+          <div class="planet-card-header">
+            <span class="planet-card-glyph" id="npcGlyph">☀️</span>
+            <div style="flex: 1;">
+              <div class="planet-card-title" id="npcTitle">Солнце в Скорпионе</div>
+              <div class="planet-card-meta" id="npcMeta">Ядро личности • Водная стихия</div>
+            </div>
+            <button class="planet-card-ask-btn" id="npcAskBtn" onclick="askAboutSelectedPlanet()">
+              ✦ Спросить
+            </button>
+          </div>
+          <div class="planet-card-desc" id="npcDesc">
+            Твое Солнце отвечает за жизненную силу, истинную волю и самореализацию.
+          </div>
         </div>
 
         <!-- The Big Three Interactive Grid -->
@@ -2579,7 +2903,7 @@
             <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
             <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
           </svg>
-          <span>Поделиться паспортом (Стильная карточка)</span>
+          <span>Поделиться натальной картой</span>
         </button>
 
         <button class="btn-max-secondary" onclick="switchNavTab('chat', 'Расскажи подробно, как мои Солнце, Луна и Асцендент влияют на карьеру и любовь?')">
@@ -2679,7 +3003,7 @@
         <div class="chat-input-wrap">
           <input type="text" id="chatMessageInput" class="chat-input" placeholder="Напиши вопрос наставнику..." autocomplete="off">
         </div>
-        <button type="submit" class="chat-send-btn" title="Отправить">
+        <button type="button" class="chat-send-btn" onpointerdown="handleSendPointerDown(event)" onclick="handleChatSubmit(event)" title="Отправить">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <line x1="22" y1="2" x2="11" y2="13"></line>
             <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -2716,17 +3040,20 @@
 
         <div class="tarot-mode-switch" style="margin-top: 14px;">
           <button class="mode-switch-btn active" id="btnModeDaily" onclick="setTarotMode('daily')">Карта дня</button>
-          <button class="mode-switch-btn" id="btnModeThree" onclick="setTarotMode('three_cards')">3 Карты: Причина • Точка слома • Исход</button>
+          <button class="mode-switch-btn" id="btnModeOracle" onclick="setTarotMode('oracle_yes_no')">Оракул Да / Нет</button>
+          <button class="mode-switch-btn" id="btnModeThree" onclick="setTarotMode('three_cards')">3 Карты</button>
         </div>
 
         <!-- 3D Card Dealing Table -->
         <div class="tarot-table" id="tarotTable">
-          <div class="tarot-card-slot" id="cardSlot0" onclick="revealCard(0)">
+          <div class="tarot-card-slot large" id="cardSlot0" onclick="revealCard(0)">
             <div class="card-face card-back"></div>
             <div class="card-face card-front" id="cardFront0">
-              <div class="card-front-roman">I</div>
-              <div class="card-front-title">Маг</div>
-              <div class="card-front-status">Прямая</div>
+              <img src="/images/tarot/thefool.jpeg" alt="Дурак" class="tarot-card-img" loading="lazy">
+              <div class="card-front-overlay">
+                <div class="card-front-title">Карта дня</div>
+                <div class="card-front-status-tag upright">Нажми</div>
+              </div>
             </div>
           </div>
         </div>
@@ -2734,6 +3061,9 @@
         <button class="btn-max-primary" id="btnDealTarot" onclick="dealTarotSpread()">
           ✦ Вскрыть карты Арканов
         </button>
+
+        <!-- Detailed Card Breakdowns -->
+        <div id="tarotDetailsContainer" class="tarot-readings-list" style="display: none;"></div>
 
         <!-- AI Deep Synthesis -->
         <div class="tarot-synthesis-box" id="tarotAiBox">
@@ -2860,50 +3190,52 @@
          BOTTOM NAVIGATION BAR (CINEMATIC LUXURY ASTRA TAB BAR - 58PX)
          ==================================================================== -->
     <nav class="bottom-bar">
-      <!-- 1. Индивидуальный Гороскоп (Обновление в 24:00 по часам телефона) -->
+      <!-- 1. Индивидуальный Гороскоп -->
       <button class="tab-bar-item" id="nav-daily" onclick="switchNavTab('daily')">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="12" cy="12" r="4"/>
-          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07l14.14-14.14"/>
+          <circle cx="12" cy="12" r="3" fill="currentColor" fill-opacity="0.3"/>
         </svg>
         <span class="tab-label">Гороскоп</span>
       </button>
 
-      <!-- 2. Космос (Паспорт) -->
+      <!-- 2. Натальная Карта -->
       <button class="tab-bar-item active" id="nav-horoscope" onclick="switchNavTab('horoscope')">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="9"/>
-          <ellipse cx="12" cy="12" rx="9" ry="3.2" transform="rotate(-28 12 12)"/>
-          <circle cx="12" cy="12" r="2" fill="currentColor"/>
+          <ellipse cx="12" cy="12" rx="9" ry="3.5" transform="rotate(-30 12 12)"/>
+          <circle cx="12" cy="12" r="2.5" fill="currentColor"/>
         </svg>
-        <span class="tab-label">Паспорт</span>
+        <span class="tab-label">Карта</span>
       </button>
 
       <!-- 3. Астролог 24/7 -->
       <button class="tab-bar-item" id="nav-chat" onclick="switchNavTab('chat')">
         <div class="tab-badge-dot"></div>
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
-          <path d="M9.5 12h.01M14.5 12h.01" stroke-width="2.5"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 12c0 4.418-4.03 8-9 8a9.86 9.86 0 0 1-4.2-.9L3 20l1.3-3.8A7.7 7.7 0 0 1 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"/>
+          <circle cx="8.5" cy="12" r="1.2" fill="currentColor"/>
+          <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
+          <circle cx="15.5" cy="12" r="1.2" fill="currentColor"/>
         </svg>
         <span class="tab-label">Наставник</span>
       </button>
 
       <!-- 4. Таро -->
       <button class="tab-bar-item" id="nav-tarot" onclick="switchNavTab('tarot')">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="5" y="3" width="14" height="18" rx="3"/>
-          <circle cx="12" cy="12" r="3"/>
-          <path d="M12 7.5v1M12 15.5v1M8.5 12h-1M16.5 12h-1"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="3" width="14" height="18" rx="2.5"/>
+          <path d="M12 7l3.5 5L12 17l-3.5-5z" fill="currentColor" fill-opacity="0.25"/>
+          <circle cx="12" cy="12" r="1.5" fill="currentColor"/>
         </svg>
         <span class="tab-label">Таро</span>
       </button>
 
       <!-- 5. Селеста VIP (Профиль / Клуб) -->
       <button class="tab-bar-item" id="nav-profile" onclick="switchNavTab('profile')">
-        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
-          <path d="M19 5l.8 1.8L21.6 7l-1.8.8L19 9.6l-.8-1.8L16.4 7l1.8-.8L19 5z" fill="currentColor"/>
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z" fill="currentColor" fill-opacity="0.15"/>
+          <path d="M19 4l.6 1.4L21 6l-1.4.6L19 8l-.6-1.4L17 6l1.4-.6L19 4z" fill="currentColor"/>
         </svg>
         <span class="tab-label">Селеста</span>
       </button>
@@ -2923,8 +3255,11 @@
             <img src="/avatar.jpg" style="width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--solar-gold); object-fit: cover;" alt="АСТРА">
             <span style="font-weight: 700; font-size: 15px; color: #FFFFFF; letter-spacing: 0.4px;">АСТРА</span>
           </div>
-          <div id="onboardingStepIndicator" style="font-size: 12px; font-weight: 600; color: #C4B5FD; background: rgba(139, 92, 246, 0.16); border: 1px solid rgba(139, 92, 246, 0.35); padding: 3px 10px; border-radius: 12px;">
-            Шаг 1 из 4
+          <div style="display: flex; align-items: center; gap: 8px;">
+            <button id="obSkipBtn" class="ob-skip-btn" onclick="skipToDataEntry()">Пропустить</button>
+            <div id="onboardingStepIndicator" style="font-size: 12px; font-weight: 600; color: #C4B5FD; background: rgba(139, 92, 246, 0.16); border: 1px solid rgba(139, 92, 246, 0.35); padding: 3px 10px; border-radius: 12px;">
+              1/4
+            </div>
           </div>
         </div>
 
@@ -2936,8 +3271,106 @@
           <div id="obSeg4" style="flex: 1; height: 4px; border-radius: 2px; background: rgba(255, 255, 255, 0.15); transition: all 0.25s ease;"></div>
         </div>
 
+        <!-- 4-Step Cinematic Teaser Showcase (100% No-Scroll, Hybrid Dual-Engine) -->
+        <div id="obTeasersWrap" class="ob-teasers-wrap">
+          <!-- Teaser 1: Натальная карта (Космический Паспорт & Большая Тройка) -->
+          <div id="obTeaser1" class="ob-step-container">
+            <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+              <div id="obNatalCanvasWrap" class="ob-teaser-canvas-wrap">
+                <canvas id="obNatalCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              </div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Космический Паспорт & Большая Тройка ✦</div>
+              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Твой звездный код личности.<br>Без иллюзий и шаблонов.</h3>
+              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
+                Глубокий психологический разбор характера: Солнце, Луна и Асцендент. Раскрой скрытые источники энергии, неосознанные страхи и точки истинного масштаба.
+              </p>
+              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #C4B5FD; background: rgba(139, 92, 246, 0.14); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
+                ✦ Астрономический расчет координат Большой Тройки и ключевых планет
+              </div>
+            </div>
+            <div class="ob-step-footer" style="padding-top: 4px;">
+              <button class="btn-max-primary" onclick="showTeaserStep(2)">
+                Далее →
+              </button>
+            </div>
+          </div>
+
+          <!-- Teaser 2: Личный Астролог 24/7 -->
+          <div id="obTeaser2" class="ob-step-container" style="display: none;">
+            <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+              <div id="obEmpathyCanvasWrap" class="ob-teaser-canvas-wrap">
+                <canvas id="obEmpathyCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              </div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #67E8F9; font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Личный Астролог 24/7 ✦</div>
+              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Мудрый проводник рядом.<br>В любой момент, без осуждения.</h3>
+              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
+                Персональный астролог опирается на индивидуальные аспекты твоей карты. Помогает разобраться в отношениях, преодолеть кризис и найти душевное равновесие.
+              </p>
+              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #67E8F9; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
+                ✦ 4 астролога с чутким стилем диалога и памятью твоих запросов
+              </div>
+            </div>
+            <div class="ob-step-footer" style="padding-top: 4px;">
+              <div style="display: flex; gap: 8px; width: 100%;">
+                <button class="btn-max-secondary" style="width: auto; min-width: 90px; padding: 0 14px;" onclick="showTeaserStep(1)">← Назад</button>
+                <button class="btn-max-primary" style="flex: 1;" onclick="showTeaserStep(3)">Далее →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teaser 3: Таро (3D карточный вихрь) -->
+          <div id="obTeaser3" class="ob-step-container" style="display: none;">
+            <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+              <div id="obTarotCanvasWrap" class="ob-teaser-canvas-wrap">
+                <canvas id="obTarotCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(255,170,60,0.3) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              </div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Таро & Звездный Код ✦</div>
+              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Звезды показывают путь.<br>Таро вскрывает скрытое.</h3>
+              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
+                Здесь нет пустых предсказаний. Каждая карта отражает глубинные слои подсознания: тайные мотивы людей вокруг, слепые зоны и неочевидные решения.
+              </p>
+              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #E5C07B; background: rgba(229, 192, 123, 0.12); border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
+                ✦ 78 арканов и точные расклады на любую жизненную ситуацию
+              </div>
+            </div>
+            <div class="ob-step-footer" style="padding-top: 4px;">
+              <div style="display: flex; gap: 8px; width: 100%;">
+                <button class="btn-max-secondary" style="width: auto; min-width: 90px; padding: 0 14px;" onclick="showTeaserStep(2)">← Назад</button>
+                <button class="btn-max-primary" style="flex: 1;" onclick="showTeaserStep(4)">Далее →</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Teaser 4: Персональный Гороскоп (Транзиты & Луна) -->
+          <div id="obTeaser4" class="ob-step-container" style="display: none;">
+            <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
+              <div id="obHoroscopeCanvasWrap" class="ob-teaser-canvas-wrap">
+                <canvas id="obHoroscopeCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
+                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              </div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #A78BFA; font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Персональный Гороскоп ✦</div>
+              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Планетарные транзиты дня.<br>Каждую полночь в 00:00.</h3>
+              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
+                Индивидуальный ритм суток, синхронизированный с твоей натальной картой. Подскажет, когда наступает идеальный момент для рывка, а когда лучше восстановить силы.
+              </p>
+              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #C4B5FD; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
+                ✦ Лунный календарь, солярные транзиты и персональное окно возможностей
+              </div>
+            </div>
+            <div class="ob-step-footer" style="padding-top: 4px;">
+              <div style="display: flex; gap: 8px; width: 100%;">
+                <button class="btn-max-secondary" style="width: auto; min-width: 90px; padding: 0 14px;" onclick="showTeaserStep(3)">← Назад</button>
+                <button class="btn-max-primary" style="flex: 1;" onclick="skipToDataEntry()">Создать мою натальную карту →</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <!-- Step 1: Имя -->
-        <div id="obStep1" class="ob-step-container">
+        <div id="obStep1" class="ob-step-container" style="display: none;">
           <div class="ob-step-body">
             <div class="ob-medallion-container">
               <div class="ob-medallion-halo"></div>
@@ -2974,7 +3407,7 @@
               </div>
             </div>
             <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 2 из 4 • Момент первого вдоха</div>
-            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Когда ты пришел(ла) в этот мир?</h3>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Когда начинается твой отсчет времени?</h3>
             <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
               Дата и минута фиксируют твой Асцендент — маску, которую видят другие, и глубинное подсознание.
             </p>
@@ -3270,6 +3703,7 @@
     </div>
 
   <!-- Client-side Application Logic -->
+  <script src="/three.min.js"></script>
   <script>
     // 4 Russian Astrologer Personas Catalog (Nebula & Co-Star Psychological Standard)
     const PERSONAS_CATALOG = [
@@ -3631,6 +4065,9 @@
 
       if (tabName === 'daily') {
         renderDailyHoroscope();
+      }
+      if (tabName === 'horoscope') {
+        renderNatalWheel(state.natalChart);
       }
 
       if (tabName === 'chat' && initialMessage) {
@@ -4138,6 +4575,7 @@
           setElemPct('pctAir', 'barAir', elems.air || 25);
         }
         renderDailyHoroscope();
+        renderNatalWheel(chart);
       } catch (err) {
         console.warn('applyChartToUI safe error catch:', err);
       }
@@ -4200,30 +4638,358 @@
         `Мир считывает в тебе ${ascT} (Асцендент в ${asc}). Но твое подлинное ядро — ${sunT} (Солнце в ${sun}). Твой главный тайный конфликт кроется в подсознании: ${moonT} (Луна в ${moon}). Внешне ты кажешься скалой для окружающих, но внутри ведешь битву, о которой никому не рассказываешь.`;
     }
 
-    function inspectBigThree(planet) {
+    // =========================================================================
+    // 5.2 INTERACTIVE 3D NATAL WHEEL ENGINE (SVG ZODIAC, HOUSES & PLANET NODES)
+    // =========================================================================
+    const ZODIAC_SIGNS = [
+      { name: 'Овен', symbol: '♈', elem: 'fire', color: '#F59E0B' },
+      { name: 'Телец', symbol: '♉', elem: 'earth', color: '#10B981' },
+      { name: 'Близнецы', symbol: '♊', elem: 'air', color: '#38BDF8' },
+      { name: 'Рак', symbol: '♋', elem: 'water', color: '#A78BFA' },
+      { name: 'Лев', symbol: '♌', elem: 'fire', color: '#F59E0B' },
+      { name: 'Дева', symbol: '♍', elem: 'earth', color: '#10B981' },
+      { name: 'Весы', symbol: '♎', elem: 'air', color: '#38BDF8' },
+      { name: 'Скорпион', symbol: '♏', elem: 'water', color: '#A78BFA' },
+      { name: 'Стрелец', symbol: '♐', elem: 'fire', color: '#F59E0B' },
+      { name: 'Козерог', symbol: '♑', elem: 'earth', color: '#10B981' },
+      { name: 'Водолей', symbol: '♒', elem: 'air', color: '#38BDF8' },
+      { name: 'Рыбы', symbol: '♓', elem: 'water', color: '#A78BFA' }
+    ];
+
+    const ROMAN_HOUSES = ['I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX', 'X', 'XI', 'XII'];
+
+    const PLANET_METADATA = {
+      sun: {
+        id: 'Sun',
+        name: 'Солнце',
+        glyph: '☀️',
+        role: 'Ядро личности и сознание',
+        color: '#F59E0B',
+        desc: (sign) => `Твое Солнце в знаке ${sign}. Это источник твоей жизненной силы, истинной воли, творческой искры и осознанности. Оно показывает, в чем твоя уникальная миссия и как ты вдохновляешь мир.`
+      },
+      moon: {
+        id: 'Moon',
+        name: 'Луна',
+        glyph: '🌙',
+        role: 'Душа, эмоции и интуиция',
+        color: '#93C5FD',
+        desc: (sign) => `Твоя Луна в знаке ${sign}. Она управляет подсознанием, глубинными реакциями на стресс, интуитивным восприятием и эмоциональной безопасностью. Это то, где твое сердце обретает покой.`
+      },
+      ascendant: {
+        id: 'Ascendant',
+        name: 'Асцендент',
+        glyph: '⬆️',
+        role: 'Социальная маска и импульс',
+        color: '#C084FC',
+        desc: (sign) => `Твой Асцендент в знаке ${sign}. Это твоя энергетическая аура и первое впечатление, которое ты производишь на мир. Твой персональный ключ к открытию дверей и взаимодействию с людьми.`
+      },
+      mercury: {
+        id: 'Mercury',
+        name: 'Меркурий',
+        glyph: '☿',
+        role: 'Мышление, речь и контакты',
+        color: '#67E8F9',
+        desc: (sign) => `Меркурий в знаке ${sign}. Определяет скорость анализа, стиль ведения переговоров, стратегическое мышление и способность конвертировать мысли в точные формулировки.`
+      },
+      venus: {
+        id: 'Venus',
+        name: 'Венера',
+        glyph: '♀',
+        role: 'Любовь, ценности и эстетика',
+        color: '#F472B6',
+        desc: (sign) => `Венера в знаке ${sign}. Управляет твоим языком близости, романтическими притяжениями, эстетическим вкусом и финансовой интуицией.`
+      },
+      mars: {
+        id: 'Mars',
+        name: 'Марс',
+        glyph: '♂',
+        role: 'Действие, воля и страсть',
+        color: '#EF4444',
+        desc: (sign) => `Марс в знаке ${sign}. Это внутренний двигатель, решимость действовать, спортивная выносливость и умение бескомпромиссно отстаивать свои личные границы.`
+      },
+      jupiter: {
+        id: 'Jupiter',
+        name: 'Юпитер',
+        glyph: '♃',
+        role: 'Удача, масштабирование и мудрость',
+        color: '#FBBF24',
+        desc: (sign) => `Юпитер в знаке ${sign}. Планета расширения горизонтов, духовного авторитета, великих возможностей и неожиданных подарков судьбы.`
+      }
+    };
+
+    let activeChartData = null;
+
+    function renderNatalWheel(chart) {
+      const svg = document.getElementById('natalWheelSvg');
+      if (!svg) return;
+      activeChartData = chart || state.natalChart;
+
+      const cx = 160;
+      const cy = 160;
+      const rOuter = 152;
+      const rZodiacInner = 124;
+      const rHousesInner = 86;
+      const rCore = 46;
+
+      let svgHtml = `
+        <defs>
+          <radialGradient id="wheelCoreGrad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#1E1338" stop-opacity="0.95"/>
+            <stop offset="70%" stop-color="#0E0A1D" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#070811" stop-opacity="0.95"/>
+          </radialGradient>
+        </defs>
+
+        <!-- Outer Background Circle -->
+        <circle cx="${cx}" cy="${cy}" r="${rOuter}" fill="rgba(14, 11, 26, 0.85)" stroke="#382952" stroke-width="1.5"/>
+
+        <!-- Zodiac Ring (r: 124..152) -->
+        <circle cx="${cx}" cy="${cy}" r="${rZodiacInner}" fill="rgba(8, 7, 18, 0.9)" stroke="rgba(168, 85, 247, 0.3)" stroke-width="1"/>
+      `;
+
+      // 12 Zodiac Segments and Glyphs
+      for (let i = 0; i < 12; i++) {
+        const sign = ZODIAC_SIGNS[i];
+        const angDeg = i * 30 - 90;
+        const angRad = (angDeg * Math.PI) / 180;
+        const x1 = cx + rZodiacInner * Math.cos(angRad);
+        const y1 = cy + rZodiacInner * Math.sin(angRad);
+        const x2 = cx + rOuter * Math.cos(angRad);
+        const y2 = cy + rOuter * Math.sin(angRad);
+
+        svgHtml += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="rgba(168, 85, 247, 0.25)" stroke-width="1"/>`;
+
+        const midDeg = i * 30 + 15 - 90;
+        const midRad = (midDeg * Math.PI) / 180;
+        const sx = cx + 138 * Math.cos(midRad);
+        const sy = cy + 138 * Math.sin(midRad);
+        svgHtml += `<text x="${sx.toFixed(1)}" y="${sy.toFixed(1)}" fill="${sign.color}" font-size="11" font-weight="700" text-anchor="middle" dominant-baseline="central">${sign.symbol}</text>`;
+      }
+
+      // Houses Ring (r: 86..124)
+      svgHtml += `<circle cx="${cx}" cy="${cy}" r="${rHousesInner}" fill="url(#wheelCoreGrad)" stroke="rgba(168, 85, 247, 0.35)" stroke-width="1"/>`;
+      for (let i = 0; i < 12; i++) {
+        const angDeg = i * 30 - 90;
+        const angRad = (angDeg * Math.PI) / 180;
+        const x1 = cx + rHousesInner * Math.cos(angRad);
+        const y1 = cy + rHousesInner * Math.sin(angRad);
+        const x2 = cx + rZodiacInner * Math.cos(angRad);
+        const y2 = cy + rZodiacInner * Math.sin(angRad);
+
+        svgHtml += `<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1" stroke-dasharray="2,2"/>`;
+
+        const midDeg = i * 30 + 15 - 90;
+        const midRad = (midDeg * Math.PI) / 180;
+        const hx = cx + 116 * Math.cos(midRad);
+        const hy = cy + 116 * Math.sin(midRad);
+        svgHtml += `<text x="${hx.toFixed(1)}" y="${hy.toFixed(1)}" fill="rgba(255, 255, 255, 0.3)" font-size="7" font-family="sans-serif" font-weight="600" text-anchor="middle" dominant-baseline="central">${ROMAN_HOUSES[i]}</text>`;
+      }
+
+      // Calculate Planet Placements
+      const planetKeys = ['sun', 'moon', 'ascendant', 'mercury', 'venus', 'mars', 'jupiter'];
+      const planetPositions = [];
+
+      planetKeys.forEach((key, idx) => {
+        const meta = PLANET_METADATA[key];
+        let lon = 0;
+        let signName = 'Телец';
+        let degInSign = 15;
+
+        if (chart?.planets && Array.isArray(chart.planets)) {
+          const found = chart.planets.find(p => p.id?.toLowerCase() === meta.id.toLowerCase());
+          if (found) {
+            lon = found.longitude || 0;
+            signName = found.sign || 'Телец';
+            degInSign = found.degrees || 15;
+          }
+        }
+        if (!lon && key === 'ascendant' && chart?.angles?.ascendant) {
+          lon = chart.angles.ascendant.longitude || 0;
+          signName = chart.angles.ascendant.sign || 'Скорпион';
+          degInSign = chart.angles.ascendant.degrees || 12;
+        }
+
+        // Fallback calculations if longitude not directly populated
+        if (!lon) {
+          const signFromBig3 = chart?.bigThree?.[key === 'ascendant' ? 'ascendant' : key]?.sign;
+          if (signFromBig3) signName = signFromBig3;
+          const sIdx = ZODIAC_SIGNS.findIndex(s => s.name === signName);
+          const baseIdx = sIdx >= 0 ? sIdx : 0;
+          if (key === 'sun') {
+            lon = baseIdx * 30 + 15;
+          } else if (key === 'moon') {
+            lon = (baseIdx * 30 + 18) % 360;
+          } else if (key === 'ascendant') {
+            lon = (baseIdx * 30 + 12) % 360;
+          } else if (key === 'mercury') {
+            lon = (baseIdx * 30 + 32) % 360;
+          } else if (key === 'venus') {
+            lon = (baseIdx * 30 + 338) % 360;
+          } else if (key === 'mars') {
+            lon = (baseIdx * 30 + 72) % 360;
+          } else if (key === 'jupiter') {
+            lon = (baseIdx * 30 + 145) % 360;
+          }
+        }
+
+        const angDeg = lon - 90;
+        const angRad = (angDeg * Math.PI) / 180;
+        const rPlanet = 100 + (idx % 2 === 0 ? 3 : -3);
+        const px = cx + rPlanet * Math.cos(angRad);
+        const py = cy + rPlanet * Math.sin(angRad);
+
+        planetPositions.push({
+          key,
+          meta,
+          lon,
+          signName,
+          degInSign,
+          px,
+          py
+        });
+      });
+
+      // Aspect Chords (Connecting planet pairs in inner circle)
+      const aspectPairs = [
+        [0, 1], // Sun - Moon
+        [0, 2], // Sun - Ascendant
+        [1, 4], // Moon - Venus
+        [3, 5], // Mercury - Mars
+        [0, 6]  // Sun - Jupiter
+      ];
+
+      aspectPairs.forEach(([i1, i2], idx) => {
+        const p1 = planetPositions[i1];
+        const p2 = planetPositions[i2];
+        if (p1 && p2) {
+          const strokeCol = idx % 2 === 0 ? '#10B981' : '#A855F7';
+          svgHtml += `<line x1="${p1.px.toFixed(1)}" y1="${p1.py.toFixed(1)}" x2="${p2.px.toFixed(1)}" y2="${p2.py.toFixed(1)}" stroke="${strokeCol}" stroke-width="1" stroke-opacity="0.32" stroke-dasharray="${idx % 3 === 0 ? 'none' : '3,3'}"/>`;
+        }
+      });
+
+      // Center Core Astrolabe Medallion
+      svgHtml += `
+        <circle cx="${cx}" cy="${cy}" r="${rCore}" fill="#0A0815" stroke="rgba(168, 85, 247, 0.4)" stroke-width="1.2"/>
+        <circle cx="${cx}" cy="${cy}" r="${rCore - 8}" fill="none" stroke="rgba(245, 158, 11, 0.3)" stroke-width="0.8" stroke-dasharray="3,3"/>
+        <text x="${cx}" y="${cy}" fill="#F59E0B" font-size="16" text-anchor="middle" dominant-baseline="central">✦</text>
+      `;
+
+      // Planet Nodes (Interactive Medallions)
+      planetPositions.forEach(p => {
+        const isCurrentSelected = state.selectedNatalPlanet?.key === p.key;
+        const selClass = isCurrentSelected ? ' selected' : '';
+        svgHtml += `
+          <g class="wheel-planet-node${selClass}" id="wpn-${p.key}" data-planet-key="${p.key}" onclick="inspectNatalPlanet('${p.key}')">
+            <circle cx="${p.px.toFixed(1)}" cy="${p.py.toFixed(1)}" r="13" fill="none" stroke="${p.meta.color}" stroke-opacity="0.25" stroke-width="1.5"/>
+            <circle cx="${p.px.toFixed(1)}" cy="${p.py.toFixed(1)}" r="9" fill="#0C0A19" stroke="${p.meta.color}" stroke-width="1.6"/>
+            <text x="${p.px.toFixed(1)}" y="${p.py.toFixed(1)}" fill="#FFFFFF" font-size="8.5" text-anchor="middle" dominant-baseline="central">${p.meta.glyph}</text>
+          </g>
+        `;
+      });
+
+      svg.innerHTML = svgHtml;
+
+      // Auto-inspect Sun if no planet is selected yet
+      if (!state.selectedNatalPlanet) {
+        inspectNatalPlanet('sun');
+      }
+    }
+
+    function inspectNatalPlanet(key) {
       triggerHaptic();
-      document.querySelectorAll('.big-three-cell').forEach(c => c.classList.remove('active-inspect'));
-      const idMap = { sun: 'cellSun', moon: 'cellMoon', asc: 'cellAsc' };
-      const el = document.getElementById(idMap[planet]);
-      if (el) el.classList.add('active-inspect');
+      const meta = PLANET_METADATA[key];
+      if (!meta) return;
 
-      const chart = state.natalChart?.bigThree;
-      if (!chart) return;
+      const chart = activeChartData || state.natalChart;
+      let signName = 'Скорпион';
+      let degInSign = 15;
 
-      const titles = {
-        sun: `☀️ Солнце в знаке ${chart.sun.sign}: Твое истинное Ядро`,
-        moon: `🌙 Луна в знаке ${chart.moon.sign}: Твое Подсознание и Тень`,
-        asc: `⬆️ Асцендент в знаке ${chart.ascendant.sign}: Твоя Социальная Броня`
+      if (chart?.planets && Array.isArray(chart.planets)) {
+        const found = chart.planets.find(p => p.id?.toLowerCase() === meta.id.toLowerCase());
+        if (found) {
+          signName = found.sign || signName;
+          degInSign = found.degrees || degInSign;
+        }
+      }
+      if (key === 'ascendant') {
+        signName = chart?.angles?.ascendant?.sign || chart?.bigThree?.ascendant?.sign || signName;
+        degInSign = chart?.angles?.ascendant?.degrees || 12;
+      } else if (key === 'sun' && chart?.bigThree?.sun?.sign) {
+        signName = chart.bigThree.sun.sign;
+      } else if (key === 'moon' && chart?.bigThree?.moon?.sign) {
+        signName = chart.bigThree.moon.sign;
+      }
+
+      state.selectedNatalPlanet = {
+        key,
+        name: meta.name,
+        glyph: meta.glyph,
+        sign: signName,
+        degStr: `${degInSign}° ${signName}`
       };
 
-      const details = {
-        sun: `Солнце — это твоя истинная воля, внутренний генератор и то, кем ты становишься, когда сбрасываешь чужие ожидания и социальные маски.`,
-        moon: `Луна — это то, как ты реагируешь на стресс в 2 часа ночи, твои скрытые страхи, потребность в душевной безопасности и эмоциональная память.`,
-        asc: `Асцендент — твой энергетический фасад: первое впечатление, которое ты производишь на незнакомцев, и способ защиты своего личного пространства от вторжения.`
-      };
+      // Update Planet Card UI
+      const card = document.getElementById('natalPlanetCard');
+      if (card) {
+        card.style.display = 'block';
+        const glyphEl = document.getElementById('npcGlyph');
+        const titleEl = document.getElementById('npcTitle');
+        const metaEl = document.getElementById('npcMeta');
+        const descEl = document.getElementById('npcDesc');
 
-      document.getElementById('paradoxTitle').textContent = titles[planet] || 'Анализ аспекта';
-      document.getElementById('paradoxText').textContent = details[planet] || '';
+        if (glyphEl) glyphEl.textContent = meta.glyph;
+        if (titleEl) titleEl.textContent = `${meta.name} в знаке ${signName}`;
+        if (metaEl) metaEl.textContent = `${meta.role} • ${degInSign}° ${signName}`;
+        if (descEl) descEl.textContent = meta.desc(signName);
+      }
+
+      // Highlight corresponding SVG node
+      document.querySelectorAll('.wheel-planet-node').forEach(node => {
+        if (node.getAttribute('data-planet-key') === key) {
+          node.classList.add('selected');
+        } else {
+          node.classList.remove('selected');
+        }
+      });
+
+      // Sync Big Three cell highlight and Paradox description
+      if (key === 'sun' || key === 'moon' || key === 'ascendant') {
+        const cellMap = { sun: 'cellSun', moon: 'cellMoon', ascendant: 'cellAsc' };
+        document.querySelectorAll('.big-three-cell').forEach(c => c.classList.remove('active-inspect'));
+        const cellEl = document.getElementById(cellMap[key]);
+        if (cellEl) cellEl.classList.add('active-inspect');
+
+        const big3 = chart?.bigThree;
+        if (big3) {
+          const titles = {
+            sun: `☀️ Солнце в знаке ${big3.sun.sign}: Твое истинное Ядро`,
+            moon: `🌙 Луна в знаке ${big3.moon.sign}: Твое Подсознание и Тень`,
+            ascendant: `⬆️ Асцендент в знаке ${big3.ascendant.sign}: Твоя Социальная Броня`
+          };
+          const details = {
+            sun: `Солнце — это твоя истинная воля, внутренний генератор и то, кем ты становишься, когда сбрасываешь чужие ожидания и социальные маски.`,
+            moon: `Луна — это то, как ты реагируешь на стресс в 2 часа ночи, твои скрытые страхи, потребность в душевной безопасности и эмоциональная память.`,
+            ascendant: `Асцендент — твой энергетический фасад: первое впечатление, которое ты производишь на незнакомцев, и способ защиты своего личного пространства от вторжения.`
+          };
+          const pTitle = document.getElementById('paradoxTitle');
+          const pText = document.getElementById('paradoxText');
+          if (pTitle && titles[key]) pTitle.textContent = titles[key];
+          if (pText && details[key]) pText.textContent = details[key];
+        }
+      }
+    }
+
+    function askAboutSelectedPlanet() {
+      const p = state.selectedNatalPlanet;
+      if (!p) return;
+      const question = `Расскажи подробно, как положение ${p.name} в знаке ${p.sign} влияет на мою жизнь, таланты и скрытые ресурсы?`;
+      switchNavTab('chat', question);
+    }
+
+    function inspectBigThree(planet) {
+      const map = { sun: 'sun', moon: 'moon', asc: 'ascendant' };
+      const key = map[planet] || planet;
+      inspectNatalPlanet(key);
     }
 
     // 6. 1-Click Viral Sharing with Canvas 4:5 Card (Tier 3/4 Standard)
@@ -4783,10 +5549,21 @@
       }
     }
 
-    async function handleChatSubmit(e) {
-      e.preventDefault();
+    function handleSendPointerDown(e) {
+      if (e) {
+        e.preventDefault();
+      }
       const input = document.getElementById('chatMessageInput');
-      const text = input.value.trim();
+      const text = input ? input.value.trim() : '';
+      if (!text) return;
+      input.value = '';
+      sendUserMessage(text);
+    }
+
+    async function handleChatSubmit(e) {
+      if (e) e.preventDefault();
+      const input = document.getElementById('chatMessageInput');
+      const text = input ? input.value.trim() : '';
       if (!text) return;
       input.value = '';
       await sendUserMessage(text);
@@ -4848,17 +5625,42 @@
       triggerHaptic();
       state.tarotMode = mode;
       document.getElementById('btnModeDaily').classList.toggle('active', mode === 'daily');
+      if (document.getElementById('btnModeOracle')) {
+        document.getElementById('btnModeOracle').classList.toggle('active', mode === 'oracle_yes_no');
+      }
       document.getElementById('btnModeThree').classList.toggle('active', mode === 'three_cards');
 
       const table = document.getElementById('tarotTable');
+      const details = document.getElementById('tarotDetailsContainer');
+      if (details) {
+        details.innerHTML = '';
+        details.style.display = 'none';
+      }
+      document.getElementById('tarotAiBox').style.display = 'none';
+
       if (mode === 'daily') {
         table.innerHTML = `
-          <div class="tarot-card-slot" id="cardSlot0" onclick="revealCard(0)">
+          <div class="tarot-card-slot large" id="cardSlot0" onclick="revealCard(0)">
             <div class="card-face card-back"></div>
             <div class="card-face card-front" id="cardFront0">
-              <div class="card-front-roman">✦</div>
-              <div class="card-front-title">Карта дня</div>
-              <div class="card-front-status">Нажми</div>
+              <img src="/images/tarot/thefool.jpeg" alt="Карта дня" class="tarot-card-img" loading="lazy">
+              <div class="card-front-overlay">
+                <div class="card-front-title">Карта дня</div>
+                <div class="card-front-status-tag upright">Нажми</div>
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (mode === 'oracle_yes_no') {
+        table.innerHTML = `
+          <div class="tarot-card-slot large" id="cardSlot0" onclick="revealCard(0)">
+            <div class="card-face card-back"></div>
+            <div class="card-face card-front" id="cardFront0">
+              <img src="/images/tarot/wheeloffortune.jpeg" alt="Оракул" class="tarot-card-img" loading="lazy">
+              <div class="card-front-overlay">
+                <div class="card-front-title">Оракул Да / Нет</div>
+                <div class="card-front-status-tag upright">Задай вопрос</div>
+              </div>
             </div>
           </div>
         `;
@@ -4867,30 +5669,32 @@
           <div class="tarot-card-slot" id="cardSlot0" onclick="revealCard(0)">
             <div class="card-face card-back"></div>
             <div class="card-face card-front" id="cardFront0">
-              <div class="card-front-roman">I</div>
-              <div class="card-front-title">Прошлое</div>
-              <div class="card-front-status">Нажми</div>
+              <div class="card-front-overlay">
+                <div class="card-front-title">Прошлое</div>
+                <div class="card-front-status-tag upright">Нажми</div>
+              </div>
             </div>
           </div>
           <div class="tarot-card-slot" id="cardSlot1" onclick="revealCard(1)">
             <div class="card-face card-back"></div>
             <div class="card-face card-front" id="cardFront1">
-              <div class="card-front-roman">II</div>
-              <div class="card-front-title">Настоящее</div>
-              <div class="card-front-status">Нажми</div>
+              <div class="card-front-overlay">
+                <div class="card-front-title">Настоящее</div>
+                <div class="card-front-status-tag upright">Нажми</div>
+              </div>
             </div>
           </div>
           <div class="tarot-card-slot" id="cardSlot2" onclick="revealCard(2)">
             <div class="card-face card-back"></div>
             <div class="card-face card-front" id="cardFront2">
-              <div class="card-front-roman">III</div>
-              <div class="card-front-title">Исход</div>
-              <div class="card-front-status">Нажми</div>
+              <div class="card-front-overlay">
+                <div class="card-front-title">Исход</div>
+                <div class="card-front-status-tag upright">Нажми</div>
+              </div>
             </div>
           </div>
         `;
       }
-      document.getElementById('tarotAiBox').style.display = 'none';
     }
 
     async function dealTarotSpread() {
@@ -4900,11 +5704,20 @@
       btn.disabled = true;
 
       try {
+        const todayKey = new Date().toISOString().slice(0, 10);
+        const seed = state.tarotMode === 'daily' ? `${state.userId || 'guest'}_${todayKey}` : null;
+
         const res = await fetch('/api/tarot/draw', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ type: state.tarotMode, includeAi: true })
+          body: JSON.stringify({
+            type: state.tarotMode,
+            seed,
+            userId: state.userId || 'guest',
+            includeAi: true
+          })
         });
+
         if (res.ok) {
           const data = await res.json();
           state.currentSpread = data;
@@ -4912,10 +5725,14 @@
           data.cards.forEach((item, idx) => {
             const front = document.getElementById(`cardFront${idx}`);
             if (front) {
+              const revClass = item.card.isReversed ? 'reversed' : 'upright';
+              const imgRevClass = item.card.isReversed ? 'reversed' : '';
               front.innerHTML = `
-                <div class="card-front-roman">${item.position || (idx + 1)}</div>
-                <div class="card-front-title">${item.card.name}</div>
-                <div class="card-front-status">${item.card.status}</div>
+                <img src="${item.card.image}" alt="${item.card.name}" class="tarot-card-img ${imgRevClass}" loading="lazy">
+                <div class="card-front-overlay">
+                  <div class="card-front-title">${item.card.name}</div>
+                  <div class="card-front-status-tag ${revClass}">${item.card.status}</div>
+                </div>
               `;
             }
             setTimeout(() => {
@@ -4924,6 +5741,56 @@
               triggerHaptic();
             }, idx * 250);
           });
+
+          // Render detailed breakdown below the cards
+          const details = document.getElementById('tarotDetailsContainer');
+          if (details) {
+            let detailsHtml = '';
+            data.cards.forEach((item) => {
+              let oracleBadge = '';
+              if (state.tarotMode === 'oracle_yes_no' && item.card.oracleVerdict) {
+                const verdictLow = item.card.oracleVerdict.toLowerCase();
+                const isYes = verdictLow.includes('да');
+                const isNo = verdictLow.includes('нет');
+                const badgeType = isYes ? 'yes' : (isNo ? 'no' : 'neutral');
+                const icon = isYes ? '🟢' : (isNo ? '🔴' : '🟡');
+                oracleBadge = `
+                  <div class="oracle-result-badge ${badgeType}">
+                    <span>${icon}</span>
+                    <span>${item.card.oracleVerdict}</span>
+                  </div>
+                `;
+              }
+
+              const kwTags = (item.card.keywords || []).map(k => `<span class="tarot-keyword-tag">${k}</span>`).join('');
+
+              detailsHtml += `
+                <div class="tarot-reading-card">
+                  <div class="tarot-reading-header">
+                    <div>
+                      <div class="card-eyebrow" style="font-size: 10px; margin-bottom: 2px;">${item.position}</div>
+                      <div class="tarot-reading-name">${item.card.name} <span style="font-size: 12px; font-weight: 500; opacity: 0.8;">(${item.card.status})</span></div>
+                    </div>
+                  </div>
+                  ${oracleBadge}
+                  <div class="tarot-keywords">${kwTags}</div>
+                  <div style="font-size: 13px; line-height: 1.5; color: var(--text-primary); margin-top: 6px;">
+                    ${item.card.interpretation}
+                  </div>
+                  <div class="tarot-slices">
+                    ${item.card.love ? `<div class="tarot-slice-item"><span>💖</span><span><strong>В любви:</strong> ${item.card.love}</span></div>` : ''}
+                    ${item.card.finance ? `<div class="tarot-slice-item"><span>💰</span><span><strong>В деньгах:</strong> ${item.card.finance}</span></div>` : ''}
+                    ${item.card.advice ? `<div class="tarot-slice-item"><span>🔮</span><span><strong>Совет:</strong> ${item.card.advice}</span></div>` : ''}
+                  </div>
+                  <button class="btn-max-secondary" style="margin-top: 10px; padding: 7px 12px; font-size: 11.5px; width: 100%; border-radius: 8px;" onclick="askMentorAboutTarot('${item.card.name}', '${item.card.status}')">
+                    ✦ Разобрать этот аркан с наставником
+                  </button>
+                </div>
+              `;
+            });
+            details.innerHTML = detailsHtml;
+            details.style.display = 'flex';
+          }
 
           if (data.aiInterpretation) {
             document.getElementById('tarotAiBox').style.display = 'block';
@@ -4935,6 +5802,16 @@
       } finally {
         btn.textContent = 'Вытянуть карты Арканов';
         btn.disabled = false;
+      }
+    }
+
+    function askMentorAboutTarot(cardName, cardStatus) {
+      triggerHaptic();
+      switchTab('tab-chat');
+      const input = document.getElementById('chatInput');
+      if (input) {
+        input.value = `Разъясни мне аркан ${cardName} (${cardStatus}) в контексте моей натальной карты.`;
+        input.focus();
       }
     }
 
@@ -5005,7 +5882,709 @@
       }
     }
 
-    // 11. Native 4-Step Onboarding Controller
+    // =========================================================================
+    // 11. Hybrid Dual-Engine Visual Motion & TVLC Controller (Teasers 1-4)
+    // =========================================================================
+    let currentTeaserStep = 1;
+    let currentTeaserIndex = 1;
+
+    // --- Screen 1: 3D Armillary Celestial Sphere (Three.js WebGL) ---
+    let obNatalAnimId = null;
+    let obNatalRenderer = null;
+    let obNatalScene = null;
+    let obNatalCamera = null;
+    let obNatalRingGroup = null;
+    let obNatalEclipticRing = null;
+    let obNatalStars = null;
+
+    function initObNatalCanvas() {
+      const canvas = document.getElementById('obNatalCanvas');
+      const wrap = document.getElementById('obNatalCanvasWrap');
+      if (!canvas || !wrap || typeof THREE === 'undefined') return;
+
+      const width = wrap.clientWidth || 320;
+      const height = wrap.clientHeight || 165;
+
+      if (!obNatalRenderer) {
+        obNatalScene = new THREE.Scene();
+        obNatalCamera = new THREE.PerspectiveCamera(42, width / height, 0.1, 50);
+        obNatalCamera.position.set(0, 1.2, 5.2);
+        obNatalCamera.lookAt(0, 0, 0);
+
+        obNatalRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        obNatalRenderer.setClearColor(0x000000, 0);
+        obNatalRenderer.setSize(width, height);
+        obNatalRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+        // Ambient & planetary lights
+        const amb = new THREE.AmbientLight(0x405580, 1.8);
+        obNatalScene.add(amb);
+        const sunLight = new THREE.PointLight(0xF59E0B, 2.5, 12);
+        sunLight.position.set(2.5, 2.0, 2.0);
+        obNatalScene.add(sunLight);
+        const astralLight = new THREE.PointLight(0x8B5CF6, 2.0, 10);
+        astralLight.position.set(-2.5, -1.5, 1.5);
+        obNatalScene.add(astralLight);
+
+        obNatalRingGroup = new THREE.Group();
+        obNatalScene.add(obNatalRingGroup);
+
+        // Gold & celestial materials
+        const goldMat1 = new THREE.MeshStandardMaterial({ color: 0xE5C07B, metalness: 0.88, roughness: 0.22 });
+        const goldMat2 = new THREE.MeshStandardMaterial({ color: 0xD4AF37, metalness: 0.85, roughness: 0.25 });
+        const violetMat = new THREE.MeshStandardMaterial({ color: 0xC084FC, metalness: 0.8, roughness: 0.3 });
+        const cyanMat = new THREE.MeshStandardMaterial({ color: 0x38BDF8, metalness: 0.75, roughness: 0.28 });
+
+        // Ring 1: Equatorial Ring
+        const ring1 = new THREE.Mesh(new THREE.TorusGeometry(1.8, 0.022, 16, 64), goldMat1);
+        obNatalRingGroup.add(ring1);
+
+        // Ring 2: Ecliptic Ring (tilted at ~23.5 deg = 0.41 rad)
+        obNatalEclipticRing = new THREE.Mesh(new THREE.TorusGeometry(1.82, 0.02, 16, 64), goldMat2);
+        obNatalEclipticRing.rotation.x = 0.41;
+        obNatalRingGroup.add(obNatalEclipticRing);
+
+        // Ring 3: Meridian Colure (rotated 90 deg around Y)
+        const ring3 = new THREE.Mesh(new THREE.TorusGeometry(1.84, 0.018, 16, 64), violetMat);
+        ring3.rotation.y = Math.PI / 2;
+        obNatalRingGroup.add(ring3);
+
+        // Ring 4: Inner Zodiac Band
+        const ring4 = new THREE.Mesh(new THREE.TorusGeometry(1.48, 0.014, 16, 48), cyanMat);
+        ring4.rotation.x = -0.3;
+        ring4.rotation.z = 0.2;
+        obNatalRingGroup.add(ring4);
+
+        // Central glowing celestial nucleus
+        const coreGeo = new THREE.SphereGeometry(0.24, 24, 24);
+        const coreMat = new THREE.MeshBasicMaterial({ color: 0xFFFBEB });
+        const coreMesh = new THREE.Mesh(coreGeo, coreMat);
+        obNatalRingGroup.add(coreMesh);
+
+        // Planetary marker spheres on the ecliptic ring (Sun, Moon, Ascendant)
+        const sunMarker = new THREE.Mesh(new THREE.SphereGeometry(0.1, 16, 16), new THREE.MeshStandardMaterial({ color: 0xF59E0B, metalness: 0.9, roughness: 0.1 }));
+        sunMarker.position.set(1.82, 0, 0);
+        obNatalEclipticRing.add(sunMarker);
+
+        const moonMarker = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), new THREE.MeshStandardMaterial({ color: 0x93C5FD, metalness: 0.6, roughness: 0.3 }));
+        moonMarker.position.set(-1.82 * 0.7, 0, 1.82 * 0.7);
+        obNatalEclipticRing.add(moonMarker);
+
+        const ascMarker = new THREE.Mesh(new THREE.SphereGeometry(0.08, 16, 16), new THREE.MeshStandardMaterial({ color: 0x06B6D4, metalness: 0.8, roughness: 0.2 }));
+        ascMarker.position.set(0, 0, -1.82);
+        obNatalEclipticRing.add(ascMarker);
+
+        // Star cluster particles
+        const S_COUNT = 150;
+        const sGeo = new THREE.BufferGeometry();
+        const sPos = new Float32Array(S_COUNT * 3);
+        for (let i = 0; i < S_COUNT; i++) {
+          const theta = Math.random() * Math.PI * 2;
+          const phi = Math.acos(2 * Math.random() - 1);
+          const r = 2.4 + Math.random() * 0.8;
+          sPos[i * 3] = r * Math.sin(phi) * Math.cos(theta);
+          sPos[i * 3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+          sPos[i * 3 + 2] = r * Math.cos(phi);
+        }
+        sGeo.setAttribute('position', new THREE.BufferAttribute(sPos, 3));
+        const sMat = new THREE.PointsMaterial({ color: 0xFFD700, size: 0.065, transparent: true, opacity: 0.85 });
+        obNatalStars = new THREE.Points(sGeo, sMat);
+        obNatalScene.add(obNatalStars);
+      } else {
+        obNatalRenderer.setSize(width, height);
+        obNatalCamera.aspect = width / height;
+        obNatalCamera.updateProjectionMatrix();
+      }
+
+      if (!obNatalAnimId) {
+        function renderNatalLoop() {
+          if (currentTeaserStep !== 1) {
+            obNatalAnimId = null;
+            return;
+          }
+          if (obNatalRingGroup) {
+            obNatalRingGroup.rotation.y += 0.005;
+            obNatalRingGroup.rotation.x = Math.sin(Date.now() * 0.001) * 0.08;
+          }
+          if (obNatalEclipticRing) {
+            obNatalEclipticRing.rotation.z += 0.003;
+          }
+          if (obNatalStars) {
+            obNatalStars.rotation.y -= 0.0008;
+          }
+          obNatalRenderer.render(obNatalScene, obNatalCamera);
+          obNatalAnimId = requestAnimationFrame(renderNatalLoop);
+        }
+        obNatalAnimId = requestAnimationFrame(renderNatalLoop);
+      }
+    }
+
+    // --- Screen 2: Radiant Empathy Beacon & Acoustic Waves (Canvas 2D) ---
+    let obEmpathyAnimId = null;
+    let obEmpathyCtx = null;
+    let obEmpathyParticles = null;
+
+    function initObEmpathyCanvas() {
+      const canvas = document.getElementById('obEmpathyCanvas');
+      const wrap = document.getElementById('obEmpathyCanvasWrap');
+      if (!canvas || !wrap) return;
+
+      const width = wrap.clientWidth || 320;
+      const height = wrap.clientHeight || 165;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      obEmpathyCtx = canvas.getContext('2d');
+      obEmpathyCtx.setTransform(1, 0, 0, 1, 0, 0);
+      obEmpathyCtx.scale(dpr, dpr);
+
+      if (!obEmpathyParticles) {
+        obEmpathyParticles = [];
+        for (let i = 0; i < 26; i++) {
+          obEmpathyParticles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: 1 + Math.random() * 2,
+            speedY: 0.3 + Math.random() * 0.6,
+            seed: Math.random() * Math.PI * 2,
+            alpha: 0.3 + Math.random() * 0.6
+          });
+        }
+      }
+
+      if (!obEmpathyAnimId) {
+        let startTime = performance.now();
+        function renderEmpathyLoop(now) {
+          if (currentTeaserStep !== 2) {
+            obEmpathyAnimId = null;
+            return;
+          }
+          const t = (now - startTime) * 0.001;
+          const ctx = obEmpathyCtx;
+          ctx.clearRect(0, 0, width, height);
+
+          const cx = width / 2;
+          const cy = height / 2;
+          const maxR = Math.min(width, height) * 0.44;
+
+          // 1. Concentric Resonant Energy Waves (4 harmonic expanding rings)
+          for (let i = 0; i < 4; i++) {
+            const phase = (t * 0.35 + i * 0.25) % 1.0;
+            const r = 20 + phase * (maxR - 20);
+            const alpha = Math.sin(phase * Math.PI) * 0.65;
+
+            ctx.save();
+            ctx.beginPath();
+            const segments = 60;
+            for (let s = 0; s <= segments; s++) {
+              const theta = (s / segments) * Math.PI * 2;
+              const wave = Math.sin(theta * 6 + t * 3.5) * 2.8;
+              const px = cx + (r + wave) * Math.cos(theta);
+              const py = cy + (r + wave) * Math.sin(theta);
+              if (s === 0) ctx.moveTo(px, py);
+              else ctx.lineTo(px, py);
+            }
+            ctx.closePath();
+            ctx.strokeStyle = i % 2 === 0 ? `rgba(6, 182, 212, ${alpha})` : `rgba(139, 92, 246, ${alpha})`;
+            ctx.lineWidth = 1.6;
+            ctx.stroke();
+            ctx.restore();
+          }
+
+          // 2. Drifting Empathy Embers
+          for (let p of obEmpathyParticles) {
+            p.y -= p.speedY;
+            if (p.y < -10) {
+              p.y = height + 10;
+              p.x = Math.random() * width;
+            }
+            const px = p.x + Math.sin(t * 1.5 + p.seed) * 8;
+            ctx.beginPath();
+            ctx.arc(px, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(103, 232, 249, ${p.alpha * 0.7})`;
+            ctx.fill();
+          }
+
+          // 3. Central Empathy Beacon (pulsing breathing orb)
+          const pulse = 1 + 0.12 * Math.sin(t * 2.4);
+          const beaconR = 24 * pulse;
+          const grad = ctx.createRadialGradient(cx, cy, 2, cx, cy, beaconR * 1.8);
+          grad.addColorStop(0, '#FFFFFF');
+          grad.addColorStop(0.3, 'rgba(103, 232, 249, 0.85)');
+          grad.addColorStop(0.6, 'rgba(139, 92, 246, 0.6)');
+          grad.addColorStop(0.85, 'rgba(236, 72, 153, 0.25)');
+          grad.addColorStop(1, 'rgba(139, 92, 246, 0)');
+
+          ctx.fillStyle = grad;
+          ctx.beginPath();
+          ctx.arc(cx, cy, beaconR * 1.8, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(cx, cy, 6 * pulse, 0, Math.PI * 2);
+          ctx.fillStyle = '#FFFFFF';
+          ctx.shadowColor = '#67E8F9';
+          ctx.shadowBlur = 12;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+
+          obEmpathyAnimId = requestAnimationFrame(renderEmpathyLoop);
+        }
+        obEmpathyAnimId = requestAnimationFrame(renderEmpathyLoop);
+      }
+    }
+
+    // --- Screen 3: Sacred 3D Tarot Card Vortex (Three.js WebGL) ---
+    let obTarotAnimId = null;
+    let obTarotRenderer = null;
+    let obTarotScene = null;
+    let obTarotCamera = null;
+    let obTarotCards = [];
+    let obTarotParticles = null;
+
+    function initObTarotCanvas() {
+      const canvas = document.getElementById('obTarotCanvas');
+      const wrap = document.getElementById('obTarotCanvasWrap');
+      if (!canvas || !wrap || typeof THREE === 'undefined') return;
+
+      const width = wrap.clientWidth || 320;
+      const height = wrap.clientHeight || 165;
+
+      if (!obTarotRenderer) {
+        obTarotScene = new THREE.Scene();
+        obTarotCamera = new THREE.PerspectiveCamera(40, width / height, 0.1, 50);
+        obTarotCamera.position.set(0, 1.7, 5.8);
+        obTarotCamera.lookAt(0, 0.1, 0);
+
+        obTarotRenderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
+        obTarotRenderer.setClearColor(0x000000, 0);
+        obTarotRenderer.setSize(width, height);
+        obTarotRenderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+
+        // Ambient & candle light
+        const amb = new THREE.AmbientLight(0x405580, 1.6);
+        obTarotScene.add(amb);
+        const candle1 = new THREE.PointLight(0xFFB852, 2.5, 10);
+        candle1.position.set(-2.5, 0.2, 1.5);
+        obTarotScene.add(candle1);
+        const candle2 = new THREE.PointLight(0xFFA028, 2.5, 10);
+        candle2.position.set(2.5, 0.2, 1.5);
+        obTarotScene.add(candle2);
+
+        // Procedural card texture (Deep Blue Velvet & Gold Filigree)
+        const cardBackTex = (function() {
+          const cvs = document.createElement('canvas');
+          cvs.width = 256; cvs.height = 410;
+          const ctx = cvs.getContext('2d');
+          const gr = ctx.createLinearGradient(0, 0, 256, 410);
+          gr.addColorStop(0, '#10172B'); gr.addColorStop(0.5, '#070A14'); gr.addColorStop(1, '#131B30');
+          ctx.fillStyle = gr; ctx.fillRect(0, 0, 256, 410);
+          ctx.strokeStyle = '#E5C07B'; ctx.lineWidth = 4; ctx.strokeRect(10, 10, 236, 390);
+          ctx.strokeStyle = 'rgba(229,192,123,0.5)'; ctx.lineWidth = 1.5; ctx.strokeRect(16, 16, 224, 378);
+          ctx.save(); ctx.translate(128, 205);
+          ctx.strokeStyle = '#E5C07B'; ctx.lineWidth = 2;
+          ctx.beginPath(); ctx.arc(0, 0, 60, 0, Math.PI * 2); ctx.stroke();
+          for (let i = 0; i < 12; i++) {
+            ctx.rotate(Math.PI / 6);
+            ctx.beginPath(); ctx.moveTo(60, 0); ctx.lineTo(70, 0); ctx.stroke();
+          }
+          ctx.restore();
+          return new THREE.CanvasTexture(cvs);
+        })();
+
+        const goldMat = new THREE.MeshStandardMaterial({ color: 0xE5C07B, metalness: 0.85, roughness: 0.25 });
+        const backMat = new THREE.MeshStandardMaterial({ map: cardBackTex, metalness: 0.2, roughness: 0.5 });
+        const cardGeo = new THREE.BoxGeometry(0.72, 1.15, 0.015);
+
+        const cardGroup = new THREE.Group();
+        cardGroup.rotation.x = 0.2;
+        obTarotScene.add(cardGroup);
+
+        const NUM = 16;
+        for (let i = 0; i < NUM; i++) {
+          const mats = [goldMat, goldMat, goldMat, goldMat, goldMat, backMat];
+          const mesh = new THREE.Mesh(cardGeo, mats);
+          mesh.userData = { angle: (i / NUM) * Math.PI * 2 };
+          cardGroup.add(mesh);
+          obTarotCards.push(mesh);
+        }
+
+        // Golden dust particles
+        const P_COUNT = 90;
+        const pGeo = new THREE.BufferGeometry();
+        const pPos = new Float32Array(P_COUNT * 3);
+        const pAngles = new Float32Array(P_COUNT);
+        const pRadii = new Float32Array(P_COUNT);
+        for (let p = 0; p < P_COUNT; p++) {
+          pAngles[p] = Math.random() * Math.PI * 2;
+          pRadii[p] = 1.6 + Math.random() * 1.2;
+          pPos[p * 3] = Math.cos(pAngles[p]) * pRadii[p];
+          pPos[p * 3 + 1] = (Math.random() - 0.5) * 1.0;
+          pPos[p * 3 + 2] = Math.sin(pAngles[p]) * (pRadii[p] * 0.65);
+        }
+        pGeo.setAttribute('position', new THREE.BufferAttribute(pPos, 3));
+        const pMat = new THREE.PointsMaterial({ color: 0xFFD700, size: 0.08, transparent: true, opacity: 0.85 });
+        obTarotParticles = new THREE.Points(pGeo, pMat);
+        cardGroup.add(obTarotParticles);
+      } else {
+        obTarotRenderer.setSize(width, height);
+        obTarotCamera.aspect = width / height;
+        obTarotCamera.updateProjectionMatrix();
+      }
+
+      if (!obTarotAnimId) {
+        let angle = 0;
+        function renderTarotLoop() {
+          if (currentTeaserStep !== 3) {
+            obTarotAnimId = null;
+            return;
+          }
+          angle += 0.007;
+          const RX = 2.45;
+          const RZ = 1.55;
+          for (let i = 0; i < obTarotCards.length; i++) {
+            const m = obTarotCards[i];
+            const a = m.userData.angle + angle;
+            m.position.set(Math.sin(a) * RX, Math.sin(a * 2 + angle * 2) * 0.12, Math.cos(a) * RZ);
+            m.rotation.y = -a + Math.PI / 2;
+            m.rotation.z = 0.22;
+          }
+          obTarotRenderer.render(obTarotScene, obTarotCamera);
+          obTarotAnimId = requestAnimationFrame(renderTarotLoop);
+        }
+        obTarotAnimId = requestAnimationFrame(renderTarotLoop);
+      }
+    }
+
+    // --- Screen 4: Celestial Transit Dial & Midnight Aura (Canvas 2D) ---
+    let obHoroscopeAnimId = null;
+    let obHoroscopeCtx = null;
+    let obHoroscopeParticles = null;
+
+    function initObHoroscopeCanvas() {
+      const canvas = document.getElementById('obHoroscopeCanvas');
+      const wrap = document.getElementById('obHoroscopeCanvasWrap');
+      if (!canvas || !wrap) return;
+
+      const width = wrap.clientWidth || 320;
+      const height = wrap.clientHeight || 165;
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      canvas.width = Math.round(width * dpr);
+      canvas.height = Math.round(height * dpr);
+      obHoroscopeCtx = canvas.getContext('2d');
+      obHoroscopeCtx.setTransform(1, 0, 0, 1, 0, 0);
+      obHoroscopeCtx.scale(dpr, dpr);
+
+      if (!obHoroscopeParticles) {
+        obHoroscopeParticles = [];
+        for (let i = 0; i < 20; i++) {
+          obHoroscopeParticles.push({
+            x: Math.random() * width,
+            y: Math.random() * height,
+            radius: 0.8 + Math.random() * 1.5,
+            alpha: 0.2 + Math.random() * 0.6
+          });
+        }
+      }
+
+      if (!obHoroscopeAnimId) {
+        let startTime = performance.now();
+        function renderHoroscopeLoop(now) {
+          if (currentTeaserStep !== 4) {
+            obHoroscopeAnimId = null;
+            return;
+          }
+          const t = (now - startTime) * 0.001;
+          const ctx = obHoroscopeCtx;
+          ctx.clearRect(0, 0, width, height);
+
+          const cx = width / 2;
+          const cy = height / 2;
+          const dialR = Math.min(width, height) * 0.38;
+
+          // 1. Ambient Background Stars
+          for (let p of obHoroscopeParticles) {
+            const flicker = Math.sin(t * 2 + p.x) * 0.3 + 0.7;
+            ctx.beginPath();
+            ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(196, 181, 253, ${p.alpha * flicker * 0.6})`;
+            ctx.fill();
+          }
+
+          // 2. Astrological Transit Dial Track
+          ctx.save();
+          ctx.beginPath();
+          ctx.arc(cx, cy, dialR, 0, Math.PI * 2);
+          ctx.strokeStyle = 'rgba(229, 192, 123, 0.35)';
+          ctx.lineWidth = 1.8;
+          ctx.stroke();
+
+          // Rotating dashed inner orbit
+          ctx.beginPath();
+          ctx.arc(cx, cy, dialR * 0.76, 0, Math.PI * 2);
+          ctx.setLineDash([3, 5]);
+          ctx.lineDashOffset = -t * 12;
+          ctx.strokeStyle = 'rgba(139, 92, 246, 0.45)';
+          ctx.lineWidth = 1.2;
+          ctx.stroke();
+          ctx.setLineDash([]);
+
+          // Dial Ticks (12 major division marks for signs/houses, 24 minor marks)
+          for (let i = 0; i < 24; i++) {
+            const angle = (i / 24) * Math.PI * 2;
+            const isMajor = i % 2 === 0;
+            const inner = dialR - (isMajor ? 7 : 3.5);
+            const outer = dialR + (isMajor ? 7 : 3.5);
+            ctx.beginPath();
+            ctx.moveTo(cx + Math.cos(angle) * inner, cy + Math.sin(angle) * inner);
+            ctx.lineTo(cx + Math.cos(angle) * outer, cy + Math.sin(angle) * outer);
+            ctx.strokeStyle = isMajor ? 'rgba(229, 192, 123, 0.6)' : 'rgba(255, 255, 255, 0.2)';
+            ctx.lineWidth = isMajor ? 1.4 : 0.8;
+            ctx.stroke();
+          }
+
+          // 3. Solar-Lunar Celestial Bodies
+          const orbitAngle = t * 0.55;
+
+          // Sun Body (Gold disc with micro-corona)
+          const sunX = cx + Math.cos(orbitAngle) * dialR;
+          const sunY = cy + Math.sin(orbitAngle) * dialR;
+          const sunGrad = ctx.createRadialGradient(sunX, sunY, 1, sunX, sunY, 10);
+          sunGrad.addColorStop(0, '#FFFFFF');
+          sunGrad.addColorStop(0.3, '#FDE047');
+          sunGrad.addColorStop(0.7, '#F59E0B');
+          sunGrad.addColorStop(1, 'rgba(245, 158, 11, 0)');
+          ctx.fillStyle = sunGrad;
+          ctx.beginPath();
+          ctx.arc(sunX, sunY, 10, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(sunX, sunY, 4.5, 0, Math.PI * 2);
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fill();
+
+          // Moon Body (Silver-cyan pearlescent crescent disc)
+          const moonX = cx + Math.cos(orbitAngle + Math.PI) * dialR;
+          const moonY = cy + Math.sin(orbitAngle + Math.PI) * dialR;
+          const moonGrad = ctx.createRadialGradient(moonX, moonY, 1, moonX, moonY, 9);
+          moonGrad.addColorStop(0, '#FFFFFF');
+          moonGrad.addColorStop(0.4, '#93C5FD');
+          moonGrad.addColorStop(0.8, '#3B82F6');
+          moonGrad.addColorStop(1, 'rgba(59, 130, 246, 0)');
+          ctx.fillStyle = moonGrad;
+          ctx.beginPath();
+          ctx.arc(moonX, moonY, 9, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.beginPath();
+          ctx.arc(moonX, moonY, 4, 0, Math.PI * 2);
+          ctx.fillStyle = '#E2E8F0';
+          ctx.fill();
+
+          // Subtle orbital connector ray
+          ctx.beginPath();
+          ctx.moveTo(sunX, sunY);
+          ctx.lineTo(cx, cy);
+          ctx.lineTo(moonX, moonY);
+          ctx.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+          ctx.lineWidth = 1;
+          ctx.stroke();
+
+          // 4. Midnight Rejuvenation Zenith Aura (at top -PI/2)
+          const topX = cx;
+          const topY = cy - dialR;
+          const midnightPulse = 0.6 + 0.4 * Math.sin(t * 2.2);
+          const topGrad = ctx.createRadialGradient(topX, topY, 1, topX, topY, 14 * midnightPulse);
+          topGrad.addColorStop(0, '#FFFFFF');
+          topGrad.addColorStop(0.4, 'rgba(103, 232, 249, 0.8)');
+          topGrad.addColorStop(1, 'rgba(103, 232, 249, 0)');
+          ctx.fillStyle = topGrad;
+          ctx.beginPath();
+          ctx.arc(topX, topY, 14 * midnightPulse, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Center Monogram Readout (00:00 midnight transit indicator)
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.9)';
+          ctx.font = '600 11px system-ui, -apple-system, sans-serif';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('00:00', cx, cy - 2);
+
+          ctx.fillStyle = 'rgba(196, 181, 253, 0.7)';
+          ctx.font = '500 8.5px system-ui, -apple-system, sans-serif';
+          ctx.fillText('ТРАНЗИТЫ', cx, cy + 9);
+
+          ctx.restore();
+
+          obHoroscopeAnimId = requestAnimationFrame(renderHoroscopeLoop);
+        }
+        obHoroscopeAnimId = requestAnimationFrame(renderHoroscopeLoop);
+      }
+    }
+
+    // --- Teaser Visual Lifecycle Controller (TVLC) ---
+    function switchTeaserAnimation(targetStep) {
+      currentTeaserStep = targetStep;
+
+      // Halt all loops not matching targetStep
+      if (targetStep !== 1 && obNatalAnimId) {
+        cancelAnimationFrame(obNatalAnimId);
+        obNatalAnimId = null;
+      }
+      if (targetStep !== 2 && obEmpathyAnimId) {
+        cancelAnimationFrame(obEmpathyAnimId);
+        obEmpathyAnimId = null;
+      }
+      if (targetStep !== 3 && obTarotAnimId) {
+        cancelAnimationFrame(obTarotAnimId);
+        obTarotAnimId = null;
+      }
+      if (targetStep !== 4 && obHoroscopeAnimId) {
+        cancelAnimationFrame(obHoroscopeAnimId);
+        obHoroscopeAnimId = null;
+      }
+
+      // Start/resume active scene after DOM update
+      setTimeout(() => {
+        if (targetStep === 1) initObNatalCanvas();
+        else if (targetStep === 2) initObEmpathyCanvas();
+        else if (targetStep === 3) initObTarotCanvas();
+        else if (targetStep === 4) initObHoroscopeCanvas();
+      }, 35);
+    }
+
+    function pauseAllTeaserAnimations() {
+      currentTeaserStep = 0;
+      if (obNatalAnimId) {
+        cancelAnimationFrame(obNatalAnimId);
+        obNatalAnimId = null;
+      }
+      if (obEmpathyAnimId) {
+        cancelAnimationFrame(obEmpathyAnimId);
+        obEmpathyAnimId = null;
+      }
+      if (obTarotAnimId) {
+        cancelAnimationFrame(obTarotAnimId);
+        obTarotAnimId = null;
+      }
+      if (obHoroscopeAnimId) {
+        cancelAnimationFrame(obHoroscopeAnimId);
+        obHoroscopeAnimId = null;
+      }
+    }
+
+    // OS / Mobile App Backgrounding Interceptor
+    document.addEventListener('visibilitychange', () => {
+      if (document.hidden) {
+        pauseAllTeaserAnimations();
+      } else {
+        const modal = document.getElementById('onboardingModal');
+        const wrap = document.getElementById('obTeasersWrap');
+        if (modal && modal.classList.contains('active') && wrap && wrap.style.display !== 'none') {
+          switchTeaserAnimation(currentTeaserIndex || 1);
+        }
+      }
+    });
+
+    // --- Teaser Navigation & State Machine ---
+    function showTeaserStep(index) {
+      triggerHaptic();
+      currentTeaserIndex = Math.max(1, Math.min(4, index));
+
+      // 1. Ensure Teasers Wrap is visible
+      const wrap = document.getElementById('obTeasersWrap');
+      if (wrap) wrap.style.display = 'flex';
+
+      // 2. Hide all data entry step containers
+      ['obStep1', 'obStep2', 'obStep3', 'obStep4', 'obStepLoading'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = 'none';
+      });
+
+      // 3. Show only target teaser card
+      for (let i = 1; i <= 4; i++) {
+        const el = document.getElementById(`obTeaser${i}`);
+        if (el) el.style.display = (i === currentTeaserIndex) ? 'flex' : 'none';
+      }
+
+      // 4. Header Skip button: visible during teasers
+      const skipBtn = document.getElementById('obSkipBtn');
+      if (skipBtn) skipBtn.style.display = 'block';
+
+      // 5. Header step indicator: shows 1/4, 2/4, 3/4, 4/4
+      const indicator = document.getElementById('onboardingStepIndicator');
+      if (indicator) indicator.textContent = `${currentTeaserIndex}/4`;
+
+      // 6. Update progress segment pills
+      for (let i = 1; i <= 4; i++) {
+        const seg = document.getElementById(`obSeg${i}`);
+        if (seg) {
+          if (i < currentTeaserIndex) {
+            seg.style.background = '#06B6D4';
+            seg.style.boxShadow = '0 0 6px rgba(6, 182, 212, 0.5)';
+          } else if (i === currentTeaserIndex) {
+            seg.style.background = 'var(--max-blue-gradient)';
+            seg.style.boxShadow = '0 0 8px rgba(139, 92, 246, 0.6)';
+          } else {
+            seg.style.background = 'rgba(255, 255, 255, 0.15)';
+            seg.style.boxShadow = 'none';
+          }
+        }
+      }
+
+      // 7. Activate dedicated animation loop and pause others
+      switchTeaserAnimation(currentTeaserIndex);
+    }
+
+    function skipToDataEntry() {
+      triggerHaptic();
+      pauseAllTeaserAnimations();
+      const wrap = document.getElementById('obTeasersWrap');
+      if (wrap) wrap.style.display = 'none';
+      const skipBtn = document.getElementById('obSkipBtn');
+      if (skipBtn) skipBtn.style.display = 'none';
+      nextOnboardingStep(1);
+    }
+
+    // Touch Swipe Gesture Listener on #obTeasersWrap
+    (function initTeaserSwipe() {
+      const wrap = document.getElementById('obTeasersWrap');
+      if (!wrap) return;
+      let startX = 0;
+      let startY = 0;
+
+      wrap.addEventListener('touchstart', (e) => {
+        if (e.touches && e.touches.length > 0) {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        }
+      }, { passive: true });
+
+      wrap.addEventListener('touchend', (e) => {
+        if (!e.changedTouches || e.changedTouches.length === 0) return;
+        const diffX = e.changedTouches[0].clientX - startX;
+        const diffY = e.changedTouches[0].clientY - startY;
+        if (Math.abs(diffX) > 45 && Math.abs(diffX) > Math.abs(diffY) * 1.2) {
+          if (diffX < 0) {
+            // Swipe Left -> Next
+            if (currentTeaserIndex < 4) {
+              showTeaserStep(currentTeaserIndex + 1);
+            } else {
+              skipToDataEntry();
+            }
+          } else {
+            // Swipe Right -> Prev
+            if (currentTeaserIndex > 1) {
+              showTeaserStep(currentTeaserIndex - 1);
+            }
+          }
+        }
+      }, { passive: true });
+    })();
+
     function openOnboardingModal() {
       const modal = document.getElementById('onboardingModal');
       if (modal) {
@@ -5014,17 +6593,28 @@
         document.getElementById('obInputTime').value = state.profile.birthTime || '12:00';
         document.getElementById('obInputCity').value = '';
         renderPersonaCards('onboardingPersonaList', state.profile.personaId || 'alena');
-        nextOnboardingStep(1);
+        showTeaserStep(1);
         modal.classList.add('active');
       }
     }
 
     function nextOnboardingStep(step) {
       triggerHaptic();
-      ['obStep1', 'obStep2', 'obStep3', 'obStep4', 'obStepLoading'].forEach(id => {
+      const allSteps = ['obTeasersWrap', 'obStep1', 'obStep2', 'obStep3', 'obStep4', 'obStepLoading'];
+      allSteps.forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
       });
+
+      const skipBtn = document.getElementById('obSkipBtn');
+
+      if (step === 0) {
+        showTeaserStep(1);
+        return;
+      }
+
+      pauseAllTeaserAnimations();
+      if (skipBtn) skipBtn.style.display = 'none';
 
       const stepIndicator = document.getElementById('onboardingStepIndicator');
       if (stepIndicator) {
@@ -5084,7 +6674,8 @@
 
     async function finishOnboarding() {
       triggerHaptic();
-      ['obStep1', 'obStep2', 'obStep3', 'obStep4'].forEach(id => {
+      pauseAllTeaserAnimations();
+      ['obTeasersWrap', 'obStep1', 'obStep2', 'obStep3', 'obStep4'].forEach(id => {
         const el = document.getElementById(id);
         if (el) el.style.display = 'none';
       });
