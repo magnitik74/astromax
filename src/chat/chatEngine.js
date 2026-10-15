@@ -86,19 +86,23 @@ export class ChatEngine {
     }
 
     const namePrefix = userName ? `**${userName}**, ты чувствуешь` : `Ты чувствуешь`;
+    const appUrl = this.getAppUrl(userId, userName);
+
     const welcomeText = 
 `${namePrefix} это скрытое напряжение в последние дни?
 
 В твоей карте есть редкий парадокс: внешне ты кажешься собранным и неуязвимым, но внутри отдаешь людям намного больше, чем они способны вернуть.
 
-Твой персональный разбор готов. Вскроем то, о чем ты молчишь: отношения, скрытые мотивы и поворотную точку этого месяца.`;
+Твой персональный разбор готов. Вскроем то, о чем ты молчишь: отношения, скрытые мотивы и поворотную точку этого месяца.
 
-    // Строго один конверсионный CTA-переход в Mini App
-    const appUrl = this.getAppUrl(userId, userName);
+🔗 **Вход в приложение:** ${appUrl}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АСТРА', appUrl),
+        this.client.buildOpenAppButton('✦ Открыть Mini App (Нативно)', appUrl),
+      ],
+      [
+        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
       ],
     ];
 
@@ -109,16 +113,21 @@ export class ChatEngine {
    * Расклад Таро — направление в интерактивный 3D-расклад в Mini App
    */
   handleQuickTarot(userId, userName = '') {
+    const appUrl = this.getAppUrl(userId, userName);
     const text = 
 `🔮 **Храм Таро АСТРА**
 
 Здесь нет банальных прогнозов. Карты Таро вытаскивают наружу то, что ты уже знаешь сердцем, но пока боишься признать умом.
 
-Вытяни свой аркан прямо сейчас:`;
+Вытяни свой аркан прямо сейчас:
+🔗 **Карта дня:** ${appUrl}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Вытянуть карту в приложении', this.getAppUrl(userId, userName)),
+        this.client.buildOpenAppButton('✦ Вытянуть карту в Mini App', appUrl),
+      ],
+      [
+        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
       ],
     ];
 
@@ -129,6 +138,7 @@ export class ChatEngine {
    * Справка по возможностям сервиса
    */
   handleHelp(userId, userName = '') {
+    const appUrl = this.getAppUrl(userId, userName);
     const text = 
 `🌌 **АСТРА — твой личный наставник**
 
@@ -137,11 +147,14 @@ export class ChatEngine {
 • 3D-расклады Таро на скрытые мысли и истинные намерения
 • Прямой диалог с наставниками (Алёна, Артём, Елена, София)
 
-Нажми на кнопку ниже:`;
+🔗 **Ссылка на сервис:** ${appUrl}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АСТРА', this.getAppUrl(userId, userName)),
+        this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
+      ],
+      [
+        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
       ],
     ];
     return { text, buttons };
@@ -280,15 +293,21 @@ ${aiInsight}
   async handlePersonalChat(userId, text, options = {}) {
     const userName = options.userName || '';
     const namePrefix = userName ? `**${userName}**, я слышу тебя` : `Я слышу тебя`;
+    const appUrl = this.getAppUrl(userId, userName);
 
     const replyText = 
 `✨ ${namePrefix}. В твоем вопросе кроется то, о чем ты молчишь даже перед собой.
 
-Ответ уже ждет внутри приложения. Твой личный наставник препарировал эту ситуацию: скрытые мотивы, слепые зоны и точный совет, что делать прямо сейчас:`;
+Ответ уже ждет внутри приложения. Твой личный наставник препарировал эту ситуацию: скрытые мотивы, слепые зоны и точный совет, что делать прямо сейчас:
+
+🔗 **Вход в приложение:** ${appUrl}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АСТРА', this.getAppUrl(userId, userName)),
+        this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
+      ],
+      [
+        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
       ],
     ];
 

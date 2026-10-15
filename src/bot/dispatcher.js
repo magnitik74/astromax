@@ -120,11 +120,15 @@ export class BotDispatcher {
 
 Здесь нет банальных прогнозов. Карты Таро вытаскивают наружу то, что ты уже знаешь сердцем, но пока боишься признать умом.
 
-Нажми кнопку ниже, чтобы вытянуть карту:`;
+Нажми кнопку ниже, чтобы вытянуть карту:
+🔗 **Карта дня:** ${appUrl}`;
 
       const buttons = [
         [
-          this.client.buildOpenAppButton('✦ Вытянуть карту в приложении', appUrl),
+          this.client.buildOpenAppButton('✦ Вытянуть карту в Mini App', appUrl),
+        ],
+        [
+          this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
         ],
       ];
       return this.client.sendMessage(target, text, { buttons });
@@ -134,11 +138,15 @@ export class BotDispatcher {
       const text = 
 `💎 **Премиум Клуб АСТРА**
 
-Личный наставник 24/7, глубокий синастрия-анализ отношений и персональный разбор каждого дня без ограничений:`;
+Личный наставник 24/7, глубокий синастрия-анализ отношений и персональный разбор каждого дня без ограничений:
+🔗 **Вход в клуб:** ${appUrl}`;
 
       const buttons = [
         [
-          this.client.buildOpenAppButton('✦ Открыть АСТРА', appUrl),
+          this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
+        ],
+        [
+          this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
         ],
       ];
       return this.client.sendMessage(target, text, { buttons });
@@ -147,11 +155,15 @@ export class BotDispatcher {
     const text = 
 `✨ **Твой персональный разбор ждет в АСТРА**
 
-Вскроем то, о чем ты молчишь: отношения, скрытые мотивы партнера и ключевые точки роста. Переходи в приложение:`;
+Вскроем то, о чем ты молчишь: отношения, скрытые мотивы партнера и ключевые точки роста. Переходи в приложение:
+🔗 **Вход в приложение:** ${appUrl}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Открыть АСТРА', appUrl),
+        this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
+      ],
+      [
+        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
       ],
     ];
     return this.client.sendMessage(target, text, { buttons });
