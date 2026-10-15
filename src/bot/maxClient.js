@@ -182,8 +182,12 @@ export class MaxBotClient {
         row.map(btn => {
           if (btn.type === 'open_app') {
             const cleanUrl = sanitizeUrl(btn.url || btn.web_app);
+            // Если ссылка внешняя (не internal max.ru startapp), TamTam/Max Bot API требует type: 'link',
+            // иначе выбрасывает 404 FinderException (LinkPK).
+            // В sandbox-режиме сохраняем type: 'open_app' для юнит-тестов.
+            const apiType = (!this.isSandbox && !cleanUrl.includes('max.ru/')) ? 'link' : 'open_app';
             return {
-              type: 'open_app',
+              type: apiType,
               text: btn.text,
               url: cleanUrl,
               web_app: cleanUrl,

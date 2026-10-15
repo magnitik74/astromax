@@ -9,6 +9,37 @@
   
   <!-- MAX Messenger Official Mini App Bridge SDK -->
   <script src="https://st.max.ru/js/max-web-app.js"></script>
+  <script>
+    (function() {
+      function notifyBridge() {
+        try {
+          if (window.WebApp && typeof window.WebApp.ready === 'function') {
+            window.WebApp.ready();
+          }
+        } catch (e) {}
+        try {
+          if (window.WebViewHandler && typeof window.WebViewHandler.postEvent === 'function') {
+            window.WebViewHandler.postEvent('WebAppReady', '{}');
+          }
+        } catch (e) {}
+        try {
+          if (window.parent && window.parent !== window) {
+            window.parent.postMessage(JSON.stringify({ type: 'WebAppReady' }), '*');
+          }
+        } catch (e) {}
+        try {
+          if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.ready === 'function') {
+            window.Telegram.WebApp.ready();
+          }
+        } catch (e) {}
+      }
+      notifyBridge();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', notifyBridge);
+      }
+      window.addEventListener('load', notifyBridge);
+    })();
+  </script>
 
   <style>
     /* ==========================================================================
@@ -3088,9 +3119,17 @@
       }
 
       // 4. Глубокие ссылки (Deep-links) из мессенджера: переход в нужный таб / к наставнику
-      const urlTab = urlParams.get('tab');
-      const urlPersona = urlParams.get('persona');
-      const urlFocus = urlParams.get('focus');
+      const startParam = window.WebApp?.initDataUnsafe?.start_param || urlParams.get('startapp') || urlParams.get('start_param') || '';
+      let urlTab = urlParams.get('tab');
+      let urlPersona = urlParams.get('persona');
+      let urlFocus = urlParams.get('focus');
+
+      if (startParam) {
+        if (startParam.includes('tarot')) urlTab = 'tarot';
+        else if (startParam.includes('alena')) { urlTab = 'chat'; urlPersona = 'alena'; }
+        else if (startParam.includes('artem')) { urlTab = 'chat'; urlPersona = 'artem'; }
+        else if (startParam.includes('big3')) { urlTab = 'horoscope'; urlFocus = 'big3'; }
+      }
 
       if (urlPersona) {
         state.profile.personaId = urlPersona;
