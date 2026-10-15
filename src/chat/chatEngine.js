@@ -93,7 +93,7 @@ export class ChatEngine {
 
 С каким вопросом ты пришел?
 
-Напиши свой вопрос прямо сюда в чат или выбери тему ниже — твоя натальная карта и наставники уже ждут:
+Выбери тему кнопкой ниже или заходи в приложение — твой персональный расчет готов:
 🔗 **Вход в АСТРА:** ${appUrl}`;
 
     const buttons = [
@@ -301,22 +301,17 @@ ${aiInsight}
     const userName = options.userName || '';
     const greeting = userName ? `Привет, **${userName}**! ` : `Привет! `;
     const appUrl = this.getAppUrl(userId, userName);
-    const cleanText = (text || '').trim();
-    const excerpt = cleanText.length > 50 ? cleanText.slice(0, 50) + '...' : cleanText;
-
     const replyText = 
-`✨ ${greeting}Приняла твой вопрос: *«${excerpt}»*.
-
-Твой персональный разбор уже рассчитан на основе натальной карты и точных транзитов планет. Наставник подготовил детальный ответ:
+`✨ ${greeting}Все ответы, натальная карта и диалог с твоим наставником открыты внутри приложения:
 
 🔗 **Вход в АСТРА:** ${appUrl}`;
 
     const buttons = [
       [
-        this.client.buildOpenAppButton('✦ Читать персональный ответ в АСТРА', appUrl),
+        this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
       ],
       [
-        this.client.buildLinkButton('🌐 Открыть в браузере (Прямая ссылка)', appUrl),
+        this.client.buildLinkButton('🌐 Войти через браузер (Прямой доступ)', appUrl),
       ],
       [
         this.client.buildCallbackButton('💔 Что в отношениях?', 'TOPIC_RELATIONSHIPS'),
