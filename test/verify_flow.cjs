@@ -17,7 +17,7 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
   await page.setViewport({ width: 390, height: 844, isMobile: true, hasTouch: true });
 
   console.log('Navigating to Mini App...');
-  await page.goto('https://astromax-nu.vercel.app/index.html?reset=1', { waitUntil: 'networkidle2', timeout: 30000 });
+  await page.goto('https://astromax-nu.vercel.app/index.html?reset=1', { waitUntil: 'domcontentloaded', timeout: 30000 });
   await new Promise(r => setTimeout(r, 2000));
 
   // Step 1: Name
