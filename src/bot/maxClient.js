@@ -8,9 +8,11 @@ import path from 'node:path';
  * Docs: https://dev.max.ru/docs-api
  */
 
+const DEFAULT_MAX_TOKEN = 'f9LHodD0cOJcero4z_zdkBkCUGR8t1EldYtf37NfozAUWATGaD1lsIBHXLgs0FHRTBbhX35dnkQX2LCf-bMA';
+
 export class MaxBotClient {
   constructor(options = {}) {
-    this.token = options.token || process.env.MAX_BOT_TOKEN || '';
+    this.token = options.token || process.env.MAX_BOT_TOKEN || DEFAULT_MAX_TOKEN;
     this.baseUrl = options.baseUrl || 'https://platform-api2.max.ru';
     this.isSandbox = options.isSandbox ?? (!this.token || this.token === 'TEST_TOKEN');
     this.isPolling = false;
