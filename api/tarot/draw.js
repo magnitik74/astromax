@@ -10,9 +10,27 @@ export default async function handler(req, res) {
   }
 
   try {
-    const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
-    const { type = 'daily', allowReversed = true } = body;
-    const spread = drawTarotSpread({ type, allowReversed });
+    const query = req.query || {};
+    let body = {};
+    if (req.method === 'POST') {
+      body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
+    }
+    const params = { ...query, ...body };
+
+    const {
+      type = 'daily',
+      allowReversed = true,
+      seed = null,
+      userId = null,
+    } = params;
+
+    const spread = drawTarotSpread({
+      type,
+      allowReversed: allowReversed !== false && allowReversed !== 'false',
+      seed: seed || null,
+      userId: userId || null,
+    });
+
     return res.status(200).json(spread);
   } catch (err) {
     console.error('[API /api/tarot/draw] Error:', err);
