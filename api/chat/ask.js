@@ -24,6 +24,11 @@ function sanitizeMentorReply(text) {
     // Normalize excessive newlines to double newline
     .replace(/\n{3,}/g, '\n\n')
     .trim();
+
+  if (!cleaned.endsWith('?')) {
+    cleaned = cleaned.replace(/[.!]+$/, '') + '?';
+  }
+  return cleaned;
 }
 
 export default async function handler(req, res) {

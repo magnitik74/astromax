@@ -24,7 +24,7 @@ test('MaxBotClient sandbox mode works without credentials and includes format: m
   assert.ok(res.receivedBody.attachments[0].payload.buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
 });
 
-test('BotDispatcher handles /start command with strict single CTA button to Mini App', async () => {
+test('BotDispatcher handles /start command with guidance to native bottom-left button and zero inline link buttons', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);
 
@@ -38,25 +38,16 @@ test('BotDispatcher handles /start command with strict single CTA button to Mini
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 'user_456');
   assert.equal(result.receivedBody.format, 'markdown');
-  assert.ok(result.receivedBody.text.includes('С каким вопросом ты пришел') || result.receivedBody.text.includes('твой личный ИИ-астролог'));
+  assert.ok(result.receivedBody.text.includes('твой личный ИИ-астролог') || result.receivedBody.text.includes('АСТРА'));
+  assert.ok(result.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
+  assert.equal(/https?:\/\//.test(result.receivedBody.text), false, 'Welcome text must NOT contain raw URLs');
   
-  // Verify conversion funnel: 3 button rows (all 100% open_app native deep links)
-  const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 3);
-  assert.equal(buttons[0][0].type, 'open_app');
-  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
-  assert.ok(buttons[0][0].url.includes('user_id=user_456'));
-  assert.equal(buttons[1][0].type, 'open_app');
-  assert.ok(buttons[1][0].url.includes('persona=alena'));
-  assert.equal(buttons[1][1].type, 'open_app');
-  assert.ok(buttons[1][1].url.includes('persona=artem'));
-  assert.equal(buttons[2][0].type, 'open_app');
-  assert.ok(buttons[2][0].url.includes('tab=tarot'));
-  assert.equal(buttons[2][1].type, 'open_app');
-  assert.ok(buttons[2][1].url.includes('focus=big3'));
+  // Verify strict zero-inline-button policy (no external browser opening)
+  const inlineButtons = result.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(inlineButtons.length, 0, 'Must have zero inline link buttons in chat');
 });
 
-test('BotDispatcher handles /tarot command by directing directly to Mini App', async () => {
+test('BotDispatcher handles /tarot command by directing directly to native Mini App button', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);
 
@@ -70,14 +61,13 @@ test('BotDispatcher handles /tarot command by directing directly to Mini App', a
   assert.ok(result);
   assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('Храм Таро АСТРА'));
-  const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 1);
-  assert.equal(buttons[0][0].type, 'open_app');
-  assert.ok(buttons[0][0].web_app.includes('https://astromax-nu.vercel.app'));
-  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
+  assert.ok(result.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
+  assert.equal(/https?:\/\//.test(result.receivedBody.text), false, 'Tarot reply must NOT contain raw URLs');
+  const inlineButtons = result.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(inlineButtons.length, 0);
 });
 
-test('BotDispatcher handles /reset command by clearing memory and providing reset link', async () => {
+test('BotDispatcher handles /reset command by clearing memory and directing to native button', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);
 
@@ -91,14 +81,13 @@ test('BotDispatcher handles /reset command by clearing memory and providing rese
   assert.ok(result);
   assert.equal(result.receivedBody.chat_id, 'user_reset_test');
   assert.ok(result.receivedBody.text.includes('Сессия сброшена'));
-  const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 1);
-  assert.equal(buttons[0][0].type, 'open_app');
-  assert.ok(buttons[0][0].url.includes('reset=1'));
-  assert.ok(buttons[0][0].url.includes('user_id=user_reset_test'));
+  assert.ok(result.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
+  assert.equal(/https?:\/\//.test(result.receivedBody.text), false, 'Reset reply must NOT contain raw URLs');
+  const inlineButtons = result.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(inlineButtons.length, 0);
 });
 
-test('BotDispatcher handles native Max event: bot_started with user_id & name deep links', async () => {
+test('BotDispatcher handles native Max event: bot_started with user greeting and native button guide', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   const dispatcher = new BotDispatcher(client);
 
@@ -116,23 +105,11 @@ test('BotDispatcher handles native Max event: bot_started with user_id & name de
   assert.equal(result.receivedBody.chat_id, 11223344);
   assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('Елена'));
-  assert.ok(result.receivedBody.text.includes('С каким вопросом ты пришел') || result.receivedBody.text.includes('твой личный ИИ-астролог'));
+  assert.ok(result.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
   assert.equal(/https?:\/\//.test(result.receivedBody.text), false, 'Welcome text must NOT contain raw URLs');
 
-  const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 3);
-  assert.equal(buttons[0][0].type, 'open_app');
-  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
-  assert.ok(buttons[0][0].url.includes('user_id=11223344'));
-  assert.ok(buttons[0][0].url.includes('name=%D0%95%D0%BB%D0%B5%D0%BD%D0%B0'));
-  assert.equal(buttons[1][0].type, 'open_app');
-  assert.ok(buttons[1][0].url.includes('persona=alena'));
-  assert.equal(buttons[1][1].type, 'open_app');
-  assert.ok(buttons[1][1].url.includes('persona=artem'));
-  assert.equal(buttons[2][0].type, 'open_app');
-  assert.ok(buttons[2][0].url.includes('tab=tarot'));
-  assert.equal(buttons[2][1].type, 'open_app');
-  assert.ok(buttons[2][1].url.includes('focus=big3'));
+  const inlineButtons = result.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(inlineButtons.length, 0);
 });
 
 test('BotDispatcher handles native Max event: message_created by guiding user into Mini App', async () => {
@@ -152,20 +129,14 @@ test('BotDispatcher handles native Max event: message_created by guiding user in
   assert.ok(res);
   assert.equal(res.receivedBody.chat_id, userId);
   assert.equal(res.receivedBody.format, 'markdown');
-  assert.ok(res.receivedBody.text.includes('вопрос') || res.receivedBody.text.includes('АСТРА'));
+  assert.ok(res.receivedBody.text.includes('АСТРА'));
+  assert.ok(res.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
   assert.equal(/https?:\/\//.test(res.receivedBody.text), false, 'Chat reply text must NOT contain raw URLs');
-  const buttons = res.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 2);
-  assert.equal(buttons[0][0].type, 'open_app');
-  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
-  assert.ok(buttons[0][0].url.includes('name=%D0%90%D0%BD%D0%BD%D0%B0'));
-  assert.equal(buttons[1][0].type, 'open_app');
-  assert.ok(buttons[1][0].url.includes('persona=alena'));
-  assert.equal(buttons[1][1].type, 'open_app');
-  assert.ok(buttons[1][1].url.includes('persona=artem'));
+  const inlineButtons = res.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(inlineButtons.length, 0);
 });
 
-test('BotDispatcher handles native Max event: message_callback for quick Tarot with Mini App link', async () => {
+test('BotDispatcher handles native Max event: message_callback for quick Tarot with native button guide', async () => {
   let answeredCallbackId = null;
   const client = new MaxBotClient({ isSandbox: true });
   client.answerCallback = async (cbId) => { answeredCallbackId = cbId; return { ok: true }; };
@@ -188,14 +159,13 @@ test('BotDispatcher handles native Max event: message_callback for quick Tarot w
   assert.ok(result);
   assert.equal(result.receivedBody.format, 'markdown');
   assert.ok(result.receivedBody.text.includes('Храм Таро АСТРА'));
-  const buttons = result.receivedBody.attachments[0].payload.buttons;
-  assert.equal(buttons.length, 1);
-  assert.equal(buttons[0][0].type, 'open_app');
-  assert.ok(buttons[0][0].web_app.includes('https://astromax-nu.vercel.app'));
-  assert.ok(buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
+  assert.ok(result.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
+  assert.equal(/https?:\/\//.test(result.receivedBody.text), false, 'Tarot reply must NOT contain raw URLs');
+  const inlineButtons = result.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(inlineButtons.length, 0);
 });
 
-test('BotDispatcher handles topic callbacks: TOPIC_RELATIONSHIPS, TOPIC_MONEY, and TOPIC_BIG_THREE', async () => {
+test('BotDispatcher handles topic callbacks with native button guidance: TOPIC_RELATIONSHIPS, TOPIC_MONEY, and TOPIC_BIG_THREE', async () => {
   const client = new MaxBotClient({ isSandbox: true });
   client.answerCallback = async () => ({ ok: true });
   const dispatcher = new BotDispatcher(client);
@@ -212,9 +182,10 @@ test('BotDispatcher handles topic callbacks: TOPIC_RELATIONSHIPS, TOPIC_MONEY, a
   });
   assert.ok(relRes.receivedBody.text.includes('Отношения & Любовь'));
   assert.ok(relRes.receivedBody.text.includes('Алёна Смирнова'));
+  assert.ok(relRes.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
   assert.equal(/https?:\/\//.test(relRes.receivedBody.text), false, 'Relationships reply must NOT contain raw URLs');
-  assert.equal(relRes.receivedBody.attachments[0].payload.buttons.length, 1);
-  assert.equal(relRes.receivedBody.attachments[0].payload.buttons[0][0].type, 'open_app');
+  const relButtons = relRes.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(relButtons.length, 0);
 
   // 2. Money
   const moneyRes = await dispatcher.handleUpdate({
@@ -228,9 +199,10 @@ test('BotDispatcher handles topic callbacks: TOPIC_RELATIONSHIPS, TOPIC_MONEY, a
   });
   assert.ok(moneyRes.receivedBody.text.includes('Деньги & Карьера'));
   assert.ok(moneyRes.receivedBody.text.includes('Артём Соколов'));
+  assert.ok(moneyRes.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
   assert.equal(/https?:\/\//.test(moneyRes.receivedBody.text), false, 'Money reply must NOT contain raw URLs');
-  assert.equal(moneyRes.receivedBody.attachments[0].payload.buttons.length, 1);
-  assert.equal(moneyRes.receivedBody.attachments[0].payload.buttons[0][0].type, 'open_app');
+  const monButtons = moneyRes.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(monButtons.length, 0);
 
   // 3. Big Three
   const b3Res = await dispatcher.handleUpdate({
@@ -245,7 +217,8 @@ test('BotDispatcher handles topic callbacks: TOPIC_RELATIONSHIPS, TOPIC_MONEY, a
   assert.ok(b3Res.receivedBody.text.includes('Большая Тройка'));
   assert.ok(b3Res.receivedBody.text.includes('Солнце'));
   assert.ok(b3Res.receivedBody.text.includes('Асцендент'));
+  assert.ok(b3Res.receivedBody.text.includes('кнопку «✦ Открыть» внизу слева'));
   assert.equal(/https?:\/\//.test(b3Res.receivedBody.text), false, 'Big Three reply must NOT contain raw URLs');
-  assert.equal(b3Res.receivedBody.attachments[0].payload.buttons.length, 1);
-  assert.equal(b3Res.receivedBody.attachments[0].payload.buttons[0][0].type, 'open_app');
+  const b3Buttons = b3Res.receivedBody.attachments?.find(a => a.type === 'inline_keyboard')?.payload?.buttons || [];
+  assert.equal(b3Buttons.length, 0);
 });

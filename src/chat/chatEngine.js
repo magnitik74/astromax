@@ -91,35 +91,15 @@ export class ChatEngine {
     }
 
     const greeting = userName ? `Привет, **${userName}**!` : `Привет!`;
-    const appUrl = this.getAppUrl(userId, userName);
 
     const welcomeText = 
 `✨ ${greeting} Я **АСТРА** — твой личный ИИ-астролог и наставник.
 
-С каким вопросом ты пришел?
+Твой персональный Космический Паспорт, натальная карта и наставники готовы.
 
-Выбери тему кнопкой ниже или заходи в приложение — твой персональный расчет готов:`;
+👇 **Нажми синюю кнопку «✦ Открыть» внизу слева** (рядом со строкой ввода), чтобы запустить приложение.`;
 
-    const relAppUrl = this.getAppUrl(userId, userName, { tab: 'chat', persona: 'alena' });
-    const moneyAppUrl = this.getAppUrl(userId, userName, { tab: 'chat', persona: 'artem' });
-    const tarotAppUrl = this.getAppUrl(userId, userName, { tab: 'tarot' });
-    const b3AppUrl = this.getAppUrl(userId, userName, { tab: 'horoscope', focus: 'big3' });
-
-    const buttons = [
-      [
-        this.client.buildOpenAppButton('✦ Открыть АСТРА (Космический Паспорт)', appUrl),
-      ],
-      [
-        this.client.buildOpenAppButton('💔 Что в отношениях?', relAppUrl),
-        this.client.buildOpenAppButton('💰 Где мои деньги?', moneyAppUrl),
-      ],
-      [
-        this.client.buildOpenAppButton('🃏 Карта Дня Таро', tarotAppUrl),
-        this.client.buildOpenAppButton('🪐 Моя Большая Тройка', b3AppUrl),
-      ],
-    ];
-
-    return { text: welcomeText, buttons, attachments };
+    return { text: welcomeText, buttons: [], attachments };
   }
 
   /**
@@ -130,63 +110,43 @@ export class ChatEngine {
       this.memory.users.delete(String(userId));
     }
 
-    const resetAppUrl = this.getAppUrl(userId, userName, { reset: '1' });
     const text = 
 `Сессия сброшена. Все предыдущие расчеты и данные профиля очищены.
 
-Чтобы открыть приложение и рассчитать Космический Паспорт с чистого листа, нажми кнопку ниже:`;
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы открыть приложение и рассчитать Космический Паспорт с чистого листа.`;
 
-    const buttons = [
-      [
-        this.client.buildOpenAppButton('✦ Начать с чистого листа', resetAppUrl),
-      ],
-    ];
-
-    return { text, buttons };
+    return { text, buttons: [] };
   }
 
   /**
    * Расклад Таро — направление в интерактивный 3D-расклад в Mini App
    */
   handleQuickTarot(userId, userName = '') {
-    const appUrl = this.getAppUrl(userId, userName);
     const text = 
 `🔮 **Храм Таро АСТРА**
 
 Здесь нет банальных прогнозов. Карты Таро вытаскивают наружу то, что ты уже знаешь сердцем, но пока боишься признать умом.
 
-Нажми кнопку ниже, чтобы вытянуть свой аркан:`;
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы войти в Храм Таро и вытянуть свой аркан.`;
 
-    const buttons = [
-      [
-        this.client.buildOpenAppButton('✦ Вытянуть карту в Mini App', appUrl),
-      ],
-    ];
-
-    return { text, buttons };
+    return { text, buttons: [] };
   }
 
   /**
    * Справка по возможностям сервиса
    */
   handleHelp(userId, userName = '') {
-    const appUrl = this.getAppUrl(userId, userName);
     const text = 
 `🌌 **АСТРА — твой личный наставник**
 
-Все ответы открываются внутри интерактивного приложения:
+Все расчеты и консультации происходят внутри интерактивного приложения:
 • Внутренние парадоксы характера (Большая Тройка: Солнце, Луна, Асцендент)
 • 3D-расклады Таро на скрытые мысли и истинные намерения
 • Прямой диалог с наставниками (Алёна, Артём, Елена, София)
 
-Нажми кнопку ниже для входа:`;
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы запустить приложение.`;
 
-    const buttons = [
-      [
-        this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
-      ],
-    ];
-    return { text, buttons };
+    return { text, buttons: [] };
   }
 
   /**
@@ -322,25 +282,14 @@ ${aiInsight}
   async handlePersonalChat(userId, text, options = {}) {
     const userName = options.userName || '';
     const greeting = userName ? `Привет, **${userName}**! ` : `Привет! `;
-    const appUrl = this.getAppUrl(userId, userName);
+
     const replyText = 
-`✨ ${greeting}Твой вопрос принят. Все расчеты, натальная карта и живой диалог с наставником открыты внутри приложения.
+`🔮 ${greeting}Твой расчет и наставники ждут тебя внутри АСТРА.
 
-Нажми кнопку ниже, чтобы войти в диалог:`;
+В чате мессенджера диалог не ведется — все персональные консультации, натальная карта и расклады Таро проходят в защищенном приложении.
 
-    const relAppUrl = this.getAppUrl(userId, userName, { tab: 'chat', persona: 'alena' });
-    const moneyAppUrl = this.getAppUrl(userId, userName, { tab: 'chat', persona: 'artem' });
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы войти и разобрать свой вопрос.`;
 
-    const buttons = [
-      [
-        this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
-      ],
-      [
-        this.client.buildOpenAppButton('💔 Что в отношениях?', relAppUrl),
-        this.client.buildOpenAppButton('💰 Где мои деньги?', moneyAppUrl),
-      ],
-    ];
-
-    return { text: replyText, buttons };
+    return { text: replyText, buttons: [] };
   }
 }

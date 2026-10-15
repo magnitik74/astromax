@@ -111,80 +111,44 @@ export class BotDispatcher {
   }
 
   async handleCallback(target, payload, userName = '', rawUserId = null) {
-    const effectiveUserId = rawUserId || (typeof target === 'object' ? target.user_id || target.chat_id : target);
-    const appUrl = `${this.miniAppUrl}/index.html?user_id=${encodeURIComponent(effectiveUserId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
-
     if (payload === 'TOPIC_RELATIONSHIPS') {
       const text = 
 `💔 **Отношения & Любовь**
 
-Астропсихолог **Алёна Смирнова** подготовила синастрию и разбор динамики чувств:
-• Что партнер думает и чувствует на самом деле
-• В чем причина дистанции и как вернуть доверие
-• Персональный прогноз и совет на ближайшие дни
+Астропсихолог **Алёна Смирнова** подготовила синастрию и разбор динамики чувств внутри приложения.
 
-Нажми кнопку ниже, чтобы открыть разбор отношений:`;
-
-      const buttons = [
-        [
-          this.client.buildOpenAppButton('✦ Открыть разбор отношений в Mini App', appUrl),
-        ],
-      ];
-      return this.client.sendMessage(target, text, { buttons });
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы войти в диалог с Алёной.`;
+      return this.client.sendMessage(target, text, { buttons: [] });
     }
 
     if (payload === 'TOPIC_MONEY') {
       const text = 
 `💰 **Деньги & Карьера**
 
-Бизнес-стратег **Артём Соколов** просчитал твои транзиты и финансовую матрицу:
-• В каких сферах и датах заложен твой максимальный доход
-• Точные окна возможностей для запуска и переговоров
-• 3 шага, чтобы выйти на новый финансовый уровень
+Бизнес-стратег **Артём Соколов** подготовил финансовую матрицу и разбор точек роста внутри приложения.
 
-Нажми кнопку ниже, чтобы вскрыть денежный код:`;
-
-      const buttons = [
-        [
-          this.client.buildOpenAppButton('✦ Вскрыть денежный код в Mini App', appUrl),
-        ],
-      ];
-      return this.client.sendMessage(target, text, { buttons });
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы открыть разбор с Артёмом.`;
+      return this.client.sendMessage(target, text, { buttons: [] });
     }
 
     if (payload === 'TOPIC_BIG_THREE') {
       const text = 
-`🪐 **Большая Тройка • Архитектура твоей личности**
+`🪐 **Моя Большая Тройка • Архитектура твоей личности**
 
-Твою натальную карту определяет космическая триада:
-• **Солнце** — сознательное эго, энергия и жизненная воля
-• **Луна** — подсознание, эмоции и истинные потребности
-• **Асцендент** — твой стиль проявления и восприятие миром
+Твой Космический Паспорт (Солнце, Луна, Асцендент) рассчитан и готов к изучению.
 
-Нажми кнопку ниже, чтобы открыть расчет:`;
-
-      const buttons = [
-        [
-          this.client.buildOpenAppButton('✦ Посмотреть Большую Тройку в Mini App', appUrl),
-        ],
-      ];
-      return this.client.sendMessage(target, text, { buttons });
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы открыть свой паспорт.`;
+      return this.client.sendMessage(target, text, { buttons: [] });
     }
 
-    if (payload === 'ACTION_TAROT_DAILY') {
+    if (payload === 'ACTION_TAROT_DAILY' || payload === 'TOPIC_TAROT') {
       const text = 
 `🔮 **Храм Таро АСТРА • Карта Дня**
 
 Здесь нет банальных прогнозов. Карты Таро вытаскивают наружу то, что ты уже знаешь сердцем, но пока боишься признать умом.
 
-Нажми кнопку ниже, чтобы вытянуть персональный 3D-аркан:`;
-
-      const buttons = [
-        [
-          this.client.buildOpenAppButton('✦ Вытянуть карту в Mini App', appUrl),
-        ],
-      ];
-      return this.client.sendMessage(target, text, { buttons });
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы войти в Храм Таро и вытянуть свой аркан.`;
+      return this.client.sendMessage(target, text, { buttons: [] });
     }
 
     if (payload === 'ACTION_PREMIUM_INFO') {
@@ -193,26 +157,18 @@ export class BotDispatcher {
 
 Личный наставник 24/7, глубокий синастрия-анализ отношений и персональный разбор каждого дня без ограничений.
 
-Нажми кнопку ниже для входа:`;
-
-      const buttons = [
-        [
-          this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
-        ],
-      ];
-      return this.client.sendMessage(target, text, { buttons });
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы запустить приложение.`;
+      return this.client.sendMessage(target, text, { buttons: [] });
     }
 
     const text = 
-`✨ **Твой персональный разбор ждет в АСТРА**
+`✨ **Твой персональный расчет ждет в АСТРА**
 
-Вскроем то, о чем ты молчишь: отношения, скрытые мотивы партнера и ключевые точки роста. Переходи в приложение по кнопке ниже:`;
+Вскроем то, о чем ты молчишь: отношения, скрытые мотивы партнера и ключевые точки роста.
 
-    const buttons = [
-      [
-        this.client.buildOpenAppButton('✦ Открыть Mini App', appUrl),
-      ],
-    ];
-    return this.client.sendMessage(target, text, { buttons });
+👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы войти в приложение.`;
+
+    return this.client.sendMessage(target, text, { buttons: [] });
   }
 }
+
