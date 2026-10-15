@@ -7,37 +7,99 @@
   <link rel="icon" type="image/jpeg" href="/avatar.jpg">
   <link rel="apple-touch-icon" href="/avatar.jpg">
   
-  <!-- MAX Messenger Official Mini App Bridge SDK -->
-  <script src="https://st.max.ru/js/max-web-app.js"></script>
+  <!-- MAX Messenger Official Mini App Bridge SDK (local fast CDN + official fallback) -->
+  <script src="/max-web-app.js"></script>
   <script>
     (function() {
       function notifyBridge() {
+        // 1. Динамический патч транспорта WebApp (если WebViewHandler внедрен после выполнения скрипта)
+        try {
+          if (window.WebApp && window.WebApp.transport) {
+            if (window.WebViewHandler && window.WebApp.transport.webviewBridge !== window.WebViewHandler) {
+              window.WebApp.transport.webviewBridge = window.WebViewHandler;
+              window.WebApp.transport.sendEvent = window.WebApp.transport.sendOverWebView;
+            }
+            if (window.self !== window.top) {
+              window.WebApp.transport.sendEvent = window.WebApp.transport.sendOverIframe;
+            }
+          }
+        } catch (e) {}
+
+        // 2. Официальный вызов WebApp.ready()
         try {
           if (window.WebApp && typeof window.WebApp.ready === 'function') {
             window.WebApp.ready();
           }
         } catch (e) {}
+
+        // 3. Прямая отправка в Android WebViewHandler (с 1 и 2 аргументами)
         try {
           if (window.WebViewHandler && typeof window.WebViewHandler.postEvent === 'function') {
-            window.WebViewHandler.postEvent('WebAppReady', '{}');
+            try { window.WebViewHandler.postEvent('WebAppReady', '{}'); } catch(e){}
+            try { window.WebViewHandler.postEvent('WebAppReady'); } catch(e){}
+            try { window.WebViewHandler.postEvent('WebAppExpand', '{}'); } catch(e){}
           }
         } catch (e) {}
+
+        // 4. Прямая отправка в iOS WebKit messageHandlers
+        try {
+          if (window.webkit && window.webkit.messageHandlers) {
+            if (window.webkit.messageHandlers.WebViewHandler) {
+              try { window.webkit.messageHandlers.WebViewHandler.postMessage('WebAppReady'); } catch(e){}
+              try { window.webkit.messageHandlers.WebViewHandler.postMessage({ type: 'WebAppReady' }); } catch(e){}
+            }
+            if (window.webkit.messageHandlers.max) {
+              try { window.webkit.messageHandlers.max.postMessage('WebAppReady'); } catch(e){}
+              try { window.webkit.messageHandlers.max.postMessage({ type: 'WebAppReady' }); } catch(e){}
+            }
+          }
+        } catch (e) {}
+
+        // 5. Iframe postMessage для родительского окна мессенджера
         try {
           if (window.parent && window.parent !== window) {
             window.parent.postMessage(JSON.stringify({ type: 'WebAppReady' }), '*');
+            window.parent.postMessage({ type: 'WebAppReady' }, '*');
+            window.parent.postMessage(JSON.stringify({ type: 'WebAppExpand' }), '*');
+            window.parent.postMessage('WebAppReady', '*');
           }
         } catch (e) {}
+
+        // 6. VK Bridge сигнал готовности (инфраструктура VK/Mail.ru)
+        try {
+          if (window.vkBridge && typeof window.vkBridge.send === 'function') {
+            window.vkBridge.send('VKWebAppInit');
+          }
+        } catch (e) {}
+
+        // 7. Telegram WebApp fallback
         try {
           if (window.Telegram && window.Telegram.WebApp && typeof window.Telegram.WebApp.ready === 'function') {
             window.Telegram.WebApp.ready();
           }
         } catch (e) {}
       }
+
+      // Немедленный вызов
       notifyBridge();
+
+      // Вызовы по событиям жизненного цикла документа
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', notifyBridge);
       }
       window.addEventListener('load', notifyBridge);
+
+      // Активный опрос каждые 100мс в течение 5 секунд для перехвата отложенной инъекции моста в мобильных клиентах
+      let attempts = 0;
+      const bridgeInterval = setInterval(function() {
+        notifyBridge();
+        attempts++;
+        if (attempts > 50) clearInterval(bridgeInterval);
+      }, 100);
+
+      // Страховка по первому касанию пользователя
+      window.addEventListener('touchstart', notifyBridge, { once: true, passive: true });
+      window.addEventListener('mousedown', notifyBridge, { once: true, passive: true });
     })();
   </script>
 
@@ -4455,10 +4517,17 @@
     // 12. Taptic Feedback Helper
     function triggerHaptic() {
       try {
-        if (window.navigator?.vibrate) {
+        if (window.navigator?.vibrate && document.hasFocus && document.hasFocus()) {
           window.navigator.vibrate(10);
         }
-        if (window.Telegram?.WebApp?.HapticFeedback) {
+      } catch(e){}
+      try {
+        if (window.WebApp?.HapticFeedback && typeof window.WebApp.HapticFeedback.impactOccurred === 'function') {
+          window.WebApp.HapticFeedback.impactOccurred('light');
+        }
+      } catch(e){}
+      try {
+        if (window.Telegram?.WebApp?.HapticFeedback && typeof window.Telegram.WebApp.HapticFeedback.impactOccurred === 'function') {
           window.Telegram.WebApp.HapticFeedback.impactOccurred('light');
         }
       } catch(e){}
