@@ -169,7 +169,8 @@ export class MaxBotClient {
     if (options.buttons && options.buttons.length > 0) {
       // Преобразуем любые кнопки ссылок и open_app в валидные публичные https ссылки
       const sanitizeUrl = (rawUrl) => {
-        const defaultUrl = process.env.MINI_APP_URL || 'https://astromax-nu.vercel.app';
+        const baseApp = (process.env.MINI_APP_URL || 'https://astromax-nu.vercel.app').replace(/\/+$/, '');
+        const defaultUrl = `${baseApp}/index.html`;
         if (!rawUrl || typeof rawUrl !== 'string') return defaultUrl;
         const str = rawUrl.trim();
         if (str.includes('localhost') || str.includes('127.0.0.1')) return defaultUrl;
@@ -295,7 +296,11 @@ export class MaxBotClient {
    * Создание кнопки для открытия Mini App (нативно внутри MAX WebView)
    */
   buildOpenAppButton(text, appUrl, options = {}) {
-    const cleanUrl = appUrl || process.env.MINI_APP_URL || 'https://astromax-nu.vercel.app';
+    let cleanUrl = appUrl || process.env.MINI_APP_URL || 'https://astromax-nu.vercel.app/index.html';
+    if (!cleanUrl.includes('index.html')) {
+      const [path, query] = cleanUrl.split('?');
+      cleanUrl = `${path.replace(/\/+$/, '')}/index.html${query ? `?${query}` : ''}`;
+    }
     return {
       type: 'open_app',
       text,

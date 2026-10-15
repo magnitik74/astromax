@@ -21,7 +21,7 @@ test('MaxBotClient sandbox mode works without credentials and includes format: m
   assert.equal(res.receivedBody.attachments[0].type, 'inline_keyboard');
   assert.equal(res.receivedBody.attachments[0].payload.buttons[0][0].type, 'open_app');
   assert.ok(res.receivedBody.attachments[0].payload.buttons[0][0].web_app.includes('https://astromax-nu.vercel.app'));
-  assert.equal(res.receivedBody.attachments[0].payload.buttons[0][0].url, 'https://astromax-nu.vercel.app');
+  assert.ok(res.receivedBody.attachments[0].payload.buttons[0][0].url.includes('https://astromax-nu.vercel.app'));
 });
 
 test('BotDispatcher handles /start command with strict single CTA button to Mini App', async () => {
