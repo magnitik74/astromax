@@ -34,7 +34,7 @@ const server = app.listen(PORT, async () => {
         } catch (err) {
           console.error('[BotDispatcher] Ошибка обработки апдейта:', err);
         }
-      });
+      }, { timeout: 15, interval: 300 });
     } catch (err) {
       console.error('[MaxBotClient] Ошибка при инициализации бота:', err.message);
     }
