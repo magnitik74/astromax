@@ -1468,11 +1468,13 @@
     .tab-bar-item {
       flex: 1;
       height: 100%;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 3px;
+      gap: 2px;
+      padding: 4px 2px;
       background: none;
       border: none;
       color: var(--text-muted);
@@ -1483,8 +1485,8 @@
     }
 
     .tab-bar-item .tab-icon {
-      width: 22px;
-      height: 22px;
+      width: 20px;
+      height: 20px;
       stroke-width: 1.8;
       stroke: currentColor;
       fill: none;
@@ -1492,9 +1494,13 @@
     }
 
     .tab-bar-item .tab-label {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 500;
-      letter-spacing: -0.1px;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      max-width: 100%;
     }
 
     .tab-bar-item.active {
@@ -2102,29 +2108,255 @@
       box-shadow: 0 0 12px var(--max-blue-tint);
     }
 
-    /* Toast Notification */
+    /* Toast Notification (Safely anchored at bottom above nav bar, never overlaps top chat) */
     .toast-pill {
       position: fixed;
-      top: calc(var(--header-height) + var(--safe-top) + 12px);
+      bottom: calc(var(--bottom-bar-height) + var(--safe-bottom) + 16px);
       left: 50%;
-      transform: translateX(-50%) translateY(-20px);
-      background: rgba(23, 24, 28, 0.95);
-      border: 1px solid var(--max-blue-border);
+      transform: translateX(-50%) translateY(20px);
+      background: rgba(14, 18, 36, 0.96);
+      border: 1px solid var(--border-neon);
       color: var(--text-primary);
-      padding: 8px 16px;
+      padding: 10px 20px;
       border-radius: var(--radius-pill);
-      font-size: 12.5px;
+      font-size: 13px;
       font-weight: 600;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
       opacity: 0;
       pointer-events: none;
       transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-      z-index: 120;
+      z-index: 999;
     }
 
     .toast-pill.active {
       opacity: 1;
       transform: translateX(-50%) translateY(0);
+    }
+
+    /* Daily Horoscope Screen (24:00 Sync Standard) */
+    .daily-hero-card {
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 12px;
+    }
+
+    .daily-hero-badge-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .daily-timer-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      border-radius: var(--radius-pill);
+      padding: 4px 10px;
+      font-size: 11px;
+      color: #DDD6FE;
+      font-weight: 500;
+    }
+
+    .daily-timer-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #30D158;
+      box-shadow: 0 0 6px #30D158;
+      animation: pulseBeacon 2s infinite ease-in-out;
+    }
+
+    .daily-date-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--text-primary);
+      margin: 0 0 8px 0;
+      letter-spacing: -0.3px;
+      text-transform: capitalize;
+    }
+
+    .daily-astro-identity-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .daily-astro-chip {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 6px;
+      padding: 3px 8px;
+      font-size: 11px;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    .daily-energy-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    .daily-energy-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+
+    .daily-energy-label {
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 600;
+    }
+
+    .daily-energy-val {
+      font-size: 15px;
+      font-weight: 800;
+      color: #38BDF8;
+    }
+
+    .daily-energy-bar-wrap {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 9999px;
+      overflow: hidden;
+      margin-bottom: 8px;
+    }
+
+    .daily-energy-bar-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #38BDF8, #8B5CF6);
+      border-radius: 9999px;
+      transition: width 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .daily-energy-desc {
+      font-size: 12px;
+      color: var(--text-secondary);
+      line-height: 1.45;
+    }
+
+    .daily-spheres-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .daily-sphere-card {
+      padding: 14px;
+    }
+
+    .daily-sphere-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 8px;
+    }
+
+    .daily-sphere-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 17px;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      flex-shrink: 0;
+    }
+
+    .daily-sphere-icon.love {
+      background: rgba(244, 63, 94, 0.12);
+      border-color: rgba(244, 63, 94, 0.28);
+    }
+
+    .daily-sphere-icon.money {
+      background: rgba(245, 158, 11, 0.12);
+      border-color: rgba(245, 158, 11, 0.28);
+    }
+
+    .daily-sphere-icon.balance {
+      background: rgba(56, 189, 248, 0.12);
+      border-color: rgba(56, 189, 248, 0.28);
+    }
+
+    .daily-sphere-title {
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+
+    .daily-sphere-subtitle {
+      font-size: 11px;
+      color: #A78BFA;
+      font-weight: 500;
+    }
+
+    .daily-sphere-text {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      line-height: 1.48;
+      margin: 0;
+    }
+
+    .daily-markers-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .daily-marker-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 8px;
+      padding: 9px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .daily-marker-k {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .daily-marker-v {
+      font-size: 12px;
+      color: var(--text-primary);
+      font-weight: 700;
+    }
+
+    .daily-mentor-avatar {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--max-blue-border);
+      flex-shrink: 0;
+    }
+
+    .daily-mentor-quote {
+      font-size: 12.5px;
+      color: #DDD6FE;
+      font-style: italic;
+      line-height: 1.45;
+      background: rgba(139, 92, 246, 0.08);
+      border-left: 2px solid var(--max-blue);
+      padding: 8px 12px;
+      border-radius: 0 8px 8px 0;
     }
 
     @keyframes spin {
@@ -2155,9 +2387,144 @@
     <div id="toastPill" class="toast-pill">Ссылка скопирована</div>
 
     <!-- ====================================================================
+         TAB 0: ИНДИВИДУАЛЬНЫЙ ГОРОСКОП НА СЕГОДНЯ (ОБНОВЛЕНИЕ В 24:00 ПО ЧАСАМ ТЕЛЕФОНА)
+         ==================================================================== -->
+    <main id="tab-screen-daily" class="tab-screen">
+      <!-- 1. Hero Card: Дата, Обратный отсчет до 24:00 и Твой Астрологический Фокус -->
+      <div class="native-card daily-hero-card">
+        <div class="daily-hero-badge-row">
+          <div class="passport-tag">✦ Индивидуальный гороскоп</div>
+          <div class="daily-timer-pill" id="dailyTimerPill" title="Обновление ровно в 24:00 по часам твоего устройства">
+            <span class="daily-timer-dot"></span>
+            <span>В 24:00 (через <strong id="dailyCountdownText">--:--:--</strong>)</span>
+          </div>
+        </div>
+
+        <h2 class="daily-date-title" id="dailyDateTitle">Сегодня</h2>
+        <div class="daily-astro-identity-row" id="dailyAstroIdentityRow">
+          <span class="daily-astro-chip" id="dailySunChip">☀️ Солнце: Скорпион</span>
+          <span class="daily-astro-chip" id="dailyMoonChip">🌙 Луна: Водолей</span>
+          <span class="daily-astro-chip" id="dailyAscChip">⬆️ Асцендент: Стрелец</span>
+        </div>
+
+        <!-- Vitality & Energy Level -->
+        <div class="daily-energy-box">
+          <div class="daily-energy-top">
+            <span class="daily-energy-label">Потенциал & Витальность дня</span>
+            <span class="daily-energy-val" id="dailyEnergyPct">88%</span>
+          </div>
+          <div class="daily-energy-bar-wrap">
+            <div class="daily-energy-bar-fill" id="dailyEnergyBar" style="width: 88%;"></div>
+          </div>
+          <div class="daily-energy-desc" id="dailyEnergyDesc">
+            Гармоничный аспект светил усиливает личную продуктивность, ясность мышления и внутренний фокус.
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. Сферы Дня (Любовь, Карьера, Баланс) -->
+      <div class="daily-spheres-grid">
+        <!-- 2.1 Любовь & Отношения -->
+        <div class="native-card daily-sphere-card">
+          <div class="daily-sphere-header">
+            <div class="daily-sphere-icon love">💖</div>
+            <div>
+              <div class="daily-sphere-title">Любовь & Отношения</div>
+              <div class="daily-sphere-subtitle" id="dailyLoveFocus">Эмоциональная глубина</div>
+            </div>
+          </div>
+          <p class="daily-sphere-text" id="dailyLoveText">Загрузка персонализированного прогноза...</p>
+        </div>
+
+        <!-- 2.2 Карьера & Финансы -->
+        <div class="native-card daily-sphere-card">
+          <div class="daily-sphere-header">
+            <div class="daily-sphere-icon money">💼</div>
+            <div>
+              <div class="daily-sphere-title">Карьера & Решения</div>
+              <div class="daily-sphere-subtitle" id="dailyCareerFocus">Точный расчет</div>
+            </div>
+          </div>
+          <p class="daily-sphere-text" id="dailyCareerText">Загрузка персонализированного прогноза...</p>
+        </div>
+
+        <!-- 2.3 Внутренний ресурс & Тело -->
+        <div class="native-card daily-sphere-card">
+          <div class="daily-sphere-header">
+            <div class="daily-sphere-icon balance">⚡</div>
+            <div>
+              <div class="daily-sphere-title">Ресурс & Энергия</div>
+              <div class="daily-sphere-subtitle" id="dailyVitalityFocus">Эмоциональные границы</div>
+            </div>
+          </div>
+          <p class="daily-sphere-text" id="dailyVitalityText">Загрузка персонализированного прогноза...</p>
+        </div>
+      </div>
+
+      <!-- 3. Звездные Маркеры Дня (Счастливый цвет, Число, Час силы) -->
+      <div class="native-card daily-markers-card">
+        <div class="passport-tag" style="margin-bottom: 10px;">🌟 Звездные маркеры дня</div>
+        <div class="daily-markers-grid">
+          <div class="daily-marker-item">
+            <span class="daily-marker-k">Цвет дня</span>
+            <strong class="daily-marker-v" id="dailyMarkerColor">Глубокий Индиго</strong>
+          </div>
+          <div class="daily-marker-item">
+            <span class="daily-marker-k">Число силы</span>
+            <strong class="daily-marker-v" id="dailyMarkerNumber">7</strong>
+          </div>
+          <div class="daily-marker-item">
+            <span class="daily-marker-k">Час максимальной ясности</span>
+            <strong class="daily-marker-v" id="dailyMarkerHour">14:00 – 16:30</strong>
+          </div>
+          <div class="daily-marker-item">
+            <span class="daily-marker-k">Камень-проводник</span>
+            <strong class="daily-marker-v" id="dailyMarkerStone">Аметист</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Интерактивный мост к Наставнику -->
+      <div class="native-card daily-mentor-bridge-card">
+        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+          <img id="dailyMentorBridgeAvatar" src="/avatars/alena.jpg" class="daily-mentor-avatar" alt="Наставник">
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);" id="dailyMentorBridgeName">Алена Полынь</div>
+            <div style="font-size: 11.5px; color: var(--max-blue); font-weight: 500;">Личный совет наставника на сегодня</div>
+          </div>
+        </div>
+        <div class="daily-mentor-quote" id="dailyMentorQuote">
+          «Не распыляй внимание на чужие драмы. Твой главный фокус сегодня — завершить то, что долго откладывалось».
+        </div>
+        <button type="button" class="btn-max-primary" onclick="openChatFromDaily()" style="margin-top: 14px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+          <span>💬 Обсудить прогноз дня с наставником</span>
+        </button>
+      </div>
+
+      <!-- 5. Кнопка быстрого перехода к Космическому Паспорту -->
+      <div style="text-align: center; padding: 10px 0 24px;">
+        <button type="button" onclick="switchNavTab('horoscope')" style="background: rgba(255,255,255,0.04); border: 1px solid var(--border-glass); border-radius: 9999px; padding: 10px 20px; font-size: 12.5px; font-weight: 600; color: #C4B5FD; cursor: pointer; display: inline-flex; align-items: center; gap: 8px;">
+          <span>✦ Открыть мой Космический Паспорт личности →</span>
+        </button>
+      </div>
+    </main>
+
+    <!-- ====================================================================
          TAB 1: КОСМИЧЕСКИЙ ПАСПОРТ (AHA-MOMENT & БОЛЬШАЯ ТРОЙКА)
          ==================================================================== -->
     <main id="tab-screen-horoscope" class="tab-screen active">
+      <!-- 0. Quick Link to Daily Horoscope -->
+      <div onclick="switchNavTab('daily')" style="display: flex; align-items: center; justify-content: space-between; background: rgba(139, 92, 246, 0.08); border: 1px solid rgba(139, 92, 246, 0.25); border-radius: 12px; padding: 10px 14px; margin-bottom: 12px; cursor: pointer;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 18px;">🔮</span>
+          <div>
+            <div style="font-size: 12.5px; color: #DDD6FE; font-weight: 700;">Индивидуальный гороскоп на сегодня</div>
+            <div style="font-size: 11px; color: var(--text-muted);">Обновляется ровно в 24:00 по твоим часам</div>
+          </div>
+        </div>
+        <span style="font-size: 12px; color: var(--max-blue); font-weight: 700;">Смотреть →</span>
+      </div>
+
       <!-- 1. Космический Паспорт Личности (Чистая VIP-карта) -->
       <div class="native-card">
         <div class="passport-header-row">
@@ -2493,7 +2860,16 @@
          BOTTOM NAVIGATION BAR (CINEMATIC LUXURY ASTRA TAB BAR - 58PX)
          ==================================================================== -->
     <nav class="bottom-bar">
-      <!-- 1. Космос (Паспорт) -->
+      <!-- 1. Индивидуальный Гороскоп (Обновление в 24:00 по часам телефона) -->
+      <button class="tab-bar-item" id="nav-daily" onclick="switchNavTab('daily')">
+        <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"/>
+        </svg>
+        <span class="tab-label">Гороскоп</span>
+      </button>
+
+      <!-- 2. Космос (Паспорт) -->
       <button class="tab-bar-item active" id="nav-horoscope" onclick="switchNavTab('horoscope')">
         <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="9"/>
@@ -2503,7 +2879,7 @@
         <span class="tab-label">Паспорт</span>
       </button>
 
-      <!-- 2. Астролог 24/7 -->
+      <!-- 3. Астролог 24/7 -->
       <button class="tab-bar-item" id="nav-chat" onclick="switchNavTab('chat')">
         <div class="tab-badge-dot"></div>
         <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -2513,7 +2889,7 @@
         <span class="tab-label">Наставник</span>
       </button>
 
-      <!-- 3. Таро -->
+      <!-- 4. Таро -->
       <button class="tab-bar-item" id="nav-tarot" onclick="switchNavTab('tarot')">
         <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <rect x="5" y="3" width="14" height="18" rx="3"/>
@@ -2523,7 +2899,7 @@
         <span class="tab-label">Таро</span>
       </button>
 
-      <!-- 4. Селеста VIP (Профиль / Клуб) -->
+      <!-- 5. Селеста VIP (Профиль / Клуб) -->
       <button class="tab-bar-item" id="nav-profile" onclick="switchNavTab('profile')">
         <svg class="tab-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 0 1-4.4 2.26 5.403 5.403 0 0 1-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"/>
@@ -3145,11 +3521,12 @@
         state.profile.name = decodeURIComponent(urlName);
       }
 
-      loadProfileFromStorage();
-      initPersonas();
-      startFomoTicker();
-      loadChatFromStorage();
-      calculateAndSyncChart(); // Non-blocking instant render + async sync
+      try { loadProfileFromStorage(); } catch (e) { console.warn('loadProfile error:', e); }
+      try { initPersonas(); } catch (e) { console.warn('initPersonas error:', e); }
+      try { startFomoTicker(); } catch (e) { console.warn('startFomo error:', e); }
+      try { loadChatFromStorage(); } catch (e) { console.warn('loadChat error:', e); }
+      try { calculateAndSyncChart(); } catch (e) { console.warn('calculateChart error:', e); }
+      try { initDailyMidnightEngine(); } catch (e) { console.warn('dailyEngine error:', e); }
 
       // 3. Если пользователь новый (или был выполнен сброс) — открываем онбординг с нуля
       const isOnboarded = localStorage.getItem('astromax_onboarded');
@@ -3165,6 +3542,7 @@
 
       if (startParam) {
         if (startParam.includes('tarot')) urlTab = 'tarot';
+        else if (startParam.includes('daily')) urlTab = 'daily';
         else if (startParam.includes('alena')) { urlTab = 'chat'; urlPersona = 'alena'; }
         else if (startParam.includes('artem')) { urlTab = 'chat'; urlPersona = 'artem'; }
         else if (startParam.includes('big3')) { urlTab = 'horoscope'; urlFocus = 'big3'; }
@@ -3251,9 +3629,197 @@
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
 
+      if (tabName === 'daily') {
+        renderDailyHoroscope();
+      }
+
       if (tabName === 'chat' && initialMessage) {
         sendUserMessage(initialMessage);
       }
+    }
+
+    // =========================================================================
+    // 1.1 DAILY HOROSCOPE ENGINE (24:00 Local Midnight Auto-Refresh)
+    // Synchronized strictly with user device clock
+    // =========================================================================
+    let dailyMidnightInterval = null;
+    let lastRenderedDateKey = '';
+
+    function getDeviceDateKey(d = new Date()) {
+      return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')}`;
+    }
+
+    function getMsUntilLocalMidnight() {
+      const now = new Date();
+      const nextMidnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 0, 0);
+      return Math.max(0, nextMidnight.getTime() - now.getTime());
+    }
+
+    function formatCountdown(ms) {
+      const totalSec = Math.floor(ms / 1000);
+      const hours = Math.floor(totalSec / 3600);
+      const minutes = Math.floor((totalSec % 3600) / 60);
+      const seconds = totalSec % 60;
+      return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    }
+
+    function initDailyMidnightEngine() {
+      try {
+        renderDailyHoroscope();
+
+        if (dailyMidnightInterval) clearInterval(dailyMidnightInterval);
+        dailyMidnightInterval = setInterval(() => {
+          const currentDateKey = getDeviceDateKey();
+          if (currentDateKey !== lastRenderedDateKey) {
+            renderDailyHoroscope();
+          } else {
+            const msLeft = getMsUntilLocalMidnight();
+            const countdownEl = document.getElementById('dailyCountdownText');
+            if (countdownEl) {
+              countdownEl.textContent = formatCountdown(msLeft);
+            }
+          }
+        }, 1000);
+
+        window.addEventListener('focus', checkDailyDateChanged);
+        document.addEventListener('visibilitychange', () => {
+          if (!document.hidden) checkDailyDateChanged();
+        });
+      } catch (err) {
+        console.warn('initDailyMidnightEngine safe catch:', err);
+      }
+    }
+
+    function checkDailyDateChanged() {
+      const currentDateKey = getDeviceDateKey();
+      if (currentDateKey !== lastRenderedDateKey) {
+        renderDailyHoroscope();
+      }
+    }
+
+    function renderDailyHoroscope() {
+      try {
+        const now = new Date();
+        lastRenderedDateKey = getDeviceDateKey(now);
+
+        // 1. Date Header (e.g. 15 октября 2026, Четверг)
+        const dateOptions = { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' };
+        const dateFormatted = now.toLocaleDateString('ru-RU', dateOptions);
+        const titleEl = document.getElementById('dailyDateTitle');
+        if (titleEl) {
+          titleEl.textContent = dateFormatted.charAt(0).toUpperCase() + dateFormatted.slice(1);
+        }
+
+        // 2. Initial countdown
+        const msLeft = getMsUntilLocalMidnight();
+        const countdownEl = document.getElementById('dailyCountdownText');
+        if (countdownEl) {
+          countdownEl.textContent = formatCountdown(msLeft);
+        }
+
+        // 3. User Astrological Identity (Sun, Moon, Ascendant)
+        const sunSign = state.natalChart?.bigThree?.sun?.sign || 'Скорпион';
+        const moonSign = state.natalChart?.bigThree?.moon?.sign || 'Водолей';
+        const ascSign = state.natalChart?.bigThree?.ascendant?.sign || 'Стрелец';
+
+        const setSafe = (id, val) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = val;
+        };
+
+        setSafe('dailySunChip', `☀️ Солнце: ${sunSign}`);
+        setSafe('dailyMoonChip', `🌙 Луна: ${moonSign}`);
+        setSafe('dailyAscChip', `⬆️ Асцендент: ${ascSign}`);
+
+        // 4. Deterministic day seed for consistent daily reading
+        const day = now.getDate();
+        const month = now.getMonth() + 1;
+        const year = now.getFullYear();
+        const signCharSum = (sunSign + moonSign).split('').reduce((acc, c) => acc + c.charCodeAt(0), 0);
+        const seed = (year * 372 + month * 31 + day + signCharSum) % 1000;
+
+        // Energy % (70% - 97%)
+        const energyPct = 70 + (seed % 28);
+        setSafe('dailyEnergyPct', energyPct + '%');
+        const energyBar = document.getElementById('dailyEnergyBar');
+        if (energyBar) energyBar.style.width = energyPct + '%';
+
+        // Energy description
+        const energyDescs = [
+          `Сегодня гармоничный аспект Луны и Солнца обостряет интуицию и усиливает ясность ума. Прекрасный момент для кристаллизации планов.`,
+          `Мощный прилив внутренней энергии. День благоприятствует смелым решениям, но требует осознанного распределения сил без перегрузок.`,
+          `День тонкой настройки и внутренней собранности. Отличное время для завершения зависших дел и устранения лишнего шума.`,
+          `Фокус дня смещен в сторону стратегического спокойствия. Не торопите события — нужные двери откроются сами.`
+        ];
+        setSafe('dailyEnergyDesc', energyDescs[seed % energyDescs.length]);
+
+        // Love & Relationships Readings Matrix
+        const loveReadings = [
+          { focus: 'Искренность и глубина', text: `Сегодня Луна в знаке ${moonSign} обнажает скрытые эмоциональные потребности. Не бойся говорить прямо о том, что для тебя важно. Партнер оценит честность выше дежурной вежливости.` },
+          { focus: 'Снятие внутренней защиты', text: `Солнце в знаке ${sunSign} подталкивает сбросить привычную настороженность. Близкие люди ищут твоего душевного тепла, а не безупречности. Позволь себе быть настоящим.` },
+          { focus: 'Бережные границы', text: `Сегодня обострена эмпатия. Звезды советуют мягко, но твердо оберегать свое личное пространство от чужой драмы и эмоционального давления.` },
+          { focus: 'Вспышка страсти и притяжения', text: `Транзитные аспекты активируют твою магнетическую привлекательность. Подходящий момент для глубокого разговора по душам или неожиданного знака внимания.` }
+        ];
+        const loveItem = loveReadings[(seed + 1) % loveReadings.length];
+        setSafe('dailyLoveFocus', loveItem.focus);
+        setSafe('dailyLoveText', loveItem.text);
+
+        // Career & Finances Readings Matrix
+        const careerReadings = [
+          { focus: 'Точный расчет и фокус', text: `Для знака ${sunSign} сегодня благоприятны системные задачи и финансовое планирование. Отложи импульсивные траты — стратегическая выдержка принесет солидные дивиденды.` },
+          { focus: 'Решительный рывок', text: `Асцендент в знаке ${ascSign} дает импульс к действию. Если назревал важный звонок или презентация идеи — сделай первый шаг во второй половине дня.` },
+          { focus: 'Анализ скрытых рисков', text: `Внимательно проверяй цифры и договоренности. Не полагайся на обещания на словах: четкая фиксация условий защитит от неприятных сюрпризов.` },
+          { focus: 'Переговоры и дипломатия', text: `Твое умение считывать скрытые мотивы оппонентов сегодня на пике. Используй это для мягкого убеждения без открытой конфронтации.` }
+        ];
+        const careerItem = careerReadings[(seed + 2) % careerReadings.length];
+        setSafe('dailyCareerFocus', careerItem.focus);
+        setSafe('dailyCareerText', careerItem.text);
+
+        // Vitality & Resource Readings Matrix
+        const vitalityReadings = [
+          { focus: 'Восстановление ресурса', text: `Нервной системе требуется перезагрузка. Вечером исключи лишний инфошум, ограничь экраны и посвяти время спокойному отдыху или прогулке на свежем воздухе.` },
+          { focus: 'Телесный баланс', text: `Энергия на высоком уровне, но не стоит растрачивать ее на пустые споры. Легкая физическая активность или растяжка снимут мышечные зажимы.` },
+          { focus: 'Защита от выгорания', text: `Не пытайся сделать всё за один день. Расставь приоритеты: два ключевых действия дадут 80% результата.` },
+          { focus: 'Интуитивная гармония', text: `Прислушивайся к сигналам тела. Твой организм точно знает, когда нужна пауза, а когда пора включить полную мощность.` }
+        ];
+        const vitalityItem = vitalityReadings[(seed + 3) % vitalityReadings.length];
+        setSafe('dailyVitalityFocus', vitalityItem.focus);
+        setSafe('dailyVitalityText', vitalityItem.text);
+
+        // Daily Markers
+        const colors = ['Глубокий Индиго', 'Космический Пурпур', 'Сапфировый', 'Изумрудный', 'Солнечный Янтарь', 'Холодный Серебряный'];
+        const hours = ['10:30 – 12:00', '13:00 – 15:30', '16:00 – 18:20', '19:00 – 21:00'];
+        const stones = ['Аметист', 'Черный турмалин', 'Лунный камень', 'Горный хрусталь', 'Лазурит', 'Гранат'];
+        const numbers = ['3', '7', '8', '11', '12', '21'];
+
+        setSafe('dailyMarkerColor', colors[seed % colors.length]);
+        setSafe('dailyMarkerHour', hours[(seed + 1) % hours.length]);
+        setSafe('dailyMarkerStone', stones[(seed + 2) % stones.length]);
+        setSafe('dailyMarkerNumber', numbers[(seed + 3) % numbers.length]);
+
+        // Mentor Quote
+        const persona = getPersona(state.profile.personaId || 'alena');
+        setSafe('dailyMentorBridgeName', persona.name);
+        const mentorAvatar = document.getElementById('dailyMentorBridgeAvatar');
+        if (mentorAvatar) mentorAvatar.src = persona.avatar;
+
+        const mentorQuotes = {
+          alena: `«Помни: твоя сила не в том, чтобы держать всё под контролем, а в том, чтобы доверять внутреннему голосу. Сегодня он не обманет».`,
+          artem: `«В бизнесе и деньгах побеждает тот, кто умеет выждать точный момент. Сегодня твой час — после полудня, действуй выверено».`,
+          elena: `«Кармический узел дня развязывается через принятие. Отпусти то, что не можешь изменить, и сфокусируйся на своих целях».`,
+          sofia: `«Интуиция сегодня острее бритвы. Обрати внимание на знаки и первые мысли при пробуждении — в них ответ на главный вопрос».`
+        };
+        setSafe('dailyMentorQuote', mentorQuotes[persona.id] || mentorQuotes.alena);
+
+      } catch (err) {
+        console.warn('renderDailyHoroscope safe catch:', err);
+      }
+    }
+
+    function openChatFromDaily() {
+      const p = getPersona(state.profile.personaId || 'alena');
+      const question = `Привет, ${p.name}! На что мне сегодня обратить особое внимание по моему индивидуальному гороскопу?`;
+      switchNavTab('chat', question);
     }
 
     // 2. Profile Sync & Storage
@@ -3275,18 +3841,27 @@
     }
 
     function updateProfileUI() {
-      const name = state.profile.name || 'Странник';
-      document.getElementById('passportUserName').textContent = name;
-      const heroPassportNameEl = document.getElementById('heroPassportName');
-      if (heroPassportNameEl) heroPassportNameEl.textContent = name;
-      document.getElementById('profileName').textContent = name;
-      document.getElementById('passportBirthMeta').textContent = `Рождение: ${state.profile.birthDate} в ${state.profile.birthTime || '12:00'}`;
-      document.getElementById('passportCoordsLabel').textContent = `${state.profile.city} • Точка старта`;
-      document.getElementById('dossierDate').textContent = state.profile.birthDate;
-      document.getElementById('dossierTime').textContent = state.profile.birthTime || '12:00';
-      document.getElementById('dossierCity').textContent = state.profile.city || 'Москва';
-      document.getElementById('dossierCoords').textContent = `${Number(state.profile.lat).toFixed(1)}° / ${Number(state.profile.lon).toFixed(1)}°`;
-      document.getElementById('profileCity').textContent = `${state.profile.city} • Часовой пояс UTC+${state.profile.timezoneOffset}`;
+      try {
+        const name = state.profile.name || 'Странник';
+        const setSafe = (id, val) => {
+          const el = document.getElementById(id);
+          if (el) el.textContent = val;
+        };
+        setSafe('passportUserName', name);
+        setSafe('heroPassportName', name);
+        setSafe('profileName', name);
+        setSafe('passportBirthMeta', `Рождение: ${state.profile.birthDate || '12 мая 1990'} в ${state.profile.birthTime || '14:30'}`);
+        setSafe('passportCoordsLabel', `${state.profile.city || 'Москва'} • Звездная карта`);
+        setSafe('dossierDate', state.profile.birthDate || '12.05.1990');
+        setSafe('dossierTime', state.profile.birthTime || '14:30');
+        setSafe('dossierCity', state.profile.city || 'Москва');
+        const lat = Number(state.profile.lat) || 55.75;
+        const lon = Number(state.profile.lon) || 37.62;
+        setSafe('dossierCoords', `${lat.toFixed(1)}° / ${lon.toFixed(1)}°`);
+        setSafe('profileCity', `${state.profile.city || 'Москва'} • Часовой пояс UTC+${state.profile.timezoneOffset || 3}`);
+      } catch (err) {
+        console.warn('updateProfileUI safe catch:', err);
+      }
     }
 
     // 3. Personas Management & Switching
@@ -3349,11 +3924,9 @@
       renderPersonaCards('personaSheetList', personaId);
       applyPersonaUI(personaId);
 
-      const persona = getPersona(personaId);
-      showToast(`Наставник: ${persona.name}`);
-
       // If switching inside chat tab, add a greeting notice from the new expert
-      if (state.activeTab === 'chat' && state.chatHistory.length > 0) {
+      if (state.activeTab === 'chat' && Array.isArray(state.chatHistory) && state.chatHistory.length > 0) {
+        const persona = getPersona(personaId);
         const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
         state.chatHistory.push({
           role: 'assistant',
@@ -3372,9 +3945,13 @@
       const roleBadgeEl = document.getElementById('chatPersonaRoleBadge');
       const statusTextEl = document.getElementById('chatTopBarStatusText');
       const typingSpan = document.querySelector('#typingIndicator span');
+      const dailyAvatar = document.getElementById('dailyMentorBridgeAvatar');
+      const dailyName = document.getElementById('dailyMentorBridgeName');
 
       if (avatarEl) avatarEl.src = p.avatar;
       if (nameEl) nameEl.textContent = p.name;
+      if (dailyAvatar) dailyAvatar.src = p.avatar;
+      if (dailyName) dailyName.textContent = p.name;
       if (roleBadgeEl) {
         const role = p.id === 'artem' ? 'Бизнес & деньги' : p.id === 'elena' ? 'Карма & натал' : p.id === 'sofia' ? 'Таро & интуиция' : 'Астропсихолог';
         roleBadgeEl.textContent = role;
@@ -3560,6 +4137,7 @@
           setElemPct('pctFire', 'barFire', elems.fire || 25);
           setElemPct('pctAir', 'barAir', elems.air || 25);
         }
+        renderDailyHoroscope();
       } catch (err) {
         console.warn('applyChartToUI safe error catch:', err);
       }
@@ -3615,8 +4193,10 @@
       const sunT = sunCore[sun] || 'мощный внутренний стержень';
       const moonT = moonShadow[moon] || 'тайные эмоциональные триггеры';
 
-      document.getElementById('paradoxTitle').textContent = `✨ Внутренний парадокс (${sun} / ${moon} / ${asc})`;
-      document.getElementById('paradoxText').textContent = 
+      const pTitle = document.getElementById('paradoxTitle');
+      if (pTitle) pTitle.textContent = `✨ Внутренний парадокс (${sun} / ${moon} / ${asc})`;
+      const pText = document.getElementById('paradoxText');
+      if (pText) pText.textContent = 
         `Мир считывает в тебе ${ascT} (Асцендент в ${asc}). Но твое подлинное ядро — ${sunT} (Солнце в ${sun}). Твой главный тайный конфликт кроется в подсознании: ${moonT} (Луна в ${moon}). Внешне ты кажешься скалой для окружающих, но внутри ведешь битву, о которой никому не рассказываешь.`;
     }
 
@@ -4122,9 +4702,14 @@
       const saved = localStorage.getItem('astromax_chat_history');
       if (saved) {
         try {
-          state.chatHistory = JSON.parse(saved);
+          const parsed = JSON.parse(saved);
+          state.chatHistory = Array.isArray(parsed) ? parsed : [];
           renderChatMessages();
-        } catch(e){}
+        } catch(e) {
+          state.chatHistory = [];
+        }
+      } else {
+        state.chatHistory = [];
       }
     }
 
@@ -4530,6 +5115,7 @@
       document.getElementById('onboardingModal').classList.remove('active');
       applyPersonaUI(state.profile.personaId || 'alena');
       renderChatMessages();
+      renderDailyHoroscope();
       triggerHaptic();
       showToast('Космический паспорт построен! 🌌');
     }
