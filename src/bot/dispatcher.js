@@ -112,7 +112,7 @@ export class BotDispatcher {
 
   async handleCallback(target, payload, userName = '', rawUserId = null) {
     const effectiveUserId = rawUserId || (typeof target === 'object' ? target.user_id || target.chat_id : target);
-    const appUrl = `${this.miniAppUrl}/?user_id=${encodeURIComponent(effectiveUserId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
+    const appUrl = `${this.miniAppUrl}/index.html?user_id=${encodeURIComponent(effectiveUserId)}${userName ? `&name=${encodeURIComponent(userName)}` : ''}`;
 
     if (payload === 'ACTION_TAROT_DAILY') {
       const text = 

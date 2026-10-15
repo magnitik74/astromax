@@ -25,7 +25,7 @@ export class ChatEngine {
       if (v) params.set(k, v);
     }
     const qs = params.toString();
-    return qs ? `${base}/?${qs}` : `${base}/`;
+    return qs ? `${base}/index.html?${qs}` : `${base}/index.html`;
   }
 
   /**
