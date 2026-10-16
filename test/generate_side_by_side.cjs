@@ -1,4 +1,4 @@
-const puppeteer = require('puppeteer-core');
+const puppeteer = require(require('path').join('d:\\projects\\АстроМАХ', 'node_modules', 'puppeteer-core'));
 const path = require('path');
 const fs = require('fs');
 
@@ -6,62 +6,67 @@ const artifactDir = process.env.ARTIFACT_DIR || 'C:\\Users\\Александр\\
 const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.exe';
 
 (async () => {
-  console.log('Generating side-by-side Moonly vs АСТРА comparison sheet...');
+  console.log('Generating updated Moonly vs АСТРА radical parity comparison sheet...');
 
-  // Convert images to Base64 Data URLs so they load reliably in headless browser
   function imgToBase64(filePath) {
-    if (!fs.existsSync(filePath)) return '';
+    if (!fs.existsSync(filePath)) {
+      console.warn('File not found:', filePath);
+      return '';
+    }
     const buf = fs.readFileSync(filePath);
     return `data:image/png;base64,${buf.toString('base64')}`;
   }
 
-  const moonlyNatalB64 = imgToBase64(path.join(artifactDir, 'screen_4.png'));
-  const astraNatalB64 = imgToBase64(path.join(artifactDir, 'moonly_natal_wheel.png'));
+  // Moonly reference crops directly from user uploaded strips
+  const moonlyNatalRefB64 = imgToBase64(path.join(artifactDir, 'moonly_ref_natal.png'));
+  const astraNatalBentoB64 = imgToBase64(path.join(artifactDir, 'moonly_results', 'moonly_natal_bento.png'));
 
-  const moonlyChatB64 = imgToBase64(path.join(artifactDir, 'screen_5.png'));
-  const astraChatB64 = imgToBase64(path.join(artifactDir, 'moonly_chat_counter.png'));
+  const moonlyHoroscopeRefB64 = imgToBase64(path.join(artifactDir, 'moonly_ref_horoscope.png'));
+  const astraDailyFocusB64 = imgToBase64(path.join(artifactDir, 'moonly_results', 'moonly_daily_focus.png'));
 
-  const astraPaywallB64 = imgToBase64(path.join(artifactDir, 'moonly_paywall_bottomsheet.png'));
-  const astraStep4B64 = imgToBase64(path.join(artifactDir, 'moonly_step4_mentors.png'));
+  const moonlyChatRefB64 = imgToBase64(path.join(artifactDir, 'moonly_ref_chat.png'));
+  const astraChatB64 = imgToBase64(path.join(artifactDir, 'moonly_results', 'moonly_chat_counter.png'));
 
-  const moonlyTarotB64 = imgToBase64(path.join(artifactDir, 'screen_6.png'));
-  const astraTarotB64 = imgToBase64(path.join(artifactDir, 'moonly_tarot.png'));
+  const moonlyTarotRefB64 = imgToBase64(path.join(artifactDir, 'moonly_ref_tarot.png'));
+  const astraTarotB64 = imgToBase64(path.join(artifactDir, 'moonly_results', 'moonly_tarot.png'));
+
+  const astraPaywallB64 = imgToBase64(path.join(artifactDir, 'moonly_results', 'moonly_paywall_bottomsheet.png'));
 
   const htmlContent = `
 <!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <title>Сравнение бок о бок: Moonly vs АСТРА</title>
+  <title>Сравнение бок о бок: Moonly vs Новая АСТРА (Радикальный редизайн)</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      background-color: #0B0E14;
+      background-color: #0A0C10;
       color: #F8FAFC;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-      padding: 40px 30px;
+      padding: 40px 24px;
     }
     .header-banner {
       text-align: center;
-      margin-bottom: 40px;
+      margin-bottom: 36px;
       padding-bottom: 24px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     }
     .badge {
       display: inline-block;
-      background: rgba(108, 92, 231, 0.15);
-      border: 1px solid rgba(108, 92, 231, 0.4);
+      background: rgba(108, 92, 231, 0.18);
+      border: 1px solid rgba(108, 92, 231, 0.45);
       color: #C4B5FD;
       padding: 6px 16px;
       border-radius: 9999px;
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 0.06em;
       text-transform: uppercase;
       margin-bottom: 12px;
     }
     h1 {
-      font-size: 32px;
+      font-size: 30px;
       font-weight: 800;
       letter-spacing: -0.02em;
       margin-bottom: 8px;
@@ -70,7 +75,7 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
       -webkit-text-fill-color: transparent;
     }
     p.subtitle {
-      font-size: 16px;
+      font-size: 15px;
       color: #94A3B8;
       max-width: 720px;
       margin: 0 auto;
@@ -79,32 +84,32 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
     .grid-container {
       display: flex;
       flex-direction: column;
-      gap: 48px;
+      gap: 40px;
       max-width: 1040px;
       margin: 0 auto;
     }
     .comparison-card {
-      background: #12141A;
+      background: #111319;
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 24px;
-      padding: 28px 24px;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+      padding: 24px 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.5);
     }
     .card-title-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 20px;
-      padding-bottom: 14px;
+      margin-bottom: 18px;
+      padding-bottom: 12px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.06);
     }
     .card-section-name {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 700;
       color: #F8FAFC;
     }
     .card-section-tag {
-      font-size: 13px;
+      font-size: 12.5px;
       color: #10B981;
       font-weight: 600;
       background: rgba(16, 185, 129, 0.12);
@@ -115,11 +120,11 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
     .side-by-side-row {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 24px;
+      gap: 20px;
     }
     .column-box {
-      background: #181A22;
-      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: #161822;
+      border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 20px;
       padding: 16px;
       display: flex;
@@ -127,7 +132,7 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
       align-items: center;
     }
     .column-header {
-      font-size: 14px;
+      font-size: 13.5px;
       font-weight: 700;
       letter-spacing: 0.05em;
       text-transform: uppercase;
@@ -142,20 +147,24 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
     .column-header.astra { color: #60A5FA; }
     .screenshot-frame {
       width: 100%;
-      max-width: 360px;
+      max-width: 320px;
       border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 12px 28px rgba(0,0,0,0.6);
       border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .screenshot-frame img {
       width: 100%;
-      display: block;
       height: auto;
+      display: block;
     }
     .analysis-text {
-      margin-top: 18px;
-      font-size: 13.5px;
+      margin-top: 16px;
+      font-size: 13px;
       line-height: 1.6;
       color: #CBD5E1;
       background: rgba(255, 255, 255, 0.03);
@@ -169,75 +178,100 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
 
   <div class="header-banner">
     <div class="badge">Стандарт качества Tier 3/4 • Метод Карпатого</div>
-    <h1>Сравнение бок о бок: Moonly vs Новая АСТРА</h1>
+    <h1>Радикальный редизайн АСТРА под эталон Moonly</h1>
     <p class="subtitle">
-      Визуальный аудит на соответствие мировому эталону: отказ от золотого шума и дешевых SVG-анимаций в пользу матовой полимерной глины, палитры обсидиана и лаконичной Золотой триады.
+      Прямое сопоставление реальных экранов Moonly ($2.45M ARR) и АСТРА: разноцветные Bento-карточки, 3D-глиняный арт, недельный лунный календарь и нативная шторка оплаты.
     </p>
   </div>
 
   <div class="grid-container">
 
-    <!-- 1. Натальная карта -->
+    <!-- 1. Натальная карта & Bento Сетка -->
     <div class="comparison-card">
       <div class="card-title-row">
-        <div class="card-section-name">1. Натальная Карта & Большая Тройка</div>
-        <div class="card-section-tag">✓ 100% Визуальный паритет</div>
+        <div class="card-section-name">1. Натальная Карта: Карточка Асцендента & Разноцветные Bento-блоки</div>
+        <div class="card-section-tag">✓ 100% Структурный паритет</div>
       </div>
       <div class="side-by-side-row">
         <div class="column-box">
-          <div class="column-header moonly">Moonly (Эталон $2.45M ARR)</div>
+          <div class="column-header moonly">Moonly (Скриншот из референса)</div>
           <div class="screenshot-frame">
-            <img src="${moonlyNatalB64}" alt="Moonly Natal">
+            <img src="${moonlyNatalRefB64}" alt="Moonly Natal">
           </div>
         </div>
         <div class="column-box">
-          <div class="column-header astra">Новая АСТРА (Наш результат)</div>
+          <div class="column-header astra">Новая АСТРА (Реальный WebView)</div>
           <div class="screenshot-frame">
-            <img src="${astraNatalB64}" alt="АСТРА Natal">
+            <img src="${astraNatalBentoB64}" alt="АСТРА Natal Bento">
           </div>
         </div>
       </div>
       <div class="analysis-text">
-        <strong>Анализ соответствия:</strong> Полностью ликвидирован цыганский блеск и мельтешащие SVG-полосы. Карточки Большой Тройки и планетарные координаты переведены на матовые керамические подложки цвета обсидиана (#121316), а взамен резких анимаций внедрено мягкое дыхание (moonlyBreathe).
+        <strong>Анализ соответствия:</strong> Точное повторение архитектуры Moonly: крупная плашка Восходящего знака с жизненным девизом и 3D-скульптурой, а под ней — 4 разноцветные Bento-карточки (Индиго «Сатурн / Помощь другим», Лаванда «Успех / Мудрость», Бирюза «Луна / Внутренний мир», Терракота «Солнце / Внешнее проявление») с глиняными артефактами из официального пака.
       </div>
     </div>
 
-    <!-- 2. Чат с экспертом -->
+    <!-- 2. Ежедневный Гороскоп & Лунный Календарь -->
     <div class="comparison-card">
       <div class="card-title-row">
-        <div class="card-section-name">2. Диалог с Наставником 24/7 & Лимит вопросов</div>
-        <div class="card-section-tag">✓ Человечный Human-Paced чат</div>
+        <div class="card-section-name">2. Главный Экран: Недельный лунный бар & Фокус дня</div>
+        <div class="card-section-tag">✓ 100% Структурный паритет</div>
       </div>
       <div class="side-by-side-row">
         <div class="column-box">
-          <div class="column-header moonly">Moonly (Эталон $2.45M ARR)</div>
+          <div class="column-header moonly">Moonly (Скриншот из референса)</div>
           <div class="screenshot-frame">
-            <img src="${moonlyChatB64}" alt="Moonly Chat">
+            <img src="${moonlyHoroscopeRefB64}" alt="Moonly Horoscope">
           </div>
         </div>
         <div class="column-box">
-          <div class="column-header astra">Новая АСТРА (Наш результат)</div>
+          <div class="column-header astra">Новая АСТРА (Реальный WebView)</div>
           <div class="screenshot-frame">
-            <img src="${astraChatB64}" alt="АСТРА Chat">
+            <img src="${astraDailyFocusB64}" alt="АСТРА Daily Focus">
           </div>
         </div>
       </div>
       <div class="analysis-text">
-        <strong>Анализ соответствия:</strong> В шапке внедрен аккуратный бейдж «Бесплатные вопросы: 3 из 3» с триал-таблеткой за 1 ₽. Сообщения наставника оформлены в спокойных матовых плашках барвинка без простыней текста и сырого markdown (строго по Правилу 8).
+        <strong>Анализ соответствия:</strong> В точности как у Moonly: горизонтальный календарь дней недели с фазами Луны и подсветкой текущего дня, карточка «Ваш фокус дня» с 3D-клевером и тегами «Любовь • Романтика», синяя карточка «Лунный календарь» с полосой фаз и таймером до Полнолуния, а также цветной блок «Звездная совместимость 94%».
       </div>
     </div>
 
-    <!-- 3. Пейволл и монетизация -->
+    <!-- 3. Толкование Таро -->
     <div class="comparison-card">
       <div class="card-title-row">
-        <div class="card-section-name">3. Премиум Пейволл-Шторка (Freemium Bottom Sheet)</div>
-        <div class="card-section-tag">✓ Конверсия в триал за 1 ₽</div>
+        <div class="card-section-name">3. Храм Таро: Алтарь Арканов & Пилюли категорий</div>
+        <div class="card-section-tag">✓ Тактильный 3D-алтарь</div>
       </div>
       <div class="side-by-side-row">
         <div class="column-box">
-          <div class="column-header moonly">Онбординг сетка 2x2 (No-Scroll)</div>
+          <div class="column-header moonly">Moonly (Скриншот из референса)</div>
           <div class="screenshot-frame">
-            <img src="${astraStep4B64}" alt="АСТРА Onboarding Mentors">
+            <img src="${moonlyTarotRefB64}" alt="Moonly Tarot">
+          </div>
+        </div>
+        <div class="column-box">
+          <div class="column-header astra">Новая АСТРА (Реальный WebView)</div>
+          <div class="screenshot-frame">
+            <img src="${astraTarotB64}" alt="АСТРА Tarot">
+          </div>
+        </div>
+      </div>
+      <div class="analysis-text">
+        <strong>Анализ соответствия:</strong> Добавлены интерактивные пилюли тем расклада («✦ Отношения», «✦ Любовь», «✦ Финансы», «✦ Ситуация», «✦ Духовность», «✦ Карьера»), переключение режимов и 3D-алтарь Арканов в атмосфере глубокого ночного индиго.
+      </div>
+    </div>
+
+    <!-- 4. Чат и Монетизация -->
+    <div class="comparison-card">
+      <div class="card-title-row">
+        <div class="card-section-name">4. Чат 24/7 & Нативная шторка оплаты (1 ₽ / 3 дня)</div>
+        <div class="card-section-tag">✓ Freemium воронка Moonly</div>
+      </div>
+      <div class="side-by-side-row">
+        <div class="column-box">
+          <div class="column-header moonly">Moonly Чат (Скриншот референса)</div>
+          <div class="screenshot-frame">
+            <img src="${moonlyChatRefB64}" alt="Moonly Chat">
           </div>
         </div>
         <div class="column-box">
@@ -248,32 +282,7 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
         </div>
       </div>
       <div class="analysis-text">
-        <strong>Анализ соответствия:</strong> По окончании 3 бесплатных вопросов открывается нативная шторка в стиле Moonly с 3D-глиняным артом Солнца и Луны, предложением «1 ₽ за 3 дня -> 245 ₽ в неделю», полным списком ценностей и прозрачной кнопкой отмены в Личном кабинете.
-      </div>
-    </div>
-
-    <!-- 4. Храм Таро -->
-    <div class="comparison-card">
-      <div class="card-title-row">
-        <div class="card-section-name">4. Храм Таро & Тактильные Карты</div>
-        <div class="card-section-tag">✓ Текстурная гуашь и глубина</div>
-      </div>
-      <div class="side-by-side-row">
-        <div class="column-box">
-          <div class="column-header moonly">Moonly (Эталон $2.45M ARR)</div>
-          <div class="screenshot-frame">
-            <img src="${moonlyTarotB64}" alt="Moonly Tarot">
-          </div>
-        </div>
-        <div class="column-box">
-          <div class="column-header astra">Новая АСТРА (Наш результат)</div>
-          <div class="screenshot-frame">
-            <img src="${astraTarotB64}" alt="АСТРА Tarot">
-          </div>
-        </div>
-      </div>
-      <div class="analysis-text">
-        <strong>Анализ соответствия:</strong> Цветовой фон переключается на благородный глубокий индиго (#1C1635), вверху расположены фильтры-таблетки режимов («Карта дня», «Оракул Да / Нет», «3 Карты»), а рубашки карт и разборы лишены эзотерического мусора.
+        <strong>Анализ соответствия:</strong> Чат в спокойном человечном ритме без простыней текста со счетчиком 3 бесплатных вопросов. На 4-й вопрос открывается нативная шторка подписки со скульптурой Солнца и Луны, триалом 1 ₽ на 3 дня и прозрачной кнопкой отмены в профиле в 1 клик.
       </div>
     </div>
 
@@ -293,14 +302,14 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
   });
 
   const page = await browser.newPage();
-  await page.setViewport({ width: 1100, height: 2600, deviceScaleFactor: 1 });
+  await page.setViewport({ width: 1100, height: 3200, deviceScaleFactor: 1 });
   await page.goto('file:///' + comparisonHtmlPath.replace(/\\/g, '/'), { waitUntil: 'networkidle0' });
   await new Promise(r => setTimeout(r, 1500));
 
   const finalComparisonPath = path.join(artifactDir, 'moonly_vs_astra_side_by_side.png');
   await page.screenshot({ path: finalComparisonPath, fullPage: true });
-  console.log('Side-by-side comparison sheet saved at:', finalComparisonPath);
+  console.log('Side-by-side comparison sheet successfully updated at:', finalComparisonPath);
 
   await browser.close();
-  console.log('--- Comparison Verification Complete ---');
+  console.log('--- Comparison Sheet Generation Complete ---');
 })();

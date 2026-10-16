@@ -74,6 +74,23 @@ const edgePath = 'C:\\Program Files (x86)\\Microsoft\\Edge\\Application\\msedge.
     await page.screenshot({ path: natalPath });
     console.log('Natal Chart Wheel captured:', natalPath);
 
+    // Scroll to capture Ascendant Hero & Multi-Colored Bento Grid
+    await page.evaluate(() => {
+      const el = document.getElementById('moonlyAscCard');
+      if (el) el.scrollIntoView({ behavior: 'instant', block: 'start' });
+    });
+    await new Promise(r => setTimeout(r, 800));
+    const bentoPath = path.join(outputDir, 'moonly_natal_bento.png');
+    await page.screenshot({ path: bentoPath });
+    console.log('Natal Bento Grid captured:', bentoPath);
+
+    // Screen 6.5: Daily Focus & Moon Calendar Tab
+    await page.evaluate(() => switchNavTab('daily'));
+    await new Promise(r => setTimeout(r, 1500));
+    const dailyPath = path.join(outputDir, 'moonly_daily_focus.png');
+    await page.screenshot({ path: dailyPath });
+    console.log('Daily Focus & Moon Calendar captured:', dailyPath);
+
     // Screen 7: Tarot Temple
     await page.evaluate(() => switchNavTab('tarot'));
     await new Promise(r => setTimeout(r, 1500));
