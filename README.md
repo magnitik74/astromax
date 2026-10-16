@@ -5,7 +5,7 @@
 > **Платформа:** Max Messenger (`max.ru`) Mini App + Bot API  
 > **Production URL:** [astromax-nu.vercel.app](https://astromax-nu.vercel.app/)  
 > **Репозиторий:** [github.com/magnitik74/astromax](https://github.com/magnitik74/astromax)  
-> **Тестовое покрытие (RLVR):** 62 / 62 тестов зелёные (`npm.cmd test`)  
+> **Тестовое покрытие (RLVR):** 65 / 65 тестов зелёные (`npm.cmd test`)  
 > **Последний деплой:** 16.10.2026 (Commit `ffda850`)
 
 ---
@@ -263,13 +263,17 @@
 
 ```
 astromax/
-├── api/                        # Vercel Serverless Edge Functions (7 файлов)
+├── api/                        # Vercel Serverless Edge Functions (10 файлов)
 │   ├── health.js               # GET /health — проверка работоспособности
 │   ├── natal.js                # POST /api/natal — расчёт натальной карты (10 тел + AI)
 │   ├── personas.js             # GET /api/personas — каталог 4 личных помощников
 │   ├── webhook.js              # POST /webhook/max — приём вебхуков Max Messenger
 │   ├── chat/ask.js             # POST /api/chat/ask — диалог с личным помощником 24/7
-│   ├── payment/create-order.js # POST /api/payment/create-order — генерация Robokassa заказа
+│   ├── payment/
+│   │   ├── create-order.js     # POST /api/payment/create-order — генерация Robokassa заказа
+│   │   ├── result.js           # POST /api/payment/result — Robokassa ResultURL webhook (OK${invId})
+│   │   ├── success.js          # GET/POST /api/payment/success — Robokassa SuccessURL редирект
+│   │   └── fail.js             # GET/POST /api/payment/fail — Robokassa FailURL редирект
 │   └── tarot/draw.js           # POST /api/tarot/draw — расклады Таро (5 типов + AI)
 │
 ├── public/                     # Статика Mini App (Zero Framework / 40ms)
@@ -282,12 +286,13 @@ astromax/
 │   ├── avatars/                # Фото помощников (8 файлов: alena, artem, elena, sofia в jpg/png)
 │   └── images/tarot/           # 78 канонических карт Райдера-Уэйта + рубашки (81 файл)
 │
-├── src/                        # Модули бэкенда и ядра (15 файлов)
+├── src/                        # Модули бэкенда и ядра (16 файлов)
 │   ├── index.js                # Точка входа: Express сервер + Long Polling
-│   ├── server.js               # Express сервер (10 API-маршрутов)
+│   ├── server.js               # Express сервер (13 API-маршрутов)
 │   ├── core/
 │   │   ├── astrology.js        # Астрономическое ядро (10 тел, ASC, MC, 5 аспектов, дома Плацидуса)
 │   │   ├── tarot.js            # Движок Таро (78 карт, 5 раскладов, детерминированный сид)
+│   │   ├── robokassa.js        # RobokassaClient (MD5 подпись, sandbox/prod, валидация вебхука)
 │   │   └── geoResolver.js      # Геокодер РФ (55 городов, 11 часовых поясов, fallback)
 │   ├── ai/
 │   │   ├── groqClient.js       # Groq Cloud (Qwen-27B, fallback GPT-OSS-20B)
@@ -305,7 +310,7 @@ astromax/
 │   └── safety/
 │       └── guardrails.js       # Модуль Красных Линий (6 категорий)
 │
-├── test/                       # 62 автоматических теста (25 файлов)
+├── test/                       # 65 автоматических тестов (26 файлов)
 │   ├── *.test.js               # Юнит и интеграционные тесты (Node Test Runner)
 │   ├── verify_flow.cjs         # Сквозной E2E прогон в реальном WebView со скриншотами
 │   └── verify_teaser_flow.cjs  # Проверка Full-Screen No-Scroll на iPhone SE (375×667)
@@ -332,6 +337,9 @@ astromax/
 | `POST` | `/api/chat/ask` | Диалог с личным помощником 24/7 (Guardrails → Memory → Groq/GigaChat) |
 | `POST` | `/api/user/profile` | Сохранение анкеты кверента и пересчёт карты в памяти |
 | `POST` | `/api/payment/create-order` | Формирование платёжной ссылки Robokassa (MD5 SignatureValue) |
+| `POST` | `/api/payment/result` | Robokassa `ResultURL`: приём вебхука, валидация Pass2, фиксация конверсии в Метрике, ответ `OK${invId}` |
+| `GET / POST` | `/api/payment/success` | Robokassa `SuccessURL`: редирект в Mini App (`/?payment=success&invId=...`) с активацией VIP |
+| `GET / POST` | `/api/payment/fail` | Robokassa `FailURL`: редирект в Mini App (`/?payment=fail`) с уведомлением об отмене |
 | `POST` | `/webhook/max` | Приём входящих вебхуков от Max Messenger API |
 
 ### 11.2 Обработчик событий бота (`src/bot/dispatcher.js`):
@@ -389,11 +397,31 @@ astromax/
 | `GROQ_MODEL_SMART` | Умная модель Groq | `qwen/qwen3.8-27b` |
 | `GIGACHAT_CREDENTIALS` | Base64 авторизационные данные GigaChat Сбера | — |
 | `GIGACHAT_MODEL` | Модель GigaChat | `GigaChat` |
-| `ROBOKASSA_LOGIN` | Идентификатор мерчанта Robokassa | `AstroMaxTest` |
-| `ROBOKASSA_PASS1` | Пароль #1 для расчёта контрольной суммы MD5 | — |
-| `ROBOKASSA_TEST` | Флаг тестового режима оплаты Robokassa | `1` |
+| `ROBOKASSA_LOGIN` | Идентификатор мерчанта Robokassa | `U_Remez` |
+| `ROBOKASSA_PASS1` | Боевой Пароль #1 для расчёта MD5 ссылки оплаты | Встроен в `.env` |
+| `ROBOKASSA_PASS2` | Боевой Пароль #2 для валидации вебхука `ResultURL` | Встроен в `.env` |
+| `ROBOKASSA_TEST_PASS1` | Тестовый Пароль #1 (режим песочницы) | Встроен в `.env` |
+| `ROBOKASSA_TEST_PASS2` | Тестовый Пароль #2 (режим песочницы) | Встроен в `.env` |
+| `ROBOKASSA_TEST` | Флаг тестового режима оплаты (`0` = боевой, `1` = тест) | `0` (боевой) |
 | `YANDEX_METRIKA_ID` | Номер счётчика Яндекс.Метрики | — |
 | `YANDEX_METRIKA_TOKEN` | OAuth-токен доступа к API Яндекс.Метрики | — |
+
+### 13.3 Конфигурация Платёжного Шлюза Robokassa (`merchant.robokassa.ru`):
+
+Для автоматического приёма платежей, выдачи чеков и активации VIP-статуса в личном кабинете Robokassa настроены следующие технические параметры:
+
+- **Идентификатор магазина (MerchantLogin):** `U_Remez`
+- **ResultURL:** `https://astromax-nu.vercel.app/api/payment/result`
+  - *Метод отсылки:* `POST`
+  - *Функция:* Сервер проверяет цифровую подпись `md5(OutSum:InvId:Pass2)`. При совпадении фиксирует офлайн-конверсию в Яндекс.Метрике и возвращает `OK${invId}` со статусом HTTP 200.
+- **SuccessURL:** `https://astromax-nu.vercel.app/api/payment/success`
+  - *Метод отсылки:* `GET` или `POST`
+  - *Функция:* Возвращает кверента в Mini App с параметром `?payment=success&invId=...`. Mini App мгновенно активирует статус VIP в локальном хранилище и выводит торжественное уведомление.
+- **FailURL:** `https://astromax-nu.vercel.app/api/payment/fail`
+  - *Метод отсылки:* `GET` или `POST`
+  - *Функция:* Возвращает пользователя в Mini App (`?payment=fail`) с мягким уведомлением «Оплата отменена».
+- **Алгоритм расчёта хеша:** `MD5`
+- **Бесшовное переключение режимов:** При `ROBOKASSA_TEST=0` шлюз работает в боевом режиме и строго исключает параметр `IsTest` из URL оплаты (Robokassa отклоняет боевую подпись при наличии `IsTest=1`). При `ROBOKASSA_TEST=1` используются тестовые пароли и включается песочница.
 
 ---
 
@@ -427,9 +455,12 @@ npm start
 ```bash
 npm.cmd test
 ```
-*Результат: 62 passed, 0 failed across 14 test suites.*
+*Результат: 65 passed, 0 failed across 15 test suites.*
 
 ```
+✔ RobokassaClient: Production mode produces correct MD5 signature and omits IsTest=1 (5.5ms)
+✔ RobokassaClient: Testing/Sandbox mode uses test passwords and includes IsTest=1 (0.9ms)
+✔ Server API: End-to-end Robokassa lifecycle (/api/payment/create-order and /result) (327.7ms)
 ✔ Natal Chart & Wheel: HTML and Navigation Integrity (8.9ms)
 ✔ Natal Chart Core Engine: calculates all 10 major bodies for Zodiac Wheel (56.0ms)
 ✔ Server GET /api/qr returns valid PNG data URL (166.1ms)
@@ -441,7 +472,7 @@ npm.cmd test
 ✔ Teaser DOM & No-Scroll Integrity (9.4ms)
 ✔ MaxBotClient verifies real token (682ms)
 --------------------------------------------------------------------------------
-ℹ tests 62 | pass 62 | fail 0
+ℹ tests 65 | pass 65 | fail 0
 ```
 
 ### 15.4 Сквозной визуальный прогон в реальном WebView со скриншотами:

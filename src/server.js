@@ -11,11 +11,14 @@ import { buildAstrologerSystemPrompt } from './chat/astrologerPersona.js';
 import { checkSafetyGuardrails } from './safety/guardrails.js';
 import QRCode from 'qrcode';
 import { ASTROLOGER_PERSONAS, getPersonaById } from './chat/personas.js';
+import { RobokassaClient } from './core/robokassa.js';
+import { MetrikaTracker } from './analytics/metrika.js';
 
 export function createServer(options = {}) {
   const app = express();
   app.use(cors());
   app.use(express.json());
+  app.use(express.urlencoded({ extended: true }));
   app.use(express.static('public'));
 
   // Нормализатор URL для совместимости с Vercel serverless (поддерживает и /api/..., и /...)
@@ -102,35 +105,75 @@ export function createServer(options = {}) {
   // 4. Платежный шлюз Robokassa (Создание ссылки с RebillID)
   app.post('/api/payment/create-order', (req, res) => {
     try {
-      const { amount = 490, plan = 'monthly_sub', userId = 'user_demo' } = req.body;
-      const merchantLogin = process.env.ROBOKASSA_LOGIN || 'AstroMaxTest';
-      const pass1 = process.env.ROBOKASSA_PASS1 || 'testPass1_sample';
-      const invId = Math.floor(Date.now() / 1000);
+      const { amount = 399, plan = 'monthly_sub', userId = 'user_demo', email = '' } = req.body;
       const isRecurring = plan === 'monthly_sub';
-
-      // Вычисление контрольной суммы MD5 по протоколу Robokassa
-      // SignatureValue = md5(MerchantLogin:OutSum:InvId:Pass1)
-      const outSumFormatted = Number(amount).toFixed(2);
-      const signatureString = `${merchantLogin}:${outSumFormatted}:${invId}:${pass1}`;
-      const signature = crypto.createHash('md5').update(signatureString).digest('hex');
-
-      const isTest = process.env.ROBOKASSA_TEST ? '1' : '1'; // тестовый режим по умолчанию
-      let paymentUrl = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=${merchantLogin}&OutSum=${outSumFormatted}&InvId=${invId}&Description=${encodeURIComponent('Подписка АСТРА Селеста VIP')}&SignatureValue=${signature}&IsTest=${isTest}`;
-      
-      if (isRecurring) {
-        paymentUrl += `&Recurring=true`;
-      }
+      const client = new RobokassaClient();
+      const order = client.generatePaymentUrl({
+        amount,
+        plan,
+        isRecurring,
+        email,
+        description: 'Подписка АСТРА Селеста VIP'
+      });
 
       res.json({
-        invId,
-        amount: outSumFormatted,
+        invId: order.invId,
+        amount: order.amount,
         plan,
-        paymentUrl,
-        recurring: isRecurring,
+        paymentUrl: order.paymentUrl,
+        recurring: order.recurring,
+        isTest: order.isTest,
       });
     } catch (err) {
       res.status(500).json({ error: err.message });
     }
+  });
+
+  // 4.1 Оповещение об успешной оплате (Robokassa ResultURL callback)
+  app.all('/api/payment/result', async (req, res) => {
+    try {
+      const data = req.method === 'POST' ? req.body : req.query;
+      const outSum = data.OutSum || data.out_sum;
+      const invId = data.InvId || data.inv_id;
+      const signatureValue = data.SignatureValue || data.signature_value;
+
+      const client = new RobokassaClient();
+      const isValid = client.verifyResultSignature({ outSum, invId, signatureValue });
+
+      if (!isValid) {
+        console.warn(`[Robokassa ResultURL] Неверная подпись: InvId=${invId}, OutSum=${outSum}`);
+        return res.status(400).send('bad sign');
+      }
+
+      console.log(`[Robokassa ResultURL] Платеж успешно подтвержден: InvId=${invId}, OutSum=${outSum} ₽`);
+
+      try {
+        const metrika = new MetrikaTracker();
+        await metrika.trackOfflineConversion({
+          clientId: data.shp_userId || `user_${invId}`,
+          target: 'payment_success_sub',
+          price: Number(outSum) || 399
+        });
+      } catch (e) {}
+
+      res.setHeader('Content-Type', 'text/plain');
+      return res.status(200).send(`OK${invId}`);
+    } catch (err) {
+      return res.status(500).send(`error: ${err.message}`);
+    }
+  });
+
+  // 4.2 Перенаправление при успешной оплате (Robokassa SuccessURL)
+  app.all('/api/payment/success', (req, res) => {
+    const data = req.method === 'POST' ? req.body : req.query;
+    const invId = data.InvId || data.inv_id || '';
+    const targetUrl = invId ? `/?payment=success&invId=${invId}` : '/?payment=success';
+    res.redirect(targetUrl);
+  });
+
+  // 4.3 Перенаправление при отмене оплаты (Robokassa FailURL)
+  app.all('/api/payment/fail', (req, res) => {
+    res.redirect('/?payment=fail');
   });
 
   // 5. Диалог 24/7 с Личным ИИ-Астрологом (Web / Mini App)

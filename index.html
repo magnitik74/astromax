@@ -4011,6 +4011,26 @@
         }
       }
 
+      // 4.1 Обработка возврата после оплаты Robokassa
+      const paymentStatus = urlParams.get('payment');
+      if (paymentStatus === 'success') {
+        localStorage.setItem('astromax_vip', 'true');
+        showToast('✨ Подписка Селеста VIP успешно активирована!');
+        if (window.history && window.history.replaceState) {
+          const cleanUrl = new URL(window.location);
+          cleanUrl.searchParams.delete('payment');
+          cleanUrl.searchParams.delete('invId');
+          window.history.replaceState({}, document.title, cleanUrl.toString());
+        }
+      } else if (paymentStatus === 'fail') {
+        showToast('Оплата отменена');
+        if (window.history && window.history.replaceState) {
+          const cleanUrl = new URL(window.location);
+          cleanUrl.searchParams.delete('payment');
+          window.history.replaceState({}, document.title, cleanUrl.toString());
+        }
+      }
+
       // 5. Chat Input & Virtual Keyboard Event Handlers
       const chatInput = document.getElementById('chatMessageInput');
       const chatStream = document.getElementById('chatStream');

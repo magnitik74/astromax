@@ -1,4 +1,4 @@
-import crypto from 'node:crypto';
+import { RobokassaClient } from '../../src/core/robokassa.js';
 
 export default function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -11,29 +11,25 @@ export default function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
-    const { amount = 490, plan = 'monthly_sub', userId = 'user_demo' } = body;
-    const merchantLogin = process.env.ROBOKASSA_LOGIN || 'AstroMaxTest';
-    const pass1 = process.env.ROBOKASSA_PASS1 || 'testPass1_sample';
-    const invId = Math.floor(Date.now() / 1000);
+    const { amount = 399, plan = 'monthly_sub', userId = 'user_demo', email = '' } = body;
     const isRecurring = plan === 'monthly_sub';
 
-    const outSumFormatted = Number(amount).toFixed(2);
-    const signatureString = `${merchantLogin}:${outSumFormatted}:${invId}:${pass1}`;
-    const signature = crypto.createHash('md5').update(signatureString).digest('hex');
-
-    const isTest = process.env.ROBOKASSA_TEST ? '1' : '1';
-    let paymentUrl = `https://auth.robokassa.ru/Merchant/Index.aspx?MerchantLogin=${merchantLogin}&OutSum=${outSumFormatted}&InvId=${invId}&Description=${encodeURIComponent('Подписка АСТРА Селеста VIP')}&SignatureValue=${signature}&IsTest=${isTest}`;
-    
-    if (isRecurring) {
-      paymentUrl += `&Recurring=true`;
-    }
+    const client = new RobokassaClient();
+    const order = client.generatePaymentUrl({
+      amount,
+      plan,
+      isRecurring,
+      email,
+      description: 'Подписка АСТРА Селеста VIP'
+    });
 
     return res.status(200).json({
-      invId,
-      amount: outSumFormatted,
+      invId: order.invId,
+      amount: order.amount,
       plan,
-      paymentUrl,
-      recurring: isRecurring,
+      paymentUrl: order.paymentUrl,
+      recurring: order.recurring,
+      isTest: order.isTest,
     });
   } catch (err) {
     return res.status(500).json({ error: err.message });
