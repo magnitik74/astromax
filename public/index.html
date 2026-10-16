@@ -829,7 +829,7 @@
     }
 
     /* ==========================================================================
-       TAB 2: ИИ-НАСТАВНИК 24/7 (LUXURY NATIVE CHAT ARCHITECTURE)
+       TAB 2: ЛИЧНЫЙ ПОМОЩНИК 24/7 (LUXURY NATIVE CHAT ARCHITECTURE)
        ========================================================================== */
     body.tab-chat-active {
       overflow: hidden !important;
@@ -2785,20 +2785,20 @@
         </div>
       </div>
 
-      <!-- 4. Интерактивный мост к Наставнику -->
+      <!-- 4. Интерактивный мост к Личному помощнику -->
       <div class="native-card daily-mentor-bridge-card">
         <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
-          <img id="dailyMentorBridgeAvatar" src="/avatars/alena.jpg" class="daily-mentor-avatar" alt="Наставник">
+          <img id="dailyMentorBridgeAvatar" src="/avatars/alena.jpg" class="daily-mentor-avatar" alt="Личный помощник">
           <div>
-            <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);" id="dailyMentorBridgeName">Алена Полынь</div>
-            <div style="font-size: 11.5px; color: var(--max-blue); font-weight: 500;">Личный совет наставника на сегодня</div>
+            <div style="font-size: 14px; font-weight: 700; color: var(--text-primary);" id="dailyMentorBridgeName">Алёна Смирнова</div>
+            <div style="font-size: 11.5px; color: var(--max-blue); font-weight: 500;">Совет личного помощника на сегодня</div>
           </div>
         </div>
         <div class="daily-mentor-quote" id="dailyMentorQuote">
           «Не распыляй внимание на чужие драмы. Твой главный фокус сегодня — завершить то, что долго откладывалось».
         </div>
         <button type="button" class="btn-max-primary" onclick="openChatFromDaily()" style="margin-top: 14px; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
-          <span>💬 Обсудить прогноз дня с наставником</span>
+          <span>💬 Спросить у помощника о сегодняшнем дне</span>
         </button>
       </div>
 
@@ -2832,9 +2832,9 @@
           <div class="passport-tag">✦ Твоя натальная карта</div>
         </div>
 
-        <div class="passport-user-title" id="passportUserName">Александр</div>
+        <div class="passport-user-title" id="passportUserName">Твой профиль</div>
         <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 2px; margin-bottom: 8px;">
-          <div class="passport-user-sub" id="passportBirthMeta">Родился 12 мая 1990 в 14:30</div>
+          <div class="passport-user-sub" id="passportBirthMeta">Рождение: 12 мая 1990 в 14:30</div>
           <button type="button" onclick="resetAstroMaxSession()" title="Сбросить профиль и рассчитать заново" style="background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.12); border-radius: 9999px; padding: 3px 10px; font-size: 11px; color: var(--text-muted); cursor: pointer; display: inline-flex; align-items: center; gap: 4px; transition: all 0.2s; white-space: nowrap;">
             <span style="font-size: 12px;">↺</span> Начать заново
           </button>
@@ -2856,7 +2856,7 @@
               <div class="planet-card-meta" id="npcMeta">Ядро личности • Водная стихия</div>
             </div>
             <button class="planet-card-ask-btn" id="npcAskBtn" onclick="askAboutSelectedPlanet()">
-              ✦ Спросить
+              ✦ Спросить у помощника
             </button>
           </div>
           <div class="planet-card-desc" id="npcDesc">
@@ -2907,7 +2907,7 @@
         </button>
 
         <button class="btn-max-secondary" onclick="switchNavTab('chat', 'Расскажи подробно, как мои Солнце, Луна и Асцендент влияют на карьеру и любовь?')">
-          Разобрать натальную карту с астрологом →
+          Разобрать натальную карту с помощником →
         </button>
       </div>
 
@@ -2963,20 +2963,20 @@
       <header class="chat-topbar" onclick="openPersonaSheet()">
         <div class="chat-topbar-profile">
           <div class="chat-topbar-avatar-wrap">
-            <img id="chatPersonaAvatar" src="/avatars/alena.jpg" class="chat-topbar-avatar" alt="Наставник">
+            <img id="chatPersonaAvatar" src="/avatars/alena.jpg" class="chat-topbar-avatar" alt="Личный помощник">
             <div class="chat-topbar-beacon"></div>
           </div>
           <div class="chat-topbar-meta">
             <span id="chatPersonaName" class="chat-topbar-name">Алёна Смирнова</span>
             <div class="chat-topbar-sub-row">
               <span class="chat-topbar-status-dot"></span>
-              <span id="chatTopBarStatusText" class="chat-topbar-status-text">Онлайн 24/7</span>
+              <span id="chatTopBarStatusText" class="chat-topbar-status-text">На связи 24/7</span>
               <span class="chat-topbar-sep">•</span>
-              <span id="chatPersonaRoleBadge" class="chat-topbar-role-text">Астропсихолог</span>
+              <span id="chatPersonaRoleBadge" class="chat-topbar-role-text">Личный помощник</span>
             </div>
           </div>
         </div>
-        <button class="chat-topbar-switch-btn" type="button" title="Выбрать наставника">
+        <button class="chat-topbar-switch-btn" type="button" title="Выбрать помощника">
           <span>Сменить</span>
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
@@ -2985,7 +2985,7 @@
       <!-- Chat Messages Stream -->
       <div class="chat-stream" id="chatStream">
         <div class="chat-bubble astrologer">
-          Ты можешь снять броню — здесь тебя никто не осудит. О чем болит сердце прямо сейчас: затянувшийся тупик в отношениях, внезапный холод от близкого человека или ощущение застоя на месте?
+          Здесь безопасное и доброе пространство — я рядом, чтобы поддержать тебя. Расскажи, о чём сейчас переживаешь: что-то беспокоит в отношениях, тяжело на душе или просто хочется выговориться? Я слушаю.
           <span class="chat-timestamp">Сейчас</span>
         </div>
       </div>
@@ -2995,13 +2995,13 @@
         <div class="typing-dot"></div>
         <div class="typing-dot"></div>
         <div class="typing-dot"></div>
-        <span style="font-size: 11.5px; color: var(--text-muted); margin-left: 6px;">Алёна анализирует аспекты...</span>
+        <span style="font-size: 11.5px; color: var(--text-muted); margin-left: 6px;">Алёна печатает ответ...</span>
       </div>
 
       <!-- Luxury Single-Row Native Chat Input Field -->
       <form class="chat-input-bar" onsubmit="handleChatSubmit(event)">
         <div class="chat-input-wrap">
-          <input type="text" id="chatMessageInput" class="chat-input" placeholder="Напиши вопрос наставнику..." autocomplete="off">
+          <input type="text" id="chatMessageInput" class="chat-input" placeholder="Спроси о том, что тебя волнует..." autocomplete="off">
         </div>
         <button type="button" class="chat-send-btn" onpointerdown="handleSendPointerDown(event)" onclick="handleChatSubmit(event)" title="Отправить">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
@@ -3067,8 +3067,11 @@
 
         <!-- AI Deep Synthesis -->
         <div class="tarot-synthesis-box" id="tarotAiBox">
-          <div class="card-eyebrow">Правда Арканов</div>
+          <div class="card-eyebrow">Значение расклада</div>
           <div id="tarotAiText" style="margin-top: 6px;"></div>
+          <button type="button" class="btn-max-secondary" style="margin-top: 12px; width: 100%; font-size: 12px;" onclick="askMentorAboutFullSpread()">
+            💬 Обсудить этот расклад с личным помощником
+          </button>
         </div>
       </div>
     </main>
@@ -3086,7 +3089,7 @@
           </svg>
         </div>
         <div>
-          <div class="user-info-name" id="profileName">Александр</div>
+          <div class="user-info-name" id="profileName">Твой профиль</div>
           <div class="user-info-archetype" id="profileArchetype">Скорпион • Архетип Личности</div>
           <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;" id="profileCity">Москва • UTC+3</div>
         </div>
@@ -3168,7 +3171,7 @@
         <div class="plan-anchor-badge" style="background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.45); color: #F59E0B;">✦ Пространство Селеста VIP</div>
         <div class="card-headline" style="font-size: 19px;">АСТРА Клуб • Пространство Селеста</div>
         <div style="font-size: 13px; color: var(--text-secondary); margin-top: 5px; line-height: 1.55;">
-          Личный наставник 24/7 без цензуры • Глубокий синастрия-разбор отношений • Закрытый лунный транзит • Расклады Таро без ограничений
+          Личный помощник 24/7 • Бережный разбор отношений • Персональный астро-профиль • Расклады Таро без ограничений
         </div>
         <div class="premium-price" style="color: #FDE68A;">399 ₽ <span style="font-size: 13px; font-weight: 500; color: var(--text-muted);">/ месяц</span></div>
         <div style="font-size: 11.5px; color: #F59E0B; margin-bottom: 12px; font-weight: 600;">
@@ -3218,7 +3221,7 @@
           <circle cx="12" cy="12" r="1.2" fill="currentColor"/>
           <circle cx="15.5" cy="12" r="1.2" fill="currentColor"/>
         </svg>
-        <span class="tab-label">Наставник</span>
+        <span class="tab-label">Помощник</span>
       </button>
 
       <!-- 4. Таро -->
@@ -3280,7 +3283,7 @@
                 <canvas id="obNatalCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
                 <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
               </div>
-              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Космический Паспорт & Большая Тройка ✦</div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Натальная карта & Большая Тройка ✦</div>
               <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Твой звездный код личности.<br>Без иллюзий и шаблонов.</h3>
               <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
                 Глубокий психологический разбор характера: Солнце, Луна и Асцендент. Раскрой скрытые источники энергии, неосознанные страхи и точки истинного масштаба.
@@ -3296,20 +3299,20 @@
             </div>
           </div>
 
-          <!-- Teaser 2: Личный Астролог 24/7 -->
+          <!-- Teaser 2: Личный Помощник 24/7 -->
           <div id="obTeaser2" class="ob-step-container" style="display: none;">
             <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
               <div id="obEmpathyCanvasWrap" class="ob-teaser-canvas-wrap">
                 <canvas id="obEmpathyCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
                 <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
               </div>
-              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #67E8F9; font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Личный Астролог 24/7 ✦</div>
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #67E8F9; font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Личный Помощник 24/7 ✦</div>
               <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Мудрый проводник рядом.<br>В любой момент, без осуждения.</h3>
               <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
-                Персональный астролог опирается на индивидуальные аспекты твоей карты. Помогает разобраться в отношениях, преодолеть кризис и найти душевное равновесие.
+                Персональный помощник опирается на индивидуальные аспекты твоей карты. Помогает разобраться в отношениях, преодолеть кризис и найти душевное равновесие.
               </p>
               <div style="font-size: clamp(10px, 1.35vh, 11px); color: #67E8F9; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
-                ✦ 4 астролога с чутким стилем диалога и памятью твоих запросов
+                ✦ 4 личных помощника с чутким стилем диалога и поддержкой в любой момент
               </div>
             </div>
             <div class="ob-step-footer" style="padding-top: 4px;">
@@ -3379,14 +3382,14 @@
                 <div class="ob-medallion-shimmer"></div>
               </div>
             </div>
-            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 1 из 4 • Зеркало личности</div>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 1 из 4 • Знакомство</div>
             <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Как к тебе обращаться?</h3>
             <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
-              Имя задает вибрацию первого контакта. Назови себя так, как ты ощущаешь себя наедине с собой.
+              Напиши своё имя, чтобы мы знали, как к тебе тепло и бережно обращаться.
             </p>
             <div class="form-field" style="margin-bottom: 12px; width: 100%;">
               <label>Твое имя</label>
-              <input type="text" id="obInputName" placeholder="Например: Александр, Анна, Макс..." required autocomplete="name">
+              <input type="text" id="obInputName" placeholder="Напиши своё имя..." required autocomplete="name">
             </div>
           </div>
           <div class="ob-step-footer">
@@ -3406,10 +3409,10 @@
                 <div class="ob-medallion-shimmer"></div>
               </div>
             </div>
-            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 2 из 4 • Момент первого вдоха</div>
-            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Когда начинается твой отсчет времени?</h3>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 2 из 4 • Момент рождения</div>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Когда ты празднуешь день рождения?</h3>
             <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
-              Дата и минута фиксируют твой Асцендент — маску, которую видят другие, и глубинное подсознание.
+              Дата и точное время помогают рассчитать точное положение планет и твою натальную карту.
             </p>
             <div class="form-field" style="margin-bottom: 10px; width: 100%;">
               <label>Дата рождения</label>
@@ -3419,7 +3422,7 @@
               <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
                 <label style="margin-bottom: 0;">Время рождения</label>
                 <label style="font-size: 11.5px; text-transform: none; color: #A78BFA; cursor: pointer; display: flex; align-items: center; gap: 4px;">
-                  <input type="checkbox" id="obUnknownTime" onchange="toggleObTime()" style="width: 14px; height: 14px; accent-color: var(--astral-violet);"> Не помню бирку (полдень)
+                  <input type="checkbox" id="obUnknownTime" onchange="toggleObTime()" style="width: 14px; height: 14px; accent-color: var(--astral-violet);"> Не помню точно (полдень)
                 </label>
               </div>
               <input type="time" id="obInputTime" value="12:00">
@@ -3443,10 +3446,10 @@
                 <div class="ob-medallion-shimmer"></div>
               </div>
             </div>
-            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 3 из 4 • Точка старта</div>
-            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Где началась твоя история?</h3>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 3 из 4 • Место рождения</div>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">В каком городе или посёлке?</h3>
             <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
-              Город, село, деревня или хутор. Место рождения раскрывает карту жизненных домов: где деньги и где любовь.
+              Город, село, деревня или хутор. Это нужно для точного определения часового пояса и звездного неба.
             </p>
             <div class="form-field" style="margin-bottom: 12px; width: 100%;">
               <label>Город, посёлок, село или хутор</label>
@@ -3459,12 +3462,12 @@
           <div class="ob-step-footer">
             <div style="display: flex; gap: 8px;">
               <button class="btn-max-secondary" onclick="nextOnboardingStep(2)" style="flex: 1; margin-top: 0;">← Назад</button>
-              <button class="btn-max-primary" onclick="nextOnboardingStep(4)" style="flex: 2;">Выбрать наставника →</button>
+              <button class="btn-max-primary" onclick="nextOnboardingStep(4)" style="flex: 2;">Выбрать помощника →</button>
             </div>
           </div>
         </div>
 
-        <!-- Step 4: Выбор наставника -->
+        <!-- Step 4: Выбор помощника -->
         <div id="obStep4" class="ob-step-container" style="display: none;">
           <div class="ob-step-body">
             <div class="ob-medallion-container" style="width: 100px; height: 38px; margin: 0 auto 4px;">
@@ -3475,10 +3478,10 @@
                 <img src="/avatars/sofia.jpg" class="ob-cluster-avatar" style="left: 60px; z-index: 1;" alt="София">
               </div>
             </div>
-            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 4 из 4 • Твой личный наставник</div>
-            <h3 class="card-headline" style="font-size: clamp(16px, 2.4vh, 19px); margin: 2px 0 4px; text-align: center;">Кто назовет вещи своими именами?</h3>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 4 из 4 • Твой личный помощник 24/7</div>
+            <h3 class="card-headline" style="font-size: clamp(16px, 2.4vh, 19px); margin: 2px 0 4px; text-align: center;">Выбери своего помощника</h3>
             <p class="card-desc" style="font-size: clamp(11.5px, 1.7vh, 12.5px); margin-bottom: 6px; text-align: center;">
-              Выбери наставника прямо сейчас (сменить можно в любой момент в 1 клик):
+              Кто будет рядом и поддержит в любую минуту? (Сменить можно в любой момент в 1 клик):
             </p>
             <div class="persona-grid-2x2" id="onboardingPersonaList">
               <!-- Dynamically populated via JS: 2x2 grid -->
@@ -3487,7 +3490,7 @@
           <div class="ob-step-footer">
             <div style="display: flex; gap: 8px;">
               <button class="btn-max-secondary" onclick="nextOnboardingStep(3)" style="flex: 1; margin-top: 0;">← Назад</button>
-              <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">✦ Вскрыть мой космический код</button>
+              <button class="btn-max-primary" onclick="finishOnboarding()" style="flex: 2;">✦ Рассчитать натальную карту</button>
             </div>
           </div>
         </div>
@@ -3600,10 +3603,10 @@
     <div class="modal-backdrop" id="personaSheetModal" onclick="closePersonaSheet(event)">
       <div class="modal-sheet" onclick="event.stopPropagation()">
         <div class="sheet-handle"></div>
-        <div class="card-eyebrow">4 голоса твоей интуиции</div>
-        <h3 class="card-headline" style="font-size: 17px; margin-bottom: 4px;">Кто препарирует твою ситуацию?</h3>
+        <div class="card-eyebrow">Поддержка 24/7</div>
+        <h3 class="card-headline" style="font-size: 17px; margin-bottom: 4px;">С кем тебе сейчас ближе поговорить?</h3>
         <p class="card-desc" style="font-size: 13px; margin-bottom: 14px;">
-          У каждого наставника свой бескомпромиссный метод: от глубокой психотерапии отношений до жесткой бизнес-стратегии. Выбери того, кто нужен тебе сегодня.
+          У каждого помощника своя чуткая специализация: отношения и любовь, работа и важные решения, душевный баланс или подсказки карт Таро. Выбери того, кто поддержит тебя прямо сейчас.
         </p>
         <div class="persona-selection-list" id="personaSheetList">
           <!-- Populated via JS -->
@@ -3655,15 +3658,15 @@
         <div class="sheet-handle"></div>
         <div class="passport-share-header">
           <div>
-            <div class="passport-share-title">✦ Твой Космический Паспорт</div>
-            <div class="passport-share-sub">Готов к отправке в чаты MAX и соцсети</div>
+            <div class="passport-share-title">✦ Твоя Натальная Карта</div>
+            <div class="passport-share-sub">Готова к отправке в чаты MAX и соцсети</div>
           </div>
           <button class="modal-close-icon" onclick="closePassportShareModal()" aria-label="Закрыть">✕</button>
         </div>
 
         <!-- Interactive High-Res Card Preview Canvas & Image Wrapper -->
         <div class="passport-card-preview-container">
-          <img id="passportPreviewImg" class="passport-preview-img" alt="Космический Паспорт" />
+          <img id="passportPreviewImg" class="passport-preview-img" alt="Натальная карта" />
           <div id="passportCanvasLoading" class="passport-canvas-loading">
             <div class="spin-orbit"></div>
             <span>Сверка планетарных координат и домов...</span>
@@ -3705,59 +3708,59 @@
   <!-- Client-side Application Logic -->
   <script src="/three.min.js"></script>
   <script>
-    // 4 Russian Astrologer Personas Catalog (Nebula & Co-Star Psychological Standard)
+    // 4 Russian Personal Assistants Catalog (Nebula & Co-Star Empathetic Standard)
     const PERSONAS_CATALOG = [
       {
         id: 'alena',
         name: 'Алёна Смирнова',
         age: '31 год',
-        title: 'Астропсихолог',
-        subtitle: 'Любовь, скрытые мотивы & снятие тревоги',
+        title: 'Помощник по отношениям 24/7',
+        subtitle: 'Любовь, понимание близких и душевная опора',
         avatar: '/avatars/alena.jpg',
         rating: '4.98',
         consultations: '1 840+ разборов',
-        credo: '«Сниму тревогу за 10 минут. Мы вскроем, почему он отдаляется, что происходит на самом деле и как перестать заслуживать любовь.»',
-        tags: ['Почему он молчит', 'Совместимость пар', 'Снятие тревоги', 'Самоценность'],
-        greeting: 'Ты можешь снять броню — со мной не нужно держать защиту. Расскажи, о чем болит сердце прямо сейчас: затянувшаяся тишина в переписке, тупик в отношениях или страх столкнуться с отвержением? Я здесь.'
+        credo: '«Помогу успокоиться, понять, что происходит в отношениях, и вернуть уверенность в себе без лишней тревоги.»',
+        tags: ['Отношения', 'Понимание близких', 'Снятие тревоги', 'Уверенность в себе'],
+        greeting: 'Привет! Я рядом, чтобы бережно выслушать и поддержать. Расскажи, о чём болит сердце прямо сейчас: недопонимание с близким, тишина в переписке или просто накопилась усталость? Я здесь, давай поговорим.'
       },
       {
         id: 'artem',
         name: 'Артём Соколов',
         age: '39 лет',
-        title: 'Бизнес-астролог & стратег',
-        subtitle: 'Деньги, карьера & жесткая правда',
+        title: 'Помощник в делах и решениях 24/7',
+        subtitle: 'Работа, доход и понятный план действий',
         avatar: '/avatars/artem.jpg',
         rating: '4.99',
         consultations: '2 150+ консультаций',
-        credo: '«Без розовых очков и мистики. Где застряли твои деньги, почему ты топчешься на одном уровне и в какие даты делать решающий ход.»',
-        tags: ['Где мои деньги', 'Карьерный прорыв', 'Точки роста', 'Тайминг сделок'],
-        greeting: 'Давай сразу к делу, без эзотерической шелухи. Где главный затык: доход уперся в стеклянный потолок, слив энергии или страх сделать решающий шаг? Вскроем факты.'
+        credo: '«Помогу разложить всё по полочкам: где твоя точка роста, как избежать суеты и когда лучше действовать.»',
+        tags: ['Работа и карьера', 'Точки роста', 'Финансовый порядок', 'Уверенный выбор'],
+        greeting: 'Привет! Давай спокойно и без суеты разберёмся в ситуации. О чём хочется посоветоваться: работа, финансы, сомнения перед важным шагом? Разложим всё по полочкам и наметим понятные действия.'
       },
       {
         id: 'elena',
         name: 'Елена Васильева',
         age: '52 года',
-        title: 'Классический мастер натала & рода',
-        subtitle: 'Кармические узлы, предназначение & род',
+        title: 'Помощник по жизненным вопросам 24/7',
+        subtitle: 'Жизненный путь, предназначение и внутренняя сила',
         avatar: '/avatars/elena.jpg',
         rating: '4.99',
         consultations: '4 600+ карт',
-        credo: '«Пока ты не поймешь свой кармический узел, жизнь будет сталкивать тебя с одними и теми же граблями. Вскроем родовой сценарий и найдем твою истинную точку силы.»',
-        tags: ['Кармический узел', 'Повторяющийся сценарий', 'Большая Тройка', 'Родовая сила'],
-        greeting: 'Твоя карта — это контракт твоей души. О чем молчишь: о чувстве проживания чужой жизни, повторяющихся ошибках или потере внутренней опоры? Спроси меня.'
+        credo: '«Помогу разобраться в себе, найти душевный баланс и обрести уверенную внутреннюю опору.»',
+        tags: ['Жизненные ориентиры', 'Внутренняя опора', 'Понимание себя', 'Душевный баланс'],
+        greeting: 'Здравствуй! Жизнь порой ставит непростые вопросы, но в тебе уже есть ответы — нужно лишь бережно помочь их услышать. Что сейчас отзывается в душе: поиск своего пути, сомнения или желание найти спокойствие?'
       },
       {
         id: 'sofia',
         name: 'София Романова',
         age: '26 лет',
-        title: 'Мастер Таро & интуиции',
-        subtitle: 'Скрытые мысли, намерения & правда без фильтров',
+        title: 'Помощник по Таро и интуиции 24/7',
+        subtitle: 'Подсказки карт, истинные чувства и верные шаги',
         avatar: '/avatars/sofia.jpg',
         rating: '4.97',
         consultations: '1 290+ раскладов',
-        credo: '«Карты Таро не врут. Вскроем его истинные мысли, тайные страхи и то, о чем он думает, когда гаснет экран смартфона.»',
-        tags: ['Что он скрывает', 'Истинные чувства', 'Выбор из двух', 'Что будет дальше'],
-        greeting: 'Колода уже открыта. Что не дает тебе уснуть ночью? Напиши мне его имя или ситуацию — и я вытяну аркан на его скрытые намерения и слепые зоны.'
+        credo: '«Карты помогут увидеть то, что скрыто: истинные чувства, сомнения и самый верный следующий шаг.»',
+        tags: ['Подсказки карт', 'Истинные чувства', 'Выбор пути', 'Что на сердце'],
+        greeting: 'Привет! Карты Таро — это прекрасный способ бережно заглянуть внутрь себя и увидеть ситуацию яснее. Какой вопрос сейчас больше всего волнует: отношения, выбор из двух дорог или что-то личное? Давай посмотрим.'
       }
     ];
 
@@ -3892,9 +3895,9 @@
       activeTab: 'horoscope',
       userId: localStorage.getItem('astromax_user_id') || 'guest_' + Math.random().toString(36).substring(2, 9),
       profile: {
-        name: 'Александр',
-        birthDate: '1990-05-12',
-        birthTime: '14:30',
+        name: '',
+        birthDate: '1995-05-15',
+        birthTime: '12:00',
         city: 'Москва',
         lat: 55.7558,
         lon: 37.6173,
@@ -3921,8 +3924,13 @@
               state.userId = String(initUser.id);
               localStorage.setItem('astromax_user_id', state.userId);
             }
-            if (initUser.first_name && !localStorage.getItem('astromax_profile')) {
-              state.profile.name = initUser.first_name;
+            if (initUser.first_name) {
+              const accountName = initUser.first_name.trim();
+              if (!state.profile.name) {
+                state.profile.name = accountName;
+              }
+              const obName = document.getElementById('obInputName');
+              if (obName && !obName.value) obName.value = accountName;
             }
           }
         } catch(e) {
@@ -3952,8 +3960,13 @@
         state.userId = urlUserId;
         localStorage.setItem('astromax_user_id', state.userId);
       }
-      if (urlName && !localStorage.getItem('astromax_profile')) {
-        state.profile.name = decodeURIComponent(urlName);
+      if (urlName) {
+        const decodedName = decodeURIComponent(urlName).trim();
+        if (decodedName && !state.profile.name) {
+          state.profile.name = decodedName;
+          const obName = document.getElementById('obInputName');
+          if (obName && !obName.value) obName.value = decodedName;
+        }
       }
 
       try { loadProfileFromStorage(); } catch (e) { console.warn('loadProfile error:', e); }
@@ -3969,7 +3982,7 @@
         openOnboardingModal();
       }
 
-      // 4. Глубокие ссылки (Deep-links) из мессенджера: переход в нужный таб / к наставнику
+      // 4. Глубокие ссылки (Deep-links) из мессенджера: переход в нужный таб / к помощнику
       const startParam = window.WebApp?.initDataUnsafe?.start_param || urlParams.get('startapp') || urlParams.get('start_param') || '';
       let urlTab = urlParams.get('tab');
       let urlPersona = urlParams.get('persona');
@@ -4028,7 +4041,7 @@
 
     // Функция ручного сброса сессии (вызывается из интерфейса)
     window.resetAstroMaxSession = function() {
-      if (confirm('Сбросить текущий Космический Паспорт и пройти онбординг заново?')) {
+      if (confirm('Сбросить текущую натальную карту и пройти онбординг заново?')) {
         localStorage.removeItem('astromax_onboarded');
         localStorage.removeItem('astromax_profile');
         localStorage.removeItem('astromax_chat_history');
@@ -4280,14 +4293,15 @@
 
     function updateProfileUI() {
       try {
-        const name = state.profile.name || 'Странник';
+        const rawName = (state.profile.name || '').trim();
+        const displayName = rawName || 'Твой профиль';
         const setSafe = (id, val) => {
           const el = document.getElementById(id);
           if (el) el.textContent = val;
         };
-        setSafe('passportUserName', name);
-        setSafe('heroPassportName', name);
-        setSafe('profileName', name);
+        setSafe('passportUserName', displayName);
+        setSafe('heroPassportName', displayName);
+        setSafe('profileName', rawName || 'Личный кабинет');
         setSafe('passportBirthMeta', `Рождение: ${state.profile.birthDate || '12 мая 1990'} в ${state.profile.birthTime || '14:30'}`);
         setSafe('passportCoordsLabel', `${state.profile.city || 'Москва'} • Звездная карта`);
         setSafe('dossierDate', state.profile.birthDate || '12.05.1990');
@@ -4424,7 +4438,7 @@
         '✨ Алёна Смирнова завершила глубокий психологический разбор натальной карты',
         '💼 Артём Соколов помог определить лучшее окно для крупной сделки и инвестиций',
         '🌙 54 человека вытянули Карту Дня в Храме Таро за последний час',
-        '🪐 Елена Васильева составила кармический паспорт предназначения для нового участника'
+        '🪐 Елена Васильева помогла найти точку внутренней опоры новому участнику'
       ];
 
       let idx = 0;
@@ -5137,7 +5151,7 @@
       ctx.font = '700 17px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
       ctx.fillStyle = '#C4B5FD';
       ctx.textAlign = 'center';
-      ctx.fillText('✦ АСТРА • КОСМИЧЕСКИЙ ПАСПОРТ', 540, pillY + 29);
+      ctx.fillText('✦ АСТРА • НАТАЛЬНАЯ КАРТА', 540, pillY + 29);
 
       // Subtitle line (City & planetary coordinates)
       ctx.font = '600 15px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
@@ -5359,14 +5373,14 @@
       const sun = chart?.sun?.sign || 'Скорпион';
       const moon = chart?.moon?.sign || 'Водолей';
       const asc = chart?.ascendant?.sign || 'Рак';
-      const name = state.profile?.name || 'Александр';
+      const name = state.profile?.name || 'Мой профиль';
 
-      const shareText = `🌌 Мой Космический Паспорт в АСТРА:\n` +
+      const shareText = `🌌 Моя натальная карта в АСТРА:\n` +
         `👤 ${name}\n` +
         `☀️ Солнце: ${sun} (${getZodiacElement(sun)})\n` +
         `🌙 Луна: ${moon} (${getZodiacElement(moon)})\n` +
         `⬆️ Асцендент: ${asc} (${getZodiacElement(asc)})\n\n` +
-        `🪐 Рассчитай свой паспорт и совместимость в мессенджере MAX:\n` +
+        `🪐 Рассчитай свою натальную карту и совместимость в мессенджере MAX:\n` +
         `https://max.ru/id744510054693_4_bot`;
 
       if (!cachedPassportBlob) {
@@ -5375,16 +5389,16 @@
         cachedPassportDataUrl = res.dataUrl;
       }
 
-      const file = new File([cachedPassportBlob], `astra-passport-${name}.png`, { type: 'image/png' });
+      const file = new File([cachedPassportBlob], `astra-natal-${name}.png`, { type: 'image/png' });
 
       if (navigator.canShare && navigator.canShare({ files: [file] })) {
         try {
           await navigator.share({
-            title: 'Космический Паспорт — АСТРА',
+            title: 'Натальная карта — АСТРА',
             text: shareText,
             files: [file]
           });
-          showToast('Паспорт успешно отправлен!');
+          showToast('Карточка успешно отправлена!');
           return;
         } catch (err) {
           if (err.name === 'AbortError') return;
@@ -5394,7 +5408,7 @@
       if (navigator.share) {
         try {
           await navigator.share({
-            title: 'Космический Паспорт — АСТРА',
+            title: 'Натальная карта — АСТРА',
             text: shareText,
             url: 'https://max.ru/id744510054693_4_bot'
           });
@@ -5412,18 +5426,18 @@
 
     function downloadPassportCard() {
       triggerHaptic();
-      const name = state.profile?.name || 'Александр';
+      const name = state.profile?.name || 'Мой профиль';
       if (!cachedPassportDataUrl) {
         showToast('Формирование изображения...');
         return;
       }
       const a = document.createElement('a');
       a.href = cachedPassportDataUrl;
-      a.download = `astra-passport-${name}.png`;
+      a.download = `astra-natal-${name}.png`;
       document.body.appendChild(a);
       a.click();
       document.body.removeChild(a);
-      showToast('Паспорт сохранен в галерею!');
+      showToast('Карточка сохранена в галерею!');
     }
 
     function copyPassportText() {
@@ -5432,14 +5446,14 @@
       const sun = chart?.sun?.sign || 'Скорпион';
       const moon = chart?.moon?.sign || 'Водолей';
       const asc = chart?.ascendant?.sign || 'Рак';
-      const name = state.profile?.name || 'Александр';
+      const name = state.profile?.name || 'Мой профиль';
 
-      const shareText = `🌌 Мой Космический Паспорт в АСТРА:\n` +
+      const shareText = `🌌 Моя натальная карта в АСТРА:\n` +
         `👤 ${name}\n` +
         `☀️ Солнце: ${sun} (${getZodiacElement(sun)})\n` +
         `🌙 Луна: ${moon} (${getZodiacElement(moon)})\n` +
         `⬆️ Асцендент: ${asc} (${getZodiacElement(asc)})\n\n` +
-        `🪐 Рассчитай свой паспорт и совместимость в мессенджере MAX:\n` +
+        `🪐 Рассчитай свою натальную карту и совместимость в мессенджере MAX:\n` +
         `https://max.ru/id744510054693_4_bot`;
 
       if (navigator.clipboard && navigator.clipboard.writeText) {
@@ -5784,7 +5798,7 @@
                     ${item.card.advice ? `<div class="tarot-slice-item"><span>🔮</span><span><strong>Совет:</strong> ${item.card.advice}</span></div>` : ''}
                   </div>
                   <button class="btn-max-secondary" style="margin-top: 10px; padding: 7px 12px; font-size: 11.5px; width: 100%; border-radius: 8px;" onclick="askMentorAboutTarot('${item.card.name}', '${item.card.status}')">
-                    ✦ Разобрать этот аркан с наставником
+                    ✦ Разобрать этот аркан с личным помощником
                   </button>
                 </div>
               `;
@@ -5808,13 +5822,28 @@
 
     function askMentorAboutTarot(cardName, cardStatus) {
       triggerHaptic();
-      switchTab('tab-chat');
-      const input = document.getElementById('chatInput');
-      if (input) {
-        input.value = `Разъясни мне аркан ${cardName} (${cardStatus}) в контексте моей натальной карты.`;
-        input.focus();
-      }
+      const statusDesc = (cardStatus === 'reversed' || cardStatus === 'перевернутая' || cardStatus === 'Перевернутая') ? 'в перевернутом положении' : 'в прямом положении';
+      const question = `Помоги, пожалуйста, понять аркан «${cardName}» (${statusDesc}). Что он мне подсказывает и как его лучше применить в жизни?`;
+      switchNavTab('chat', question);
     }
+
+    function askMentorAboutFullSpread() {
+      triggerHaptic();
+      let question = 'Я сделал расклад Таро. Помоги мне сложить общую картину и подскажи, на что обратить внимание?';
+      if (state.currentSpread && Array.isArray(state.currentSpread.cards) && state.currentSpread.cards.length > 0) {
+        const list = state.currentSpread.cards.map(c => `${c.position}: ${c.card.name} (${c.card.status})`).join(', ');
+        question = `Я сделал расклад Таро (${list}). Помоги мне сложить общую картину и подскажи, на что обратить внимание?`;
+      }
+      switchNavTab('chat', question);
+    }
+
+    // Глобальные мосты навигации
+    window.switchTab = function(tabName) {
+      const clean = (tabName || '').replace(/^tab-/, '');
+      switchNavTab(clean);
+    };
+    window.askMentorAboutTarot = askMentorAboutTarot;
+    window.askMentorAboutFullSpread = askMentorAboutFullSpread;
 
     function revealCard(idx) {
       triggerHaptic();
@@ -6692,7 +6721,7 @@
       await new Promise(r => setTimeout(r, 650));
 
       if (progressBar) progressBar.style.width = '70%';
-      if (statusText) statusText.textContent = 'Расшифровываем Большую Тройку: истинные эмоции, волю и социальную броню...';
+      if (statusText) statusText.textContent = 'Расшифровываем Большую Тройку: истинные эмоции, волю и внутреннюю опору...';
       await new Promise(r => setTimeout(r, 750));
 
       await calculateAndSyncChart();
@@ -6709,7 +6738,7 @@
       renderChatMessages();
       renderDailyHoroscope();
       triggerHaptic();
-      showToast('Космический паспорт построен! 🌌');
+      showToast('Натальная карта рассчитана! 🌌');
     }
 
     // 12. Taptic Feedback Helper

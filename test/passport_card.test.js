@@ -20,12 +20,12 @@ export function formatPassportShareText(profile, bigThree) {
   const moon = bigThree?.moon?.sign || 'Не определено';
   const asc = bigThree?.ascendant?.sign || 'Не определено';
 
-  return `🌌 Мой Космический Паспорт в АСТРА:\n` +
+  return `🌌 Моя натальная карта в АСТРА:\n` +
     `👤 ${name}\n` +
     `☀️ Солнце: ${sun} (${getZodiacElement(sun)})\n` +
     `🌙 Луна: ${moon} (${getZodiacElement(moon)})\n` +
     `⬆️ Асцендент: ${asc} (${getZodiacElement(asc)})\n\n` +
-    `🪐 Рассчитай свой паспорт и Большую Тройку в мессенджере MAX:\n` +
+    `🪐 Рассчитай свою натальную карту и Большую Тройку в мессенджере MAX:\n` +
     `https://max.ru/id744510054693_4_bot`;
 }
 

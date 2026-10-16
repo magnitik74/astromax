@@ -27,7 +27,7 @@ ${persona.systemPrompt}
 КВЕРЕНТ:
 • Имя: ${profile.name || 'Путник'}
 • Рождение: ${profile.birthDate || 'не указано'}, ${profile.birthTime || '12:00'}, ${profile.city || 'Москва'}
-• Натальный паспорт личности:
+• Натальный профиль личности:
 ${natalSummary}
 • Эмоциональный контекст:
 ${lifeNotes}
