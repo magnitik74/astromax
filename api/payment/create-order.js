@@ -11,16 +11,20 @@ export default function handler(req, res) {
 
   try {
     const body = typeof req.body === 'string' ? JSON.parse(req.body) : (req.body || {});
-    const { amount = 399, plan = 'monthly_sub', userId = 'user_demo', email = '' } = body;
-    const isRecurring = plan === 'monthly_sub';
+    const { amount, plan = 'trial_3d', userId = 'user_demo', email = '' } = body;
+    const finalAmount = amount !== undefined ? amount : (plan === 'trial_3d' ? 1 : 399);
+    const isRecurring = plan === 'trial_3d' || plan === 'monthly_sub';
+    const description = plan === 'trial_3d'
+      ? 'Пробный период 3 дня АСТРА VIP (далее 245 ₽/нед)'
+      : 'Подписка АСТРА Селеста VIP';
 
     const client = new RobokassaClient();
     const order = client.generatePaymentUrl({
-      amount,
+      amount: finalAmount,
       plan,
       isRecurring,
       email,
-      description: 'Подписка АСТРА Селеста VIP'
+      description
     });
 
     return res.status(200).json({

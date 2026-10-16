@@ -2086,47 +2086,45 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: astraFloat 3.8s ease-in-out infinite;
+      animation: moonlyBreathe 4.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
       will-change: transform;
     }
 
     .ob-medallion-halo {
       position: absolute;
-      inset: -5px;
+      inset: -6px;
       border-radius: 50%;
-      background: conic-gradient(from 0deg, #8B5CF6, #06B6D4, #F59E0B, #8B5CF6);
-      filter: blur(8px);
-      opacity: 0.7;
-      animation: astraRingSpin 6s linear infinite;
-      will-change: transform;
+      background: radial-gradient(circle, rgba(108, 92, 231, 0.25) 0%, rgba(26, 28, 34, 0) 70%);
+      filter: blur(10px);
+      opacity: 0.8;
+      pointer-events: none;
     }
 
     .ob-medallion-halo.large {
-      inset: -8px;
-      filter: blur(12px);
-      opacity: 0.85;
-      animation: astraRingSpin 4s linear infinite;
+      inset: -12px;
+      filter: blur(16px);
+      opacity: 0.9;
     }
 
     .ob-medallion-badge {
       position: relative;
-      width: 62px;
-      height: 62px;
+      width: 68px;
+      height: 68px;
       border-radius: 50%;
-      padding: 2px;
-      background: linear-gradient(135deg, rgba(255, 255, 255, 0.45) 0%, rgba(139, 92, 246, 0.6) 50%, rgba(6, 182, 212, 0.5) 100%);
-      box-shadow: 0 0 16px rgba(139, 92, 246, 0.45), inset 0 0 8px rgba(255, 255, 255, 0.25);
+      padding: 3px;
+      background: #1A1C22;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45), inset 0 1px 1px rgba(255, 255, 255, 0.15);
       overflow: hidden;
       display: flex;
       align-items: center;
       justify-content: center;
-      animation: astraAuraPulse 3.8s ease-in-out infinite;
       z-index: 2;
     }
 
     .ob-medallion-badge.large {
-      width: 78px;
-      height: 78px;
+      width: 84px;
+      height: 84px;
     }
 
     .ob-medallion-img {
@@ -2135,25 +2133,11 @@
       border-radius: 50%;
       object-fit: cover;
       display: block;
-      transform: scale(1.04);
-      filter: contrast(1.06) brightness(1.04);
+      transform: scale(1.02);
     }
 
     .ob-medallion-shimmer {
-      position: absolute;
-      top: -50%;
-      left: -120%;
-      width: 60%;
-      height: 200%;
-      background: linear-gradient(
-        90deg,
-        rgba(255, 255, 255, 0) 0%,
-        rgba(255, 255, 255, 0.65) 50%,
-        rgba(255, 255, 255, 0) 100%
-      );
-      transform: rotate(28deg);
-      pointer-events: none;
-      animation: astraSpecularSweep 3.6s ease-in-out infinite;
+      display: none;
     }
 
     /* Mentor cluster preview in Step 4 */
@@ -2174,6 +2158,15 @@
       object-fit: cover;
     }
 
+    @keyframes moonlyBreathe {
+      0%, 100% {
+        transform: translateY(0px) scale(1);
+      }
+      50% {
+        transform: translateY(-3px) scale(1.015);
+      }
+    }
+
     @keyframes astraFloat {
       0%, 100% {
         transform: translateY(0px) scale(1);
@@ -2184,37 +2177,22 @@
     }
 
     @keyframes astraRingSpin {
-      0% {
-        transform: rotate(0deg);
-      }
-      100% {
-        transform: rotate(360deg);
+      0%, 100% {
+        transform: none;
       }
     }
 
     @keyframes astraAuraPulse {
       0%, 100% {
-        box-shadow: 0 0 14px rgba(139, 92, 246, 0.4), 0 0 24px rgba(6, 182, 212, 0.2);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
       }
       50% {
-        box-shadow: 0 0 22px rgba(139, 92, 246, 0.7), 0 0 38px rgba(6, 182, 212, 0.45);
+        box-shadow: 0 6px 20px rgba(108, 92, 231, 0.25);
       }
     }
 
     @keyframes astraSpecularSweep {
-      0% {
-        left: -120%;
-        opacity: 0;
-      }
-      15% {
-        opacity: 0.85;
-      }
-      35% {
-        left: 140%;
-        opacity: 0;
-      }
-      100% {
-        left: 140%;
+      0%, 100% {
         opacity: 0;
       }
     }
@@ -2867,19 +2845,22 @@
         <!-- The Big Three Interactive Grid -->
         <div class="big-three-grid">
           <div class="big-three-cell sun active-inspect" id="cellSun" onclick="inspectBigThree('sun')">
-            <span class="cell-glyph">☀️</span>
+            <img src="/images/moonly/clay_sun.png" style="width: 28px; height: 28px; object-fit: contain; margin-bottom: 4px;" alt="Солнце">
+            <span class="cell-glyph" style="display: none;">☀️</span>
             <div class="cell-role">Солнце</div>
             <div class="cell-sign" id="valSun">Скорпион</div>
             <span class="element-mini-tag water" id="tagSun">Вода</span>
           </div>
           <div class="big-three-cell moon" id="cellMoon" onclick="inspectBigThree('moon')">
-            <span class="cell-glyph">🌙</span>
+            <img src="/images/moonly/clay_planet_1.png" style="width: 28px; height: 28px; object-fit: contain; margin-bottom: 4px;" alt="Луна">
+            <span class="cell-glyph" style="display: none;">🌙</span>
             <div class="cell-role">Луна</div>
             <div class="cell-sign" id="valMoon">Водолей</div>
             <span class="element-mini-tag air" id="tagMoon">Воздух</span>
           </div>
           <div class="big-three-cell asc" id="cellAsc" onclick="inspectBigThree('asc')">
-            <span class="cell-glyph">⬆️</span>
+            <img src="/images/moonly/clay_ascendant.png" style="width: 28px; height: 28px; object-fit: contain; margin-bottom: 4px;" alt="Асцендент">
+            <span class="cell-glyph" style="display: none;">⬆️</span>
             <div class="cell-role">Асцендент</div>
             <div class="cell-sign" id="valAsc">Рак</div>
             <span class="element-mini-tag water" id="tagAsc">Вода</span>
@@ -2981,6 +2962,17 @@
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
         </button>
       </header>
+
+      <!-- Moonly Free Questions Counter Badge -->
+      <div id="chatQuestionsBadge" style="display: flex; justify-content: space-between; align-items: center; padding: 7px 16px; font-size: 11.5px; color: #94A3B8; background: rgba(26, 28, 34, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px);">
+        <div style="display: flex; align-items: center; gap: 6px;">
+          <span style="color: #6C5CE7;">✦</span>
+          <span>Бесплатные вопросы: <strong id="chatFreeCount" style="color: #6C5CE7; font-weight: 700;">3 из 3</strong></span>
+        </div>
+        <button type="button" onclick="showMoonlyPaywall('chat_badge')" style="background: rgba(108, 92, 231, 0.15); border: 1px solid rgba(108, 92, 231, 0.35); border-radius: 9999px; padding: 2px 9px; font-size: 11px; color: #C4B5FD; cursor: pointer;">
+          Триал 1 ₽
+        </button>
+      </div>
 
       <!-- Chat Messages Stream -->
       <div class="chat-stream" id="chatStream">
@@ -3168,31 +3160,33 @@
           </div>
         </div>
 
-        <div class="plan-anchor-badge" style="background: rgba(245, 158, 11, 0.18); border: 1px solid rgba(245, 158, 11, 0.45); color: #F59E0B;">✦ Пространство Селеста VIP</div>
-        <div class="card-headline" style="font-size: 19px;">АСТРА Клуб • Пространство Селеста</div>
+        <div class="plan-anchor-badge" style="background: rgba(108, 92, 231, 0.18); border: 1px solid rgba(108, 92, 231, 0.45); color: #C4B5FD;">✦ АСТРА VIP • Доступ 24/7</div>
+        <div class="card-headline" style="font-size: 19px;">Личные наставники и полная карта</div>
         <div style="font-size: 13px; color: var(--text-secondary); margin-top: 5px; line-height: 1.55;">
-          Личный помощник 24/7 • Бережный разбор отношений • Персональный астро-профиль • Расклады Таро без ограничений
+          Безлимитный диалог с 4 наставниками 24/7 • Бережный разбор отношений и карьеры • Натальная карта и расклады Таро без ограничений
         </div>
-        <div class="premium-price" style="color: #FDE68A;">399 ₽ <span style="font-size: 13px; font-weight: 500; color: var(--text-muted);">/ месяц</span></div>
-        <div style="font-size: 11.5px; color: #F59E0B; margin-bottom: 12px; font-weight: 600;">
-          Всего 13 ₽ в день • Твой персональный щит от сомнений и тревоги
+        <div class="premium-price" style="color: #F8FAFC; margin-top: 10px;">1 ₽ <span style="font-size: 13px; font-weight: 500; color: var(--text-muted);">/ первые 3 дня</span></div>
+        <div style="font-size: 11.5px; color: #A78BFA; margin-bottom: 12px; font-weight: 600;">
+          Далее 245 ₽ в неделю (35 ₽ в день) • Отмена в любой момент в 1 клик
         </div>
-        <button class="btn-max-primary" style="background: var(--gold-gradient); box-shadow: 0 4px 18px rgba(245, 158, 11, 0.35); color: #000; font-weight: 700;" onclick="triggerRobokassaPayment()">
-          Активировать Селеста VIP (Robokassa / СБП)
+        <button class="btn-max-primary" style="background: linear-gradient(135deg, #6C5CE7 0%, #4F46E5 100%); box-shadow: 0 4px 18px rgba(108, 92, 231, 0.4); color: #fff; font-weight: 700;" onclick="triggerTrialSubscription()">
+          Попробовать за 1 ₽ (Robokassa / СБП)
         </button>
+
+        <button id="profileUnsubBtn" onclick="handleUnsubscribe()" style="width: 100%; margin-top: 10px; background: rgba(239, 68, 68, 0.08); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 12px; padding: 10px; font-size: 12.5px; color: #FCA5A5; font-weight: 600; cursor: pointer;">
+          ✕ Отменить подписку в 1 клик
+        </button>
+
         <div style="display: flex; justify-content: center; gap: 14px; margin-top: 10px;">
-          <span style="font-size: 11px; color: var(--text-muted);">🔒 Безопасная оплата СБП</span>
-          <button onclick="handleUnsubscribe()" style="background: none; border: none; font-size: 11px; color: var(--text-muted); text-decoration: underline; cursor: pointer;">
-            Отмена в 1 клик
-          </button>
+          <span style="font-size: 11px; color: var(--text-muted);">🔒 Безопасная оплата через Robokassa</span>
         </div>
         <div style="text-align: center; margin-top: 12px; padding-bottom: 8px; display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;">
           <a href="/offer" target="_blank" style="font-size: 11px; color: #a1a1aa; text-decoration: underline;">
-            Публичная оферта
+            Пользовательское соглашение
           </a>
           <span style="font-size: 11px; color: #52525b;">•</span>
           <a href="/unsubscribe" target="_blank" style="font-size: 11px; color: #a1a1aa; text-decoration: underline;">
-            Инструкция по отмене подписки
+            Отмена подписки
           </a>
         </div>
         <div style="text-align: center; margin-top: 14px; padding-top: 12px; border-top: 1px solid rgba(255, 255, 255, 0.08); font-size: 10.5px; color: #71717a; line-height: 1.5;">
@@ -3391,14 +3385,13 @@
             <div class="ob-medallion-container">
               <div class="ob-medallion-halo"></div>
               <div class="ob-medallion-badge">
-                <img src="/onboarding_step1_portal.jpg" class="ob-medallion-img" alt="Врата Судьбы">
-                <div class="ob-medallion-shimmer"></div>
+                <img src="/images/moonly/clay_sun.png" class="ob-medallion-img" alt="Солнце">
               </div>
             </div>
             <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 1 из 4 • Знакомство</div>
-            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Как к тебе обращаться?</h3>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Как тебя зовут?</h3>
             <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
-              Напиши своё имя, чтобы мы знали, как к тебе тепло и бережно обращаться.
+              Твоё имя свяжет тебя с персональной картой неба.
             </p>
             <div class="form-field" style="margin-bottom: 12px; width: 100%;">
               <label>Твое имя</label>
@@ -3418,14 +3411,13 @@
             <div class="ob-medallion-container">
               <div class="ob-medallion-halo"></div>
               <div class="ob-medallion-badge">
-                <img src="/onboarding_step2_astrolabe.jpg" class="ob-medallion-img" alt="Астролябия Времени">
-                <div class="ob-medallion-shimmer"></div>
+                <img src="/images/moonly/clay_planet_2.png" class="ob-medallion-img" alt="Сфера Времени">
               </div>
             </div>
             <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 2 из 4 • Момент рождения</div>
-            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Когда ты празднуешь день рождения?</h3>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Когда ты родился?</h3>
             <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
-              Дата и точное время помогают рассчитать точное положение планет и твою натальную карту.
+              Момент первого вдоха определяет траекторию светил.
             </p>
             <div class="form-field" style="margin-bottom: 10px; width: 100%;">
               <label>Дата рождения</label>
@@ -3455,27 +3447,23 @@
             <div class="ob-medallion-container">
               <div class="ob-medallion-halo"></div>
               <div class="ob-medallion-badge">
-                <img src="/onboarding_step3_coords.jpg" class="ob-medallion-img" alt="Сфера Координат">
-                <div class="ob-medallion-shimmer"></div>
+                <img src="/images/moonly/clay_planet_3.png" class="ob-medallion-img" alt="Звездные Координаты">
               </div>
             </div>
             <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 3 из 4 • Место рождения</div>
-            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">В каком городе или посёлке?</h3>
+            <h3 class="card-headline" style="font-size: clamp(17px, 2.6vh, 20px); margin: 2px 0 6px; text-align: center;">Где ты родился?</h3>
             <p class="card-desc" style="font-size: clamp(12px, 1.8vh, 13.5px); margin-bottom: 12px; text-align: center;">
-              Город, село, деревня или хутор. Это нужно для точного определения часового пояса и звездного неба.
+              Географическая точка выстраивает сетку домов.
             </p>
             <div class="form-field" style="margin-bottom: 12px; width: 100%;">
-              <label>Город, посёлок, село или хутор</label>
-              <input type="text" id="obInputCity" list="russianPlacesDatalist" placeholder="Например: д. Сосновка, Москва, Казань..." autocomplete="off">
-              <div style="font-size: 11px; color: var(--text-muted); line-height: 1.4; margin-top: 5px;">
-                💡 Поддерживаются любые населенные пункты РФ по всем 11 часовым поясам.
-              </div>
+              <label>Город или населенный пункт</label>
+              <input type="text" id="obInputCity" list="russianPlacesDatalist" placeholder="Например: Москва, Екатеринбург, Казань..." autocomplete="off">
             </div>
           </div>
           <div class="ob-step-footer">
             <div style="display: flex; gap: 8px;">
               <button class="btn-max-secondary" onclick="nextOnboardingStep(2)" style="flex: 1; margin-top: 0;">← Назад</button>
-              <button class="btn-max-primary" onclick="nextOnboardingStep(4)" style="flex: 2;">Выбрать помощника →</button>
+              <button class="btn-max-primary" onclick="nextOnboardingStep(4)" style="flex: 2;">Выбрать наставника →</button>
             </div>
           </div>
         </div>
@@ -3491,8 +3479,8 @@
                 <img src="/avatars/sofia.jpg" class="ob-cluster-avatar" style="left: 60px; z-index: 1;" alt="София">
               </div>
             </div>
-            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 4 из 4 • Твой личный помощник 24/7</div>
-            <h3 class="card-headline" style="font-size: clamp(16px, 2.4vh, 19px); margin: 2px 0 4px; text-align: center;">Выбери своего помощника</h3>
+            <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center;">Шаг 4 из 4 • Твой наставник 24/7</div>
+            <h3 class="card-headline" style="font-size: clamp(16px, 2.4vh, 19px); margin: 2px 0 4px; text-align: center;">Выбери своего наставника</h3>
             <p class="card-desc" style="font-size: clamp(11.5px, 1.7vh, 12.5px); margin-bottom: 6px; text-align: center;">
               Кто будет рядом и поддержит в любую минуту? (Сменить можно в любой момент в 1 клик):
             </p>
@@ -3510,16 +3498,15 @@
 
         <!-- Step Loading: Labor Illusion (Calculation Screen) -->
         <div id="obStepLoading" class="ob-step-container" style="display: none; text-align: center; justify-content: center; align-items: center; padding: 20px 12px;">
-          <div class="ob-medallion-container" style="width: 78px; height: 78px; margin: 0 auto 16px;">
+          <div class="ob-medallion-container" style="width: 84px; height: 84px; margin: 0 auto 16px;">
             <div class="ob-medallion-halo large"></div>
             <div class="ob-medallion-badge large">
-              <img src="/avatar.jpg" class="ob-medallion-img" alt="Печать Паспорта">
-              <div class="ob-medallion-shimmer"></div>
+              <img src="/images/moonly/hero_clay_moon.png" class="ob-medallion-img" alt="Звездная карта">
             </div>
           </div>
-          <h3 class="card-headline" style="font-size: 19px; margin-bottom: 6px;">Вскрываем твою матрицу...</h3>
+          <h3 class="card-headline" style="font-size: 19px; margin-bottom: 6px;">Составляем твою карту...</h3>
           <p id="obLoadingStatusText" style="font-size: 13px; color: #C4B5FD; font-weight: 500; min-height: 40px; max-width: 320px; margin: 0 auto;">
-            Считываем скрытый парадокс: внешняя броня vs внутренняя уязвимость...
+            Сверяем координаты планет • Твой космический чертёж готов
           </p>
           <div style="width: 100%; max-width: 320px; height: 6px; background: rgba(255, 255, 255, 0.1); border-radius: 3px; overflow: hidden; margin-top: 16px;">
             <div id="obProgressBar" style="width: 10%; height: 100%; background: var(--max-blue-gradient); transition: width 0.4s ease;"></div>
@@ -3713,6 +3700,70 @@
               </svg>
               <span>Скопировать текст</span>
             </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ====================================================================
+         MOONLY-STYLE PREMIUM PAYWALL (NATIVE BOTTOM SHEET)
+         ==================================================================== -->
+    <div class="modal-backdrop" id="moonlyPaywallModal" onclick="closeMoonlyPaywall(event)">
+      <div class="modal-sheet" onclick="event.stopPropagation()" style="background: #1A1C22; border-top: 1px solid rgba(255, 255, 255, 0.12); border-radius: 24px 24px 0 0; padding: 20px 18px 28px; max-width: 440px; margin: 0 auto;">
+        <div class="sheet-handle" style="width: 40px; height: 4px; background: rgba(255, 255, 255, 0.2); border-radius: 2px; margin: 0 auto 16px;"></div>
+        
+        <div style="display: flex; justify-content: flex-end; margin-top: -10px; margin-bottom: 6px;">
+          <button type="button" onclick="closeMoonlyPaywall()" aria-label="Закрыть" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1); width: 28px; height: 28px; border-radius: 50%; color: #94A3B8; font-size: 14px; display: flex; align-items: center; justify-content: center; cursor: pointer;">✕</button>
+        </div>
+
+        <div style="text-align: center; margin-bottom: 14px;">
+          <div style="width: 80px; height: 80px; margin: 0 auto 12px; border-radius: 22px; overflow: hidden; background: #121316; border: 1px solid rgba(255,255,255,0.1); box-shadow: 0 10px 24px rgba(0,0,0,0.5); display: flex; align-items: center; justify-content: center;">
+            <img src="/images/moonly/astra_clay_sun_moon.jpg" alt="АСТРА VIP" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+          <div style="font-size: 11.5px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; color: #6C5CE7; margin-bottom: 4px;">Бесплатные вопросы завершены</div>
+          <h3 style="font-size: 20px; font-weight: 700; color: #F8FAFC; margin: 0 0 6px; line-height: 1.3;">Продолжи диалог с наставником</h3>
+          <p style="font-size: 13px; color: #94A3B8; margin: 0 auto; line-height: 1.5; max-width: 320px;">
+            Твои 3 бесплатных вопроса подошли к концу. Открой безлимитный доступ к 4 наставникам, натальной карте и Таро 24/7.
+          </p>
+        </div>
+
+        <!-- Offer Highlight Box -->
+        <div style="background: rgba(108, 92, 231, 0.08); border: 1px solid rgba(108, 92, 231, 0.28); border-radius: 16px; padding: 14px 16px; margin-bottom: 16px;">
+          <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;">
+            <span style="font-size: 13px; color: #E2E8F0; font-weight: 600;">Пробный период 3 дня</span>
+            <span style="font-size: 24px; font-weight: 800; color: #F8FAFC;">1 ₽</span>
+          </div>
+          <div style="font-size: 11.5px; color: #94A3B8; line-height: 1.4;">
+            Далее 245 ₽ в неделю (всего 35 ₽ в день). Отмена в 1 клик в любое время в профиле.
+          </div>
+          <div style="margin-top: 10px; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.06); display: flex; flex-direction: column; gap: 6px; font-size: 12px; color: #CBD5E1;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="color: #6C5CE7;">✦</span>
+              <span>Безлимитный диалог 24/7 с любым наставником</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="color: #6C5CE7;">✦</span>
+              <span>Полная натальная карта и аспекты домов</span>
+            </div>
+            <div style="display: flex; align-items: center; gap: 8px;">
+              <span style="color: #6C5CE7;">✦</span>
+              <span>Все расклады Таро и Оракул без ограничений</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA Action -->
+        <button type="button" class="btn-max-primary" style="background: linear-gradient(135deg, #6C5CE7 0%, #4F46E5 100%); box-shadow: 0 4px 18px rgba(108, 92, 231, 0.4); color: #fff; font-weight: 700; font-size: 15px; width: 100%; padding: 13px;" onclick="triggerTrialSubscription()">
+          Попробовать за 1 ₽ →
+        </button>
+
+        <!-- Terms, Policy and Requisites Transparency Links -->
+        <div style="text-align: center; margin-top: 12px; font-size: 11px; color: #94A3B8; line-height: 1.5;">
+          <div>Безопасная оплата через шлюз Robokassa (СБП и банковские карты)</div>
+          <div style="margin-top: 6px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <a href="/offer" target="_blank" style="color: #A78BFA; text-decoration: underline;">Пользовательское соглашение</a>
+            <span>•</span>
+            <a href="/unsubscribe" target="_blank" style="color: #A78BFA; text-decoration: underline;">Отмена подписки</a>
           </div>
         </div>
       </div>
@@ -3959,6 +4010,8 @@
         localStorage.removeItem('astromax_onboarded');
         localStorage.removeItem('astromax_profile');
         localStorage.removeItem('astromax_chat_history');
+        localStorage.removeItem('astromax_free_questions_used');
+        localStorage.removeItem('astromax_is_vip');
         if (window.history && window.history.replaceState) {
           const cleanUrl = new URL(window.location);
           cleanUrl.searchParams.delete('reset');
@@ -3988,6 +4041,7 @@
       try { loadChatFromStorage(); } catch (e) { console.warn('loadChat error:', e); }
       try { calculateAndSyncChart(); } catch (e) { console.warn('calculateChart error:', e); }
       try { initDailyMidnightEngine(); } catch (e) { console.warn('dailyEngine error:', e); }
+      try { updateFreeQuestionsUI(); } catch (e) {}
 
       // 3. Если пользователь новый (или был выполнен сброс) — открываем онбординг с нуля
       const isOnboarded = localStorage.getItem('astromax_onboarded');
@@ -5623,6 +5677,16 @@
 
     async function sendUserMessage(text) {
       triggerHaptic();
+
+      // Freemium Guard: 3 free questions limit
+      const freeQuestionsUsed = parseInt(localStorage.getItem('astromax_free_questions_used') || '0', 10);
+      const isVip = localStorage.getItem('astromax_is_vip') === 'true';
+
+      if (!isVip && freeQuestionsUsed >= 3) {
+        showMoonlyPaywall('chat_limit');
+        return;
+      }
+
       const now = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
       state.chatHistory.push({ role: 'user', content: text, time: now });
       renderChatMessages();
@@ -5666,6 +5730,49 @@
 
       state.chatHistory.push({ role: 'assistant', content: replyText, time: replyTime });
       localStorage.setItem('astromax_chat_history', JSON.stringify(state.chatHistory));
+
+      // Обновляем счётчик бесплатных вопросов для не-VIP пользователей
+      if (!isVip) {
+        const nextCount = freeQuestionsUsed + 1;
+        localStorage.setItem('astromax_free_questions_used', nextCount.toString());
+        updateFreeQuestionsUI(nextCount);
+      }
+    }
+
+    function updateFreeQuestionsUI(count) {
+      const el = document.getElementById('chatFreeCount');
+      if (el) {
+        const isVip = localStorage.getItem('astromax_is_vip') === 'true';
+        if (isVip) {
+          el.textContent = 'VIP Безлимит 24/7';
+          el.style.color = '#10B981';
+        } else {
+          const used = count !== undefined ? count : parseInt(localStorage.getItem('astromax_free_questions_used') || '0', 10);
+          const remaining = Math.max(0, 3 - used);
+          el.textContent = `${remaining} из 3`;
+          el.style.color = remaining > 0 ? '#6C5CE7' : '#FB923C';
+        }
+      }
+    }
+
+    function showMoonlyPaywall(source) {
+      triggerHaptic();
+      const modal = document.getElementById('moonlyPaywallModal');
+      if (modal) {
+        modal.classList.add('active');
+      }
+    }
+
+    function closeMoonlyPaywall(e) {
+      if (e) e.stopPropagation();
+      const modal = document.getElementById('moonlyPaywallModal');
+      if (modal) {
+        modal.classList.remove('active');
+      }
+    }
+
+    function triggerTrialSubscription() {
+      triggerRobokassaPayment({ plan: 'trial_3d', amount: 1 });
     }
 
     // 8. Tarot Sanctuary Engine
@@ -5919,19 +6026,23 @@
     }
 
     // 10. Payments & Subscriptions
-    async function triggerRobokassaPayment() {
+    async function triggerRobokassaPayment(options = {}) {
       triggerHaptic();
+      const plan = options.plan || 'trial_3d';
+      const amount = options.amount !== undefined ? options.amount : (plan === 'trial_3d' ? 1 : 399);
       try {
         const res = await fetch('/api/payment/create-order', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ amount: 399, plan: 'monthly_sub', userId: state.userId })
+          body: JSON.stringify({ amount, plan, userId: state.userId })
         });
         if (res.ok) {
           const data = await res.json();
           if (data.paymentUrl) {
             window.location.href = data.paymentUrl;
           }
+        } else {
+          showToast('Ошибка при создании заказа Robokassa');
         }
       } catch(err) {
         showToast('Ошибка платежной системы Robokassa');
@@ -5940,8 +6051,13 @@
 
     function handleUnsubscribe() {
       triggerHaptic();
-      if (confirm('Вы уверены, что хотите отменить доступ к АСТРА Селеста VIP? Доступ сохранится до конца оплаченного периода.')) {
-        showToast('Подписка отменена. Списаний больше не будет.');
+      if (confirm('Вы уверены, что хотите отменить подписку АСТРА VIP? Доступ сохранится до конца оплаченного периода.')) {
+        localStorage.setItem('astromax_is_vip', 'false');
+        state.isVip = false;
+        showToast('Подписка успешно отменена. Списаний больше не будет.');
+        updateFreeQuestionsUI();
+        const unSubBtn = document.getElementById('profileUnsubBtn');
+        if (unSubBtn) unSubBtn.style.display = 'none';
       }
     }
 
@@ -6750,11 +6866,11 @@
       if (stepIndicator) stepIndicator.textContent = 'Расчет...';
 
       if (progressBar) progressBar.style.width = '35%';
-      if (statusText) statusText.textContent = 'Считываем парадокс характера: внешняя сила vs скрытая уязвимость...';
+      if (statusText) statusText.textContent = 'Определяем положение планет в момент первого вдоха...';
       await new Promise(r => setTimeout(r, 650));
 
       if (progressBar) progressBar.style.width = '70%';
-      if (statusText) statusText.textContent = 'Расшифровываем Большую Тройку: истинные эмоции, волю и внутреннюю опору...';
+      if (statusText) statusText.textContent = 'Формируем Большую Тройку: Солнце, Луну и Асцендент...';
       await new Promise(r => setTimeout(r, 750));
 
       await calculateAndSyncChart();
