@@ -70,7 +70,8 @@ export class RobokassaClient {
       params.set('IsTest', '1');
     }
 
-    if (isRecurring) {
+    // Рекуррентные платежи передаются только при включенной опции в магазине
+    if (isRecurring && process.env.ROBOKASSA_RECURRING === '1') {
       params.set('Recurring', 'true');
     }
 
