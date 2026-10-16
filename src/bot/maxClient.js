@@ -9,6 +9,7 @@ import path from 'node:path';
  */
 
 const DEFAULT_MAX_TOKEN = 'f9LHodD0cOJcero4z_zdkBkCUGR8t1EldYtf37NfozAUWATGaD1lsIBHXLgs0FHRTBbhX35dnkQX2LCf-bMA';
+const DEFAULT_BANNER_TOKEN = '0OJajpAXonUYOdkdcDh/zT2M2NwmvQuOikEB7GNz6O33yKSs0vY6NBsEsE1ODyhkEBv/gzcLTRpuBjozu5DhUAijdsmkD2gsltualViGJKGf9hFk7OBf5LQSZyq7HLb1iS8KaowrMNeo3AVpBHDx19nTOtfjpfoZ9Xs5Q5blnzelQXs4wtJmOi1GxsxM6McSnPc0ZtdMxti0ufB5iExyN+VjqicGyomUCVIGGKurCzk44nyzKuqV3NkWjy+Z51QIm5VoaqK1fNE=';
 
 export class MaxBotClient {
   constructor(options = {}) {
@@ -17,7 +18,7 @@ export class MaxBotClient {
     this.isSandbox = options.isSandbox ?? (!this.token || this.token === 'TEST_TOKEN');
     this.isPolling = false;
     this.marker = null;
-    this._bannerToken = null;
+    this._bannerToken = options.bannerToken || process.env.MAX_BANNER_TOKEN || DEFAULT_BANNER_TOKEN;
   }
 
   /**
@@ -145,17 +146,23 @@ export class MaxBotClient {
    * @param {object} options - { buttons, attachments, isChat }
    */
   async sendMessage(recipient, text, options = {}) {
-    let queryParam = '';
+    let targetChatId = null;
+    let targetUserId = null;
+
     if (typeof recipient === 'object' && recipient !== null) {
-      if (recipient.user_id) queryParam = `?user_id=${recipient.user_id}`;
-      else if (recipient.chat_id) queryParam = `?chat_id=${recipient.chat_id}`;
+      targetChatId = recipient.chat_id || null;
+      targetUserId = recipient.user_id || null;
     } else if (recipient) {
       if (options.isChat) {
-        queryParam = `?chat_id=${recipient}`;
+        targetChatId = recipient;
       } else {
-        queryParam = `?user_id=${recipient}`;
+        targetUserId = recipient;
       }
     }
+
+    let queryParam = '';
+    if (targetChatId) queryParam = `?chat_id=${targetChatId}`;
+    else if (targetUserId) queryParam = `?user_id=${targetUserId}`;
 
     const payload = {
       text,
@@ -220,12 +227,25 @@ export class MaxBotClient {
 
     // Для sandbox-режима сохраняем нормализованный chat_id
     if (this.isSandbox) {
-      payload.chat_id = (typeof recipient === 'object' && recipient !== null)
-        ? (recipient.chat_id ?? recipient.user_id)
-        : recipient;
+      payload.chat_id = targetChatId || targetUserId || recipient;
+      return { ok: true, sandbox: true, endpoint: `/messages${queryParam}`, method: 'POST', receivedBody: payload };
     }
 
-    return this.request(`/messages${queryParam}`, 'POST', payload);
+    try {
+      return await this.request(`/messages${queryParam}`, 'POST', payload);
+    } catch (err) {
+      // Автоматический fallback: если chat_id не найден (404 chat.not.found) и есть user_id, пробуем отправить в ЛС
+      if (targetChatId && targetUserId && (err.message.includes('chat.not.found') || err.message.includes('404'))) {
+        console.warn(`[MaxBotClient] chat_id ${targetChatId} вернул 404, повторная отправка на user_id ${targetUserId}...`);
+        return await this.request(`/messages?user_id=${targetUserId}`, 'POST', payload);
+      }
+      // И наоборот: если user_id дал dialog.not.found, а есть chat_id
+      if (targetUserId && targetChatId && (err.message.includes('dialog.not.found') || err.message.includes('404'))) {
+        console.warn(`[MaxBotClient] user_id ${targetUserId} вернул 404, повторная отправка на chat_id ${targetChatId}...`);
+        return await this.request(`/messages?chat_id=${targetChatId}`, 'POST', payload);
+      }
+      throw err;
+    }
   }
 
   /**
