@@ -854,6 +854,7 @@
       flex-direction: column;
       padding: 0 !important;
       overflow: hidden;
+      background: #FFFFFF !important;
     }
 
     /* Virtual Keyboard Active State */
@@ -865,17 +866,16 @@
       padding-bottom: 0 !important;
     }
 
-    /* Native Telegram/ChatGPT Standard Chat TopBar */
+    /* Native Telegram/ChatGPT Standard Chat TopBar (Moonly Luxury White Standard) */
     .chat-topbar {
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 12px;
       padding: calc(var(--safe-top) + 8px) 16px 10px;
-      background: rgba(11, 12, 19, 0.94);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: #FFFFFF;
+      border-bottom: 1px solid #ECEEF2;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
       flex-shrink: 0;
       cursor: pointer;
       z-index: 30;
@@ -885,7 +885,7 @@
     }
 
     .chat-topbar:active {
-      background: rgba(22, 24, 38, 0.96);
+      background: #F9FAFB;
     }
 
     .chat-topbar-profile {
@@ -907,10 +907,10 @@
       width: 42px;
       height: 42px;
       border-radius: 50%;
-      border: 1.5px solid var(--max-blue);
+      border: 2px solid #6C5CE7;
       object-fit: cover;
       display: block;
-      background: var(--bg-surface-secondary);
+      background: #F3F4F6;
     }
 
     .chat-topbar-beacon {
@@ -919,10 +919,10 @@
       right: 0px;
       width: 10px;
       height: 10px;
-      background: #30D158;
-      border: 2px solid #0B0C13;
+      background: #16A34A;
+      border: 2px solid #FFFFFF;
       border-radius: 50%;
-      box-shadow: 0 0 6px rgba(48, 209, 88, 0.9);
+      box-shadow: 0 0 6px rgba(22, 163, 74, 0.7);
     }
 
     .chat-topbar-meta {
@@ -934,9 +934,9 @@
     }
 
     .chat-topbar-name {
-      font-size: 15px;
+      font-size: 15.5px;
       font-weight: 700;
-      color: var(--text-primary);
+      color: #111827;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -959,26 +959,26 @@
       width: 5px;
       height: 5px;
       border-radius: 50%;
-      background: #30D158;
-      box-shadow: 0 0 4px rgba(48, 209, 88, 0.8);
+      background: #16A34A;
+      box-shadow: 0 0 4px rgba(22, 163, 74, 0.6);
       flex-shrink: 0;
     }
 
     .chat-topbar-status-text {
-      color: #30D158;
-      font-weight: 500;
-      font-size: 11px;
+      color: #16A34A;
+      font-weight: 600;
+      font-size: 11.5px;
     }
 
     .chat-topbar-sep {
-      color: rgba(255, 255, 255, 0.25);
+      color: #D1D5DB;
       font-size: 10px;
     }
 
     .chat-topbar-role-text {
-      color: var(--text-muted);
-      font-size: 11px;
-      font-weight: 450;
+      color: #6B7280;
+      font-size: 11.5px;
+      font-weight: 500;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -988,11 +988,11 @@
       display: inline-flex;
       align-items: center;
       gap: 4px;
-      padding: 6px 11px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 6px 12px;
+      background: #F3F4F6;
+      border: 1px solid #E5E7EB;
       border-radius: var(--radius-pill);
-      color: var(--text-secondary);
+      color: #374151;
       font-size: 11.5px;
       font-weight: 600;
       cursor: pointer;
@@ -1002,9 +1002,9 @@
     }
 
     .chat-topbar-switch-btn:active {
-      background: rgba(139, 92, 246, 0.2);
-      color: #FFFFFF;
-      border-color: rgba(139, 92, 246, 0.4);
+      background: #EEF2FF;
+      color: #4F46E5;
+      border-color: #C7D2FE;
     }
 
     /* Persona Selector Card Styles */
@@ -1125,7 +1125,7 @@
       color: var(--text-muted);
     }
 
-    /* Chat Messages Stream (Dynamic High-Breathing Canvas) */
+    /* Chat Messages Stream (Moonly White Luxury Canvas) */
     .chat-stream {
       flex: 1;
       min-height: 0;
@@ -1136,6 +1136,7 @@
       flex-direction: column;
       gap: 12px;
       scroll-behavior: smooth;
+      background: #F8F9FB;
     }
 
     .chat-bubble {
@@ -1150,58 +1151,57 @@
 
     .chat-bubble.astrologer {
       align-self: flex-start;
-      background: rgba(23, 25, 38, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.08);
-      color: #F8FAFC;
+      background: #FFFFFF;
+      border: 1px solid #ECEEF2;
+      color: #1F2937;
       border-bottom-left-radius: 4px;
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.28);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
     }
 
     .chat-bubble.user {
       align-self: flex-end;
-      background: linear-gradient(135deg, #7C3AED 0%, #6366F1 50%, #06B6D4 100%);
+      background: #6C5CE7;
       color: #FFFFFF;
       border-bottom-right-radius: 4px;
-      box-shadow: 0 4px 16px rgba(124, 58, 237, 0.35);
+      box-shadow: 0 4px 14px rgba(108, 92, 231, 0.28);
       font-weight: 450;
     }
 
     .chat-timestamp {
       font-size: 10px;
-      color: rgba(255, 255, 255, 0.45);
       margin-top: 5px;
       display: block;
       text-align: right;
       letter-spacing: 0.2px;
     }
 
-    .chat-bubble.astrologer .chat-timestamp {
-      color: var(--text-muted);
+    .chat-bubble.user .chat-timestamp {
+      color: rgba(255, 255, 255, 0.75);
     }
 
-    /* Typing Starlight Indicator */
+    .chat-bubble.astrologer .chat-timestamp {
+      color: #9CA3AF;
+    }
+
+    /* Typing Starlight Indicator (Moonly White Theme) */
     .typing-indicator {
       display: none;
       align-self: flex-start;
       margin: 0 14px 8px;
-      background: rgba(23, 25, 38, 0.85);
-      border: 1px solid rgba(255, 255, 255, 0.08);
+      background: #FFFFFF;
+      border: 1px solid #ECEEF2;
       border-radius: 16px;
       border-bottom-left-radius: 4px;
       padding: 8px 14px;
       gap: 5px;
       align-items: center;
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
     }
 
     .typing-dot {
       width: 5px;
       height: 5px;
-      background: var(--max-blue);
+      background: #6C5CE7;
       border-radius: 50%;
       animation: pulseDot 1.4s infinite ease-in-out;
     }
@@ -1214,15 +1214,13 @@
       40% { opacity: 1; transform: scale(1.2); }
     }
 
-    /* Luxury Single-Row Native Chat Input Bar */
+    /* Luxury Single-Row Native Chat Input Bar (Moonly White Theme) */
     .chat-input-bar {
       display: flex;
       align-items: center;
       gap: 8px;
-      background: rgba(11, 12, 19, 0.96);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      background: #FFFFFF;
+      border-top: 1px solid #E5E7EB;
       padding: 8px 12px;
       flex-shrink: 0;
       z-index: 20;
@@ -1232,17 +1230,17 @@
       flex: 1;
       display: flex;
       align-items: center;
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #F1F3F7;
+      border: 1px solid #E2E8F0;
       border-radius: 22px;
       padding: 7px 14px;
       transition: all 0.2s ease;
     }
 
     .chat-input-wrap:focus-within {
-      border-color: rgba(139, 92, 246, 0.6);
-      background: rgba(255, 255, 255, 0.08);
-      box-shadow: 0 0 12px rgba(139, 92, 246, 0.25);
+      border-color: #6C5CE7;
+      background: #FFFFFF;
+      box-shadow: 0 0 0 2px rgba(108, 92, 231, 0.15);
     }
 
     .chat-input {
@@ -1250,13 +1248,13 @@
       background: none;
       border: none;
       outline: none;
-      color: #FFFFFF;
+      color: #111827;
       font-size: 14.5px;
       font-family: inherit;
     }
 
     .chat-input::placeholder {
-      color: rgba(255, 255, 255, 0.35);
+      color: #9CA3AF;
     }
 
     .chat-send-btn {
@@ -1264,14 +1262,14 @@
       height: 38px;
       border-radius: 50%;
       border: none;
-      background: linear-gradient(135deg, #7C3AED 0%, #06B6D4 100%);
+      background: #6C5CE7;
       color: #FFFFFF;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
       flex-shrink: 0;
-      box-shadow: 0 4px 14px rgba(124, 58, 237, 0.4);
+      box-shadow: 0 4px 14px rgba(108, 92, 231, 0.3);
       transition: transform 0.12s ease;
       touch-action: manipulation;
     }
@@ -1280,9 +1278,144 @@
       transform: scale(0.92);
     }
 
+    /* Bottom Bar adaptation when chat is active */
+    body.tab-chat-active .bottom-bar {
+      background: rgba(255, 255, 255, 0.96) !important;
+      border-top: 1px solid #E5E7EB !important;
+      backdrop-filter: blur(20px);
+    }
+    body.tab-chat-active .tab-bar-item {
+      color: #94A3B8 !important;
+    }
+    body.tab-chat-active .tab-bar-item.active {
+      color: #6C5CE7 !important;
+    }
+    body.tab-chat-active .tab-bar-item.active .tab-icon {
+      color: #6C5CE7 !important;
+    }
+    body.tab-chat-active .tab-label {
+      color: inherit !important;
+    }
+
     /* ==========================================================================
        TAB 3: ХРАМ ТАРО (SACRED 3D TAROT SANCTUARY)
        ========================================================================== */
+    /* Moonly Tarot 3D Cards Showcase */
+    .moonly-tarot-showcase {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 12px 0 16px;
+      perspective: 1000px;
+    }
+    .moonly-tarot-clay-card {
+      flex: 1;
+      max-width: 104px;
+      height: 148px;
+      border-radius: 16px;
+      background: linear-gradient(145deg, rgba(30, 27, 56, 0.95) 0%, rgba(18, 16, 36, 0.95) 100%);
+      border: 1.5px solid rgba(139, 92, 246, 0.3);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4), inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 6px 8px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .moonly-tarot-clay-card:hover, .moonly-tarot-clay-card:active {
+      transform: translateY(-4px) scale(1.02);
+      border-color: #A78BFA;
+      box-shadow: 0 14px 28px rgba(139, 92, 246, 0.35);
+    }
+    .mtc-art {
+      width: 58px;
+      height: 72px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+    }
+    .mtc-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #E2E8F0;
+      margin-top: 4px;
+    }
+    .mtc-sub {
+      font-size: 9px;
+      color: #94A3B8;
+      font-weight: 500;
+    }
+
+    /* Moonly Interactive 3D Fanned Deck */
+    .moonly-fan-deck-container {
+      position: relative;
+      width: 100%;
+      min-height: 200px;
+      margin: 12px 0 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      perspective: 900px;
+      overflow: visible;
+      padding-top: 10px;
+    }
+    .fan-deck-cards {
+      position: relative;
+      width: 220px;
+      height: 130px;
+      margin-bottom: 32px;
+    }
+    .fan-card {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      width: 78px;
+      height: 118px;
+      margin-left: -39px;
+      border-radius: 12px;
+      background: url('/images/tarot/card-back.png') center/cover no-repeat;
+      border: 1.5px solid rgba(139, 92, 246, 0.4);
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5), 0 0 10px rgba(108, 92, 231, 0.2);
+      cursor: pointer;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transform-origin: 50% 120%;
+      user-select: none;
+      touch-action: manipulation;
+    }
+    .fan-card-1 { transform: rotate(-24deg) translateY(12px); z-index: 1; }
+    .fan-card-2 { transform: rotate(-16deg) translateY(8px); z-index: 2; }
+    .fan-card-3 { transform: rotate(-8deg) translateY(3px); z-index: 3; }
+    .fan-card-4 { transform: rotate(0deg) translateY(-8px); z-index: 10; border-color: #8B5CF6; box-shadow: 0 10px 24px rgba(139, 92, 246, 0.5), 0 0 16px rgba(139, 92, 246, 0.4); }
+    .fan-card-5 { transform: rotate(8deg) translateY(3px); z-index: 3; }
+    .fan-card-6 { transform: rotate(16deg) translateY(8px); z-index: 2; }
+    .fan-card-7 { transform: rotate(24deg) translateY(12px); z-index: 1; }
+
+    .fan-card:hover, .fan-card:active {
+      transform: rotate(0deg) translateY(-20px) scale(1.08) !important;
+      z-index: 20 !important;
+      box-shadow: 0 12px 28px rgba(139, 92, 246, 0.6), 0 0 20px rgba(139, 92, 246, 0.5);
+    }
+    .fan-card-sparkle {
+      position: absolute;
+      top: 6px;
+      right: 6px;
+      font-size: 10px;
+      color: #DDD6FE;
+      animation: moonlyBreathe 2s infinite ease-in-out;
+    }
+    .fan-deck-hint {
+      margin-top: 16px;
+      font-size: 11.5px;
+      font-weight: 600;
+      color: #A78BFA;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
     .tarot-mode-switch {
       display: flex;
       background: var(--bg-surface-secondary);
@@ -2776,7 +2909,7 @@
       filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
     }
 
-    /* Week Moon Calendar Bar */
+    /* Week Moon Calendar Bar with 3D Spheres */
     .moonly-week-bar {
       display: grid;
       grid-template-columns: repeat(7, 1fr);
@@ -2791,7 +2924,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
       padding: 6px 2px;
       border-radius: 12px;
       cursor: pointer;
@@ -2815,18 +2948,30 @@
       font-weight: 700;
       color: #F8FAFC;
     }
-    .mwd-moon {
-      font-size: 11px;
+    .mwd-moon-sphere {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 6px rgba(255, 255, 255, 0.25);
+      background: radial-gradient(circle at 35% 35%, #F8FAFC 0%, #94A3B8 55%, #334155 100%);
     }
+    .mwd-moon-sphere.moon-new { background: radial-gradient(circle at 35% 35%, #475569 0%, #1E293B 70%, #0F172A 100%); box-shadow: none; }
+    .mwd-moon-sphere.moon-crescent { background: radial-gradient(circle at 35% 35%, #E2E8F0 0%, #64748B 60%, #1E293B 100%); }
+    .mwd-moon-sphere.moon-quarter { background: radial-gradient(circle at 35% 35%, #F8FAFC 0%, #CBD5E1 50%, #475569 90%); }
+    .mwd-moon-sphere.moon-gibbous { background: radial-gradient(circle at 35% 35%, #FEF08A 0%, #E2E8F0 45%, #64748B 85%); box-shadow: 0 0 8px rgba(254, 240, 138, 0.4); }
+    .mwd-moon-sphere.moon-full { background: radial-gradient(circle at 35% 35%, #FFFBEB 0%, #FDE68A 40%, #F59E0B 90%); box-shadow: 0 0 10px rgba(245, 158, 11, 0.6); }
 
-    /* Moonly Focus Card */
+    /* Moonly Focus Card (Rich 3D Atmospheric Presentation) */
     .moonly-focus-card {
-      background: linear-gradient(135deg, #1C1A38 0%, #121024 100%);
-      border: 1px solid rgba(167, 139, 250, 0.25);
+      position: relative;
+      background: linear-gradient(180deg, rgba(20, 20, 32, 0.65) 0%, rgba(15, 16, 26, 0.94) 100%), url('/images/moonly/imgi_97_DQRGRzHUmF05ikNIhkIr7uHOgN8.png') center/cover no-repeat;
+      border: 1px solid rgba(167, 139, 250, 0.3);
       border-radius: 20px;
       padding: 18px;
       margin-bottom: 14px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+      overflow: hidden;
     }
     .focus-card-header {
       display: flex;
@@ -2839,14 +2984,14 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: #C4B5FD;
+      color: #DDD6FE;
     }
     .focus-badge {
       font-size: 11px;
-      color: #10B981;
-      background: rgba(16, 185, 129, 0.12);
-      border: 1px solid rgba(16, 185, 129, 0.25);
-      padding: 2px 8px;
+      color: #34D399;
+      background: rgba(16, 185, 129, 0.16);
+      border: 1px solid rgba(16, 185, 129, 0.3);
+      padding: 2px 9px;
       border-radius: 9999px;
       font-weight: 600;
     }
@@ -2862,12 +3007,13 @@
       color: #F8FAFC;
       line-height: 1.45;
       flex: 1;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
     }
     .focus-clay-art {
-      width: 64px;
-      height: 64px;
+      width: 68px;
+      height: 68px;
       object-fit: contain;
-      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
       flex-shrink: 0;
     }
     .focus-tags-row {
@@ -2881,20 +3027,21 @@
       font-weight: 600;
       padding: 4px 10px;
       border-radius: 9999px;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      color: #CBD5E1;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #E2E8F0;
+      backdrop-filter: blur(8px);
     }
     .focus-pill.active {
-      background: rgba(244, 114, 182, 0.16);
-      border-color: rgba(244, 114, 182, 0.4);
+      background: rgba(244, 114, 182, 0.22);
+      border-color: rgba(244, 114, 182, 0.5);
       color: #F472B6;
     }
 
-    /* Moonly Lunar Card */
+    /* Moonly Lunar Card (Deep Cosmic Twilight Blue) */
     .moonly-lunar-card {
-      background: linear-gradient(135deg, #0F1C36 0%, #0B1220 100%);
-      border: 1px solid rgba(56, 189, 248, 0.22);
+      background: linear-gradient(135deg, #1E3A8A 0%, #172554 50%, #0F172A 100%);
+      border: 1px solid rgba(56, 189, 248, 0.3);
       border-radius: 20px;
       padding: 18px;
       margin-bottom: 14px;
@@ -2902,7 +3049,7 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.4);
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.6);
     }
     .lunar-card-content {
       flex: 1;
@@ -2912,7 +3059,7 @@
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 0.06em;
-      color: #38BDF8;
+      color: #67E8F9;
       margin-bottom: 2px;
     }
     .lunar-title {
@@ -2923,13 +3070,13 @@
     }
     .lunar-time {
       font-size: 11.5px;
-      color: #94A3B8;
+      color: #93C5FD;
       margin-top: 3px;
       font-weight: 500;
     }
     .lunar-desc {
       font-size: 12px;
-      color: #CBD5E1;
+      color: #E2E8F0;
       margin-top: 6px;
       line-height: 1.4;
     }
@@ -2941,20 +3088,20 @@
       font-size: 11px;
       font-weight: 600;
       color: #67E8F9;
-      background: rgba(6, 182, 212, 0.12);
-      border: 1px solid rgba(6, 182, 212, 0.28);
+      background: rgba(6, 182, 212, 0.16);
+      border: 1px solid rgba(6, 182, 212, 0.35);
       padding: 3px 10px;
       border-radius: 9999px;
     }
     .lunar-clay-art {
-      width: 76px;
-      height: 76px;
+      width: 86px;
+      height: 86px;
       object-fit: contain;
-      filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.5));
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.6));
       flex-shrink: 0;
     }
 
-    /* Moonly Compatibility Card */
+    /* Moonly Compatibility Card (Volumetric 3D Mini Cards) */
     .moonly-compatibility-card {
       background: linear-gradient(135deg, #1A172E 0%, #100E20 100%);
       border: 1px solid rgba(244, 114, 182, 0.2);
@@ -2997,10 +3144,23 @@
       margin-top: 12px;
     }
     .compat-mini-card {
-      padding: 10px 8px;
+      padding: 10px 6px 10px;
       border-radius: 14px;
       text-align: center;
       font-size: 11px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 4px;
+      min-height: 106px;
+    }
+    .compat-clay-icon {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      margin-bottom: 4px;
+      filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.4));
     }
     .compat-pink {
       background: rgba(244, 114, 182, 0.1);
@@ -3018,17 +3178,17 @@
       color: #FBBF24;
     }
     .compat-mini-k {
-      font-size: 10px;
+      font-size: 9.5px;
       font-weight: 700;
       text-transform: uppercase;
       opacity: 0.85;
       margin-bottom: 2px;
     }
     .compat-mini-v {
-      font-size: 11px;
+      font-size: 10.5px;
       font-weight: 600;
       color: #F8FAFC;
-      line-height: 1.25;
+      line-height: 1.2;
     }
 
     /* Tarot Horizontal Category Pills */
@@ -3091,42 +3251,42 @@
       <!-- ====================================================================
            MOONLY STANDARD: WEEK MOON BAR, FOCUS CARD & LUNAR RHYTHM
            ==================================================================== -->
-      <!-- 1. Week Moon Bar (Календарная полоса с фазами Луны) -->
+      <!-- 1. Week Moon Bar (Календарная полоса с 3D-фазами Луны) -->
       <div class="moonly-week-bar" id="moonlyWeekBar">
         <div class="moonly-week-day">
           <span class="mwd-name">Пн</span>
           <span class="mwd-num">12</span>
-          <span class="mwd-moon">🌑</span>
+          <span class="mwd-moon-sphere moon-new"></span>
         </div>
         <div class="moonly-week-day">
           <span class="mwd-name">Вт</span>
           <span class="mwd-num">13</span>
-          <span class="mwd-moon">🌒</span>
+          <span class="mwd-moon-sphere moon-crescent"></span>
         </div>
         <div class="moonly-week-day">
           <span class="mwd-name">Ср</span>
           <span class="mwd-num">14</span>
-          <span class="mwd-moon">🌓</span>
+          <span class="mwd-moon-sphere moon-crescent"></span>
         </div>
         <div class="moonly-week-day active">
           <span class="mwd-name">Чт</span>
           <span class="mwd-num">15</span>
-          <span class="mwd-moon">🌔</span>
+          <span class="mwd-moon-sphere moon-quarter"></span>
         </div>
         <div class="moonly-week-day">
           <span class="mwd-name">Пт</span>
           <span class="mwd-num">16</span>
-          <span class="mwd-moon">🌕</span>
+          <span class="mwd-moon-sphere moon-gibbous"></span>
         </div>
         <div class="moonly-week-day">
           <span class="mwd-name">Сб</span>
           <span class="mwd-num">17</span>
-          <span class="mwd-moon">🌖</span>
+          <span class="mwd-moon-sphere moon-full"></span>
         </div>
         <div class="moonly-week-day">
           <span class="mwd-name">Вс</span>
           <span class="mwd-num">18</span>
-          <span class="mwd-moon">🌗</span>
+          <span class="mwd-moon-sphere moon-gibbous"></span>
         </div>
       </div>
 
@@ -3140,7 +3300,7 @@
           <div class="focus-quote-text" id="moonlyFocusText">
             Энергия между вами и тем, о ком вы думаете, сейчас меняется. Прислушайтесь к интуиции — сердце подскажет верное направление.
           </div>
-          <img src="/images/moonly/clay_clover.png" alt="Фокус" class="focus-clay-art">
+          <img src="/images/moonly/imgi_2_tUlR6PtyTEyNoDH0HKBwWjEMQ.png" alt="Фокус" class="focus-clay-art">
         </div>
         <div class="focus-tags-row">
           <span class="focus-pill active">✦ Фокус</span>
@@ -3162,7 +3322,7 @@
           </div>
         </div>
         <div class="lunar-card-visual">
-          <img src="/images/moonly/clay_lunar_strip.png" alt="Фазы Луны" class="lunar-clay-art">
+          <img src="/images/moonly/imgi_10_sL9rNe8Rar7mwNy2C67MKiluw.png" alt="Фазы Луны" class="lunar-clay-art">
         </div>
       </div>
 
@@ -3177,14 +3337,17 @@
         </div>
         <div class="compat-cards-grid">
           <div class="compat-mini-card compat-pink">
+            <img src="/images/moonly/imgi_5_MF7EHKdWpZfIdyBuF0zGA4CVkM.png" class="compat-clay-icon" alt="Инь-Ян">
             <div class="compat-mini-k">Луна</div>
             <div class="compat-mini-v">Связи из прошлой жизни</div>
           </div>
           <div class="compat-mini-card compat-coral">
+            <img src="/images/moonly/imgi_2_tUlR6PtyTEyNoDH0HKBwWjEMQ.png" class="compat-clay-icon" alt="Сердца">
             <div class="compat-mini-k">Венера • Марс</div>
             <div class="compat-mini-v">Романтика и страсть</div>
           </div>
           <div class="compat-mini-card compat-gold">
+            <img src="/images/moonly/imgi_4_n8mbd7jN6XJLzI4UorOo8z4Ac.png" class="compat-clay-icon" alt="Кристалл">
             <div class="compat-mini-k">Юпитер</div>
             <div class="compat-mini-v">Денежная энергия</div>
           </div>
@@ -3468,18 +3631,15 @@
 
       <!-- 2. Космическая погода дня (Co-Star Reality Check) -->
       <div class="native-card">
-        <!-- Cinematic Transit Hero Visual -->
-        <div class="transit-hero-visual">
+        <!-- Cinematic Transit Hero Visual (Clean 3D Presentation) -->
+        <div class="transit-hero-visual" style="height: 180px;">
           <img src="/images/moonly/astra_clay_cosmic_transit.jpg" class="hero-visual-img" alt="Космические транзиты дня">
           <div class="hero-visual-overlay"></div>
-          <div class="hero-visual-badge">
-            <div class="hero-visual-tag">
-              <span style="color: #38BDF8;">●</span>
+          <div style="position: absolute; top: 12px; left: 14px; z-index: 5;">
+            <span style="display: inline-flex; align-items: center; gap: 5px; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(12px); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 9999px; padding: 4px 11px; font-size: 11px; font-weight: 600; color: #E2E8F0;">
+              <span style="color: #38BDF8; font-size: 10px;">●</span>
               <span>Транзиты в реальном времени</span>
-            </div>
-            <div class="hero-visual-tag" style="border-color: rgba(139, 92, 246, 0.4); color: #C4B5FD;">
-              <span>Точный астрономический срез</span>
-            </div>
+            </span>
           </div>
         </div>
 
@@ -3537,13 +3697,13 @@
         </button>
       </header>
 
-      <!-- Moonly Free Questions Counter Badge -->
-      <div id="chatQuestionsBadge" style="display: flex; justify-content: space-between; align-items: center; padding: 7px 16px; font-size: 11.5px; color: #94A3B8; background: rgba(26, 28, 34, 0.85); border-bottom: 1px solid rgba(255, 255, 255, 0.08); backdrop-filter: blur(8px);">
+      <!-- Moonly Free Questions Counter Badge (White Theme) -->
+      <div id="chatQuestionsBadge" style="display: flex; justify-content: space-between; align-items: center; padding: 8px 16px; font-size: 12px; color: #475569; background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
         <div style="display: flex; align-items: center; gap: 6px;">
-          <span style="color: #6C5CE7;">✦</span>
+          <span style="color: #6C5CE7; font-size: 13px;">✦</span>
           <span>Бесплатные вопросы: <strong id="chatFreeCount" style="color: #6C5CE7; font-weight: 700;">3 из 3</strong></span>
         </div>
-        <button type="button" onclick="showMoonlyPaywall('chat_badge')" style="background: rgba(108, 92, 231, 0.15); border: 1px solid rgba(108, 92, 231, 0.35); border-radius: 9999px; padding: 2px 9px; font-size: 11px; color: #C4B5FD; cursor: pointer;">
+        <button type="button" onclick="showMoonlyPaywall('chat_badge')" style="background: #EEF2FF; border: 1px solid #C7D2FE; border-radius: 9999px; padding: 3px 10px; font-size: 11px; font-weight: 600; color: #4F46E5; cursor: pointer;">
           Триал 1 ₽
         </button>
       </div>
@@ -3583,29 +3743,20 @@
          ==================================================================== -->
     <main id="tab-screen-tarot" class="tab-screen">
       <div class="native-card">
-        <!-- Cinematic Tarot Altar Hero Visual -->
-        <div class="tarot-hero-visual">
-          <img src="/images/moonly/astra_clay_tarot_altar.jpg" class="hero-visual-img" alt="Священный алтарь Таро">
-          <div class="hero-visual-overlay"></div>
-          <div class="hero-visual-badge">
-            <div class="hero-visual-tag">
-              <span style="color: #A855F7;">✦</span>
-              <span>Святилище Арканов</span>
-            </div>
-            <div class="hero-visual-tag" style="border-color: rgba(245, 158, 11, 0.4); color: #FDE68A;">
-              <span>Золотые Арканы 3D</span>
-            </div>
+        <!-- Moonly Tarot Header & Category Selector -->
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 4px;">
+          <div>
+            <div class="card-eyebrow" style="color: #A78BFA;">Толкование Таро</div>
+            <h2 class="card-headline" style="margin-top: 2px; font-size: 20px;">Расклад дня</h2>
           </div>
+          <span style="font-size: 11px; color: #94A3B8; font-weight: 500; background: rgba(255,255,255,0.06); padding: 3px 8px; border-radius: 9999px;">78 карт</span>
         </div>
-
-        <div class="card-eyebrow">Зеркало подсознания</div>
-        <h2 class="card-headline">Храм Таро</h2>
-        <div class="card-desc">
-          Здесь нет слепых предсказаний. Карты Таро вытаскивают наружу то, что ты уже чувствуешь сердцем, но пока боишься признать разумом: скрытые мотивы, слепые зоны и тайные страхи.
+        <div style="font-size: 12.5px; color: #94A3B8; margin-bottom: 12px; line-height: 1.4;">
+          Карта дня для важного инсайта. Прислушайся к тому, что открывает подсознание.
         </div>
 
         <!-- Moonly Tarot Topic Selection Bar -->
-        <div class="tarot-pills-scroll" style="margin-top: 14px;">
+        <div class="tarot-pills-scroll" style="margin-top: 4px; margin-bottom: 12px;">
           <button type="button" class="tarot-cat-pill" onclick="selectTarotCategory(this, 'Отношения')">✦ Отношения</button>
           <button type="button" class="tarot-cat-pill active" onclick="selectTarotCategory(this, 'Любовь')">✦ Любовь</button>
           <button type="button" class="tarot-cat-pill" onclick="selectTarotCategory(this, 'Финансы')">✦ Финансы</button>
@@ -3614,10 +3765,54 @@
           <button type="button" class="tarot-cat-pill" onclick="selectTarotCategory(this, 'Карьера')">✦ Карьера</button>
         </div>
 
+        <!-- Moonly 3D Curved Cards Showcase (Popess, Temperance, Moon) -->
+        <div class="moonly-tarot-showcase">
+          <div class="moonly-tarot-clay-card" onclick="pickFannedCard(1)">
+            <img src="/images/moonly/imgi_11_rJE5Dq9QEQrpBo9Z6TkCiTvRAc.png" alt="Жрица" class="mtc-art">
+            <div>
+              <div class="mtc-title">Полнота</div>
+              <div class="mtc-sub">Интуиция</div>
+            </div>
+          </div>
+          <div class="moonly-tarot-clay-card" onclick="pickFannedCard(3)">
+            <img src="/images/moonly/clay_dove.png" alt="Умеренность" class="mtc-art">
+            <div>
+              <div class="mtc-title">Равновесие</div>
+              <div class="mtc-sub">Гармония</div>
+            </div>
+          </div>
+          <div class="moonly-tarot-clay-card" onclick="pickFannedCard(5)">
+            <img src="/images/moonly/clay_crescent_moon.png" alt="Луна" class="mtc-art">
+            <div>
+              <div class="mtc-title">Луна</div>
+              <div class="mtc-sub">Тайны души</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mode Switch: Карта дня / Оракул Да-Нет / 3 Карты -->
         <div class="tarot-mode-switch" style="margin-top: 8px;">
           <button class="mode-switch-btn active" id="btnModeDaily" onclick="setTarotMode('daily')">Карта дня</button>
           <button class="mode-switch-btn" id="btnModeOracle" onclick="setTarotMode('oracle_yes_no')">Оракул Да / Нет</button>
           <button class="mode-switch-btn" id="btnModeThree" onclick="setTarotMode('three_cards')">3 Карты</button>
+        </div>
+
+        <!-- Moonly Interactive 3D Fanned Deck -->
+        <div class="moonly-fan-deck-container" id="moonlyFanDeck">
+          <div class="fan-deck-cards">
+            <div class="fan-card fan-card-1" onclick="pickFannedCard(0)"></div>
+            <div class="fan-card fan-card-2" onclick="pickFannedCard(1)"></div>
+            <div class="fan-card fan-card-3" onclick="pickFannedCard(2)"></div>
+            <div class="fan-card fan-card-4" onclick="pickFannedCard(3)">
+              <span class="fan-card-sparkle">✦</span>
+            </div>
+            <div class="fan-card fan-card-5" onclick="pickFannedCard(4)"></div>
+            <div class="fan-card fan-card-6" onclick="pickFannedCard(5)"></div>
+            <div class="fan-card fan-card-7" onclick="pickFannedCard(6)"></div>
+          </div>
+          <div class="fan-deck-hint">
+            <span>✦ Вытяни карту из колоды</span>
+          </div>
         </div>
 
         <!-- 3D Card Dealing Table -->
@@ -3637,6 +3832,12 @@
         <button class="btn-max-primary" id="btnDealTarot" onclick="dealTarotSpread()">
           ✦ Вскрыть карты Арканов
         </button>
+
+        <div style="text-align: center; margin-top: 10px;">
+          <span style="font-size: 11.5px; color: #94A3B8; display: inline-flex; align-items: center; gap: 4px;">
+            <span style="color: #6C5CE7;">●</span> Мгновенное толкование от личного Астролога
+          </span>
+        </div>
 
         <!-- Detailed Card Breakdowns -->
         <div id="tarotDetailsContainer" class="tarot-readings-list" style="display: none;"></div>
@@ -3871,17 +4072,14 @@
           <div id="obTeaser1" class="ob-step-container">
             <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
               <div id="obNatalCanvasWrap" class="ob-teaser-canvas-wrap">
-                <canvas id="obNatalCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
-                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(139,92,246,0.3) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+                <canvas id="obNatalCanvas" style="display: none;"></canvas>
+                <img src="/images/moonly/astra_clay_sun_moon.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Натальная карта">
               </div>
-              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Натальная карта & Большая Тройка ✦</div>
-              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Твой звездный код личности.<br>Без иллюзий и шаблонов.</h3>
-              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
-                Глубокий психологический разбор характера: Солнце, Луна и Асцендент. Раскрой скрытые источники энергии, неосознанные страхи и точки истинного масштаба.
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #C4B5FD; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">✦ Личная натальная карта</div>
+              <h3 class="card-headline" style="font-size: clamp(17px, 2.5vh, 20px); line-height: 1.25; margin: 4px 0 6px; text-align: center; color: #FFFFFF;">Твой космический портрет</h3>
+              <p class="card-desc" style="font-size: clamp(12px, 1.7vh, 13px); line-height: 1.45; margin-bottom: 8px; text-align: center; color: #94A3B8;">
+                Точный чертёж неба в момент первого вдоха. Раскрой скрытую силу Солнца, Луны и Асцендента.
               </p>
-              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #C4B5FD; background: rgba(139, 92, 246, 0.14); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
-                ✦ Астрономический расчет координат Большой Тройки и ключевых планет
-              </div>
             </div>
             <div class="ob-step-footer" style="padding-top: 4px;">
               <button class="btn-max-primary" onclick="showTeaserStep(2)">
@@ -3893,18 +4091,15 @@
           <!-- Teaser 2: Личный Помощник 24/7 -->
           <div id="obTeaser2" class="ob-step-container" style="display: none;">
             <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
-              <div id="obEmpathyCanvasWrap" class="ob-teaser-canvas-wrap">
-                <canvas id="obEmpathyCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
-                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(6,182,212,0.25) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+              <div id="obEmpathyCanvasWrap" class="ob-teaser-canvas-wrap" style="background: radial-gradient(circle at center, #1E1B4B 0%, #0F172A 100%);">
+                <canvas id="obEmpathyCanvas" style="display: none;"></canvas>
+                <img src="/images/moonly/clay_dove.png" style="width: 100px; height: 100px; object-fit: contain; margin: auto; filter: drop-shadow(0 10px 24px rgba(0,0,0,0.6));" alt="Личный наставник">
               </div>
-              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #67E8F9; font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Личный Помощник 24/7 ✦</div>
-              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Мудрый проводник рядом.<br>В любой момент, без осуждения.</h3>
-              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
-                Персональный помощник опирается на индивидуальные аспекты твоей карты. Помогает разобраться в отношениях, преодолеть кризис и найти душевное равновесие.
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #67E8F9; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">✦ Личный наставник 24/7</div>
+              <h3 class="card-headline" style="font-size: clamp(17px, 2.5vh, 20px); line-height: 1.25; margin: 4px 0 6px; text-align: center; color: #FFFFFF;">Мудрый проводник рядом</h3>
+              <p class="card-desc" style="font-size: clamp(12px, 1.7vh, 13px); line-height: 1.45; margin-bottom: 8px; text-align: center; color: #94A3B8;">
+                Бережный диалог без осуждения. Ответы на любые вопросы об отношениях, карьере и покое.
               </p>
-              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #67E8F9; background: rgba(6, 182, 212, 0.12); border: 1px solid rgba(6, 182, 212, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
-                ✦ 4 личных помощника с чутким стилем диалога и поддержкой в любой момент
-              </div>
             </div>
             <div class="ob-step-footer" style="padding-top: 4px;">
               <div style="display: flex; gap: 8px; width: 100%;">
@@ -3918,17 +4113,14 @@
           <div id="obTeaser3" class="ob-step-container" style="display: none;">
             <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
               <div id="obTarotCanvasWrap" class="ob-teaser-canvas-wrap">
-                <canvas id="obTarotCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
-                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(255,170,60,0.3) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+                <canvas id="obTarotCanvas" style="display: none;"></canvas>
+                <img src="/images/moonly/astra_clay_tarot_altar.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Священное Таро">
               </div>
-              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: var(--solar-gold); font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Таро & Звездный Код ✦</div>
-              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Звезды показывают путь.<br>Таро вскрывает скрытое.</h3>
-              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
-                Здесь нет пустых предсказаний. Каждая карта отражает глубинные слои подсознания: тайные мотивы людей вокруг, слепые зоны и неочевидные решения.
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #FDE68A; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">✦ Священное Таро</div>
+              <h3 class="card-headline" style="font-size: clamp(17px, 2.5vh, 20px); line-height: 1.25; margin: 4px 0 6px; text-align: center; color: #FFFFFF;">Зеркало твоего подсознания</h3>
+              <p class="card-desc" style="font-size: clamp(12px, 1.7vh, 13px); line-height: 1.45; margin-bottom: 8px; text-align: center; color: #94A3B8;">
+                Карты вытаскивают наружу то, что ты уже чувствуешь сердцем, но пока боишься признать разумом.
               </p>
-              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #E5C07B; background: rgba(229, 192, 123, 0.12); border: 1px solid rgba(229, 192, 123, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
-                ✦ 78 арканов и точные расклады на любую жизненную ситуацию
-              </div>
             </div>
             <div class="ob-step-footer" style="padding-top: 4px;">
               <div style="display: flex; gap: 8px; width: 100%;">
@@ -3942,17 +4134,14 @@
           <div id="obTeaser4" class="ob-step-container" style="display: none;">
             <div class="ob-step-body" style="display: flex; flex-direction: column; align-items: center; justify-content: space-between;">
               <div id="obHoroscopeCanvasWrap" class="ob-teaser-canvas-wrap">
-                <canvas id="obHoroscopeCanvas" style="width: 100%; height: 100%; display: block;"></canvas>
-                <div style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 140px; height: 50px; background: radial-gradient(circle, rgba(139,92,246,0.25) 0%, transparent 70%); filter: blur(12px); pointer-events: none;"></div>
+                <canvas id="obHoroscopeCanvas" style="display: none;"></canvas>
+                <img src="/images/moonly/astra_clay_cosmic_transit.jpg" style="width: 100%; height: 100%; object-fit: cover; display: block;" alt="Ритм Луны и Транзиты">
               </div>
-              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #A78BFA; font-size: clamp(10px, 1.4vh, 11.5px); letter-spacing: 1.2px;">✦ Персональный Гороскоп ✦</div>
-              <h3 class="card-headline" style="font-size: clamp(15px, 2.2vh, 18px); line-height: 1.24; margin: 2px 0 5px; text-align: center;">Планетарные транзиты дня.<br>Каждую полночь в 00:00.</h3>
-              <p class="card-desc" style="font-size: clamp(11px, 1.55vh, 12.5px); line-height: 1.4; margin-bottom: 6px; text-align: center; color: rgba(255, 255, 255, 0.82);">
-                Индивидуальный ритм суток, синхронизированный с твоей натальной картой. Подскажет, когда наступает идеальный момент для рывка, а когда лучше восстановить силы.
+              <div class="card-eyebrow" style="margin-bottom: 2px; text-align: center; color: #C4B5FD; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase;">✦ Ритм Луны и Транзиты</div>
+              <h3 class="card-headline" style="font-size: clamp(17px, 2.5vh, 20px); line-height: 1.25; margin: 4px 0 6px; text-align: center; color: #FFFFFF;">В гармонии со светилами</h3>
+              <p class="card-desc" style="font-size: clamp(12px, 1.7vh, 13px); line-height: 1.45; margin-bottom: 8px; text-align: center; color: #94A3B8;">
+                Персональный ориентир на каждый день, синхронизированный с твоей натальной картой.
               </p>
-              <div style="font-size: clamp(10px, 1.35vh, 11px); color: #C4B5FD; background: rgba(139, 92, 246, 0.12); border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 10px; padding: 3px 8px; text-align: center; margin-bottom: 3px; width: 100%;">
-                ✦ Лунный календарь, солярные транзиты и персональное окно возможностей
-              </div>
             </div>
             <div class="ob-step-footer" style="padding-top: 4px;">
               <div style="display: flex; gap: 8px; width: 100%;">
@@ -6461,6 +6650,20 @@
           </div>
         `;
       }
+    }
+
+    function pickFannedCard(cardIndex) {
+      triggerHaptic();
+      const card = document.querySelector(`.fan-card-${cardIndex + 1}`);
+      if (card) {
+        card.style.transform = 'translateY(-26px) scale(1.12)';
+        card.style.boxShadow = '0 16px 32px rgba(139, 92, 246, 0.7), 0 0 24px rgba(139, 92, 246, 0.6)';
+        setTimeout(() => {
+          card.style.transform = '';
+          card.style.boxShadow = '';
+        }, 600);
+      }
+      dealTarotSpread();
     }
 
     async function dealTarotSpread() {
