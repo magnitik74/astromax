@@ -7,9 +7,9 @@ import { createServer } from '../src/server.js';
 test('RobokassaClient: Production mode produces correct MD5 signature and omits IsTest=1', () => {
   const client = new RobokassaClient({
     isTest: false,
-    login: 'U_Remez',
-    pass1Prod: 'sw36o90QHWRDiiVsOoH4',
-    pass2Prod: 'bk459NSMm4cVAd1dWqJv'
+    login: 'AstraApp',
+    pass1Prod: 'RtUx4cUwFuv53R7FIp0I',
+    pass2Prod: 'nko052HLKsUIvX25yAUC'
   });
 
   const order = client.generatePaymentUrl({
@@ -19,20 +19,20 @@ test('RobokassaClient: Production mode produces correct MD5 signature and omits 
   });
 
   const expectedSig = crypto.createHash('md5')
-    .update('U_Remez:399.00:998877:sw36o90QHWRDiiVsOoH4')
+    .update('AstraApp:399.00:998877:RtUx4cUwFuv53R7FIp0I')
     .digest('hex');
 
   assert.equal(order.invId, 998877);
   assert.equal(order.amount, '399.00');
   assert.equal(order.signature, expectedSig);
   assert.equal(order.isTest, false);
-  assert.ok(order.paymentUrl.includes('MerchantLogin=U_Remez'));
+  assert.ok(order.paymentUrl.includes('MerchantLogin=AstraApp'));
   assert.ok(order.paymentUrl.includes(`SignatureValue=${expectedSig}`));
   assert.equal(order.paymentUrl.includes('IsTest=1'), false, 'Production URL must NOT contain IsTest=1');
 
   // ResultURL Signature check (Pass2)
   const resultSig = crypto.createHash('md5')
-    .update('399.00:998877:bk459NSMm4cVAd1dWqJv')
+    .update('399.00:998877:nko052HLKsUIvX25yAUC')
     .digest('hex');
 
   assert.equal(client.verifyResultSignature({ outSum: '399.00', invId: 998877, signatureValue: resultSig }), true);
@@ -42,9 +42,9 @@ test('RobokassaClient: Production mode produces correct MD5 signature and omits 
 test('RobokassaClient: Testing/Sandbox mode uses test passwords and includes IsTest=1', () => {
   const client = new RobokassaClient({
     isTest: true,
-    login: 'U_Remez',
-    pass1Test: 'WFEptC8Wi3NJ21kuU7cq',
-    pass2Test: 'RoAHplTTMB25Xc9Jr12A'
+    login: 'AstraApp',
+    pass1Test: 'gzk2f3BeFQEG2qpg0S4H',
+    pass2Test: 'VJINZ7gxF21HV0coA5XL'
   });
 
   const order = client.generatePaymentUrl({
@@ -54,7 +54,7 @@ test('RobokassaClient: Testing/Sandbox mode uses test passwords and includes IsT
   });
 
   const expectedSig = crypto.createHash('md5')
-    .update('U_Remez:399.00:554433:WFEptC8Wi3NJ21kuU7cq')
+    .update('AstraApp:399.00:554433:gzk2f3BeFQEG2qpg0S4H')
     .digest('hex');
 
   assert.equal(order.signature, expectedSig);
@@ -63,7 +63,7 @@ test('RobokassaClient: Testing/Sandbox mode uses test passwords and includes IsT
 
   // ResultURL Signature check with test Pass2
   const resultSig = crypto.createHash('md5')
-    .update('399.00:554433:RoAHplTTMB25Xc9Jr12A')
+    .update('399.00:554433:VJINZ7gxF21HV0coA5XL')
     .digest('hex');
 
   assert.equal(client.verifyResultSignature({ outSum: '399.00', invId: 554433, signatureValue: resultSig }), true);
@@ -84,7 +84,7 @@ test('Server API: End-to-end Robokassa lifecycle (/api/payment/create-order and 
     assert.equal(orderRes.status, 200);
     const orderData = await orderRes.json();
     assert.ok(orderData.paymentUrl.includes('auth.robokassa.ru'));
-    assert.ok(orderData.paymentUrl.includes('MerchantLogin=U_Remez'));
+    assert.ok(orderData.paymentUrl.includes('MerchantLogin=AstraApp'));
     assert.ok(orderData.invId > 0);
 
     const client = new RobokassaClient();

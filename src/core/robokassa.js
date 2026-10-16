@@ -11,15 +11,15 @@ export class RobokassaClient {
       ? Boolean(options.isTest)
       : (process.env.ROBOKASSA_TEST === '1');
 
-    this.login = options.login || process.env.ROBOKASSA_LOGIN || 'U_Remez';
+    this.login = options.login || process.env.ROBOKASSA_LOGIN || 'AstraApp';
     
     // Пароли инициализации (Пароль #1)
-    this.pass1Prod = options.pass1Prod || process.env.ROBOKASSA_PASS1 || 'sw36o90QHWRDiiVsOoH4';
-    this.pass1Test = options.pass1Test || process.env.ROBOKASSA_TEST_PASS1 || 'WFEptC8Wi3NJ21kuU7cq';
+    this.pass1Prod = options.pass1Prod || process.env.ROBOKASSA_PASS1 || 'RtUx4cUwFuv53R7FIp0I';
+    this.pass1Test = options.pass1Test || process.env.ROBOKASSA_TEST_PASS1 || 'gzk2f3BeFQEG2qpg0S4H';
 
     // Пароли валидации оповещений ResultURL (Пароль #2)
-    this.pass2Prod = options.pass2Prod || process.env.ROBOKASSA_PASS2 || 'bk459NSMm4cVAd1dWqJv';
-    this.pass2Test = options.pass2Test || process.env.ROBOKASSA_TEST_PASS2 || 'RoAHplTTMB25Xc9Jr12A';
+    this.pass2Prod = options.pass2Prod || process.env.ROBOKASSA_PASS2 || 'nko052HLKsUIvX25yAUC';
+    this.pass2Test = options.pass2Test || process.env.ROBOKASSA_TEST_PASS2 || 'VJINZ7gxF21HV0coA5XL';
   }
 
   getPass1() {
