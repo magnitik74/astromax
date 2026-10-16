@@ -30,6 +30,10 @@
     {
       "source": "/offer",
       "destination": "/offer.html"
+    },
+    {
+      "source": "/unsubscribe",
+      "destination": "/unsubscribe.html"
     }
   ]
 }

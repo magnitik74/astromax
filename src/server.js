@@ -22,14 +22,17 @@ export function createServer(options = {}) {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static('public'));
 
-  // 0. Публичная оферта
+  // 0. Публичная оферта и инструкция по отмене подписки
   app.get('/offer', (req, res) => {
     res.sendFile(path.resolve('public/offer.html'));
+  });
+  app.get('/unsubscribe', (req, res) => {
+    res.sendFile(path.resolve('public/unsubscribe.html'));
   });
 
   // Нормализатор URL для совместимости с Vercel serverless (поддерживает и /api/..., и /...)
   app.use((req, res, next) => {
-    if (!req.url.startsWith('/api') && req.url !== '/health' && req.url !== '/offer' && !req.url.startsWith('/webhook')) {
+    if (!req.url.startsWith('/api') && req.url !== '/health' && req.url !== '/offer' && req.url !== '/unsubscribe' && !req.url.startsWith('/webhook')) {
       req.url = '/api' + (req.url.startsWith('/') ? req.url : '/' + req.url);
     }
     next();
