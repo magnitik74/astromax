@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import crypto from 'node:crypto';
+import path from 'node:path';
 import { calculateNatalChart } from './core/astrology.js';
 import { drawTarotSpread } from './core/tarot.js';
 import { MaxBotClient } from './bot/maxClient.js';
@@ -21,9 +22,14 @@ export function createServer(options = {}) {
   app.use(express.urlencoded({ extended: true }));
   app.use(express.static('public'));
 
+  // 0. Публичная оферта
+  app.get('/offer', (req, res) => {
+    res.sendFile(path.resolve('public/offer.html'));
+  });
+
   // Нормализатор URL для совместимости с Vercel serverless (поддерживает и /api/..., и /...)
   app.use((req, res, next) => {
-    if (!req.url.startsWith('/api') && req.url !== '/health' && !req.url.startsWith('/webhook')) {
+    if (!req.url.startsWith('/api') && req.url !== '/health' && req.url !== '/offer' && !req.url.startsWith('/webhook')) {
       req.url = '/api' + (req.url.startsWith('/') ? req.url : '/' + req.url);
     }
     next();

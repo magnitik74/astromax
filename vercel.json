@@ -26,6 +26,10 @@
     {
       "source": "/health",
       "destination": "/api/health"
+    },
+    {
+      "source": "/offer",
+      "destination": "/offer.html"
     }
   ]
 }
