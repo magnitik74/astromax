@@ -42,7 +42,15 @@ export class ChatEngine {
     }
 
     // 2. Команда полного сброса сессии и запуска с чистого листа
-    if (trimmed.startsWith('/reset') || trimmed.toLowerCase() === 'сброс' || trimmed.toLowerCase() === 'заново') {
+    if (
+      trimmed.startsWith('/reset') || 
+      trimmed.startsWith('/restart') || 
+      trimmed.toLowerCase() === 'сброс' || 
+      trimmed.toLowerCase() === 'рестарт' || 
+      trimmed.toLowerCase() === 'restart' || 
+      trimmed.toLowerCase() === 'заново' || 
+      trimmed.toLowerCase() === 'перезапуск'
+    ) {
       return this.handleReset(userId, userName);
     }
 
@@ -111,9 +119,12 @@ export class ChatEngine {
     }
 
     const text = 
-`Сессия сброшена. Все предыдущие расчеты и данные профиля очищены.
+`🔄 **Сессия сброшена**
 
-👇 **Нажми кнопку «✦ Открыть» внизу слева экрана**, чтобы открыть приложение и рассчитать Космический Паспорт с чистого листа.`;
+Все предыдущие расчеты очищены. Чтобы пройти расчет заново:
+
+1. Нажми кнопку «✦ Открыть» внизу слева экрана.
+2. Во вкладке «Паспорт» нажми кнопку «↺ Начать заново», чтобы запустить онбординг с чистого листа.`;
 
     return { text, buttons: [] };
   }

@@ -3932,7 +3932,7 @@
 
       // 2. Читаем параметры сессии из URL
       const urlParams = new URLSearchParams(window.location.search);
-      const isReset = urlParams.get('reset') === '1' || urlParams.get('reset') === 'true';
+      const isReset = urlParams.get('reset') === '1' || urlParams.get('reset') === 'true' || urlParams.get('restart') === '1' || urlParams.get('restart') === 'true';
 
       if (isReset) {
         localStorage.removeItem('astromax_onboarded');
@@ -3941,6 +3941,7 @@
         if (window.history && window.history.replaceState) {
           const cleanUrl = new URL(window.location);
           cleanUrl.searchParams.delete('reset');
+          cleanUrl.searchParams.delete('restart');
           window.history.replaceState({}, document.title, cleanUrl.toString());
         }
       }
