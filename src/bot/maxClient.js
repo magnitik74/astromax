@@ -9,7 +9,7 @@ import path from 'node:path';
  */
 
 const DEFAULT_MAX_TOKEN = 'f9LHodD0cOJcero4z_zdkBkCUGR8t1EldYtf37NfozAUWATGaD1lsIBHXLgs0FHRTBbhX35dnkQX2LCf-bMA';
-const DEFAULT_BANNER_TOKEN = '0OJajpAXonUYOdkdcDh/zT2M2NwmvQuOikEB7GNz6O33yKSs0vY6NBsEsE1ODyhkEBv/gzcLTRpuBjozu5DhUAijdsmkD2gsltualViGJKGf9hFk7OBf5LQSZyq7HLb1iS8KaowrMNeo3AVpBHDx19nTOtfjpfoZ9Xs5Q5blnzelQXs4wtJmOi1GxsxM6McSnPc0ZtdMxti0ufB5iExyN+VjqicGyomUCVIGGKurCzk44nyzKuqV3NkWjy+Z51QIm5VoaqK1fNE=';
+const DEFAULT_BANNER_TOKEN = '4YXfPsohOaTQh2Y15/7PMcBDtXsW/kc+qz8up66ja0vmM4IQvxmSFpX6KD0yDUDdSYEqNj/ynSYLG8qQUk2oG5IdUsf4ZMiRdG5ooxI6dt88lmsfgyzwkaEk5/4zlG6wx7XtzEo/Jv/jNIUgBhj9MW8XNNaYLOMf/fdtsvOhG056bm4Y38T7QxkBdveojLHrlaqnboMzalgEpTul8p+DR9Y+F8vCHo9E9V5cgsZgmNkfOGQtzY58PQId2NiEE5ACOLfgXMvTK30=';
 
 export class MaxBotClient {
   constructor(options = {}) {
