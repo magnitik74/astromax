@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>АСТРА — Полная Коллекция Аватаров (М/Ж и 12 Знаков Зодиака)</title>
+  <style>
+    body {
+      background: #0E0E12;
+      color: #E8E2D8;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    h1 {
+      font-size: 32px;
+      font-weight: 300;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
+      color: #FFF2D6;
+    }
+    .subtitle {
+      font-size: 14px;
+      color: #8E8A94;
+      margin-bottom: 36px;
+      text-align: center;
+      max-width: 700px;
+      line-height: 1.6;
+    }
+    .section-title {
+      font-size: 20px;
+      letter-spacing: 1.5px;
+      color: #D4AF37;
+      text-transform: uppercase;
+      margin: 30px 0 20px 0;
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      padding-bottom: 8px;
+      width: 100%;
+      max-width: 1140px;
+    }
+    .grid-defaults {
+      display: flex;
+      gap: 32px;
+      justify-content: center;
+      margin-bottom: 40px;
+    }
+    .grid-zodiacs {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 24px;
+      max-width: 1140px;
+      width: 100%;
+    }
+    .card {
+      background: #17171C;
+      border: 1px solid rgba(255, 214, 153, 0.12);
+      border-radius: 20px;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(255, 214, 153, 0.3);
+    }
+    .checkerboard-wrap {
+      /* Checkerboard pattern to prove true transparent alpha */
+      background: 
+        linear-gradient(45deg, #1A1A22 25%, transparent 25%), 
+        linear-gradient(-45deg, #1A1A22 25%, transparent 25%), 
+        linear-gradient(45deg, transparent 75%, #1A1A22 75%), 
+        linear-gradient(-45deg, transparent 75%, #1A1A22 75%);
+      background-size: 16px 16px;
+      background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+      background-color: #121216;
+      border-radius: 50%;
+      padding: 6px;
+      margin-bottom: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+    .avatar-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      display: block;
+      object-fit: cover;
+    }
+    .badge {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 10px;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 8px;
+    }
+    .badge-f { background: rgba(155, 81, 224, 0.2); color: #D7B4FF; border: 1px solid rgba(155, 81, 224, 0.4); }
+    .badge-m { background: rgba(224, 122, 95, 0.2); color: #FFB3A0; border: 1px solid rgba(224, 122, 95, 0.4); }
+    .badge-fire { background: rgba(235, 87, 87, 0.2); color: #FF9B9B; border: 1px solid rgba(235, 87, 87, 0.4); }
+    .badge-earth { background: rgba(39, 174, 96, 0.2); color: #8BE7B0; border: 1px solid rgba(39, 174, 96, 0.4); }
+    .badge-air { background: rgba(45, 156, 219, 0.2); color: #8FD5FF; border: 1px solid rgba(45, 156, 219, 0.4); }
+    .badge-water { background: rgba(155, 81, 224, 0.2); color: #D9A8FF; border: 1px solid rgba(155, 81, 224, 0.4); }
+    .title {
+      font-size: 16px;
+      font-weight: 500;
+      color: #FFFFFF;
+      margin-bottom: 4px;
+    }
+    .desc {
+      font-size: 12px;
+      line-height: 1.4;
+      color: #8E8A94;
+      text-align: center;
+    }
+    .sizes-pill {
+      font-size: 11px;
+      color: #6C6874;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <h1>КОЛЛЕКЦИЯ АВАТАРОВ «АСТРА»</h1>
+  <div class="subtitle">
+    Все аватары нарезаны из выбранного мастер-листа на <b>прозрачный фон (Alpha PNG / WebP)</b>.<br>
+    Шахматный фон под кружочками подтверждает идеальную прозрачность контура.
+  </div>
+
+  <div class="section-title">1. Базовые профили (Уровень 1)</div>
+  <div class="grid-defaults">
+    <div class="card" style="width: 280px;">
+      <span class="badge badge-f">Женский профиль</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/01_Default_Female_Muse_master_1024.png" alt="Муза Тишины">
+      </div>
+      <div class="title">Муза Тишины</div>
+      <div class="desc">Дефолтный аватар до ввода данных рождения</div>
+      <div class="sizes-pill">WebP: 1024 (100K) / 600 (26K) / 128 (2.8K)</div>
+    </div>
+
+    <div class="card" style="width: 280px;">
+      <span class="badge badge-m">Мужской профиль</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/02_Default_Male_Guide_master_1024.png" alt="Проводник Ясности">
+      </div>
+      <div class="title">Проводник Ясности</div>
+      <div class="desc">Дефолтный аватар до ввода данных рождения</div>
+      <div class="sizes-pill">WebP: 1024 (107K) / 600 (33K) / 128 (2.6K)</div>
+    </div>
+  </div>
+
+  <div class="section-title">2. 12 Знаков Зодиака (Уровень 2 — Прозрачный круг)</div>
+  <div class="grid-zodiacs">
+    <!-- Aries -->
+    <div class="card">
+      <span class="badge badge-fire">Огонь ・ Марс</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_01_Aries_master_1024.png" alt="Овен">
+      </div>
+      <div class="title">1. Овен (Aries)</div>
+      <div class="desc">Импульс воли и весенняя сила</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Taurus -->
+    <div class="card">
+      <span class="badge badge-earth">Земля ・ Венера</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_02_Taurus_master_1024.png" alt="Телец">
+      </div>
+      <div class="title">2. Телец (Taurus)</div>
+      <div class="desc">Земное изобилие и надежность</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Gemini -->
+    <div class="card">
+      <span class="badge badge-air">Воздух ・ Меркурий</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_03_Gemini_master_1024.png" alt="Близнецы">
+      </div>
+      <div class="title">3. Близнецы (Gemini)</div>
+      <div class="desc">Интеллектуальная игра и контакт</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Cancer -->
+    <div class="card">
+      <span class="badge badge-water">Вода ・ Луна</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_04_Cancer_master_1024.png" alt="Рак">
+      </div>
+      <div class="title">4. Рак (Cancer)</div>
+      <div class="desc">Лунная нежность и защита рода</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Leo -->
+    <div class="card">
+      <span class="badge badge-fire">Огонь ・ Солнце</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_05_Leo_master_1024.png" alt="Лев">
+      </div>
+      <div class="title">5. Лев (Leo)</div>
+      <div class="desc">Солнечное достоинство и щедрость</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Virgo -->
+    <div class="card">
+      <span class="badge badge-earth">Земля ・ Меркурий</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_06_Virgo_master_1024.png" alt="Дева">
+      </div>
+      <div class="title">6. Дева (Virgo)</div>
+      <div class="desc">Гармония чистоты и внимание к сути</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Libra -->
+    <div class="card">
+      <span class="badge badge-air">Воздух ・ Венера</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_07_Libra_master_1024.png" alt="Весы">
+      </div>
+      <div class="title">7. Весы (Libra)</div>
+      <div class="desc">Эстетическое равновесие и союз</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Scorpio -->
+    <div class="card">
+      <span class="badge badge-water">Вода ・ Марс / Кету</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_08_Scorpio_master_1024.png" alt="Скорпион">
+      </div>
+      <div class="title">8. Скорпион (Scorpio)</div>
+      <div class="desc">Глубинная трансформация духа</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Sagittarius -->
+    <div class="card">
+      <span class="badge badge-fire">Огонь ・ Юпитер</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_09_Sagittarius_master_1024.png" alt="Стрелец">
+      </div>
+      <div class="title">9. Стрелец (Sagittarius)</div>
+      <div class="desc">Полет стрелы к высшим знаниям</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Capricorn -->
+    <div class="card">
+      <span class="badge badge-earth">Земля ・ Сатурн</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_10_Capricorn_master_1024.png" alt="Козерог">
+      </div>
+      <div class="title">10. Козерог (Capricorn)</div>
+      <div class="desc">Нерушимая стойкость горных вершин</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Aquarius -->
+    <div class="card">
+      <span class="badge badge-air">Воздух ・ Сатурн / Раху</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_11_Aquarius_master_1024.png" alt="Водолей">
+      </div>
+      <div class="title">11. Водолей (Aquarius)</div>
+      <div class="desc">Живая вода космических инсайтов</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+
+    <!-- Pisces -->
+    <div class="card">
+      <span class="badge badge-water">Вода ・ Юпитер</span>
+      <div class="checkerboard-wrap">
+        <img class="avatar-img" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_12_Pisces_master_1024.png" alt="Рыбы">
+      </div>
+      <div class="title">12. Рыбы (Pisces)</div>
+      <div class="desc">Океан безусловного сострадания</div>
+      <div class="sizes-pill">1024 / 600 / 128 WebP</div>
+    </div>
+  </div>
+</body>
+</html>

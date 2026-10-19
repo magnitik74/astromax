@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>АСТРА — Онбординг (1:1 Реальный Moonly)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: #0E0E12;
+      color: #FFFFFF;
+      width: 430px;
+      height: 932px;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 20px 28px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* 1. Статус-бар iOS */
+    .status-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 600;
+      height: 24px;
+      margin-bottom: 8px;
+      z-index: 20;
+      color: #FFFFFF;
+    }
+
+    .status-bar-icons {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+    }
+
+    /* 2. Навигационный бар с кнопкой назад `<` */
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      height: 40px;
+      margin-bottom: 12px;
+      z-index: 20;
+    }
+
+    .back-btn {
+      background: none;
+      border: none;
+      color: #8E8E93;
+      font-size: 26px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px 4px 0;
+      display: flex;
+      align-items: center;
+      transition: color 0.15s ease;
+    }
+
+    .back-btn:hover {
+      color: #FFFFFF;
+    }
+
+    /* 3. Шапка экрана */
+    .header {
+      margin-bottom: 24px;
+      z-index: 10;
+    }
+
+    /* В квизах — выравнивание по левому краю (Left-aligned) */
+    .header.left-align {
+      text-align: left;
+    }
+
+    .header.left-align .title {
+      font-size: 28px;
+      font-weight: 700;
+      line-height: 1.22;
+      letter-spacing: -0.4px;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .header.left-align .subtitle {
+      font-size: 15px;
+      color: #8E8E93;
+      line-height: 1.38;
+    }
+
+    /* В витринах — выравнивание по центру (Center-aligned) */
+    .header.center-align {
+      text-align: center;
+      padding: 0 10px;
+    }
+
+    .header.center-align .title {
+      font-size: 26px;
+      font-weight: 700;
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+      color: #FFFFFF;
+      margin-bottom: 10px;
+    }
+
+    .header.center-align .subtitle {
+      font-size: 15px;
+      color: #8E8E93;
+      line-height: 1.4;
+      max-width: 360px;
+      margin: 0 auto;
+    }
+
+    /* 4. Основная зона содержимого */
+    .main-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 5;
+      min-height: 0;
+      overflow-y: auto;
+      scrollbar-width: none;
+    }
+
+    .main-content.showcase-content {
+      justify-content: center;
+    }
+
+    .main-content::-webkit-scrollbar {
+      display: none;
+    }
+
+    /* Аутентичная статичная графическая витрина (без видеотегов) */
+    .showcase-art-box {
+      width: 100%;
+      height: 100%;
+      border-radius: 28px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.45);
+    }
+
+    .showcase-art-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border-radius: 28px;
+      filter: drop-shadow(0 8px 24px rgba(0, 0, 0, 0.6));
+      transition: transform 0.3s ease;
+    }
+
+    /* Список карточек ответов */
+    .opt-list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* Карточка ответа (1:1 со скриншотов Moonly) */
+    .opt-card {
+      background: #1C1C22;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      padding: 18px 20px;
+      min-height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      cursor: pointer;
+      transition: background 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+    }
+
+    .opt-card:hover {
+      background: #24242C;
+    }
+
+    .opt-card:active {
+      transform: scale(0.985);
+    }
+
+    .opt-card.selected {
+      background: #262632;
+      border-color: rgba(255, 255, 255, 0.25);
+    }
+
+    .opt-text {
+      font-size: 17px;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1.3;
+      flex: 1;
+    }
+
+    .opt-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    .opt-subtext {
+      font-size: 13px;
+      color: #8E8E93;
+      font-weight: 500;
+      margin-top: 2px;
+      line-height: 1.3;
+    }
+
+    /* Серый круглый радио-индикатор справа (1:1 со скриншота) */
+    .opt-circle {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: #2C2C34;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease;
+    }
+
+    .opt-card.selected .opt-circle {
+      background: #FFFFFF;
+    }
+
+    .opt-card.selected .opt-circle::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #0E0E12;
+    }
+
+    /* 5. Белая капсула — главная кнопка (1:1 со скриншотов Moonly) */
+    .btn-pill {
+      background: #FFFFFF;
+      color: #000000;
+      font-size: 17px;
+      font-weight: 700;
+      text-align: center;
+      height: 58px;
+      border-radius: 9999px;
+      margin-top: auto;
+      margin-bottom: 4px;
+      z-index: 10;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      border: none;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.12s ease, opacity 0.12s ease, background 0.15s ease, color 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .btn-pill:active {
+      transform: scale(0.98);
+      opacity: 0.9;
+    }
+
+    .btn-pill.disabled {
+      background: #1C1C22;
+      color: #8E8E93;
+      box-shadow: none;
+      cursor: default;
+    }
+
+    /* Форма ввода данных */
+    .birth-form {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .input-row-card {
+      background: #1C1C22;
+      border-radius: 20px;
+      padding: 14px 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 64px;
+    }
+
+    .input-icon {
+      font-size: 22px;
+      width: 28px;
+      text-align: center;
+    }
+
+    .input-content {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .input-content label {
+      font-size: 12px;
+      color: #8E8E93;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+
+    .input-content input {
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 17px;
+      font-weight: 600;
+      outline: none;
+      width: 100%;
+    }
+
+    /* Расчет натала */
+    .calc-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      width: 100%;
+      height: 100%;
+    }
+
+    .mandala-rotator {
+      width: 160px;
+      height: 160px;
+      animation: rotateMandala 20s linear infinite;
+    }
+
+    @keyframes rotateMandala {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .reveal-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .natal-item {
+      background: #1C1C22;
+      border-radius: 18px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .natal-label {
+      font-size: 14px;
+      color: #8E8E93;
+      font-weight: 500;
+    }
+
+    .natal-val {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================================
+       ASTRA REAL LIVE ONBOARDING COMPONENTS (1:1 CORRESPONDENCE WITH APP)
+       ========================================================================== */
+    .onboard-live-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      margin: auto 0;
+    }
+
+    /* 00: Bento Start */
+    .live-bento-hero {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(38, 36, 60, 0.9) 0%, rgba(20, 20, 32, 0.95) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 26px;
+      padding: 20px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+      position: relative;
+      overflow: hidden;
+    }
+    .bento-badge {
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      color: #F7D794;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .bento-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #FFFFFF;
+      letter-spacing: -0.3px;
+    }
+    .bento-sub {
+      font-size: 13px;
+      color: #A0A0B8;
+      margin-top: 4px;
+    }
+    .bento-moon-sphere {
+      width: 72px;
+      height: 72px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 18px rgba(247, 215, 148, 0.45));
+    }
+    .live-bento-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+    }
+    .live-bento-card {
+      background: rgba(26, 26, 38, 0.92);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 22px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.4);
+    }
+    .bento-card-avatar-wrap {
+      position: relative;
+      width: 52px;
+      height: 52px;
+      margin-bottom: 10px;
+    }
+    .bento-mentor-img {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #F5A623;
+    }
+    .bento-online-dot {
+      position: absolute;
+      bottom: 2px;
+      right: 2px;
+      width: 11px;
+      height: 11px;
+      background: #34C759;
+      border: 2px solid #1C1C26;
+      border-radius: 50%;
+    }
+    .bento-tarot-mini {
+      width: 44px;
+      height: 52px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #2D234A 0%, #151322 100%);
+      border: 1.5px solid #F5A623;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 14px rgba(245, 166, 35, 0.3);
+    }
+    .bento-card-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .bento-card-caption {
+      font-size: 11px;
+      color: #8E8E9F;
+      margin-top: 3px;
+    }
+
+    /* 03 & 05: Daily Guidance & Moonly Calendar Cards */
+    .live-app-card {
+      width: 100%;
+      background: linear-gradient(145deg, #1C1B2B 0%, #13121E 100%);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 26px;
+      padding: 22px 20px;
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+      position: relative;
+    }
+    .live-card-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+    .live-card-tag {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      color: #9D9BB6;
+      text-transform: uppercase;
+    }
+    .live-card-chevron {
+      color: #8E8E9F;
+      font-size: 18px;
+    }
+    .live-card-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      color: #8E8E9F;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .live-card-body-text {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 1.45;
+      color: #FFFFFF;
+      margin-bottom: 16px;
+    }
+    .live-card-footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding-top: 12px;
+    }
+    .live-footer-label {
+      font-size: 11px;
+      color: #8E8E9F;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+    .live-footer-badge {
+      font-size: 13px;
+      font-weight: 700;
+      color: #34C759;
+    }
+
+    /* 05: Moon Cycle with Big 3D Sphere */
+    .live-lunar-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 10px;
+    }
+    .live-lunar-countdown-val {
+      font-size: 14px;
+      font-weight: 700;
+      color: #F7D794;
+      margin-top: 4px;
+    }
+    .live-lunar-sphere-big {
+      width: 78px;
+      height: 78px;
+      object-fit: contain;
+      filter: drop-shadow(0 0 22px rgba(247, 215, 148, 0.5));
+    }
+
+    /* 07: Transit Card */
+    .transit-inner-box {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .transit-sign-glyph {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      background: rgba(120, 75, 246, 0.2);
+      border: 1px solid rgba(120, 75, 246, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      color: #B89BD6;
+    }
+    .transit-dates-pill {
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      color: #F7D794;
+      text-transform: uppercase;
+    }
+    .transit-title-text {
+      font-size: 17px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-top: 2px;
+    }
+
+    /* 09: Tarot Showcase */
+    .live-tarot-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+    }
+    .live-tarot-card {
+      width: 170px;
+      height: 250px;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #2B1E4A 0%, #110E1D 100%);
+      border: 2px solid #F5A623;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7), 0 0 25px rgba(245, 166, 35, 0.35);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .live-tarot-card::before {
+      content: '';
+      position: absolute;
+      inset: 6px;
+      border: 1px dashed rgba(245, 166, 35, 0.4);
+      border-radius: 12px;
+      pointer-events: none;
+    }
+    .tarot-number-top {
+      font-size: 12px;
+      font-weight: 800;
+      color: #F7D794;
+      letter-spacing: 0.1em;
+    }
+    .tarot-icon-center {
+      font-size: 64px;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+    }
+    .tarot-name-bottom {
+      font-size: 13px;
+      font-weight: 800;
+      color: #FFFFFF;
+      text-align: center;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+    }
+
+    /* 10: Sound Healing Card */
+    .live-sound-box {
+      width: 100%;
+      background: linear-gradient(135deg, rgba(23, 30, 48, 0.95) 0%, rgba(13, 16, 26, 0.98) 100%);
+      border: 1px solid rgba(80, 160, 240, 0.25);
+      border-radius: 26px;
+      padding: 22px 20px;
+      box-shadow: 0 16px 36px rgba(0,0,0,0.6), 0 0 30px rgba(80, 160, 240, 0.15);
+    }
+    .sound-waves-row {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      height: 24px;
+    }
+    .sound-waves-row span {
+      width: 3.5px;
+      background: #50A0F0;
+      border-radius: 2px;
+      animation: soundWave 1.2s ease-in-out infinite alternate;
+    }
+    .sound-waves-row span:nth-child(1) { height: 10px; animation-delay: 0.1s; }
+    .sound-waves-row span:nth-child(2) { height: 22px; animation-delay: 0.3s; }
+    .sound-waves-row span:nth-child(3) { height: 16px; animation-delay: 0.5s; }
+    .sound-waves-row span:nth-child(4) { height: 24px; animation-delay: 0.2s; }
+    .sound-waves-row span:nth-child(5) { height: 12px; animation-delay: 0.4s; }
+    @keyframes soundWave {
+      from { transform: scaleY(0.4); opacity: 0.5; }
+      to { transform: scaleY(1); opacity: 1; }
+    }
+    .sound-track-bar {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 16px 0 12px;
+    }
+    .sound-play-circle-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: #50A0F0;
+      color: #0E0E14;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 900;
+      border: none;
+      box-shadow: 0 4px 14px rgba(80, 160, 240, 0.45);
+      cursor: pointer;
+    }
+    .sound-track-rail {
+      flex: 1;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .sound-track-fill {
+      width: 42%;
+      height: 100%;
+      background: #50A0F0;
+      border-radius: 3px;
+    }
+
+    /* 11: Practices (Affirmation & Rune) */
+    .practices-duo-row {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      width: 100%;
+    }
+    .practice-item-card {
+      background: rgba(26, 26, 38, 0.95);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 16px 18px;
+    }
+    .practice-item-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #F7D794;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .practice-item-quote {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: #FFFFFF;
+      line-height: 1.4;
+    }
+
+    /* 13: Dreamer */
+    .dreamer-preview-box {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .dreamer-input-fake {
+      background: rgba(26, 26, 38, 0.9);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      border-radius: 18px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      color: #8E8E9F;
+    }
+
+    /* 16: Natal Chart */
+    .natal-orbit-disc {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 1.5px dashed rgba(247, 215, 148, 0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 4px auto 14px;
+      position: relative;
+      animation: rotateMandala 30s linear infinite;
+    }
+    .natal-orbit-disc::after {
+      content: '✦';
+      position: absolute;
+      color: #F7D794;
+      font-size: 20px;
+    }
+    .natal-pt-dot {
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      border-radius: 50%;
+      background: #1C1C26;
+      border: 1px solid #F5A623;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12px;
+      color: #FFFFFF;
+      font-weight: 700;
+    }
+
+    /* 18: Compatibility */
+    .compat-duo-avatars {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+      margin-bottom: 16px;
+    }
+    .compat-avatar-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+    .compat-avatar-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #F5A623;
+    }
+    .compat-score-badge {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #F5A623 0%, #D48812 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 20px rgba(245, 166, 35, 0.4);
+    }
+    .compat-score-num {
+      font-size: 20px;
+      font-weight: 900;
+      color: #0E0E14;
+      line-height: 1;
+    }
+    .compat-score-sub {
+      font-size: 9px;
+      font-weight: 800;
+      color: #0E0E14;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Статус-бар iOS -->
+  <div class="status-bar">
+    <span>9:41</span>
+    <div class="status-bar-icons">
+      <span>••••</span>
+      <span>5G</span>
+      <span>🔋</span>
+    </div>
+  </div>
+
+  <!-- Кнопка назад `<` -->
+  <div class="nav-bar">
+    <button class="back-btn" id="backBtn" onclick="prevSlide()" style="display: none;">‹</button>
+  </div>
+
+  <!-- Шапка: Заголовок + Описание (БЕЗ БЕЙДЖЕЙ!) -->
+  <div class="header" id="screenHeader">
+    <div class="title" id="screenTitle"></div>
+    <div class="subtitle" id="screenSubtitle"></div>
+  </div>
+
+  <!-- Основная зона контента -->
+  <div class="main-content" id="mainContent"></div>
+
+  <!-- Белая кнопка капсула (показывается только в витринах и мульти-квизах) -->
+  <button class="btn-pill" id="actionBtn" onclick="nextSlide()" style="display: none;"></button>
+
+  <!-- Математический движок ведических координат -->
+  <script>
+    function normDeg(d) {
+      d = d % 360.0;
+      return d < 0 ? d + 360.0 : d;
+    }
+
+    const ZODIAC_SIGNS = [
+      { ru: "Овен", sanskrit: "Меша" },
+      { ru: "Телец", sanskrit: "Вришабха" },
+      { ru: "Близнецы", sanskrit: "Митхуна" },
+      { ru: "Рак", sanskrit: "Карка" },
+      { ru: "Лев", sanskrit: "Симха" },
+      { ru: "Дева", sanskrit: "Канья" },
+      { ru: "Весы", sanskrit: "Тула" },
+      { ru: "Скорпион", sanskrit: "Врисчика" },
+      { ru: "Стрелец", sanskrit: "Дхану" },
+      { ru: "Козерог", sanskrit: "Макара" },
+      { ru: "Водолей", sanskrit: "Кумбха" },
+      { ru: "Рыбы", sanskrit: "Мина" }
+    ];
+
+    const NAKSHATRAS = [
+      "Ашвини", "Бхарани", "Криттика", "Рохини", "Мригашира", "Ардра", "Пунарвасу", "Пушья", "Ашлеша",
+      "Магха", "Пурва Пхалгуни", "Уттара Пхалгуни", "Хаста", "Читра", "Свати", "Вишакха", "Анурадха", "Джьештха",
+      "Мула", "Пурва Ашадха", "Уттара Ашадха", "Шравана", "Дхаништха", "Шатабхиша", "Пурва Бхадрапада", "Уттара Бхадрапада", "Ревати"
+    ];
+
+    function computeVedicKundali(year, month, day, hour, minute, lat, lon) {
+      let y = year, m = month;
+      if (m <= 2) { y -= 1; m += 12; }
+      const A = Math.floor(y / 100);
+      const B = 2 - A + Math.floor(A / 4);
+      const jd = Math.floor(365.25 * (y + 4716)) + Math.floor(30.6001 * (m + 1)) + day + ((hour + minute/60.0)/24.0) + B - 1524.5;
+      const T = (jd - 2451545.0) / 36525.0;
+
+      const ayanamsa = 23.85 + (T * 1.396);
+
+      const L0 = 280.46646 + 36000.76983 * T;
+      const M_sun = (357.52911 + 35999.05029 * T) * (Math.PI / 180);
+      const sunTrop = normDeg(L0 + 1.914602 * Math.sin(M_sun) + 0.019993 * Math.sin(2 * M_sun));
+      const sunSidereal = normDeg(sunTrop - ayanamsa);
+
+      const L_moon = 218.3164477 + 481267.88123421 * T;
+      const M_moon = (134.9633964 + 477198.8675055 * T) * (Math.PI / 180);
+      const moonTrop = normDeg(L_moon + 6.288774 * Math.sin(M_moon));
+      const moonSidereal = normDeg(moonTrop - ayanamsa);
+
+      const GMST0 = 280.46061837 + 360.98564736629 * (jd - 2451545.0);
+      const LST = normDeg(GMST0 + lon);
+      const ramcRad = LST * (Math.PI / 180);
+      const epsRad = (23.439291 - 0.0130042 * T) * (Math.PI / 180);
+      const latRad = lat * (Math.PI / 180);
+
+      const yAsc = Math.cos(ramcRad);
+      const xAsc = -Math.sin(ramcRad) * Math.cos(epsRad) - Math.tan(latRad) * Math.sin(epsRad);
+      let ascTrop = Math.atan2(yAsc, xAsc) * (180 / Math.PI);
+      ascTrop = normDeg(ascTrop);
+      const ascSidereal = normDeg(ascTrop - ayanamsa);
+
+      const lagnaSignIdx = Math.floor(ascSidereal / 30);
+      const moonSignIdx = Math.floor(moonSidereal / 30);
+      const sunSignIdx = Math.floor(sunSidereal / 30);
+
+      const moonNakIdx = Math.floor(moonSidereal / (360.0 / 27.0));
+      const pada = Math.floor(((moonSidereal % (360.0 / 27.0)) / (360.0 / 27.0)) * 4) + 1;
+
+      return {
+        lagna: ZODIAC_SIGNS[lagnaSignIdx],
+        moon: ZODIAC_SIGNS[moonSignIdx],
+        sun: ZODIAC_SIGNS[sunSignIdx],
+        nakshatra: NAKSHATRAS[moonNakIdx],
+        pada: pada
+      };
+    }
+  </script>
+
+  <!-- Полная база 21 экрана онбординга 1:1 по реальному приложению Moonly -->
+  <script>
+    const userAnswers = {
+      gender: 'female',
+      goals: ['authentic_path', 'balance'],
+      moonSense: 'charged',
+      energyDrain: 'anxiety',
+      intuition: 'clear',
+      astrologer: 'varuna',
+      birthDay: 17,
+      birthMonth: 10,
+      birthYear: 1996,
+      birthHour: 14,
+      birthMinute: 30,
+      birthCity: 'Москва, Россия',
+      lat: 55.7558,
+      lon: 37.6173
+    };
+
+    const TOTAL_SLIDES = 21;
+    let currentSlide = 0;
+
+    const SLIDES = [
+      // 00: Bento Start (Live Bento Showcase)
+      {
+        align: 'center',
+        title: 'В согласии с ритмом<br>Вселенной',
+        desc: 'Любовь, карьера и поиск своего пути по натальной карте',
+        type: 'showcase',
+        btnText: 'Начать путь',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-bento-hero">
+              <div>
+                <div class="bento-badge">ЛУННЫЙ ЦИКЛ</div>
+                <div class="bento-title">Растущая Луна</div>
+                <div class="bento-sub">13-й день • Зенит через 2 дня</div>
+              </div>
+              <img src="moonly_3d_icons/moon_13.png" class="bento-moon-sphere" alt="3D Луна">
+            </div>
+            <div class="live-bento-row">
+              <div class="live-bento-card">
+                <div class="bento-card-avatar-wrap">
+                  <img src="10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png" class="bento-mentor-img" alt="Астра">
+                  <span class="bento-online-dot"></span>
+                </div>
+                <div class="bento-card-title">А́стра</div>
+                <div class="bento-card-caption">Личный астролог 24/7</div>
+              </div>
+              <div class="live-bento-card">
+                <div class="bento-tarot-mini">👑</div>
+                <div class="bento-card-title">Таро дня</div>
+                <div class="bento-card-caption">Король Пентаклей</div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 01: Gender (Single choice -> автопереход)
+      {
+        align: 'left',
+        title: 'Как вы себя<br>ощущаете?',
+        desc: 'Мы подберём практики с учётом вашей энергии 👌',
+        type: 'single',
+        field: 'gender',
+        options: [
+          { id: 'female', text: 'Женская энергия' },
+          { id: 'male', text: 'Мужская энергия' },
+          { id: 'nonbinary', text: 'Баланс двух начал' }
+        ]
+      },
+      // 02: Goals (1:1 со скриншота)
+      {
+        align: 'left',
+        title: 'Что бы вы хотели<br>изменить в жизни?',
+        desc: 'Мы тщательно подобрали практики<br>от 200+ лучших мировых Мастеров 🙏',
+        type: 'multi',
+        field: 'goals',
+        options: [
+          { id: 'authentic_path', text: 'Найти свой путь' },
+          { id: 'relationships', text: 'Построить крепкие отношения' },
+          { id: 'balance', text: 'Обрести внутренний баланс' },
+          { id: 'confidence', text: 'Укрепить уверенность в себе' },
+          { id: 'emotional', text: 'Улучшить эмоциональное состояние' }
+        ],
+        btnText: 'Продолжить'
+      },
+      // 03: Daily Guidance (Live Showcase matching Calendar Card 1)
+      {
+        align: 'center',
+        title: 'Ежедневные подсказки<br>для вас',
+        desc: 'Микро-ритуалы, инсайты и полезные привычки, подобранные для каждого момента',
+        type: 'showcase',
+        btnText: 'Погрузиться в поток ✨',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-app-card">
+              <div class="live-card-top">
+                <span class="live-card-tag">👁️ ДЛЯ ТЕБЯ • 13-Й ЛУННЫЙ ДЕНЬ</span>
+                <span class="live-card-chevron">›</span>
+              </div>
+              <div class="live-card-section-label">В ФОКУСЕ</div>
+              <div class="live-card-body-text">
+                День омоложения, колеса прялки и раскрытия тайн. Время распутывать кармические узлы и доверять внутреннему компасу.
+              </div>
+              <div class="live-card-footer-row">
+                <span class="live-footer-label">СФЕРА ДНЯ</span>
+                <span class="live-footer-badge">Любовь и гармония ▲</span>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 04: Moon Sensitivity (1:1 со скриншота 1)
+      {
+        align: 'left',
+        title: 'Влияет ли на вас<br>Полнолуние?',
+        desc: 'Мы подберём практики с учётом вашей чувствительности 🥰',
+        type: 'single',
+        field: 'moonSense',
+        options: [
+          { id: 'charged', text: 'Да, чувствую прилив сил' },
+          { id: 'dreams', text: 'Да, мне снятся яркие сны' },
+          { id: 'sometimes', text: 'Бывает по-разному' },
+          { id: 'rarely', text: 'Даже не замечаю его' }
+        ]
+      },
+      // 05: Move with Moon (Live Lunar Card with Real 3D Moon Sphere)
+      {
+        align: 'center',
+        title: 'В ритме Луны',
+        desc: 'Люди ждут от себя продуктивности в неподходящие дни. Лунный цикл подскажет, что сейчас лучше: отдыхать или действовать.',
+        type: 'showcase',
+        btnText: 'Следовать ритму',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-app-card">
+              <div class="live-card-top">
+                <span class="live-card-tag">🌙 ЛУННЫЙ КАЛЕНДАРЬ • 13-Й ДЕНЬ</span>
+                <span class="live-card-chevron">›</span>
+              </div>
+              <div class="live-card-section-label">11:41 — 21:50 • Дева ♍</div>
+              <div class="live-card-body-text" style="font-size: 15px;">
+                Энергия растущей луны направляет намерения — замыслы кристаллизуются, обретая устойчивую форму.
+              </div>
+              <div class="live-lunar-bottom-row">
+                <div>
+                  <div class="live-card-section-label" style="margin-bottom: 2px;">ПОЛНОЛУНИЕ</div>
+                  <div class="live-lunar-countdown-val">Через 2 дн. ✦</div>
+                </div>
+                <img src="moonly_3d_icons/moon_13.png" class="live-lunar-sphere-big" alt="3D Луна">
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 06: Energy Drain (1:1 со скриншота 3)
+      {
+        align: 'left',
+        title: 'Что отнимает вашу<br>энергию<br>больше всего?',
+        desc: 'Мы составим лунный план восстановления специально для вас 🧡',
+        type: 'single',
+        field: 'energyDrain',
+        options: [
+          { id: 'anxiety', text: 'Тревога и беспокойство' },
+          { id: 'mood', text: 'Перепады настроения' },
+          { id: 'focus', text: 'Рассеянное внимание' },
+          { id: 'adhd', text: 'СДВГ, витание в облаках' },
+          { id: 'lost', text: 'Потерянность' }
+        ]
+      },
+      // 07: Transits (Live Transit Card)
+      {
+        align: 'center',
+        title: 'Читайте Транзиты,<br>а не знаки',
+        desc: 'Транзиты в вашей Натальной карте подскажут, когда всё пойдет как по маслу, а когда придется проявить терпение. Управляйте своей удачей осознанно.',
+        type: 'showcase',
+        btnText: 'Восторг!',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-app-card">
+              <div class="transit-inner-box">
+                <div class="transit-sign-glyph">♉</div>
+                <div>
+                  <div class="transit-dates-pill">13 ОКТЯБРЯ — 15 ОКТЯБРЯ</div>
+                  <div class="transit-title-text">Луна в знаке Тельца</div>
+                </div>
+              </div>
+              <div class="live-card-body-text" style="font-size: 14.5px;">
+                Время практичности, заземления и материализации идей. Идеально для финансовых решений, заботы о теле и обустройства дома.
+              </div>
+              <div class="live-card-footer-row">
+                <span class="live-footer-label">ВЛИЯНИЕ</span>
+                <span class="live-footer-badge" style="color: #F7D794;">✦ Благоприятно</span>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 08: Intuition Quiz (Single choice -> автопереход)
+      {
+        align: 'left',
+        title: 'Насколько вы доверяете<br>своей интуиции?',
+        desc: 'Интуиция подсказывает верные решения раньше логики 🔮',
+        type: 'single',
+        field: 'intuition',
+        options: [
+          { id: 'always', text: 'Доверяю ей без колебаний' },
+          { id: 'sometimes', text: 'Слышу, но часто сомневаюсь' },
+          { id: 'learning', text: 'Хочу раскрыть её сильнее' }
+        ]
+      },
+      // 09: Tarot Showcase (Live Gold Tarot Card)
+      {
+        align: 'center',
+        title: 'Расширьте кругозор<br>силой карт Таро',
+        desc: 'Таро — это не магия, а структурированная саморефлексия, открывающая неожиданные пути и озарения.',
+        type: 'showcase',
+        btnText: 'Тянуть карту ✨',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-tarot-box">
+              <div class="live-tarot-card">
+                <div class="tarot-number-top">XIV • СТАРШИЙ АРКАН</div>
+                <div class="tarot-icon-center">✨</div>
+                <div class="tarot-name-bottom">УМЕРЕННОСТЬ<br><span style="font-size: 10px; color: #F7D794; font-weight: 600;">ГАРМОНИЯ И БАЛАНС</span></div>
+              </div>
+              <div class="live-app-card" style="padding: 14px 18px;">
+                <div class="live-card-section-label" style="color: #F7D794;">СОВЕТ АРКАНА</div>
+                <div style="font-size: 13.5px; color: #E6E6FA; line-height: 1.4;">
+                  Золотая середина между разумом и чувствами. Терпение принесет плоды быстрее спешки.
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 10: Sound Healing Showcase (Live Solfeggio 528 Hz Card)
+      {
+        align: 'center',
+        title: 'Медитации, созданные<br>для вас',
+        desc: 'Сессии звукотерапии от мастеров тибетских поющих чаш. Снижают тревожность и восстанавливают сон.',
+        type: 'showcase',
+        btnText: 'Слушать тишину 🕊️',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-sound-box">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="bento-badge" style="color: #50A0F0;">СОЛЬФЕДЖИО • 528 ГЦ</span>
+                <div class="sound-waves-row">
+                  <span></span><span></span><span></span><span></span><span></span>
+                </div>
+              </div>
+              <div style="font-size: 19px; font-weight: 800; color: #FFF; margin-top: 8px;">Частота Любви и Исцеления</div>
+              <div style="font-size: 13px; color: #A6C2E2; margin-top: 4px;">Тибетские чаши и космический резонанс</div>
+              <div class="sound-track-bar">
+                <button class="sound-play-circle-btn">▶</button>
+                <div class="sound-track-rail">
+                  <div class="sound-track-fill"></div>
+                </div>
+                <span style="font-size: 12px; color: #A6C2E2; font-weight: 600;">15:00</span>
+              </div>
+              <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+                <span style="font-size: 11px; background: rgba(80, 160, 240, 0.15); color: #8EC8F8; padding: 4px 10px; border-radius: 12px;">Снижение кортизола</span>
+                <span style="font-size: 11px; background: rgba(80, 160, 240, 0.15); color: #8EC8F8; padding: 4px 10px; border-radius: 12px;">Глубокий сон</span>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 11: Habits Showcase (Live Affirmation + Rune)
+      {
+        align: 'center',
+        title: 'Практика — ключ<br>к гармонии',
+        desc: 'Простые ежедневные ритуалы, которые возвращают спокойствие и уверенность в себе.',
+        type: 'showcase',
+        btnText: 'Начать практиковать',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="practices-duo-row">
+              <div class="practice-item-card">
+                <div class="practice-item-header">🌸 АФФИРМАЦИЯ ДНЯ</div>
+                <div class="practice-item-quote">«Я нахожусь в гармонии с ритмами Вселенной. Всё происходит вовремя.»</div>
+              </div>
+              <div class="practice-item-card" style="border-color: rgba(245, 166, 35, 0.3);">
+                <div class="practice-item-header" style="color: #F5A623;">ᛚ РУНА ДНЯ • LAGUZ</div>
+                <div class="practice-item-quote">Поток жизни, очищение и глубинная интуиция. Доверяйте своим предчувствиям.</div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 12: Dreams Quiz (Single choice -> автопереход)
+      {
+        align: 'left',
+        title: 'Помните ли вы<br>свои сны?',
+        desc: 'Сны несут подсказки подсознания, которые мы не слышим днём 🌙',
+        type: 'single',
+        field: 'dreams',
+        options: [
+          { id: 'most', text: 'Помню большинство — яркие и живые' },
+          { id: 'fragments', text: 'Помню только отдельные фрагменты' },
+          { id: 'rarely', text: 'Редко помню, что снилось' }
+        ]
+      },
+      // 13: Dream Decoder Showcase (Live Dreamer Card)
+      {
+        align: 'center',
+        title: 'Расшифруйте тайный<br>язык снов',
+        desc: 'Сны содержат подсказки, которые бодрствующий ум упускает. Узнайте, о чём говорит ваше подсознание.',
+        type: 'showcase',
+        btnText: 'Понять свои сны',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="dreamer-preview-box">
+              <div class="dreamer-input-fake">
+                <span>🌙</span>
+                <span>«Мне снился океан под звёздным небом...»</span>
+              </div>
+              <div class="live-app-card" style="border-color: rgba(120, 75, 246, 0.3);">
+                <div class="live-card-top">
+                  <span class="live-card-tag" style="color: #B89BD6;">РАСШИФРОВКА АСТРЫ • СИМВОЛЫ</span>
+                  <span class="live-card-chevron">✦</span>
+                </div>
+                <div style="font-size: 15px; font-weight: 700; color: #FFF; margin-bottom: 6px;">Океан под сияющими звёздами</div>
+                <div style="font-size: 13.5px; color: #D6D5E6; line-height: 1.45;">
+                  Океан отражает глубину ваших скрытых эмоций. Звёзды символизируют духовное руководство и скорое разрешение давнего вопроса.
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 14: Astrologer Selection (5 SOVIET CINEMA COSMIC MENTORS)
+      {
+        align: 'left',
+        title: 'Выберите своего<br>проводника',
+        desc: 'Тот наставник, чья подача и энергия вам ближе всего ✨',
+        type: 'astrologer',
+        options: [
+          { id: 'astra', name: 'А́стра', role: 'Личный астролог • Звёздные циклы и натал', img: '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png', masterIdx: 0 },
+          { id: 'selena', name: 'Селе́на', role: 'Проводник умиротворения • Лунный покой и сон', img: '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/02_Selena_Lunar_Peace.png', masterIdx: 1 },
+          { id: 'maya', name: 'Ма́йя', role: 'Советник Таро • Интуиция и скрытые знаки', img: '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/03_Maya_Tarot_Intuition.png', masterIdx: 2 },
+          { id: 'orion', name: 'Орио́н', role: 'Наставник ясности и силы • Карьера и воля', img: '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/04_Orion_Clarity_Power.png', masterIdx: 3 },
+          { id: 'taya', name: 'Та́я', role: 'Хранительница сновидений • Тайны подсознания', img: '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/05_Taya_Dream_Keeper.png', masterIdx: 4 }
+        ]
+      },
+      // 15: Purpose Quiz (Single choice -> автопереход)
+      {
+        align: 'left',
+        title: 'Чувствуете ли вы своё<br>призвание?',
+        desc: 'Поможет составить карту ваших сильных сторон и талантов 🧭',
+        type: 'single',
+        field: 'purpose',
+        options: [
+          { id: 'yes', text: 'Да, чувствую свой путь и иду по нему' },
+          { id: 'searching', text: 'В поиске — чувствую потенциал, но не путь' },
+          { id: 'lost', text: 'Пока в растерянности и застое' }
+        ]
+      },
+      // 16: Natal Chart Intro Showcase (Live Natal Passport)
+      {
+        align: 'center',
+        title: 'Ваша натальная карта —<br>ваша суперсила',
+        desc: 'По данным NASA мы рассчитываем ваш звёздный код: персональные подсказки и более 30 аспектов судьбы.',
+        type: 'showcase',
+        btnText: 'Рассчитать мою карту ✨',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-app-card" style="text-align: center;">
+              <div class="bento-badge" style="color: #F7D794;">КОСМИЧЕСКИЙ ПАСПОРТ</div>
+              <div class="natal-orbit-disc">
+                <span class="natal-pt-dot" style="top: 10px; left: 16px;">☉</span>
+                <span class="natal-pt-dot" style="bottom: 12px; right: 14px;">☽</span>
+                <span class="natal-pt-dot" style="top: 20px; right: 10px;">Asc</span>
+              </div>
+              <div class="reveal-grid" style="margin-top: 10px;">
+                <div class="natal-item">
+                  <span class="natal-label">Солнечный знак</span>
+                  <span class="natal-val" style="color: #F7D794;">Козерог ♑</span>
+                </div>
+                <div class="natal-item">
+                  <span class="natal-label">Лунная обитель</span>
+                  <span class="natal-val" style="color: #B89BD6;">Телец ♉</span>
+                </div>
+                <div class="natal-item">
+                  <span class="natal-label">Восходящий знак (Asc)</span>
+                  <span class="natal-val" style="color: #8EC7B8;">Дева ♍</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 17: Birth Inputs Form
+      {
+        align: 'left',
+        title: 'Укажите данные<br>рождения',
+        desc: 'Дата, точное время и город помогут рассчитать истинное положение планет и восходящий знак',
+        type: 'birth_inputs',
+        btnText: 'Рассчитать гороскоп'
+      },
+      // 18: Compatibility Showcase (Live Compatibility Card)
+      {
+        align: 'center',
+        title: 'Совместимость с близкими<br>людьми',
+        desc: 'Натальная карта — лишь половина пути. Раскройте законы притяжения и понимания в любви, дружбе и работе.',
+        type: 'showcase',
+        btnText: 'Впечатляет!',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-app-card">
+              <div class="compat-duo-avatars">
+                <div class="compat-avatar-col">
+                  <img src="10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png" class="compat-avatar-img" alt="Вы">
+                  <span style="font-size: 12px; color: #FFF; font-weight: 700;">Вы</span>
+                </div>
+                <div class="compat-score-badge">
+                  <span class="compat-score-num">89%</span>
+                  <span class="compat-score-sub">Гармония</span>
+                </div>
+                <div class="compat-avatar-col">
+                  <img src="10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/04_Orion_Clarity_Power.png" class="compat-avatar-img" alt="Партнер">
+                  <span style="font-size: 12px; color: #FFF; font-weight: 700;">Партнёр</span>
+                </div>
+              </div>
+              <div class="reveal-grid">
+                <div class="natal-item" style="padding: 10px 14px;">
+                  <span class="natal-label">Эмоциональная связь</span>
+                  <span class="natal-val" style="color: #34C759; font-size: 14px;">94%</span>
+                </div>
+                <div class="natal-item" style="padding: 10px 14px;">
+                  <span class="natal-label">Интеллектуальный союз</span>
+                  <span class="natal-val" style="color: #F7D794; font-size: 14px;">88%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        `
+      },
+      // 19: Calculation & Live Reveal
+      {
+        align: 'center',
+        title: 'Анализ вашей карты<br>рождения...',
+        desc: 'Синхронизация с эфемеридами NASA и расчёт ключевых планетных позиций...',
+        type: 'calculation',
+        btnText: 'Открыть мою карту'
+      },
+      // 20: Paywall / Community Showcase
+      {
+        align: 'center',
+        title: 'Более 10 млн человек изменили<br>свою жизнь вместе с нами',
+        desc: 'Присоединяйтесь к миллионам людей по всему миру, обретающих ясность и внутреннюю силу каждый день.',
+        type: 'showcase',
+        btnText: 'Войти в Астру ✨',
+        liveHtml: `
+          <div class="onboard-live-box">
+            <div class="live-app-card" style="text-align: center; border-color: rgba(245, 166, 35, 0.4);">
+              <div style="font-size: 24px; color: #F5A623; letter-spacing: 2px; margin-bottom: 4px;">★★★★★</div>
+              <div style="font-size: 18px; font-weight: 800; color: #FFF;">4.9 • 84 000+ оценок</div>
+              <div style="font-size: 14px; color: #E6E6FA; line-height: 1.5; margin: 14px 0; font-style: italic;">
+                «Астра помогла синхронизировать жизнь с ритмами природы. Перестала корить себя в периоды спада сил и научилась действовать точно в фазы подъема.»
+              </div>
+              <div style="font-size: 12px; color: #F7D794; font-weight: 700;">— Екатерина, практикует с Астрой 8 месяцев</div>
+            </div>
+          </div>
+        `
+      }
+    ];
+
+    const backBtn = document.getElementById('backBtn');
+    const screenHeader = document.getElementById('screenHeader');
+    const screenTitle = document.getElementById('screenTitle');
+    const screenSubtitle = document.getElementById('screenSubtitle');
+    const mainContent = document.getElementById('mainContent');
+    const actionBtn = document.getElementById('actionBtn');
+
+    function renderSlide(index) {
+      if (index < 0) index = 0;
+      if (index >= TOTAL_SLIDES) index = TOTAL_SLIDES - 1;
+      currentSlide = index;
+
+      const slide = SLIDES[index];
+
+      // Уведомление родительского фрейма
+      if (window.parent && window.parent !== window) {
+        try {
+          window.parent.postMessage({ type: 'slideChange', index: index }, '*');
+        } catch (e) {}
+      }
+
+      // Кнопка назад `<` (скрыта на первом экране)
+      backBtn.style.display = index === 0 ? 'none' : 'block';
+
+      // Выравнивание шапки (слева в квизах, по центру в витринах)
+      screenHeader.className = 'header ' + (slide.align === 'center' ? 'center-align' : 'left-align');
+      screenTitle.innerHTML = slide.title;
+      screenSubtitle.innerHTML = slide.desc || '';
+      screenSubtitle.style.display = slide.desc ? 'block' : 'none';
+
+      // Выравнивание контента: витрины центрируются, квизы и формы — строго сверху под заголовком!
+      mainContent.className = 'main-content' + (slide.type === 'showcase' ? ' showcase-content' : '');
+
+      // По умолчанию кнопка скрыта (для квизов с мгновенным автопереходом)
+      actionBtn.style.display = 'none';
+      actionBtn.className = 'btn-pill';
+
+      // 1. Витрина с живым HTML/CSS компонентом или статичной иллюстрацией
+      if (slide.type === 'showcase') {
+        if (slide.liveHtml) {
+          mainContent.innerHTML = slide.liveHtml;
+        } else {
+          mainContent.innerHTML = `
+            <div class="showcase-art-box">
+              <img src="${slide.image}" class="showcase-art-img" alt="${slide.title}">
+            </div>
+          `;
+        }
+        actionBtn.style.display = 'flex';
+        actionBtn.innerHTML = slide.btnText || 'Продолжить';
+      }
+      // 2. Квиз с одиночным выбором (Single choice -> МГНОВЕННЫЙ АВТОПЕРЕХОД ПО ТАПУ, НЕТ КНОПКИ ВНИЗУ!)
+      else if (slide.type === 'single') {
+        const optsHtml = slide.options.map(opt => {
+          const isSelected = userAnswers[slide.field] === opt.id;
+          return `
+            <div class="opt-card ${isSelected ? 'selected' : ''}" onclick="selectSingleOption('${slide.field}', '${opt.id}')">
+              <span class="opt-text">${opt.text}</span>
+              <div class="opt-circle"></div>
+            </div>
+          `;
+        }).join('');
+
+        mainContent.innerHTML = `<div class="opt-list">${optsHtml}</div>`;
+      }
+      // 3. Мульти-выбор (Multi choice -> С КНОПКОЙ ВНИЗУ, БЕЛАЯ КОГДА ВЫБРАНО, ТЕМНАЯ КОГДА ПУСТО)
+      else if (slide.type === 'multi') {
+        const selectedList = userAnswers[slide.field] || [];
+        const hasSelection = selectedList.length > 0;
+        const optsHtml = slide.options.map(opt => {
+          const isSelected = selectedList.includes(opt.id);
+          return `
+            <div class="opt-card ${isSelected ? 'selected' : ''}" onclick="toggleMultiOption('${slide.field}', '${opt.id}')">
+              <span class="opt-text">${opt.text}</span>
+              <div class="opt-circle"></div>
+            </div>
+          `;
+        }).join('');
+
+        mainContent.innerHTML = `<div class="opt-list">${optsHtml}</div>`;
+        actionBtn.style.display = 'flex';
+        actionBtn.className = 'btn-pill' + (hasSelection ? '' : ' disabled');
+        actionBtn.innerHTML = slide.btnText || 'Продолжить';
+      }
+      // 4. Выбор наставника (с аватарами -> автопереход)
+      else if (slide.type === 'astrologer') {
+        const astroHtml = slide.options.map(a => {
+          const isSelected = userAnswers.astrologer === a.id;
+          return `
+            <div class="opt-card ${isSelected ? 'selected' : ''}" onclick="selectAstrologerInstant('${a.id}')">
+              <img src="${a.img}" class="opt-avatar" alt="${a.name}">
+              <div class="input-content">
+                <div class="opt-text">${a.name}</div>
+                <div class="opt-subtext">${a.role}</div>
+              </div>
+              <div class="opt-circle"></div>
+            </div>
+          `;
+        }).join('');
+
+        mainContent.innerHTML = `<div class="opt-list">${astroHtml}</div>`;
+      }
+      // 5. Ввод даты рождения
+      else if (slide.type === 'birth_inputs') {
+        mainContent.innerHTML = `
+          <div class="birth-form">
+            <div class="input-row-card">
+              <span class="input-icon">📅</span>
+              <div class="input-content">
+                <label>Дата рождения</label>
+                <input type="date" id="inputDate" value="${userAnswers.birthYear}-${String(userAnswers.birthMonth).padStart(2,'0')}-${String(userAnswers.birthDay).padStart(2,'0')}">
+              </div>
+            </div>
+            <div class="input-row-card">
+              <span class="input-icon">⏰</span>
+              <div class="input-content">
+                <label>Время рождения</label>
+                <input type="time" id="inputTime" value="${String(userAnswers.birthHour).padStart(2,'0')}:${String(userAnswers.birthMinute).padStart(2,'0')}">
+              </div>
+            </div>
+            <div class="input-row-card">
+              <span class="input-icon">📍</span>
+              <div class="input-content">
+                <label>Город рождения</label>
+                <input type="text" id="inputCity" value="${userAnswers.birthCity}">
+              </div>
+            </div>
+          </div>
+        `;
+        actionBtn.style.display = 'flex';
+        actionBtn.innerHTML = slide.btnText || 'Рассчитать гороскоп';
+      }
+      // 6. Расчет натала
+      else if (slide.type === 'calculation') {
+        const chart = computeVedicKundali(
+          userAnswers.birthYear,
+          userAnswers.birthMonth,
+          userAnswers.birthDay,
+          userAnswers.birthHour,
+          userAnswers.birthMinute,
+          userAnswers.lat,
+          userAnswers.lon
+        );
+
+        mainContent.innerHTML = `
+          <div class="calc-container">
+            <div class="mandala-rotator">
+              <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="50" cy="50" r="46" stroke="#FFFFFF" stroke-width="1.5" stroke-dasharray="4 4"/>
+                <circle cx="50" cy="50" r="36" stroke="#8E8E93" stroke-width="1"/>
+                <polygon points="50,6 88,28 88,72 50,94 12,72 12,28" stroke="#FFFFFF" stroke-width="1" fill="none"/>
+                <polygon points="50,94 12,28 88,28" stroke="#8E8E93" stroke-width="1" fill="none"/>
+                <circle cx="50" cy="50" r="10" fill="#FFFFFF"/>
+              </svg>
+            </div>
+            <div class="reveal-grid">
+              <div class="natal-item">
+                <span class="natal-label">Восходящий знак (Лагна)</span>
+                <span class="natal-val">${chart.lagna.ru}</span>
+              </div>
+              <div class="natal-item">
+                <span class="natal-label">Знак Луны</span>
+                <span class="natal-val">${chart.moon.ru}</span>
+              </div>
+              <div class="natal-item">
+                <span class="natal-label">Знак Солнца</span>
+                <span class="natal-val">${chart.sun.ru}</span>
+              </div>
+              <div class="natal-item">
+                <span class="natal-label">Лунная стоянка</span>
+                <span class="natal-val">${chart.nakshatra}</span>
+              </div>
+            </div>
+          </div>
+        `;
+        actionBtn.style.display = 'flex';
+        actionBtn.innerHTML = slide.btnText || 'Открыть мою карту';
+      }
+    }
+
+    // Одиночный выбор: подсветка + мгновенный автопереход
+    function selectSingleOption(field, id) {
+      userAnswers[field] = id;
+      renderSlide(currentSlide);
+      setTimeout(() => {
+        nextSlide();
+      }, 160);
+    }
+
+    // Мульти-выбор
+    function toggleMultiOption(field, id) {
+      if (!userAnswers[field]) userAnswers[field] = [];
+      const idx = userAnswers[field].indexOf(id);
+      if (idx > -1) {
+        userAnswers[field].splice(idx, 1);
+      } else {
+        userAnswers[field].push(id);
+      }
+      renderSlide(currentSlide);
+    }
+
+    // Выбор астролога (5 советских кино-наставников)
+    function selectAstrologerInstant(id) {
+      userAnswers.astrologer = id;
+      const masterIdxMap = { astra: 0, selena: 1, maya: 2, orion: 3, taya: 4 };
+      const chosenIdx = masterIdxMap[id] !== undefined ? masterIdxMap[id] : 0;
+      try {
+        localStorage.setItem('astra_current_master_idx', chosenIdx);
+        localStorage.setItem('astra_selected_mentor_id', id);
+      } catch (e) {}
+
+      renderSlide(currentSlide);
+      setTimeout(() => {
+        nextSlide();
+      }, 160);
+    }
+
+    function saveBirthData() {
+      const d = document.getElementById('inputDate');
+      const t = document.getElementById('inputTime');
+      const c = document.getElementById('inputCity');
+      if (d && d.value) {
+        const parts = d.value.split('-');
+        userAnswers.birthYear = parseInt(parts[0], 10);
+        userAnswers.birthMonth = parseInt(parts[1], 10);
+        userAnswers.birthDay = parseInt(parts[2], 10);
+      }
+      if (t && t.value) {
+        const parts = t.value.split(':');
+        userAnswers.birthHour = parseInt(parts[0], 10);
+        userAnswers.birthMinute = parseInt(parts[1], 10);
+      }
+      if (c && c.value) {
+        userAnswers.birthCity = c.value;
+      }
+    }
+
+    function prevSlide() {
+      if (currentSlide > 0) {
+        renderSlide(currentSlide - 1);
+      }
+    }
+
+    function nextSlide() {
+      if (currentSlide === 17) {
+        saveBirthData();
+      }
+      if (currentSlide < TOTAL_SLIDES - 1) {
+        renderSlide(currentSlide + 1);
+      } else {
+        try {
+          const chartData = computeVedicChart(userAnswers);
+          const masterIdxMap = { astra: 0, selena: 1, maya: 2, orion: 3, taya: 4 };
+          const chosenIdx = masterIdxMap[userAnswers.astrologer] !== undefined ? masterIdxMap[userAnswers.astrologer] : 0;
+          localStorage.setItem('astra_current_master_idx', chosenIdx);
+          const exportPayload = {
+            userName: userAnswers.name || 'Александр',
+            birthYear: userAnswers.birthYear || 1995,
+            birthMonth: userAnswers.birthMonth || 7,
+            birthDay: userAnswers.birthDay || 15,
+            birthCity: userAnswers.birthCity || 'Москва',
+            astrologer: userAnswers.astrologer || 'astra',
+            chart: chartData
+          };
+          localStorage.setItem('astra_user_data', JSON.stringify(exportPayload));
+        } catch(e) {}
+        window.location.href = 'astra_main_app.html';
+      }
+    }
+
+    // Старт
+    renderSlide(0);
+  </script>
+</body>
+</html>

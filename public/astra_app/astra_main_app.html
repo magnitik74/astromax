@@ -1,0 +1,4460 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>АСТРА • Космический Проводник</title>
+  
+  <!-- Favicon & App Icons -->
+  <link rel="icon" type="image/webp" href="00_ИКОНКИ_И_ЛОГОТИП_АСТРА/Astra_AppIcon_StarFlower_small_128.webp">
+  <link rel="apple-touch-icon" href="00_ИКОНКИ_И_ЛОГОТИП_АСТРА/Astra_AppIcon_MandalaLotus_master_1024.webp">
+
+  <!-- Core Security & Data Modules -->
+  <script src="astra_security_shield.js"></script>
+  <script src="astra_tarot_runes_data.js"></script>
+  <script src="astra_sounds_data.js"></script>
+  <script src="astra_mentors_engine.js"></script>
+
+  <style>
+    /* ==========================================================================
+       ASTRA MASTER DESIGN SYSTEM (PIXEL-PERFECT MOONLY REPLICATION)
+       ========================================================================== */
+    :root {
+      --bg-dark: #0D0E15;
+      --bg-card: rgba(26, 27, 38, 0.75);
+      --bg-card-solid: #161822;
+      --bg-card-border: rgba(255, 255, 255, 0.08);
+      --bg-input: #202230;
+      
+      --purple: #784BF6;
+      --purple-hover: #8A60F8;
+      --purple-glow: rgba(120, 75, 246, 0.35);
+      --amber: #E58A2B;
+      --amber-glow: rgba(229, 138, 43, 0.4);
+      --teal: #2DD4BF;
+      --teal-glow: rgba(45, 212, 191, 0.3);
+      
+      --text-main: #FFFFFF;
+      --text-muted: #8E93A6;
+      --text-dim: #5C6073;
+
+      --moonly-card: #18181D;
+      --moonly-card-highlight: #25252C;
+      --moonly-text-primary: #FFFFFF;
+      --moonly-text-secondary: #A0A5B5;
+      --moonly-text-muted: #8E8E93;
+      --moonly-text-sub: #6E7282;
+
+      --radius-sm: 12px;
+      --radius-md: 18px;
+      --radius-lg: 26px;
+      --radius-xl: 34px;
+      
+      --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-serif: "Georgia", "Playfair Display", "Cinzel", serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+      font-family: var(--font-sans);
+    }
+
+    body {
+      background: #000;
+      color: var(--text-main);
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* Mobile Container Frame (430 x 932 px iPhone 16 Pro Max Standard) */
+    .app-frame {
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      max-height: 932px;
+      background: var(--bg-dark);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+      display: flex;
+      flex-direction: column;
+    }
+
+    @media (max-width: 440px) {
+      .app-frame {
+        max-width: 100vw;
+        height: 100vh;
+        max-height: 100vh;
+        border-radius: 0;
+      }
+    }
+
+    /* ==========================================================================
+       TOP SAFE AREA & STATUS BAR (IPHONE DYNAMIC ISLAND / NOTCH COMPLIANCE)
+       ========================================================================== */
+    .app-top-safe-bar {
+      height: 48px;
+      padding: 12px 24px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 14.5px;
+      font-weight: 600;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      z-index: 150;
+      flex-shrink: 0;
+      position: relative;
+      background: transparent;
+      transition: background 0.25s, color 0.25s;
+      pointer-events: none;
+    }
+    .status-time {
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+    .status-icons {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .status-battery-pill {
+      width: 24px;
+      height: 12px;
+      border: 1.5px solid rgba(255, 255, 255, 0.85);
+      border-radius: 4px;
+      padding: 1.5px;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+    .status-battery-pill::after {
+      content: '';
+      position: absolute;
+      right: -3.5px;
+      top: 2.5px;
+      width: 2px;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 0 1px 1px 0;
+    }
+    .status-battery-level {
+      width: 75%;
+      height: 100%;
+      background: #FFFFFF;
+      border-radius: 1.5px;
+    }
+
+    /* Light mode top bar for Chat screen */
+    .app-top-safe-bar.light-mode {
+      background: #FFFFFF;
+      color: #191B26;
+    }
+    .app-top-safe-bar.light-mode svg {
+      fill: #191B26;
+    }
+    .app-top-safe-bar.light-mode .status-battery-pill {
+      border-color: #191B26;
+    }
+    .app-top-safe-bar.light-mode .status-battery-pill::after {
+      background: #191B26;
+    }
+    .app-top-safe-bar.light-mode .status-battery-level {
+      background: #191B26;
+    }
+
+    /* Screens View Manager */
+    .screens-viewport {
+      flex: 1;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .screen-view {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-bottom: 90px;
+      display: none;
+      scrollbar-width: none;
+    }
+    .screen-view::-webkit-scrollbar { display: none; }
+    .screen-view.active { display: block; }
+
+    /* Universal Bold Serif Header for Sections */
+    .section-master-header {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFF;
+      padding: 16px 20px 4px;
+      letter-spacing: -0.01em;
+    }
+    .section-sub-header {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding: 0 20px 10px;
+    }
+
+      /* ==========================================================================
+         BOTTOM NAVIGATION BAR (MOONLY FLOATING AMBER FROSTED ISLAND DOCK)
+         ========================================================================== */
+      .bottom-nav {
+        position: absolute;
+        bottom: 14px;
+        left: 14px;
+        right: 14px;
+        height: 72px;
+        background: rgba(26, 27, 38, 0.94);
+        backdrop-filter: blur(28px);
+        -webkit-backdrop-filter: blur(28px);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 38px;
+        display: flex !important;
+        justify-content: space-around;
+        align-items: center;
+        padding: 0 8px;
+        box-shadow: 0 14px 40px rgba(0, 0, 0, 0.75), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+        z-index: 100;
+      }
+
+      .nav-tab-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        flex: 1;
+        padding: 6px 2px;
+        border-radius: 24px;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        color: #8C8C9E;
+      }
+      .nav-tab-item:active { transform: scale(0.92); }
+
+      .nav-tab-icon-wrap {
+        width: 32px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2px;
+      }
+
+      .nav-tab-svg {
+        width: 28px;
+        height: 28px;
+        transition: all 0.2s ease;
+      }
+
+      .nav-tab-label {
+        font-size: 11.5px;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: #8C8C9E;
+        transition: color 0.2s;
+      }
+
+      /* Active Amber Frosted Pill Style (Strict Moonly Original) */
+      .nav-tab-item.active {
+        background: rgba(229, 138, 43, 0.35);
+        border: 1px solid rgba(229, 138, 43, 0.65);
+        box-shadow: 0 0 18px rgba(229, 138, 43, 0.4);
+        flex: 0 0 auto;
+        padding: 6px 20px;
+        border-radius: 26px;
+        color: #FFFFFF;
+      }
+      .nav-tab-item.active .nav-tab-label {
+        color: #FFFFFF;
+        font-weight: 700;
+      }
+      .nav-tab-item.active .nav-tab-svg {
+        filter: drop-shadow(0 2px 8px rgba(245, 166, 35, 0.5));
+      }
+
+    /* ==========================================================================
+       SHARED CARDS & UI COMPONENTS
+       ========================================================================== */
+    .card-glass {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      padding: 16px;
+      margin-bottom: 12px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card-glass:active { transform: scale(0.98); }
+
+    .card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 6px;
+    }
+    .card-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFF;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-sub {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .btn-primary {
+      width: 100%;
+      height: 52px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #784BF6 0%, #5B2FE3 100%);
+      border: none;
+      color: #FFF;
+      font-size: 15px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      cursor: pointer;
+      box-shadow: 0 6px 20px var(--purple-glow);
+      transition: transform 0.15s ease, opacity 0.2s;
+    }
+    .btn-primary:active { transform: scale(0.97); }
+
+    /* 4 Circular Action Buttons Bar (Matching Moonly Standard) */
+    .actions-4-bar {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .btn-action-round, .btn-pill-action {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      border: none;
+      font-size: 18px;
+    }
+    .btn-action-round:active, .btn-pill-action:active { transform: scale(0.9); }
+    .btn-action-round.reset {
+      background: #FFFFFF;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+    }
+    .btn-action-round.glass, .btn-pill-action {
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+      color: #FFFFFF;
+    }
+
+    /* Moonly Rounded Slate Container Card */
+    .moonly-slate-card {
+      background: rgba(28, 30, 48, 0.72);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 28px;
+      padding: 18px 16px 20px;
+      text-align: center;
+      position: relative;
+      margin-bottom: 12px;
+    }
+    .moonly-card-view-switcher {
+      display: inline-flex;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 18px;
+      padding: 3px 6px;
+      gap: 6px;
+    }
+    .card-view-dot {
+      padding: 4px 10px;
+      border-radius: 14px;
+      font-size: 13px;
+      color: #9CA3AF;
+      cursor: pointer;
+    }
+    .card-view-dot.active {
+      background: #FFFFFF;
+      color: #111827;
+      font-weight: 700;
+    }
+
+    /* 3D Real Clay Rune Stone with Aura */
+    .rune-real-stone-img {
+      width: 175px;
+      height: 220px;
+      object-fit: contain;
+      position: relative;
+      z-index: 2;
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      filter: drop-shadow(0 14px 32px rgba(0, 0, 0, 0.7));
+    }
+    .rune-real-stone-img:active {
+      transform: scale(0.93);
+    }
+    .rune-aura-glow {
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 166, 35, 0.38) 0%, rgba(229, 138, 43, 0.16) 50%, transparent 75%);
+      z-index: 1;
+      pointer-events: none;
+      animation: pulseGlow 4s ease-in-out infinite alternate;
+    }
+    @keyframes pulseGlow {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      100% { transform: scale(1.15); opacity: 1; }
+    }
+
+    /* ==========================================================================
+       SCREEN 1: CALENDAR (1:1 MOONLY SCREEN_06 AUTHENTIC SYSTEM)
+       ========================================================================== */
+    .calendar-header-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+      width: 100%;
+      height: 92px;
+      padding: 0 16px;
+    }
+
+    .days-scroll-card {
+      flex: 1;
+      background: var(--moonly-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      padding: 6px 8px;
+      gap: 6px;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      cursor: grab;
+      user-select: none;
+    }
+
+    .days-scroll-card:active {
+      cursor: grabbing;
+    }
+
+    .days-scroll-card::-webkit-scrollbar {
+      display: none;
+    }
+
+    .day-scroll-item {
+      flex-shrink: 0;
+      width: 48px;
+      height: 80px;
+      border-radius: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      background: transparent;
+      user-select: none;
+    }
+
+    .day-scroll-item:active {
+      transform: scale(0.96);
+    }
+
+    .day-scroll-item.selected {
+      background: var(--moonly-card-highlight);
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+    }
+
+    .day-scroll-weekday {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--moonly-text-muted);
+      letter-spacing: 0.5px;
+      line-height: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 13px;
+    }
+
+    .day-scroll-item.selected .day-scroll-weekday {
+      color: #F7B64D;
+    }
+
+    .day-scroll-moon {
+      width: 26px;
+      height: 26px;
+      object-fit: contain;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+      pointer-events: none;
+    }
+
+    .day-scroll-num {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--moonly-text-muted);
+      line-height: 1;
+    }
+
+    .day-scroll-item.selected .day-scroll-num,
+    .day-scroll-item.is-today .day-scroll-num {
+      color: #FFFFFF;
+    }
+
+    .calendar-full-view-btn {
+      width: 60px;
+      height: 92px;
+      background: var(--moonly-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 24px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      flex-shrink: 0;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .calendar-full-view-btn:active {
+      transform: scale(0.96);
+      background: var(--moonly-card-highlight);
+    }
+
+    .calendar-full-view-icon {
+      width: 22px;
+      height: 22px;
+      object-fit: contain;
+    }
+
+    .calendar-full-view-month {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--moonly-text-muted);
+      text-transform: uppercase;
+      margin-top: 8px;
+      letter-spacing: 0.8px;
+    }
+
+    /* Actions Row: Дневник Снов + Таро дня */
+    .calendar-actions-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 12px;
+      width: 100%;
+      padding: 0 16px;
+    }
+
+    .calendar-action-card {
+      flex: 1;
+      height: 64px;
+      background: var(--moonly-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      padding: 0 14px;
+      gap: 12px;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .calendar-action-card:active {
+      transform: scale(0.97);
+      background: var(--moonly-card-highlight);
+    }
+
+    .calendar-action-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .calendar-action-text {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calendar-action-sub {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--moonly-text-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .calendar-action-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--moonly-text-primary);
+      margin-top: 2px;
+    }
+
+    /* Card 1: view_calendar_v2_event_large.xml */
+    .calendar-event-large-card {
+      position: relative;
+      background: var(--moonly-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 32px;
+      overflow: hidden;
+      margin: 14px 16px 0;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 12px 36px rgba(0, 0, 0, 0.4);
+      cursor: pointer;
+      min-height: 280px;
+    }
+
+    .calendar-event-bg-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.6;
+      z-index: 1;
+      transition: opacity 0.3s ease;
+    }
+
+    .calendar-event-gradient-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(27,29,33,0.25) 0%, rgba(27,29,33,0.85) 65%, #1b1d21 100%);
+      z-index: 2;
+    }
+
+    .calendar-event-content {
+      position: relative;
+      z-index: 3;
+      padding: 22px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calendar-event-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 48px;
+    }
+
+    .calendar-event-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .calendar-event-header-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+
+    .calendar-event-top-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--moonly-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .calendar-event-day-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--moonly-text-primary);
+      margin-top: 2px;
+    }
+
+    .calendar-event-arrow {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+      opacity: 0.7;
+    }
+
+    .calendar-event-focus-tag {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--moonly-text-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-top: 18px;
+    }
+
+    .calendar-event-main-text {
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.95);
+      margin-top: 8px;
+      padding-right: 24px;
+    }
+
+    .calendar-event-bottom-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-top: 24px;
+    }
+
+    .calendar-event-status-block {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .calendar-event-status-tag {
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--moonly-text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .calendar-event-status-val {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 4px;
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--moonly-text-primary);
+    }
+
+    .calendar-event-badge-icon {
+      width: 18px;
+      height: 18px;
+      object-fit: contain;
+    }
+
+    .calendar-event-3d-moon-corner {
+      width: 68px;
+      height: 68px;
+      object-fit: contain;
+      filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));
+    }
+
+    /* Card 2: Lunar Calendar Card */
+    .calendar-card-lunar {
+      min-height: 230px;
+      background: linear-gradient(135deg, #1A1D28 0%, #12131A 100%);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      margin: 14px 16px 0;
+    }
+
+    .calendar-lunar-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 85% 75%, rgba(60, 90, 160, 0.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .calendar-lunar-transit-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #A0A5B5;
+      margin-top: 14px;
+      letter-spacing: 0.3px;
+    }
+
+    .calendar-lunar-dot {
+      color: #606575;
+      font-size: 10px;
+    }
+
+    .calendar-lunar-insight-text {
+      font-size: 18px;
+      line-height: 1.35;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-top: 10px;
+      padding-right: 20px;
+    }
+
+    /* Card 3: view_calendar_v2_transit_card.xml */
+    .calendar-transit-card {
+      position: relative;
+      background: var(--moonly-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 28px;
+      padding: 20px;
+      margin: 14px 16px 0;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .calendar-transit-date {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--moonly-text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .calendar-transit-title {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--moonly-text-primary);
+      margin-top: 4px;
+    }
+
+    .calendar-transit-stats-row {
+      display: flex;
+      margin-top: 14px;
+      gap: 20px;
+    }
+
+    .calendar-transit-stat-col {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+
+    .calendar-transit-stat-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: var(--moonly-text-secondary);
+      text-transform: uppercase;
+    }
+
+    .calendar-transit-stat-value {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--moonly-text-primary);
+      margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .calendar-transit-zodiac-icon {
+      width: 16px;
+      height: 16px;
+      object-fit: contain;
+    }
+
+    /* Bento Grid: Персональный план */
+    .lifestyle-section-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--moonly-text-sub);
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin: 24px 16px 10px;
+    }
+
+    .lifestyle-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      padding: 0 16px;
+    }
+
+    .lifestyle-badge-card {
+      background: var(--moonly-card);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 14px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: transform 0.15s ease;
+    }
+
+    .lifestyle-badge-card:active {
+      transform: scale(0.97);
+    }
+
+    .lifestyle-badge-icon {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
+    .lifestyle-badge-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .lifestyle-badge-name {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--moonly-text-primary);
+    }
+
+    .lifestyle-badge-desc {
+      font-size: 11px;
+      color: var(--moonly-text-sub);
+      margin-top: 2px;
+    }
+
+    .dreamer-quick-banner {
+      background: linear-gradient(135deg, rgba(35, 30, 48, 0.9) 0%, rgba(20, 20, 30, 0.9) 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin: 14px 16px 0;
+      cursor: pointer;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+
+    .dreamer-quick-banner:active {
+      transform: scale(0.98);
+      background: rgba(45, 38, 60, 0.9);
+    }
+
+    .dreamer-quick-icon {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+    }
+
+    .dreamer-quick-text {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .dreamer-quick-sub {
+      font-size: 10px;
+      font-weight: 700;
+      color: #A0A0B0;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+    }
+
+    .dreamer-quick-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #FFF;
+      margin-top: 2px;
+    }
+
+    /* ==========================================================================
+       SCREEN 2: PRACTICES (AFFIRMATIONS, TAROT, ORACLE, GODS, DREAM, RUNES)
+       ========================================================================== */
+    .practices-tabs-scroll {
+      display: flex;
+      gap: 10px;
+      overflow-x: auto;
+      padding: 12px 16px 8px;
+      scrollbar-width: none;
+      position: relative;
+      z-index: 20;
+    }
+    .practices-tabs-scroll::-webkit-scrollbar { display: none; }
+
+    .practice-pill {
+      padding: 10px 20px;
+      border-radius: 24px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      color: #EDEDF5;
+      font-size: 15px;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+    }
+    .practice-pill:active {
+      transform: scale(0.95);
+    }
+    .practice-pill.active {
+      background: rgba(229, 138, 43, 0.45);
+      border: 1.5px solid #F5A623;
+      color: #FFFFFF;
+      font-weight: 700;
+      box-shadow: 0 0 20px rgba(245, 166, 35, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    }
+
+    /* ==========================================================================
+       TAROT AUTHENTIC HEADER BAR (MOONLY 1:1 CAPSULE + ROUND BTNS)
+       ========================================================================== */
+    .tarot-header-nav-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 18px 12px;
+      gap: 12px;
+      position: relative;
+      z-index: 25;
+    }
+
+    .tarot-nav-round-btn {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(43, 38, 66, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #A6A3BF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      flex-shrink: 0;
+    }
+    .tarot-nav-round-btn:hover {
+      color: #FFFFFF;
+      background: rgba(62, 57, 94, 0.95);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: scale(1.05);
+    }
+    .tarot-nav-round-btn:active {
+      transform: scale(0.92);
+    }
+
+    .tarot-segmented-capsule {
+      flex: 1;
+      max-width: 250px;
+      height: 44px;
+      background: rgba(43, 38, 66, 0.9);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 999px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 4px;
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .tarot-seg-item {
+      flex: 1;
+      height: 100%;
+      border-radius: 999px;
+      border: none;
+      background: transparent;
+      color: #8E8CA6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.22s cubic-bezier(0.2, 0.8, 0.2, 1);
+      padding: 0;
+    }
+    .tarot-seg-item:hover {
+      color: #D3D0EC;
+    }
+    .tarot-seg-item.active {
+      background: #5E5D87;
+      color: #FFFFFF;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.35), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+    }
+    .tarot-seg-icon {
+      width: 22px;
+      height: 22px;
+      transition: transform 0.2s ease;
+    }
+    .tarot-seg-item.active .tarot-seg-icon {
+      transform: scale(1.06);
+    }
+
+    /* Лаконичный тултип/шторка Таро */
+    .tarot-tooltip-toast {
+      position: absolute;
+      top: 60px;
+      left: 18px;
+      right: 18px;
+      background: rgba(30, 27, 48, 0.96);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 20px;
+      padding: 14px 18px;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.75);
+      z-index: 150;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-8px);
+      transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .tarot-tooltip-toast.visible {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .tarot-tooltip-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: #F7D794;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .tarot-tooltip-text {
+      font-size: 12.5px;
+      color: #D6D5E6;
+      line-height: 1.45;
+    }
+
+    /* Tarot Slots Row (1 Card, 3 Cards) */
+    .tarot-slots-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+      padding: 6px 16px;
+      min-height: 195px;
+    }
+
+    .tarot-slot-hero {
+      width: 125px;
+      height: 195px;
+      border-radius: 20px;
+      border: 2px dashed rgba(120, 75, 246, 0.45);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 6px;
+      position: relative;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      background: rgba(120, 75, 246, 0.05);
+    }
+    .tarot-slot-hero.filled {
+      border: none;
+      background: none;
+      box-shadow: 0 0 35px rgba(56, 189, 248, 0.35);
+    }
+    .tarot-card-img-hero {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
+    }
+
+    /* 3-Cards Spread Layout (Moonly Scale) */
+    .tarot-3cards-row {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 10px 12px 6px;
+    }
+    .tarot-slot-compact {
+      width: 104px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .tarot-slot-compact:active { transform: scale(0.95); }
+    .tarot-slot-compact img {
+      width: 100%;
+      height: 162px;
+      object-fit: cover;
+      border-radius: 16px;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.65), 0 0 1px rgba(255, 255, 255, 0.2);
+    }
+    .tarot-compact-label {
+      font-size: 13px;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-top: 6px;
+      text-align: center;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      white-space: nowrap;
+    }
+
+    /* 5-Cards Cross Spread (2-1-2) */
+    .tarot-5cards-cross-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+    }
+    .tarot-cross-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+    }
+    .tarot-slot-mini {
+      width: 78px;
+      height: 118px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .tarot-slot-mini img {
+      width: 100%;
+      height: 94px;
+      object-fit: cover;
+    }
+    .tarot-slot-mini.center-card {
+      width: 86px;
+      height: 128px;
+      border: 1.5px solid var(--purple);
+      box-shadow: 0 0 16px var(--purple-glow);
+    }
+    .tarot-slot-mini.center-card img {
+      height: 104px;
+    }
+
+    /* Fan Arc Container (Leveled Out & Flatter Radius) */
+    .tarot-arc-fan-wrap {
+      position: relative;
+      height: 98px;
+      width: 100%;
+      overflow: visible;
+      margin: 4px 0 2px;
+    }
+    .fan-card-item {
+      position: absolute;
+      width: 58px;
+      height: 92px;
+      border-radius: 10px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45);
+      cursor: pointer;
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.2s, box-shadow 0.2s;
+      transform-origin: 50% 100%;
+    }
+    .fan-card-item:hover {
+      filter: brightness(1.2) drop-shadow(0 0 12px rgba(120, 75, 246, 0.8));
+      z-index: 50 !important;
+    }
+
+    /* ==========================================================================
+       UNIVERSAL WHITE BOTTOM SHEET (STRICT MOONLY REPLICATION)
+       ========================================================================== */
+    .white-bottom-sheet {
+      background: #FFFFFF !important;
+      border-radius: 30px 30px 0 0;
+      padding: 16px 20px 24px;
+      margin-top: 10px;
+      color: #111827 !important;
+      box-shadow: 0 -12px 48px rgba(0, 0, 0, 0.5);
+    }
+    .white-sheet-drag-handle {
+      width: 44px;
+      height: 5px;
+      background: #E5E7EB;
+      border-radius: 4px;
+      margin: 0 auto 12px;
+    }
+    .white-sheet-header-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+    .white-sheet-title {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      color: #111827 !important;
+      letter-spacing: -0.02em;
+    }
+    .white-sheet-sub {
+      font-size: 14px;
+      color: #6B7280 !important;
+      margin-top: 4px;
+      font-weight: 500;
+    }
+    .white-sheet-avatar-wrap {
+      position: relative;
+      width: 48px;
+      height: 48px;
+    }
+    .white-sheet-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #784BF6;
+    }
+    .white-sheet-avatar-glow {
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(120, 75, 246, 0.35) 0%, transparent 70%);
+      z-index: -1;
+    }
+    .white-sheet-spheres-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      margin-bottom: 16px;
+    }
+    .white-sheet-chip {
+      padding: 12px 14px;
+      border-radius: 16px;
+      background: #F3F4F8;
+      border: 1px solid #E5E7EB;
+      font-size: 14px;
+      font-weight: 600;
+      color: #374151 !important;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+    }
+    .white-sheet-chip:active {
+      transform: scale(0.96);
+    }
+    .white-sheet-chip.active {
+      background: #784BF6 !important;
+      border-color: #784BF6 !important;
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 16px rgba(120, 75, 246, 0.4);
+    }
+    .white-sheet-cta-btn {
+      width: 100%;
+      height: 56px;
+      border-radius: 18px;
+      background: linear-gradient(135deg, #784BF6 0%, #5B2FE3 100%);
+      border: none;
+      color: #FFFFFF;
+      font-size: 16.5px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 8px 24px rgba(120, 75, 246, 0.45);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .white-sheet-cta-btn:active {
+      transform: scale(0.98);
+      opacity: 0.92;
+    }
+    .white-sheet-quota-pill {
+      background: rgba(255, 255, 255, 0.22);
+      padding: 3px 8px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    /* ==========================================================================
+       SCREEN 1 SUBVIEW: AFFIRMATIONS (FULLSCREEN 3D MOON ART)
+       ========================================================================== */
+    .affirmation-fullscreen-card {
+      height: calc(100vh - 195px);
+      min-height: 570px;
+      border-radius: 32px;
+      overflow: hidden;
+      position: relative;
+      margin: 10px 16px 14px;
+      box-shadow: 0 16px 45px rgba(0, 0, 0, 0.7);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      padding: 22px 20px;
+    }
+    .affirmation-bg-art {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: center bottom;
+      z-index: 1;
+      animation: kenBurns 18s ease-in-out infinite alternate;
+    }
+    @keyframes kenBurns {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.08); }
+    }
+    .affirmation-overlay-gradient {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(180deg, rgba(13, 14, 21, 0.5) 0%, rgba(13, 14, 21, 0.05) 35%, rgba(13, 14, 21, 0) 65%, rgba(13, 14, 21, 0.2) 100%);
+      z-index: 2;
+    }
+    .affirmation-content-col {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      gap: 12px;
+    }
+    .affirmation-top-row {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .affirmation-category-pill {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #FFFFFF;
+      padding: 4px 12px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .affirmation-brand-tag {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.05em;
+      font-weight: 600;
+    }
+    .affirmation-actions-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 16px;
+      margin-top: 4px;
+    }
+    .btn-affirmation-round {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFF;
+      font-size: 16px;
+      cursor: pointer;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: transform 0.15s ease;
+    }
+    .btn-affirmation-round:active { transform: scale(0.9); }
+    .affirmation-quote-center {
+      font-family: var(--font-sans);
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.35;
+      text-align: center;
+      color: #FFF;
+      text-shadow: 0 2px 14px rgba(0, 0, 0, 0.85);
+      padding: 0 10px;
+      margin-top: 8px;
+    }
+
+    /* ==========================================================================
+       SCREEN 3: LIGHT CHAT (5 VEDIC MASTERS)
+       ========================================================================== */
+    #screen-chat {
+      display: none;
+      background: #F6F7F9;
+      color: #191B26;
+      flex-direction: column;
+    }
+    #screen-chat.active {
+      display: flex;
+    }
+    .chat-header-bar-light {
+      background: #FFFFFF;
+      padding: 16px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #E8EBF2;
+      cursor: pointer;
+    }
+    .chat-mentor-info-col {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .chat-mentor-avatar-wrap {
+      position: relative;
+      width: 44px;
+      height: 44px;
+    }
+    .chat-mentor-avatar-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--purple);
+    }
+    .chat-online-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #10B981;
+      border: 2px solid #FFF;
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    .chat-mentor-name {
+      font-size: 16px;
+      font-weight: 800;
+      color: #191B26;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .chat-switch-arrow {
+      font-size: 10px;
+      color: #8E93A6;
+    }
+    .chat-mentor-status {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--purple);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+
+    .chat-messages-container {
+      flex: 1;
+      overflow-y: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .chat-msg-row {
+      display: flex;
+      width: 100%;
+    }
+    .chat-msg-row.mentor { justify-content: flex-start; }
+    .chat-msg-row.user { justify-content: flex-end; }
+
+    .chat-bubble {
+      max-width: 85%;
+      padding: 16px 20px;
+      border-radius: 22px;
+      font-size: 16px;
+      line-height: 1.55;
+    }
+    .chat-msg-row.mentor .chat-bubble {
+      background: #FFFFFF;
+      color: #191B26;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+      border: 1px solid #E8EBF2;
+    }
+    .chat-msg-row.user .chat-bubble {
+      background: var(--purple);
+      color: #FFF;
+      border-bottom-right-radius: 4px;
+    }
+
+    /* Tarot Breakdown Card inside Chat */
+    .chat-insight-card {
+      background: #FFFFFF;
+      border: 1px solid #E8EBF2;
+      border-radius: 22px;
+      padding: 16px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+      display: flex;
+      gap: 16px;
+      max-width: 95%;
+    }
+    .chat-insight-thumb {
+      width: 76px;
+      height: 116px;
+      border-radius: 14px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      flex-shrink: 0;
+    }
+    .chat-insight-badge {
+      font-size: 12px;
+      color: var(--purple);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .chat-insight-card-name {
+      font-size: 19px;
+      font-weight: 800;
+      color: #111827;
+      margin: 3px 0 6px;
+    }
+    .chat-insight-text {
+      font-size: 15px;
+      line-height: 1.5;
+      color: #374151;
+      margin-bottom: 12px;
+    }
+    .chat-rating-btns {
+      display: flex;
+      gap: 8px;
+    }
+    .chat-rate-btn {
+      padding: 6px 14px;
+      border-radius: 12px;
+      background: #F3F4F6;
+      border: 1px solid #E5E7EB;
+      font-size: 13.5px;
+      font-weight: 600;
+      cursor: pointer;
+      color: #374151;
+      transition: all 0.2s;
+    }
+    .chat-rate-btn:active { background: #E5E7EB; }
+
+    .chat-input-bar-light {
+      background: #FFFFFF;
+      padding: 12px 16px 86px;
+      border-top: 1px solid #E8EBF2;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .chat-input-field {
+      flex: 1;
+      height: 48px;
+      border-radius: 24px;
+      background: #F3F4F6;
+      border: 1px solid #E5E7EB;
+      padding: 0 18px;
+      font-size: 15.5px;
+      color: #191B26;
+      outline: none;
+    }
+    .chat-send-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--purple);
+      border: none;
+      color: #FFF;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    /* Floating Mentor Selector Menu (Moonly 1:1 Popover) */
+    .floating-mentor-menu {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: 100;
+      display: none;
+      align-items: flex-start;
+      justify-content: flex-start;
+      padding: 68px 16px 20px;
+    }
+    .floating-mentor-backdrop {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+    }
+    .floating-mentor-card {
+      position: relative;
+      z-index: 101;
+      width: 290px;
+      max-width: 90%;
+      background: rgba(30, 32, 45, 0.90);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 26px;
+      padding: 12px 10px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+    }
+    .floating-mentor-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 10px 12px;
+      border-radius: 18px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .floating-mentor-item:hover, .floating-mentor-item:active { background: rgba(255, 255, 255, 0.08); }
+    .floating-mentor-item.active { background: rgba(255, 255, 255, 0.14); }
+
+    /* ==========================================================================
+       SCREEN 12: HEALING & SOUNDSCAPE (68 SOUNDS)
+       ========================================================================== */
+    .sound-chips-row {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 12px 16px;
+      scrollbar-width: none;
+    }
+    .sound-chips-row::-webkit-scrollbar { display: none; }
+    .sound-cat-chip {
+      padding: 7px 16px;
+      border-radius: 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-muted);
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+    .sound-cat-chip.active {
+      background: #E58A2B;
+      border-color: #E58A2B;
+      color: #FFF;
+      box-shadow: 0 0 14px rgba(229, 138, 43, 0.4);
+    }
+
+    .sounds-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 10px 16px 20px;
+    }
+    .sound-card-item {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: var(--radius-lg);
+      padding: 14px 16px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+    }
+    .sound-card-item:hover { border-color: var(--purple); }
+    .sound-card-left {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+      padding-right: 14px;
+    }
+    .sound-card-cat {
+      font-size: 11px;
+      color: var(--amber);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .sound-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: #FFF;
+      line-height: 1.35;
+    }
+    .sound-card-sub {
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+    .sound-card-right {
+      position: relative;
+      width: 58px;
+      height: 58px;
+      flex-shrink: 0;
+    }
+    .sound-card-thumb {
+      width: 58px;
+      height: 58px;
+      border-radius: 16px;
+      object-fit: cover;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+    }
+    .sound-card-plus-badge {
+      position: absolute;
+      top: -4px;
+      right: -4px;
+      background: #E58A2B;
+      color: #FFF;
+      font-size: 9px;
+      font-weight: 800;
+      padding: 2px 5px;
+      border-radius: 6px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    }
+
+    /* ==========================================================================
+       SCREEN 10: RUNES HERO
+       ========================================================================== */
+    .rune-hero-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 16px;
+    }
+    .rune-stone-3d {
+      width: 190px;
+      height: 190px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #3C3E52, #181924);
+      border: 2px solid rgba(255, 184, 77, 0.6);
+      box-shadow: 0 0 40px rgba(255, 184, 77, 0.4), inset 0 2px 5px rgba(255, 255, 255, 0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.3s ease;
+    }
+    .rune-stone-3d:active { transform: scale(0.96); }
+    .rune-glyph-symbol {
+      font-size: 82px;
+      color: #FFF;
+      text-shadow: 0 0 24px rgba(255, 184, 77, 0.8), 0 0 45px rgba(229, 138, 43, 0.5);
+      font-family: var(--font-serif);
+    }
+
+    /* ==========================================================================
+       SCREEN 14: PROFILE "YOU"
+       ========================================================================== */
+    .you-header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 20px 10px;
+    }
+    .you-header-title {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      font-weight: 700;
+      color: #FFF;
+    }
+    .you-bolt-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .you-hero-avatar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 14px 20px 24px;
+    }
+    .you-star-frame {
+      width: 140px;
+      height: 140px;
+      position: relative;
+      cursor: pointer;
+      margin-bottom: 12px;
+    }
+    .you-star-border-img {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 16px rgba(120, 75, 246, 0.6));
+      pointer-events: none;
+    }
+    .you-avatar-img {
+      width: 104px;
+      height: 104px;
+      border-radius: 50%;
+      object-fit: cover;
+      position: absolute;
+      top: 18px;
+      left: 18px;
+    }
+    .you-zodiac-badge {
+      position: absolute;
+      bottom: 6px;
+      right: 6px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #FFB84D, #E58A2B);
+      border: 2px solid #0D0E15;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      font-weight: 800;
+      color: #000;
+    }
+
+    /* ==========================================================================
+       MODALS & OVERLAYS
+       ========================================================================== */
+    .bottom-sheet-overlay {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(8px);
+      z-index: 80;
+      display: none;
+      align-items: flex-end;
+    }
+    .bottom-sheet-content {
+      width: 100%;
+      background: var(--bg-card-solid);
+      border-radius: 28px 28px 0 0;
+      padding: 20px;
+      border-top: 1px solid var(--bg-card-border);
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+    .sheet-handle {
+      width: 40px;
+      height: 4px;
+      border-radius: 2px;
+      background: rgba(255, 255, 255, 0.2);
+      margin: 0 auto 16px;
+    }
+
+    /* Fullscreen Audio Player Modal */
+    .player-fullscreen-modal {
+      position: absolute;
+      inset: 0;
+      background: #090A10;
+      z-index: 90;
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 50px 20px 40px;
+    }
+    .player-bg-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .player-content-wrap {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: space-between;
+    }
+    .player-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .player-close-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFF;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+    .player-sleep-timer-btn {
+      padding: 6px 14px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: #FFF;
+      font-size: 13px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+    }
+    .player-disc-wrap {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+    }
+    .player-center-thumb {
+      width: 220px;
+      height: 220px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 0 50px rgba(120, 75, 246, 0.5);
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      animation: slowRotate 45s linear infinite;
+    }
+    @keyframes slowRotate {
+      100% { transform: rotate(360deg); }
+    }
+    .player-track-info {
+      text-align: center;
+      margin: 14px 0;
+    }
+    .player-track-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFF;
+      margin-bottom: 4px;
+    }
+    .player-track-cat {
+      font-size: 12px;
+      color: var(--teal);
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .player-desc-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 16px;
+      padding: 12px 16px;
+      font-size: 13px;
+      line-height: 1.45;
+      color: rgba(255, 255, 255, 0.85);
+      margin-bottom: 16px;
+    }
+    .player-controls-row {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    .player-big-play-btn {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--purple);
+      border: none;
+      color: #FFF;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 8px 30px var(--purple-glow);
+    }
+
+    /* Paywall Modal (Screen 5) */
+    .paywall-modal {
+      position: absolute;
+      inset: 0;
+      background: #0B0C12;
+      z-index: 95;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 50px 20px 30px;
+    }
+    .paywall-muse-hero {
+      width: 100%;
+      height: 230px;
+      object-fit: cover;
+      object-position: center top;
+      border-radius: 24px;
+      margin-bottom: 14px;
+    }
+    .paywall-plan-card {
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 18px;
+      padding: 14px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 10px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .paywall-plan-card.selected {
+      border-color: #E58A2B;
+      background: rgba(229, 138, 43, 0.12);
+      box-shadow: 0 0 16px rgba(229, 138, 43, 0.25);
+    }
+    .paywall-plan-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-right: 12px;
+    }
+
+    /* Settings Screen Modal */
+    .settings-screen-modal {
+      position: absolute;
+      inset: 0;
+      background: #0D0E15;
+      z-index: 92;
+      display: none;
+      flex-direction: column;
+      overflow-y: auto;
+      padding: 50px 20px 40px;
+    }
+    .settings-item-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      background: var(--bg-card);
+      border: 1px solid var(--bg-card-border);
+      border-radius: 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .settings-item-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 14px;
+      font-weight: 600;
+      color: #FFF;
+    }
+    .danger-zone-card {
+      border-color: rgba(239, 68, 68, 0.4);
+      background: rgba(239, 68, 68, 0.08);
+      color: #EF4444;
+    }
+
+    /* Rules Modal */
+    .rules-modal {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(10px);
+      z-index: 96;
+      display: none;
+      align-items: flex-end;
+    }
+    .rules-sheet {
+      width: 100%;
+      background: #161822;
+      border-radius: 28px 28px 0 0;
+      padding: 24px 20px 30px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+    .rule-card {
+      display: flex;
+      gap: 14px;
+      margin-bottom: 16px;
+      background: rgba(255,255,255,0.04);
+      padding: 12px;
+      border-radius: 16px;
+    }
+    .rule-card-img {
+      width: 60px;
+      height: 60px;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-frame">
+    <audio id="real-sound-audio" loop preload="none"></audio>
+
+    <!-- Universal Top Safe Area & iOS Status Bar (Safe from Dynamic Island) -->
+    <div class="app-top-safe-bar" id="app-top-safe-bar">
+      <span class="status-time">09:41</span>
+      <div class="status-icons">
+        <svg width="17" height="11" viewBox="0 0 17 11" fill="currentColor">
+          <rect x="0" y="8" width="3" height="3" rx="0.5"/>
+          <rect x="4.5" y="5.5" width="3" height="5.5" rx="0.5"/>
+          <rect x="9" y="3" width="3" height="8" rx="0.5"/>
+          <rect x="13.5" y="0" width="3" height="11" rx="0.5"/>
+        </svg>
+        <svg width="15" height="11" viewBox="0 0 15 11" fill="currentColor">
+          <path d="M7.5 11a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm-4.24-4.24a6 6 0 0 1 8.48 0 .8.8 0 1 0 1.13-1.13 7.6 7.6 0 0 0-10.74 0 .8.8 0 1 0 1.13 1.13zm-2.12-2.12a9 9 0 0 1 12.72 0 .8.8 0 1 0 1.13-1.13 10.6 10.6 0 0 0-14.98 0 .8.8 0 0 0 1.13 1.13z"/>
+        </svg>
+        <div class="status-battery-pill">
+          <div class="status-battery-level"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Master Viewport with 5 Main Screens -->
+    <div class="screens-viewport">
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 1: CALENDAR (SCREEN 15 IN AUDIT)                             -->
+      <!-- ================================================================== -->
+      <div id="screen-calendar" class="screen-view active">
+        <!-- Скролл дней недели + кнопка месяца -->
+        <div class="calendar-header-row">
+          <div class="days-scroll-card" id="calendar-days-track">
+            <!-- Дни генерируются JavaScript на 30 лунных дней -->
+          </div>
+          <div class="calendar-full-view-btn" onclick="openMonthCalendarModal()">
+            <img class="calendar-full-view-icon" src="moonly_3d_icons/ic_calendar_full_view.png" alt="Full View">
+            <span class="calendar-full-view-month">ОКТ</span>
+          </div>
+        </div>
+
+        <!-- Кнопки: Дневник снов + Таро дня -->
+        <div class="calendar-actions-row">
+          <div class="calendar-action-card" onclick="openDreamerModal()">
+            <img class="calendar-action-icon" src="moonly_3d_icons/ic_calendar_dreamer.png" alt="Dreamer">
+            <div class="calendar-action-text">
+              <span class="calendar-action-sub">ДНЕВНИК СНОВ</span>
+              <span class="calendar-action-title">Записать сон</span>
+            </div>
+          </div>
+          <div class="calendar-action-card" onclick="switchPracticeSection('tarot')">
+            <img class="calendar-action-icon" src="moonly_3d_icons/ic_calendar_tarot.png" alt="Tarot">
+            <div class="calendar-action-text">
+              <span class="calendar-action-sub">ТАРО ДНЯ</span>
+              <span class="calendar-action-title">Спросить карты</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 1: ДЛЯ ТЕБЯ • Персональный гороскоп (Moonly screen_06.png Card 1) -->
+        <div class="calendar-event-large-card" onclick="openDayDetailModal()">
+          <img class="calendar-event-bg-image" id="calendar-bg-img" src="09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ/02_The_13th_Moon_Day.jpg" alt="Moon Day">
+          <div class="calendar-event-gradient-overlay"></div>
+          <div class="calendar-event-content">
+            <div class="calendar-event-header">
+              <div class="calendar-event-header-left">
+                <img class="calendar-event-header-icon" src="moonly_3d_icons/ic_new_spirituality.png" alt="Event">
+                <div>
+                  <div class="calendar-event-top-tag">ДЛЯ ТЕБЯ</div>
+                  <div class="calendar-event-day-title" id="calendar-day-header">Персональный гороскоп</div>
+                </div>
+              </div>
+              <img class="calendar-event-arrow" src="moonly_3d_icons/ic_calendar_v2_arrow.png" alt="Arrow">
+            </div>
+
+            <div class="calendar-event-focus-tag">В ФОКУСЕ</div>
+            <div class="calendar-event-main-text" id="calendar-day-focus">
+              Энергия между вами и человеком из ваших мыслей трансформируется. Обратите внимание на тонкие внутренние отклики.
+            </div>
+
+            <div class="calendar-event-bottom-row">
+              <div class="calendar-event-status-block">
+                <span class="calendar-event-status-tag">СФЕРА ДНЯ</span>
+                <div class="calendar-event-status-val">
+                  <span id="calendar-focus-sphere">Любовь и гармония</span>
+                  <span style="color: #34C759; font-size: 13px; margin-left: 2px;">▲</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 2: ЛУННЫЙ КАЛЕНДАРЬ • Растущая Луна (Moonly screen_06.png Card 2) -->
+        <div class="calendar-event-large-card calendar-card-lunar" onclick="openDayDetailModal()">
+          <div class="calendar-lunar-bg"></div>
+          <div class="calendar-event-content">
+            <div class="calendar-event-header">
+              <div class="calendar-event-header-left">
+                <img class="calendar-event-header-icon" src="moonly_3d_icons/ic_rituals_new_moon.png" alt="Moon">
+                <div>
+                  <div class="calendar-event-top-tag">ЛУННЫЙ КАЛЕНДАРЬ</div>
+                  <div class="calendar-event-day-title" id="calendar-lunar-phase-title">13-й лунный день • Растущая Луна</div>
+                </div>
+              </div>
+              <img class="calendar-event-arrow" src="moonly_3d_icons/ic_calendar_v2_arrow.png" alt="Arrow">
+            </div>
+
+            <div class="calendar-lunar-transit-row">
+              <span id="calendar-lunar-time">11:41 — 21:50</span>
+              <span class="calendar-lunar-dot">•</span>
+              <span id="calendar-lunar-zodiac">Телец ♉</span>
+            </div>
+
+            <div class="calendar-lunar-insight-text" id="calendar-lunar-insight">
+              Энергия направлена вовне — замыслы обретают форму, а намерения набирают устойчивую силу.
+            </div>
+
+            <div class="calendar-event-bottom-row" style="margin-top: 20px;">
+              <div class="calendar-event-status-block">
+                <span class="calendar-event-status-tag">ПОЛНОЛУНИЕ</span>
+                <div class="calendar-event-status-val" style="color: #F7B64D; font-size: 15px;">
+                  <span id="calendar-full-moon-countdown">Через 2 дня ✦</span>
+                </div>
+              </div>
+              <img class="calendar-event-3d-moon-corner" id="calendar-moon-corner" src="moonly_3d_icons/moon_13.png" alt="3D Moon Sphere">
+            </div>
+          </div>
+        </div>
+
+        <!-- Карточка 3: Транзит Луны (view_calendar_v2_transit_card.xml) -->
+        <div class="calendar-transit-card" onclick="openTransitDetailModal()">
+          <div class="calendar-transit-date" id="transit-date-label">18 ОКТЯБРЯ — 20 ОКТЯБРЯ</div>
+          <div class="calendar-transit-title" id="transit-sign-title">Луна в Тельце</div>
+          <div class="calendar-transit-stats-row">
+            <div class="calendar-transit-stat-col">
+              <span class="calendar-transit-stat-label">АСПЕКТ</span>
+              <span class="calendar-transit-stat-value" id="transit-aspect-val">Тригон к Марсу</span>
+            </div>
+            <div class="calendar-transit-stat-col">
+              <span class="calendar-transit-stat-label">ЗНАК ЗОДИАКА</span>
+              <div class="calendar-transit-stat-value">
+                <span id="transit-zodiac-name">Телец</span>
+                <img class="calendar-transit-zodiac-icon" id="transit-zodiac-img" src="moonly_3d_icons/ic_transit_zodiac_taurus.png" alt="Taurus">
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Персональный ритм дня (4 Bento-бейджa) -->
+        <div class="lifestyle-section-title">ПЕРСОНАЛЬНЫЙ ПЛАН НА ДЕНЬ</div>
+        <div class="lifestyle-grid">
+          <div class="lifestyle-badge-card" onclick="openRoutineModal('Питание', 'Овощи, крупы и травяные чаи', 'moonly_3d_icons/ic_new_nutrition.png')">
+            <img class="lifestyle-badge-icon" src="moonly_3d_icons/ic_new_nutrition.png" alt="Nutrition">
+            <div class="lifestyle-badge-info">
+              <span class="lifestyle-badge-name">Питание</span>
+              <span class="lifestyle-badge-desc">Овощи, крупы</span>
+            </div>
+          </div>
+          <div class="lifestyle-badge-card" onclick="openRoutineModal('Здоровье', 'Мягкая растяжка и дыхание', 'moonly_3d_icons/ic_new_health.png')">
+            <img class="lifestyle-badge-icon" src="moonly_3d_icons/ic_new_health.png" alt="Health">
+            <div class="lifestyle-badge-info">
+              <span class="lifestyle-badge-name">Здоровье</span>
+              <span class="lifestyle-badge-desc">Мягкая йога</span>
+            </div>
+          </div>
+          <div class="lifestyle-badge-card" onclick="openRoutineModal('Романтика', 'Доверительные беседы и вечер при свечах', 'moonly_3d_icons/ic_new_romance.png')">
+            <img class="lifestyle-badge-icon" src="moonly_3d_icons/ic_new_romance.png" alt="Romance">
+            <div class="lifestyle-badge-info">
+              <span class="lifestyle-badge-name">Романтика</span>
+              <span class="lifestyle-badge-desc">Глубокие беседы</span>
+            </div>
+          </div>
+          <div class="lifestyle-badge-card" onclick="openRoutineModal('Карьера', 'Стратегическое планирование и аудит задач', 'moonly_3d_icons/ic_new_career.png')">
+            <img class="lifestyle-badge-icon" src="moonly_3d_icons/ic_new_career.png" alt="Career">
+            <div class="lifestyle-badge-info">
+              <span class="lifestyle-badge-name">Карьера</span>
+              <span class="lifestyle-badge-desc">Аналитика дел</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Баннер Дневника Снов (Dreamer) -->
+        <div class="dreamer-quick-banner" onclick="openDreamerModal()">
+          <img class="dreamer-quick-icon" src="moonly_3d_icons/ic_calendar_dreamer.png" alt="Dreamer">
+          <div class="dreamer-quick-text">
+            <span class="dreamer-quick-sub">ДНЕВНИК СНОВ</span>
+            <span class="dreamer-quick-title">Записать и толковать сон с AI</span>
+          </div>
+          <img class="calendar-event-arrow" src="moonly_3d_icons/ic_calendar_v2_arrow.png" alt="Arrow">
+        </div>
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 2: PRACTICES (AFFIRMATIONS, TAROT, ORACLE, GODS, DREAM, RUNES) -->
+      <!-- ================================================================== -->
+      <div id="screen-practices" class="screen-view">
+
+        <!-- Practices Horizontal Category Ribbon (Exact Moonly Order) -->
+        <div class="practices-tabs-scroll">
+          <div class="practice-pill active" onclick="switchPracticeTab('affirmations', this)">Аффирмации</div>
+          <div class="practice-pill" onclick="switchPracticeTab('tarot', this)">Таро</div>
+          <div class="practice-pill" onclick="switchPracticeTab('oracle', this)">Оракул</div>
+          <div class="practice-pill" onclick="switchPracticeTab('gods', this)">Боги</div>
+          <div class="practice-pill" onclick="switchPracticeTab('dream', this)">Сонник</div>
+          <div class="practice-pill" onclick="switchPracticeTab('runes', this)">Руны</div>
+        </div>
+
+        <!-- 1. AFFIRMATIONS SUBVIEW (SCREEN 1 IN AUDIT) -->
+        <div id="subview-affirmations" class="practice-subview">
+          <div class="affirmation-fullscreen-card">
+            <img class="affirmation-bg-art" id="affirmation-img" src="astra_affirmation_moon_bg.png" alt="Moon">
+            <div class="affirmation-overlay-gradient"></div>
+            <div class="affirmation-content-col">
+              <div class="affirmation-top-row">
+                <span class="affirmation-category-pill" id="affirmation-cat-badge">СЕГОДНЯ</span>
+                <span class="affirmation-brand-tag">АСТРА</span>
+              </div>
+              <div class="affirmation-quote-center" id="affirmation-text-display">
+                Я прощаю всех в прошлом за все осознанные ошибки
+              </div>
+              <div class="affirmation-actions-row">
+                <div class="btn-affirmation-round" title="Поделиться" onclick="saveTarotSnapshot()">↑</div>
+                <div class="btn-affirmation-round" title="TikTok" onclick="shareToSocial('tiktok')">🎵</div>
+                <div class="btn-affirmation-round" title="Instagram" onclick="shareToSocial('instagram')">📷</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. TAROT SUBVIEW (SCREENS 2, 4, 6, 7 IN AUDIT) -->
+        <div id="subview-tarot" class="practice-subview" style="display: none;">
+          
+          <!-- Tarot Authentic Header Bar (Moonly Original 1:1) -->
+          <div class="tarot-header-nav-row">
+            <!-- Round History Button -->
+            <button class="tarot-nav-round-btn" title="История раскладов" onclick="showTarotTooltip('История раскладов', 'Здесь сохраняются ваши ежедневные расклады, вытянутые арканы и заметки интуиции.')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9.5"></circle>
+                <polyline points="12 6.5 12 12 15.5 14"></polyline>
+              </svg>
+            </button>
+
+            <!-- Segmented Capsule Bar -->
+            <div class="tarot-segmented-capsule">
+              <!-- 1 Card -->
+              <button class="tarot-seg-item active" id="btn-tarot-mode-1" title="1 карта • Быстрый ответ" onclick="setTarotMode(1)">
+                <svg class="tarot-seg-icon" viewBox="0 0 24 24" fill="none">
+                  <rect x="7" y="3.5" width="10" height="17" rx="2.4" fill="currentColor"/>
+                </svg>
+              </button>
+
+              <!-- 3 Cards -->
+              <button class="tarot-seg-item" id="btn-tarot-mode-3" title="3 карты • Текущая ситуация" onclick="setTarotMode(3)">
+                <svg class="tarot-seg-icon" viewBox="0 0 28 24" fill="none">
+                  <rect x="2.5" y="5.5" width="7.5" height="14" rx="1.8" transform="rotate(-12 2.5 5.5)" fill="currentColor" opacity="0.6"/>
+                  <rect x="18" y="4" width="7.5" height="14" rx="1.8" transform="rotate(12 18 4)" fill="currentColor" opacity="0.6"/>
+                  <rect x="9.5" y="3.5" width="9" height="17" rx="2" fill="currentColor"/>
+                </svg>
+              </button>
+
+              <!-- 5 Cards (Fan) -->
+              <button class="tarot-seg-item" id="btn-tarot-mode-5" title="5 карт • Взгляд в будущее" onclick="setTarotMode(5)">
+                <svg class="tarot-seg-icon" viewBox="0 0 32 24" fill="none">
+                  <rect x="2" y="9.5" width="6.5" height="12.5" rx="1.5" transform="rotate(-32 2 9.5)" fill="currentColor" opacity="0.5"/>
+                  <rect x="7" y="6" width="6.5" height="13.5" rx="1.5" transform="rotate(-16 7 6)" fill="currentColor" opacity="0.75"/>
+                  <rect x="12.75" y="4" width="6.5" height="15.5" rx="1.8" fill="currentColor"/>
+                  <rect x="18.5" y="4" width="6.5" height="13.5" rx="1.5" transform="rotate(16 18.5 4)" fill="currentColor" opacity="0.75"/>
+                  <rect x="23.5" y="6" width="6.5" height="12.5" rx="1.5" transform="rotate(32 23.5 6)" fill="currentColor" opacity="0.5"/>
+                </svg>
+              </button>
+
+              <!-- Catalog (Deck / Stack) -->
+              <button class="tarot-seg-item" id="btn-tarot-mode-all" title="Каталог 78 карт" onclick="setTarotMode('all')">
+                <svg class="tarot-seg-icon" viewBox="0 0 24 24" fill="none">
+                  <rect x="4.5" y="4" width="15" height="4" rx="1.4" fill="currentColor"/>
+                  <rect x="4.5" y="10" width="15" height="4" rx="1.4" fill="currentColor"/>
+                  <rect x="4.5" y="16" width="15" height="4" rx="1.4" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+
+            <!-- Round Info Button -->
+            <button class="tarot-nav-round-btn" title="О раскладах Таро" onclick="showTarotTooltip('О раскладах Таро', 'Колода Райдера-Уэйта из 78 карт. Выбирайте режим: 1 карта — фокус дня, 3 карты — ситуация и совет, 5 карт — будущее, Каталог — изучение всех арканов.')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9.5"></circle>
+                <line x1="12" y1="16" x2="12" y2="12"></line>
+                <line x1="12" y1="8" x2="12.01" y2="8"></line>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Лаконичный тултип/шторка подсказки Таро -->
+          <div id="tarot-tooltip-toast" class="tarot-tooltip-toast" onclick="hideTarotTooltip()">
+            <div class="tarot-tooltip-title">
+              <span id="tarot-toast-title">Подсказка</span>
+              <span style="cursor: pointer; opacity: 0.6; font-size: 16px;">✕</span>
+            </div>
+            <div class="tarot-tooltip-text" id="tarot-toast-text"></div>
+          </div>
+
+          <!-- 1-Card Slot Container -->
+          <div id="tarot-slots-container" class="tarot-slots-row"></div>
+
+          <!-- 3-Cards Row Container -->
+          <div id="tarot-3cards-container" class="tarot-3cards-row" style="display: none;"></div>
+
+          <!-- 5-Cards Cross Container (2-1-2) -->
+          <div id="tarot-5cards-container" class="tarot-5cards-cross-container" style="display: none;"></div>
+
+          <!-- 4 Actions Bar -->
+          <div class="actions-4-bar" id="tarot-actions-bar" style="display: flex; margin: 14px auto 10px; justify-content: center; gap: 14px;">
+            <div class="btn-pill-action" id="tarot-reload-btn" style="background: #FFFFFF; color: #121218; box-shadow: 0 6px 20px rgba(255,255,255,0.35);" title="Перевытянуть карты" onclick="resetTarotSpread()">
+              <svg id="tarot-reload-icon" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#121218" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="transition: transform 0.45s cubic-bezier(0.4, 0, 0.2, 1);">
+                <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+              </svg>
+            </div>
+            <div class="btn-pill-action" title="Поделиться раскладом" onclick="saveTarotSnapshot()">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                <polyline points="16 6 12 2 8 6"/>
+                <line x1="12" y1="2" x2="12" y2="15"/>
+              </svg>
+            </div>
+            <div class="btn-pill-action" title="TikTok" onclick="shareToSocial('tiktok')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 18V5l12-2v13"/>
+                <circle cx="6" cy="18" r="3"/>
+                <circle cx="18" cy="16" r="3"/>
+              </svg>
+            </div>
+            <div class="btn-pill-action" title="Instagram" onclick="shareToSocial('instagram')">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+              </svg>
+            </div>
+          </div>
+
+          <!-- Radial Arc Fan Deck -->
+          <div id="tarot-fan-wrapper" class="tarot-arc-fan-wrap">
+            <div id="tarot-fan-deck"></div>
+          </div>
+
+          <!-- Universal White Bottom Sheet Component -->
+          <div class="white-bottom-sheet" id="tarot-white-sheet">
+            <div class="white-sheet-drag-handle"></div>
+            <div class="white-sheet-header-row">
+              <div>
+                <div class="white-sheet-title">Узнайте больше</div>
+                <div class="white-sheet-sub">Персональный инсайт от астролога</div>
+              </div>
+              <div class="white-sheet-avatar-wrap">
+                <img class="white-sheet-avatar" id="white-sheet-mentor-avatar" src="10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png" alt="Astra">
+                <div class="white-sheet-avatar-glow"></div>
+              </div>
+            </div>
+
+            <!-- Spheres Chips -->
+            <div class="white-sheet-spheres-grid" id="white-sheet-spheres-container"></div>
+
+            <!-- Purple CTA Button -->
+            <button class="white-sheet-cta-btn" id="btn-white-sheet-cta" onclick="handleWhiteSheetCta()">
+              <span class="white-sheet-quota-pill" id="white-sheet-quota-badge">1 ост.</span>
+              <span class="white-sheet-cta-text" id="white-sheet-cta-label">Получите Инсайт</span>
+            </button>
+          </div>
+
+          <!-- All 78 Cards Catalog View -->
+          <div id="tarot-catalog-view" style="display: none; padding: 10px 16px;">
+            <div style="display: flex; gap: 6px; overflow-x: auto; padding-bottom: 10px; scrollbar-width: none;">
+              <div class="sound-cat-chip active" onclick="filterTarotSuit('all', this)">Все (78)</div>
+              <div class="sound-cat-chip" onclick="filterTarotSuit('major', this)">Старшие</div>
+              <div class="sound-cat-chip" onclick="filterTarotSuit('wands', this)">Жезлы</div>
+              <div class="sound-cat-chip" onclick="filterTarotSuit('cups', this)">Кубки</div>
+              <div class="sound-cat-chip" onclick="filterTarotSuit('swords', this)">Мечи</div>
+              <div class="sound-cat-chip" onclick="filterTarotSuit('pentacles', this)">Пентакли</div>
+            </div>
+            <div id="tarot-catalog-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 10px;"></div>
+          </div>
+
+        </div>
+
+        <!-- 3. ORACLE SUBVIEW (SCREEN 8 IN AUDIT) -->
+        <div id="subview-oracle" class="practice-subview" style="display: none; padding: 10px 16px;">
+          <div class="moonly-slate-card" style="padding: 16px 16px 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div class="btn-pill-action" style="width: 36px; height: 36px; font-size: 14px;" title="История">⏱</div>
+              <div class="moonly-card-view-switcher">
+                <span class="card-view-dot active" title="Одна карта">▫️</span>
+                <span class="card-view-dot" title="Расклад">≡</span>
+              </div>
+              <div class="btn-pill-action" style="width: 36px; height: 36px; font-size: 14px;" title="Инфо">ⓘ</div>
+            </div>
+
+            <div style="font-size: 24px; font-weight: 800; font-family: var(--font-serif); color: #FFF; margin-bottom: 4px;">Оракул</div>
+            <div style="font-size: 13px; color: #A0A5BA; line-height: 1.45; max-width: 300px; margin: 0 auto 16px;">Задайте вопрос, выберите карту и посмотрите, что она подсвечивает внутри вас</div>
+
+            <div id="oracle-slot-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
+              <div class="tarot-slot-hero filled" id="oracle-slot" style="width: 140px; height: 215px; border-radius: 18px;" onclick="drawOracleCard()">
+                <img class="tarot-card-img-hero" src="03_ДЕВЫ_МУДРОСТИ/59_Tree_of_Life.png" alt="Oracle" style="border-radius: 18px;">
+              </div>
+              <div style="font-size: 14px; font-weight: 700; color: #FFF; margin-top: 8px;">Древо жизни</div>
+            </div>
+
+            <div class="actions-4-bar" id="oracle-actions-bar" style="margin-top: 18px; margin-bottom: 0;">
+              <div class="btn-pill-action" style="background: #FFFFFF; color: #121218; box-shadow: 0 4px 14px rgba(255,255,255,0.35);" title="Перевытянуть" onclick="drawOracleCard()">🔄</div>
+              <div class="btn-pill-action" title="Поделиться" onclick="saveTarotSnapshot()">↑</div>
+              <div class="btn-pill-action" title="TikTok" onclick="shareToSocial('tiktok')">🎵</div>
+              <div class="btn-pill-action" title="Instagram" onclick="shareToSocial('instagram')">📷</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4. GODS SUBVIEW -->
+        <div id="subview-gods" class="practice-subview" style="display: none; padding: 14px 16px;">
+          <div class="card-glass" style="text-align: center; border-color: var(--amber);">
+            <div class="card-title" style="justify-content: center; margin-bottom: 6px; color: var(--amber);">🕉️ Ведические Архетипы & Божества</div>
+            <div class="card-sub">Вытяните покровителя и получите благословение высших космических сил на этот день.</div>
+          </div>
+          <div class="tarot-slots-row">
+            <div class="tarot-slot-hero" id="gods-slot" onclick="drawDeityCard()">
+              <div style="font-size: 32px; margin-bottom: 8px;">🔱</div>
+              <div class="tarot-slot-label">Призвать покровителя</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 5. DREAM SUBVIEW (SCREEN 9 IN AUDIT) -->
+        <div id="subview-dream" class="practice-subview" style="display: none; padding: 10px 16px;">
+          <div style="text-align: center; margin-bottom: 14px;">
+            <div style="font-size: 26px; font-weight: 800; font-family: var(--font-serif); margin-bottom: 4px;">Расшифруйте свой сон</div>
+            <div style="font-size: 13px; color: var(--text-muted); line-height: 1.45;">Опишите сон, чтобы узнать его истинный смысл</div>
+          </div>
+
+          <div style="display: flex; justify-content: center; margin-bottom: 16px;">
+            <img src="astra_dreamer_hero.png" style="width: 220px; height: 140px; object-fit: cover; border-radius: 20px; box-shadow: 0 8px 24px rgba(0,0,0,0.5);" alt="Dreamer">
+          </div>
+
+          <div id="dream-new-box">
+            <div class="card-glass" style="padding: 16px;">
+              <textarea id="dream-input-text" style="width: 100%; height: 80px; background: transparent; border: none; color: #FFF; font-size: 15px; outline: none; resize: none; line-height: 1.5;" placeholder="Как работает ваш сон... Опишите ключевые образы"></textarea>
+              <button class="white-sheet-cta-btn" style="height: 48px; border-radius: 24px; background: #FFFFFF; color: #111827; box-shadow: 0 4px 14px rgba(0,0,0,0.25); margin-top: 10px;" onclick="interpretDreamAction()">
+                <span class="white-sheet-quota-pill" style="background: rgba(0,0,0,0.08); color: #111827;">1 ост.</span>
+                <span style="font-weight: 700; font-size: 14px;">Получить инсайт</span>
+              </button>
+            </div>
+            <div id="dream-result-card" style="display: none;" class="card-glass"></div>
+          </div>
+
+          <div id="dream-archive-box" style="display: none;"></div>
+        </div>
+
+        <!-- 6. RUNES SUBVIEW (SCREEN 10 IN AUDIT) -->
+        <div id="subview-runes" class="practice-subview" style="display: none; padding: 10px 16px;">
+          <div class="moonly-slate-card" style="padding: 16px 16px 20px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div style="width: 36px;"></div>
+              <div class="moonly-card-view-switcher">
+                <span class="card-view-dot active" title="Одна руна">▫️</span>
+                <span class="card-view-dot" title="Расклад">≡</span>
+                <span class="card-view-dot" title="История">⏱</span>
+              </div>
+              <div class="btn-pill-action" style="width: 36px; height: 36px; font-size: 14px;" title="Инфо" onclick="openRuneMeaningModal()">ⓘ</div>
+            </div>
+
+            <div style="font-size: 26px; font-weight: 800; font-family: var(--font-serif); color: #FFF; margin-bottom: 4px;" id="rune-name-display">Laguz</div>
+            <div style="font-size: 13px; color: #A0A5BA; font-weight: 500; margin-bottom: 14px;" id="rune-sub-display">«Тайны воды, интуиция»</div>
+
+            <div class="rune-hero-stage" style="position: relative; display: flex; align-items: center; justify-content: center; min-height: 230px;">
+              <div class="rune-aura-glow"></div>
+              <img id="rune-hero-stone-img" src="02_СКАНДИНАВСКИЕ_РУНЫ/20_Laguz.png" alt="Rune Laguz" class="rune-real-stone-img" onclick="drawDailyRune()">
+            </div>
+
+            <div class="actions-4-bar" style="margin-top: 18px; margin-bottom: 14px; display: flex; justify-content: center; gap: 14px;">
+              <div class="btn-pill-action" style="background: #FFFFFF; color: #121218; box-shadow: 0 6px 20px rgba(255,255,255,0.35);" title="Перевытянуть руну" onclick="drawDailyRune()">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#121218" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21.5 2v6h-6M2.5 22v-6h6M2 11.5a10 10 0 0 1 18.8-4.3M22 12.5a10 10 0 0 1-18.8 4.2"/>
+                </svg>
+              </div>
+              <div class="btn-pill-action" title="Поделиться" onclick="saveTarotSnapshot()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/>
+                  <polyline points="16 6 12 2 8 6"/>
+                  <line x1="12" y1="2" x2="12" y2="15"/>
+                </svg>
+              </div>
+              <div class="btn-pill-action" title="TikTok" onclick="shareToSocial('tiktok')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M9 18V5l12-2v13"/>
+                  <circle cx="6" cy="18" r="3"/>
+                  <circle cx="18" cy="16" r="3"/>
+                </svg>
+              </div>
+              <div class="btn-pill-action" title="Instagram" onclick="shareToSocial('instagram')">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                  <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                  <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 10px; margin-top: 6px;">
+              <button class="btn-primary" style="flex: 1;" onclick="openRuneMeaningModal()">
+                <span>Значение руны</span>
+              </button>
+              <button class="btn-primary" style="flex: 1; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.15);" onclick="openRunesCatalogModal()">
+                <span>Все 24 руны</span>
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 12: HEALING & SOUNDSCAPE                                    -->
+      <!-- ================================================================== -->
+      <div id="screen-healing" class="screen-view">
+        
+        <div class="section-master-header">Исцеление</div>
+        <div class="section-sub-header">68 целебных частот и бинауральных резонансов</div>
+
+        <!-- Hero Card (144 Hz) -->
+        <div style="padding: 0 16px 10px;">
+          <div class="card-glass" style="display: flex; align-items: center; justify-content: space-between; cursor: pointer;" onclick="openSoundPlayerById(291)">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <div style="width: 52px; height: 52px; border-radius: 16px; background: linear-gradient(135deg, #784BF6, #5B2FE3); display: flex; align-items: center; justify-content: center; font-size: 15px; font-weight: 800; color: #FFF; box-shadow: 0 4px 14px var(--purple-glow);">144</div>
+              <div>
+                <div style="font-size: 11px; color: var(--amber); font-weight: 800; text-transform: uppercase;">НЕПРЕВЗОЙДЕННАЯ ЧАСТОТА</div>
+                <div style="font-size: 15px; font-weight: 700; color: #FFF;">144 Hz — Гармония и очищение</div>
+              </div>
+            </div>
+            <div style="width: 40px; height: 40px; border-radius: 50%; background: var(--purple); display: flex; align-items: center; justify-content: center; color: #FFF; font-size: 15px;">▶</div>
+          </div>
+        </div>
+
+        <!-- Sound Category Chips -->
+        <div class="sound-chips-row" id="sound-category-chips"></div>
+
+        <!-- 68 Sounds Grid -->
+        <div class="sounds-grid" id="sounds-list-grid"></div>
+
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 3: LIGHT CHAT (5 VEDIC MASTERS)                             -->
+      <!-- ================================================================== -->
+      <div id="screen-chat" class="screen-view">
+        
+        <!-- Light Header with Switcher Trigger -->
+        <div class="chat-header-bar-light" onclick="openFloatingMentorMenu()">
+          <div class="chat-mentor-info-col">
+            <div class="chat-mentor-avatar-wrap">
+              <img class="chat-mentor-avatar-img" id="chat-header-avatar" src="10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png" alt="Astra">
+              <div class="chat-online-dot"></div>
+            </div>
+            <div>
+              <div class="chat-mentor-name">
+                <span id="chat-header-name">А́стра</span>
+                <span class="chat-switch-arrow">▼</span>
+              </div>
+              <div class="chat-mentor-status" id="chat-header-status">ВАШ ЛИЧНЫЙ АСТРОЛОГ • НА СВЯЗИ</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; font-weight: 700; color: var(--purple);">Сменить ▾</div>
+        </div>
+
+        <!-- Messages Area -->
+        <div class="chat-messages-container" id="chat-msg-area">
+          
+          <!-- Tarot Insight Breakdown Card (Matching Moonly Screen 3) -->
+          <div class="chat-insight-card" id="chat-hero-insight-card">
+            <img class="chat-insight-thumb" src="04_ТАРО_И_РУНЫ/tarot_cards/79_The_King_of_Pentacles.png" alt="King">
+            <div>
+              <div class="chat-insight-badge">Карта дня • Аркан</div>
+              <div class="chat-insight-card-name" id="chat-insight-card-name">Король Пентаклей</div>
+              <div class="chat-insight-text" id="chat-insight-text">
+                Король Пентаклей символизирует надежность, глубокое мастерство и финансовое изобилие. Сегодня день благоприятен для закрепления результатов и мудрых долгосрочных вложений.
+              </div>
+              <div class="chat-rating-btns">
+                <button class="chat-rate-btn" onclick="rateInsight('good', this)">👍 Полезно</button>
+                <button class="chat-rate-btn" onclick="rateInsight('bad', this)">👎 Не то</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Greeting from Vedic Master -->
+          <div class="chat-msg-row mentor">
+            <div class="chat-bubble" id="chat-mentor-greeting-bubble">
+              Здравствуй, светлая душа. Я Астра, твой личный проводник по ритмам звёзд и луны. Сегодня энергии дня направлены на созидание и обретение внутренней опоры. Какой вопрос волнует тебя сейчас?
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Quick Suggestions Chips -->
+        <div style="display: flex; gap: 8px; overflow-x: auto; padding: 6px 14px 8px; background: #FFF; scrollbar-width: none;">
+          <div class="sound-cat-chip" style="background: #F1F3F8; color: #191B26; font-size: 12px;" onclick="sendChatMessageQuick('Что несет сегодняшняя Луна в Тельце?')">Луна в Тельце?</div>
+          <div class="sound-cat-chip" style="background: #F1F3F8; color: #191B26; font-size: 12px;" onclick="sendChatMessageQuick('Вечерний ритуал для спокойного сна')">Ритуал на сон</div>
+          <div class="sound-cat-chip" style="background: #F1F3F8; color: #191B26; font-size: 12px;" onclick="sendChatMessageQuick('Совет по финансам на сегодня')">Финансы сегодня</div>
+        </div>
+
+        <!-- Light Input Bar -->
+        <div class="chat-input-bar-light">
+          <input type="text" id="chat-input-box" class="chat-input-field" placeholder="Задайте вопрос наставнику..." onkeydown="if(event.key==='Enter') sendUserChatMessage()">
+          <button class="chat-send-btn" onclick="sendUserChatMessage()">↑</button>
+        </div>
+
+      </div>
+
+      <!-- ================================================================== -->
+      <!-- SCREEN 14: PROFILE "YOU"                                           -->
+      <!-- ================================================================== -->
+      <div id="screen-you" class="screen-view">
+        
+        <div class="you-header-bar">
+          <div class="you-header-title">Вы</div>
+          <div class="you-bolt-btn" title="Настройки" onclick="openSettingsScreen()">⚙️</div>
+        </div>
+
+        <!-- Hero Avatar in Scalloped Star Frame -->
+        <div class="you-hero-avatar-wrap">
+          <div class="you-star-frame" onclick="openAvatarSelectorModal()">
+            <img class="you-star-border-img" src="moonly_3d_icons/ic_avatar_star_border_small_2.png" onerror="this.style.display='none'" alt="Frame">
+            <img class="you-avatar-img" id="profile-avatar-display" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/01_Default_Female_Muse_master_1024.png" onerror="this.src='10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Luna_Wise_Mystic.png'" alt="Avatar">
+            <div class="you-zodiac-badge">♈</div>
+          </div>
+          <div style="font-size: 18px; font-weight: 800; margin-bottom: 4px;" id="profile-user-name">Александр</div>
+          <div style="font-size: 13px; color: var(--amber); font-weight: 700;">ASTRA PLUS • АКТИВЕН</div>
+          
+          <div style="display: flex; gap: 10px; margin-top: 14px;">
+            <button class="practice-pill active" onclick="openAvatarSelectorModal()">📷 Ваш Аватар (60)</button>
+            <div class="btn-pill-action" onclick="saveTarotSnapshot()">↑</div>
+          </div>
+        </div>
+
+        <!-- Astrological Reports with Official 3D Icons -->
+        <div style="padding: 0 16px 20px;">
+          
+          <div style="font-size: 12px; font-weight: 800; color: var(--text-dim); margin: 16px 4px 8px; text-transform: uppercase;">КОСМИЧЕСКИЙ ПОРТРЕТ</div>
+          
+          <div class="card-glass" style="cursor: pointer;" onclick="openSettingsScreen()">
+            <div class="card-title-row">
+              <div class="card-title">
+                <img src="moonly_3d_icons/ic_you_report_birth_chart.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Chart">
+                <span>🪐 Натальная карта</span>
+              </div>
+              <span style="font-size: 12px; color: var(--purple); font-weight: 700;">Изменить ></span>
+            </div>
+            <div class="card-sub">14 мар. 2000, 22:00 • Сочи, Россия</div>
+          </div>
+
+          <div class="card-glass">
+            <div class="card-title-row">
+              <div class="card-title">
+                <img src="moonly_3d_icons/ic_you_report_numerology.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Matrix">
+                <span>✨ Матрица судьбы</span>
+              </div>
+              <span style="font-size: 12px; color: var(--teal); font-weight: 700;">Аркан 7</span>
+            </div>
+            <div class="card-sub">Энергия движения, победы и духовного поиска. Ваше кармическое предназначение.</div>
+          </div>
+
+          <div style="font-size: 12px; font-weight: 800; color: var(--text-dim); margin: 20px 4px 8px; text-transform: uppercase;">ВЗГЛЯД В БУДУЩЕЕ</div>
+
+          <div class="card-glass" style="cursor: pointer;" onclick="openPaywallModal()">
+            <div class="card-title-row">
+              <div class="card-title">
+                <img src="moonly_3d_icons/ic_you_report_year.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Year">
+                <span>🔭 Годовой прогноз 2026–2027</span>
+              </div>
+              <span style="font-size: 12px; color: #E58A2B; font-weight: 700;">PLUS 👑</span>
+            </div>
+            <div class="card-sub">Подробная карта ключевых периодов, затмений и финансовых взлетов.</div>
+          </div>
+
+          <div class="card-glass" style="cursor: pointer;" onclick="openPaywallModal()">
+            <div class="card-title-row">
+              <div class="card-title">
+                <img src="moonly_3d_icons/ic_you_report_career.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Career">
+                <span>🧭 Карьерный компас</span>
+              </div>
+              <span style="font-size: 12px; color: #E58A2B; font-weight: 700;">PLUS 👑</span>
+            </div>
+            <div class="card-sub">Точки роста, финансовые риски и идеальный тайминг сделок по Юпитеру.</div>
+          </div>
+
+          <div class="card-glass" style="cursor: pointer;" onclick="openPaywallModal()">
+            <div class="card-title-row">
+              <div class="card-title">
+                <img src="moonly_3d_icons/ic_you_report_astrocartography.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Map">
+                <span>🗺️ Астрокартография</span>
+              </div>
+              <span style="font-size: 12px; color: #E58A2B; font-weight: 700;">PLUS 👑</span>
+            </div>
+            <div class="card-sub">Линии силы на карте Земли для гармоничной жизни и путешествий.</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- FLOATING BOTTOM NAVIGATION ISLAND DOCK (5 TABS)                      -->
+    <!-- ==================================================================== -->
+    <div class="bottom-nav" id="main-bottom-nav">
+      
+      <div class="nav-tab-item active" id="tab-nav-calendar" onclick="switchMainScreen('calendar')">
+        <div class="nav-tab-icon-wrap">
+          <svg class="nav-tab-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </div>
+        <div class="nav-tab-label">Календарь</div>
+      </div>
+
+      <div class="nav-tab-item" id="tab-nav-practices" onclick="switchMainScreen('practices')">
+        <div class="nav-tab-icon-wrap">
+          <svg class="nav-tab-svg" viewBox="0 0 24 24">
+            <rect x="8.5" y="3.5" width="10" height="15" rx="2.2" transform="rotate(12 8.5 3.5)" fill="#F5A623" opacity="0.85"/>
+            <rect x="5.5" y="4.5" width="10" height="15" rx="2.2" fill="#FFE175"/>
+            <circle cx="10.5" cy="12" r="2" fill="#D48812"/>
+          </svg>
+        </div>
+        <div class="nav-tab-label">Практики</div>
+      </div>
+
+      <div class="nav-tab-item" id="tab-nav-healing" onclick="switchMainScreen('healing')">
+        <div class="nav-tab-icon-wrap">
+          <svg class="nav-tab-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 3a9 9 0 0 0-9 9v3a4 4 0 0 0 4 4h1a1 1 0 0 0 1-1v-6a1 1 0 0 0-1-1H5v-0.5a7 7 0 1 1 14 0V11h-3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h1a4 4 0 0 0 4-4v-3a9 9 0 0 0-9-9z"/>
+          </svg>
+        </div>
+        <div class="nav-tab-label">Исцеление</div>
+      </div>
+
+      <div class="nav-tab-item" id="tab-nav-chat" onclick="switchMainScreen('chat')">
+        <div class="nav-tab-icon-wrap">
+          <svg class="nav-tab-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 2H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h3v3.5L12.5 20H20a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2z"/>
+            <circle cx="8" cy="11" r="1.5" fill="#1C1D27"/>
+            <circle cx="12" cy="11" r="1.5" fill="#1C1D27"/>
+            <circle cx="16" cy="11" r="1.5" fill="#1C1D27"/>
+          </svg>
+        </div>
+        <div class="nav-tab-label">Астролог</div>
+      </div>
+
+      <div class="nav-tab-item" id="tab-nav-you" onclick="switchMainScreen('you')">
+        <div class="nav-tab-icon-wrap">
+          <svg class="nav-tab-svg" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 2l2.4 5.2 5.6.8-4 4 1 5.6L12 15l-5 2.6 1-5.6-4-4 5.6-.8L12 2z"/>
+          </svg>
+        </div>
+        <div class="nav-tab-label">Вы</div>
+      </div>
+
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- FLOATING MENTOR SELECTOR DROPDOWN (5 VEDIC MASTERS)                  -->
+    <!-- ==================================================================== -->
+    <div class="floating-mentor-menu" id="floating-mentor-menu">
+      <div class="floating-mentor-backdrop" onclick="closeFloatingMentorMenu()"></div>
+      <div class="floating-mentor-card">
+        <div class="floating-mentor-list" id="floating-mentor-list"></div>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- MODAL 1: 3D CARD MEANING FLIP SHEET                                  -->
+    <!-- ==================================================================== -->
+    <div class="bottom-sheet-overlay" id="sheet-card-meaning" onclick="closeSheet('sheet-card-meaning')">
+      <div class="bottom-sheet-content" onclick="event.stopPropagation()">
+        <div class="sheet-handle"></div>
+        <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+          <div style="perspective: 1000px; margin-bottom: 14px;">
+            <div id="card-sheet-flip-inner" style="width: 140px; height: 215px; border-radius: 16px; transition: transform 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275); transform-style: preserve-3d; box-shadow: 0 10px 30px rgba(0,0,0,0.6);">
+              <img id="sheet-card-img" src="" style="width: 100%; height: 100%; object-fit: cover; border-radius: 16px;" alt="Card">
+            </div>
+          </div>
+          <div style="font-size: 12px; color: var(--purple); font-weight: 800; text-transform: uppercase;" id="sheet-card-arcana">Старший Аркан</div>
+          <div style="font-size: 20px; font-weight: 800; margin: 4px 0 10px;" id="sheet-card-title">Король Пентаклей</div>
+          <button class="btn-pill-action" style="width: auto; padding: 6px 16px; border-radius: 20px; font-size: 12px; margin-bottom: 14px;" onclick="toggleCard3DFlip()">
+            ⟳ Перевернуть: <span id="sheet-card-pos-label" style="margin-left: 4px; font-weight: 700;">Прямая позиция</span>
+          </button>
+          <div style="font-size: 14px; line-height: 1.5; color: rgba(255,255,255,0.9); margin-bottom: 14px;" id="sheet-card-desc-text"></div>
+          <div style="font-size: 13px; line-height: 1.5; color: var(--amber); background: rgba(229, 138, 43, 0.1); border: 1px solid rgba(229, 138, 43, 0.3); border-radius: 14px; padding: 12px; margin-bottom: 16px;" id="sheet-card-rec-text"></div>
+          <button class="btn-primary" onclick="sendCardToMentorChat()">
+            <span>Обсудить с наставником в чате →</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- MODAL 2: TAROT HOW TO USE RULES                                      -->
+    <!-- ==================================================================== -->
+    <div class="rules-modal" id="modal-tarot-rules" onclick="closeTarotRulesModal()">
+      <div class="rules-sheet" onclick="event.stopPropagation()">
+        <div class="sheet-handle"></div>
+        <div style="font-size: 20px; font-weight: 800; margin-bottom: 4px;">Как работает Таро Астры?</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">3 простых шага к получению точного озарения:</div>
+        
+        <div class="rule-card">
+          <img class="rule-card-img" src="astra_assets/04_ТАРО_И_РУНЫ/ic_tarot_how_to_use_1.png" alt="Rule 1">
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #FFF;">1. Настройтесь на тишину</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Закройте глаза, сделайте спокойный вдох и сфокусируйтесь на волнующем вас вопросе.</div>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <img class="rule-card-img" src="astra_assets/04_ТАРО_И_РУНЫ/ic_tarot_how_to_use_2.png" alt="Rule 2">
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #FFF;">2. Выберите карту сердцем</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Доверьтесь первому импульсу при прикосновении к колоде. Вселенная не ошибается.</div>
+          </div>
+        </div>
+
+        <div class="rule-card">
+          <img class="rule-card-img" src="astra_assets/04_ТАРО_И_РУНЫ/ic_tarot_how_to_use_3.png" alt="Rule 3">
+          <div>
+            <div style="font-size: 14px; font-weight: 700; color: #FFF;">3. Примите знак дня</div>
+            <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Прочитайте совет аркана и используйте его мудрость для осознанных решений.</div>
+          </div>
+        </div>
+
+        <button class="btn-primary" onclick="closeTarotRulesModal()">Понятно, начать расклад</button>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- MODAL 3: FULLSCREEN SOUNDSCAPE AUDIO PLAYER                          -->
+    <!-- ==================================================================== -->
+    <div class="player-fullscreen-modal" id="modal-player-fullscreen">
+      <video class="player-bg-video" id="player-video-bg" loop muted playsinline autoplay></video>
+      <div class="player-content-wrap">
+        <div class="player-top-bar">
+          <button class="player-close-btn" onclick="closeSoundPlayer()">‹</button>
+          <button class="player-sleep-timer-btn" id="player-timer-btn" onclick="cycleSleepTimer()">
+            <span>🌙 Таймер:</span> <span id="player-timer-val">Выкл</span>
+          </button>
+          <button class="player-close-btn" onclick="closeSoundPlayer()">✕</button>
+        </div>
+
+        <div class="player-disc-wrap">
+          <img class="player-center-thumb" id="player-disc-img" src="astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png" alt="Sound">
+        </div>
+
+        <div>
+          <div class="player-track-info">
+            <div class="player-track-title" id="player-track-name">144 Hz — Гармония и очищение</div>
+            <div class="player-track-cat" id="player-track-category">ЦЕЛЕБНЫЕ ГЕРЦЫ</div>
+          </div>
+
+          <div class="player-desc-box" id="player-track-desc">
+            Эта частота пробуждает духовную ясность, объединяет разум с сердцем и очищает биополе.
+          </div>
+
+          <div class="player-controls-row">
+            <div class="btn-pill-action" title="Предыдущий" onclick="prevSoundTrack()">⏮</div>
+            <button class="player-big-play-btn" id="player-toggle-btn" onclick="toggleSoundPlayback()">▶</button>
+            <div class="btn-pill-action" title="Следующий" onclick="nextSoundTrack()">⏭</div>
+            <div class="btn-pill-action" title="В избранное" id="player-fav-btn" onclick="toggleSoundFavorite()">★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- MODAL 4: PAYWALL ASTRA PLUS (SCREEN 5 IN AUDIT)                      -->
+    <!-- ==================================================================== -->
+    <div class="paywall-modal" id="modal-paywall">
+      <div style="display: flex; justify-content: flex-end; margin-bottom: 8px;">
+        <button class="player-close-btn" onclick="closePaywallModal()">✕</button>
+      </div>
+
+      <img class="paywall-muse-hero" src="moonly_paywall/new_paywall_bg_male_2.png" onerror="this.src='astra_assets/03_ПЕЙВОЛЫ_И_ПОДПИСКА/new_paywall_bg_male_2.png'" alt="Plus">
+
+      <div style="font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 6px;">Ваш проводник к самопознанию</div>
+      <div style="font-size: 13px; color: var(--text-muted); text-align: center; line-height: 1.45; margin-bottom: 18px;">
+        Обретите ясность, настройтесь на ритмы Вселенной и управляйте своей судьбой с Астра Плюс.
+      </div>
+
+      <!-- 1 Week Tariff -->
+      <div class="paywall-plan-card" onclick="selectPaywallPlan(this, 'week')">
+        <div style="display: flex; align-items: center;">
+          <img class="paywall-plan-icon" src="moonly_paywall/ic_paywall_round_month.png" onerror="this.src='astra_assets/03_ПЕЙВОЛЫ_И_ПОДПИСКА/ic_paywall_round_month.png'" alt="W">
+          <div>
+            <div style="font-size: 15px; font-weight: 700;">1 неделя</div>
+            <div style="font-size: 12px; color: var(--text-muted);">449 ₽ в неделю</div>
+          </div>
+        </div>
+        <div style="font-size: 16px; font-weight: 800;">449 ₽</div>
+      </div>
+
+      <!-- 1 Year Tariff (POPULAR) -->
+      <div class="paywall-plan-card selected" onclick="selectPaywallPlan(this, 'year')">
+        <div style="display: flex; align-items: center;">
+          <img class="paywall-plan-icon" src="moonly_paywall/ic_paywall_round_year.png" onerror="this.src='astra_assets/03_ПЕЙВОЛЫ_И_ПОДПИСКА/ic_paywall_round_year.png'" alt="Y">
+          <div>
+            <div style="display: flex; align-items: center; gap: 6px;">
+              <span style="font-size: 15px; font-weight: 700;">1 год</span>
+              <span style="background: #E58A2B; color: #FFF; font-size: 10px; font-weight: 800; padding: 2px 6px; border-radius: 8px;">ПОПУЛЯРНО</span>
+            </div>
+            <div style="font-size: 12px; color: var(--text-muted);">38,27 ₽ / нед (1 990 ₽ в год)</div>
+          </div>
+        </div>
+        <div style="font-size: 16px; font-weight: 800; color: #E58A2B;">1 990 ₽</div>
+      </div>
+
+      <!-- Lifetime Tariff -->
+      <div class="paywall-plan-card" onclick="selectPaywallPlan(this, 'lifetime')">
+        <div style="display: flex; align-items: center;">
+          <img class="paywall-plan-icon" src="moonly_paywall/ic_paywall_round_lifetime.png" onerror="this.src='astra_assets/03_ПЕЙВОЛЫ_И_ПОДПИСКА/ic_paywall_round_lifetime.png'" alt="L">
+          <div>
+            <div style="font-size: 15px; font-weight: 700;">Навсегда</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Разовый пожизненный доступ</div>
+          </div>
+        </div>
+        <div style="font-size: 16px; font-weight: 800;">4 990 ₽</div>
+      </div>
+
+      <button class="btn-primary" style="margin-top: 14px;" onclick="activateAstraPlusSubscription()">
+        <span>Попробовать бесплатно 3 дня</span>
+      </button>
+
+      <div style="font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 14px;">
+        Отмена подписки в любой момент • <span style="text-decoration: underline; cursor: pointer;" onclick="alert('Покупки успешно восстановлены!')">Восстановить покупки</span>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- MODAL 5: SETTINGS SCREEN & RUSTORE ACCOUNT DELETION                   -->
+    <!-- ==================================================================== -->
+    <div class="settings-screen-modal" id="modal-settings-screen">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+        <div style="font-size: 22px; font-weight: 800;">Настройки</div>
+        <button class="player-close-btn" onclick="closeSettingsScreen()">✕</button>
+      </div>
+
+      <div style="font-size: 12px; font-weight: 800; color: var(--text-dim); margin-bottom: 8px;">ДАННЫЕ РОЖДЕНИЯ</div>
+      <div class="settings-item-row" onclick="editBirthDataPrompt()">
+        <div class="settings-item-left">
+          <span>🪐</span>
+          <div>
+            <div>14 марта 2000, 22:00</div>
+            <div style="font-size: 12px; color: var(--text-muted);">Сочи, Россия (Лагна: Скорпион)</div>
+          </div>
+        </div>
+        <span style="color: var(--purple); font-weight: 700;">Изменить ></span>
+      </div>
+
+      <div style="font-size: 12px; font-weight: 800; color: var(--text-dim); margin: 16px 0 8px;">ПОДПИСКА</div>
+      <div class="settings-item-row" onclick="openPaywallModal()">
+        <div class="settings-item-left">
+          <span>👑</span>
+          <div>
+            <div style="color: #FFF;">ASTRA PLUS • Активен</div>
+            <div style="font-size: 12px; color: #10B981;">Действует до 19.10.2027</div>
+          </div>
+        </div>
+        <span style="color: #E58A2B; font-weight: 700;">План ></span>
+      </div>
+
+      <div style="font-size: 12px; font-weight: 800; color: var(--text-dim); margin: 16px 0 8px;">БЕЗОПАСНОСТЬ И СООТВЕТСТВИЕ RUSTORE</div>
+      <div class="settings-item-row danger-zone-card" onclick="confirmAccountDeletion()">
+        <div class="settings-item-left">
+          <span>🗑️</span>
+          <div>
+            <div style="font-weight: 700;">Удалить аккаунт</div>
+            <div style="font-size: 11px; opacity: 0.85;">Полное стирание натальных данных и архива снов</div>
+          </div>
+        </div>
+        <span style="font-weight: 800;">Удалить</span>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- MODAL 6: 24 ELDER FUTHARK RUNES CATALOG                              -->
+    <!-- ==================================================================== -->
+    <div class="bottom-sheet-overlay" id="modal-runes-catalog" onclick="closeSheet('modal-runes-catalog')">
+      <div class="bottom-sheet-content" onclick="event.stopPropagation()">
+        <div class="sheet-handle"></div>
+        <div style="font-size: 18px; font-weight: 800; margin-bottom: 4px;">Старший Футарк (24 руны)</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Священные скандинавские знаки судьбы:</div>
+        <div id="all-runes-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-height: 60vh; overflow-y: auto;"></div>
+      </div>
+    </div>
+
+    <!-- ==================================================================== -->
+    <!-- MODAL 7: AVATAR PICKER (60 AVATARS)                                  -->
+    <!-- ==================================================================== -->
+    <div class="bottom-sheet-overlay" id="modal-avatar-selector" onclick="closeSheet('modal-avatar-selector')">
+      <div class="bottom-sheet-content" onclick="event.stopPropagation()">
+        <div class="sheet-handle"></div>
+        <div style="font-size: 18px; font-weight: 800; margin-bottom: 4px;">Выберите Аватар профиля</div>
+        <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 14px;">Музы, Проводники и 12 знаков зодиака:</div>
+        <div id="avatar-picker-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; max-height: 55vh; overflow-y: auto;"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ==================================================================== -->
+  <!-- MASTER CONTROLLER JAVASCRIPT                                         -->
+  <!-- ==================================================================== -->
+  <script>
+    // --- State Management ---
+    let currentMainScreen = 'calendar';
+    let currentPracticeTab = 'affirmations';
+    let currentTarotMode = 1;
+    let currentDrawnCards = [];
+    let currentRune = null;
+    let currentSoundPlaying = null;
+    let sleepTimerMinutes = 0;
+    let sleepTimerInterval = null;
+    let currentActiveSheetCard = null;
+    let isCardSheetFlipped = false;
+    let insightTokensRemaining = 1;
+
+    // 5 Cosmic Mentors Data (Astra Atmospheric Archetypes)
+    const VEDIC_MASTERS = [
+      { id: 1, name: "А́стра", title: "ВАШ ЛИЧНЫЙ АСТРОЛОГ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png", greeting: "Здравствуй, светлая душа. Я Астра, твой личный проводник по ритмам звёзд и луны. Сегодня энергии дня направлены на созидание и обретение внутренней опоры. Какой вопрос волнует тебя сейчас?" },
+      { id: 2, name: "Селе́на", title: "ПРОВОДНИК УМИРОТВОРЕНИЯ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/02_Selena_Lunar_Peace.png", greeting: "Мир твоему сердцу. Я Селена, помогу отпустить суету дня, успокоить мысли и погрузиться в целительную тишину ночи." },
+      { id: 3, name: "Ма́йя", title: "СОВЕТНИК ТАРО И ЗНАКОВ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/03_Maya_Tarot_Intuition.png", greeting: "Приветствую! Я Майя. Знаки и арканы шепчут о скрытых возможностях вокруг тебя. Позволь мне помочь расшифровать подсказки твоей интуиции." },
+      { id: 4, name: "Орио́н", title: "НАСТАВНИК ЯСНОСТИ И СИЛЫ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/04_Orion_Clarity_Power.png", greeting: "Привет! Я Орион. Время отбросить сомнения, собрать энергию в единый фокус и уверенно двигаться к своим целям." },
+      { id: 5, name: "Та́я", title: "ХРАНИТЕЛЬНИЦА СНОВИДЕНИЙ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/05_Taya_Dream_Keeper.png", greeting: "Тайны ночи и снов открываются чуткому сердцу. Я Тая, помогу разгадать скрытые послания твоих сновидений и подготовиться к отдыху." }
+    ];
+    let currentMasterIndex = 0;
+    try {
+      const savedMaster = parseInt(localStorage.getItem('astra_current_master_idx') || '0', 10);
+      if (!isNaN(savedMaster) && savedMaster >= 0 && savedMaster < VEDIC_MASTERS.length) {
+        currentMasterIndex = savedMaster;
+      }
+    } catch (e) {}
+
+    // Runes List (24 Elder Futhark - Authentic 3D Clay Stones)
+    const RUNES_LIST = [
+      { name: 'Laguz', img: '20_Laguz.png', glyph: 'ᛚ', desc: 'Тайны воды, интуиция' },
+      { name: 'Fehu', img: '05_Fehu.png', glyph: 'ᚠ', desc: 'Жизненная сила, богатство' },
+      { name: 'Uruz', img: '06_Uruz.png', glyph: 'ᚢ', desc: 'Природная сила, преодоление' },
+      { name: 'Thurisaz', img: '02_Thurisaz.png', glyph: 'ᚦ', desc: 'Врата осознанности, защита' },
+      { name: 'Ansuz', img: '24_Ansuz.png', glyph: 'ᚨ', desc: 'Священный глас, мудрость слова' },
+      { name: 'Raido', img: '07_Raido.png', glyph: 'ᚱ', desc: 'Путешествие, синхронизация' },
+      { name: 'Kenaz', img: '08_Kenaz.png', glyph: 'ᚲ', desc: 'Пламя, озарение, знание' },
+      { name: 'Gebo', img: '11_Gebo.png', glyph: 'ᚷ', desc: 'Дар, партнерство, союз' },
+      { name: 'Wunjo', img: '13_Wunjo.png', glyph: 'ᚹ', desc: 'Радость, свет сердца' },
+      { name: 'Hagalaz', img: '01_Hagalaz.png', glyph: 'ᚺ', desc: 'Град очищения, трансформация' },
+      { name: 'Nauthiz', img: '15_Nauthiz.png', glyph: 'ᚾ', desc: 'Преодоление трудностей' },
+      { name: 'Isa', img: '04_Isa.png', glyph: 'ᛁ', desc: 'Замораживание, кристаллизация' },
+      { name: 'Jera', img: '03_Jera.png', glyph: 'ᛃ', desc: 'Щедрый урожай, цикл' },
+      { name: 'Eihwaz', img: '23_Eihwaz.png', glyph: 'ᛇ', desc: 'Мировое древо Иггдрасиль' },
+      { name: 'Perthro', img: '10_Perthro.png', glyph: 'ᛈ', desc: 'Неизвестность, судьба, игра' },
+      { name: 'Algiz', img: '22_Algiz.png', glyph: 'ᛉ', desc: 'Божественная защита духа' },
+      { name: 'Sowilo', img: '16_Sowilo.png', glyph: 'ᛋ', desc: 'Солнечная победа, триумф' },
+      { name: 'Tiwaz', img: '14_Tiwaz.png', glyph: 'ᛏ', desc: 'Честь воина духа, верность' },
+      { name: 'Berkano', img: '12_Berkano.png', glyph: 'ᛒ', desc: 'Березовый богини, рождение' },
+      { name: 'Ehwaz', img: '09_Ehwaz.png', glyph: 'ᛖ', desc: 'Конь, доверие, партнерство' },
+      { name: 'Mannaz', img: '21_Mannaz.png', glyph: 'ᛗ', desc: 'Человеческая душа, единство' },
+      { name: 'Ingwaz', img: '19_Inguz.png', glyph: 'ᛜ', desc: 'Внутренний потенциал, семя' },
+      { name: 'Dagaz', img: '17_Dagaz.png', glyph: 'ᛞ', desc: 'Рассвет нового дня, свет' },
+      { name: 'Othala', img: '18_Othala.png', glyph: 'ᛟ', desc: 'Родовое наследие, священный дом' }
+    ];
+
+    // Affirmations Data
+    const AFFIRMATIONS_COLLECTION = [
+      { cat: '✦ Прощение и покой', text: 'Я прощаю всех в прошлом за все осознанные ошибки' },
+      { cat: '✦ Изобилие и сила', text: 'Вселенная щедро открывает передо мной двери возможностей' },
+      { cat: '✦ Любовь и свет', text: 'Моя душа прекрасна в своей уникальности и гармонии' }
+    ];
+    let affIndex = 0;
+
+    // --- Main Screen Navigation ---
+    function switchMainScreen(screenId) {
+      document.querySelectorAll('.screen-view').forEach(s => s.classList.remove('active'));
+      document.querySelectorAll('.nav-tab-item').forEach(t => t.classList.remove('active'));
+
+      const targetScreen = document.getElementById('screen-' + screenId);
+      const targetNav = document.getElementById('tab-nav-' + screenId);
+      
+      if (targetScreen) targetScreen.classList.add('active');
+      if (targetNav) targetNav.classList.add('active');
+      currentMainScreen = screenId;
+
+      const safeBar = document.getElementById('app-top-safe-bar');
+      if (safeBar) {
+        if (screenId === 'chat') {
+          safeBar.classList.add('light-mode');
+        } else {
+          safeBar.classList.remove('light-mode');
+        }
+      }
+
+      if (screenId === 'practices') {
+        if (currentPracticeTab === 'tarot') {
+          setTimeout(renderTarotFanDeck, 100);
+        }
+      }
+    }
+
+    // --- Practice Tabs Navigation ---
+    function switchPracticeTab(tabId, el) {
+      document.querySelectorAll('.practice-pill').forEach(p => p.classList.remove('active'));
+      if (el) {
+        el.classList.add('active');
+        try { el.scrollIntoView({ inline: 'center', block: 'nearest' }); } catch(e) {}
+      }
+      
+      document.querySelectorAll('.practice-subview').forEach(v => v.style.display = 'none');
+      const target = document.getElementById('subview-' + tabId);
+      if (target) target.style.display = 'block';
+      currentPracticeTab = tabId;
+
+      if (tabId === 'tarot') {
+        setTarotMode(currentTarotMode);
+      }
+    }
+
+    function switchPracticeSection(tabId) {
+      switchMainScreen('practices');
+      const pills = document.querySelectorAll('.practice-pill');
+      pills.forEach(p => {
+        if (p.innerText.toLowerCase().includes(tabId)) switchPracticeTab(tabId, p);
+      });
+    }
+
+    // --- Tarot Controller (1, 3, 5 Cards & Catalog) ---
+    let tarotTooltipTimeout = null;
+    function showTarotTooltip(title, text) {
+      const toast = document.getElementById('tarot-tooltip-toast');
+      const titleEl = document.getElementById('tarot-toast-title');
+      const textEl = document.getElementById('tarot-toast-text');
+      if (!toast || !titleEl || !textEl) return;
+      titleEl.innerText = title;
+      textEl.innerText = text;
+      toast.classList.add('visible');
+      if (tarotTooltipTimeout) clearTimeout(tarotTooltipTimeout);
+      tarotTooltipTimeout = setTimeout(hideTarotTooltip, 4500);
+    }
+
+    function hideTarotTooltip() {
+      const toast = document.getElementById('tarot-tooltip-toast');
+      if (toast) toast.classList.remove('visible');
+      if (tarotTooltipTimeout) clearTimeout(tarotTooltipTimeout);
+    }
+
+    function getRandomTarotCards(count) {
+      const db = window.ASTRA_TAROT_DATABASE || [];
+      if (!db.length) return [];
+      const pool = [...db];
+      for (let i = pool.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      return pool.slice(0, count);
+    }
+
+    function setTarotMode(mode) {
+      currentTarotMode = mode;
+      document.querySelectorAll('.tarot-submode-pill, .tarot-seg-item').forEach(b => b.classList.remove('active'));
+      const activeBtn = document.getElementById('btn-tarot-mode-' + mode);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      const slot1Cont = document.getElementById('tarot-slots-container');
+      const slot3Cont = document.getElementById('tarot-3cards-container');
+      const slot5Cont = document.getElementById('tarot-5cards-container');
+      const fanWrap = document.getElementById('tarot-fan-wrapper');
+      const whiteSheet = document.getElementById('tarot-white-sheet');
+      const catalogView = document.getElementById('tarot-catalog-view');
+      const actionsBar = document.getElementById('tarot-actions-bar');
+
+      if (mode === 'all') {
+        slot1Cont.style.display = 'none';
+        slot3Cont.style.display = 'none';
+        slot5Cont.style.display = 'none';
+        fanWrap.style.display = 'none';
+        if (actionsBar) actionsBar.style.display = 'none';
+        whiteSheet.style.display = 'none';
+        catalogView.style.display = 'block';
+        renderTarotCatalog('all');
+        return;
+      }
+
+      catalogView.style.display = 'none';
+      whiteSheet.style.display = 'block';
+      if (actionsBar) actionsBar.style.display = 'flex';
+
+      if (mode === 1) {
+        slot1Cont.style.display = 'flex';
+        slot3Cont.style.display = 'none';
+        slot5Cont.style.display = 'none';
+        fanWrap.style.display = 'block';
+        document.getElementById('white-sheet-quota-badge').innerText = '1 ост.';
+        initTarot1Slot();
+        initWhiteSheetSpheres(1);
+        renderTarotFanDeck();
+      } else if (mode === 3) {
+        slot1Cont.style.display = 'none';
+        slot3Cont.style.display = 'flex';
+        slot5Cont.style.display = 'none';
+        fanWrap.style.display = 'none';
+        document.getElementById('white-sheet-quota-badge').innerText = '0 ост.';
+        renderTarot3CardsSpread();
+        initWhiteSheetSpheres(3);
+      } else if (mode === 5) {
+        slot1Cont.style.display = 'none';
+        slot3Cont.style.display = 'none';
+        slot5Cont.style.display = 'flex';
+        fanWrap.style.display = 'none';
+        document.getElementById('white-sheet-quota-badge').innerText = '0 ост.';
+        renderTarot5CardsCrossSpread();
+        initWhiteSheetSpheres(5);
+      }
+    }
+
+    // 1-Card Slot
+    function initTarot1Slot(specificCard) {
+      const cont = document.getElementById('tarot-slots-container');
+      cont.innerHTML = '';
+      currentDrawnCards = [];
+
+      let card = specificCard;
+      if (!card) {
+        const drawn = getRandomTarotCards(1);
+        card = drawn.length > 0 ? drawn[0] : {
+          name: 'Король Пентаклей',
+          arcana: 'minor',
+          imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/79_The_King_of_Pentacles.png',
+          upright: { text: 'Король Пентаклей олицетворяет надежность, глубокое мастерство и финансовое благополучие.' }
+        };
+      }
+      currentDrawnCards.push(card);
+
+      const slot = document.createElement('div');
+      slot.className = 'tarot-slot-hero filled';
+      slot.onclick = () => openCardMeaningModal(card);
+      slot.innerHTML = `
+        <img class="tarot-card-img-hero" src="${card.imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png'}" alt="${card.name}">
+        <div style="font-size: 15px; font-weight: 700; color: #FFF; margin-top: 8px; text-shadow: 0 2px 8px #000;">${card.name}</div>
+      `;
+      cont.appendChild(slot);
+      const actionsBar = document.getElementById('tarot-actions-bar');
+      if (actionsBar) actionsBar.style.display = 'flex';
+    }
+
+    // 3-Cards Row Spread (Прошлое, Настоящее, Будущее)
+    function renderTarot3CardsSpread() {
+      const cont = document.getElementById('tarot-3cards-container');
+      cont.innerHTML = '';
+      currentDrawnCards = getRandomTarotCards(3);
+      if (currentDrawnCards.length < 3) {
+        currentDrawnCards = [
+          { name: 'Шут', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png', arcana: 'major', upright: { text: 'Начало пути, чистый лист, спонтанность.' } },
+          { name: 'Туз Кубков', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/38_The_Ace_of_Cups.png', arcana: 'minor', upright: { text: 'Чаша изобилия, эмоциональное наполнение.' } },
+          { name: 'Туз Скипетров', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/24_The_Ace_of_Wands.png', arcana: 'minor', upright: { text: 'Огненная энергия творчества и вдохновения.' } }
+        ];
+      }
+
+      currentDrawnCards.forEach(c => {
+        const slot = document.createElement('div');
+        slot.className = 'tarot-slot-compact';
+        slot.onclick = () => openCardMeaningModal(c);
+        slot.innerHTML = `
+          <img src="${c.imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png'}" alt="${c.name}">
+          <div class="tarot-compact-label">${c.name}</div>
+        `;
+        cont.appendChild(slot);
+      });
+    }
+
+    // 5-Cards Cross Spread (2-1-2 Cross Layout)
+    function renderTarot5CardsCrossSpread() {
+      const cont = document.getElementById('tarot-5cards-container');
+      cont.innerHTML = '';
+      currentDrawnCards = getRandomTarotCards(5);
+      if (currentDrawnCards.length < 5) {
+        currentDrawnCards = [
+          { name: 'Шут', num_roman: '0', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png', upright: { text: 'Начало пути' } },
+          { name: 'Маг', num_roman: 'I', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/02_The_Magician.png', upright: { text: 'Воля и действия' } },
+          { name: 'Папесса', num_roman: 'II', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/03_The_Popess_(The_High_Priestess).png', upright: { text: 'Тайны подсознания' } },
+          { name: 'Императрица', num_roman: 'III', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/04_The_Empress.png', upright: { text: 'Плодородие и гармония' } },
+          { name: 'Император', num_roman: 'IV', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/05_The_Emperor.png', upright: { text: 'Структура и порядок' } }
+        ];
+      }
+
+      const c = currentDrawnCards;
+      const getNum = card => card.num_roman ? `${card.num_roman} • ` : '';
+
+      cont.innerHTML = `
+        <!-- Row 1: Top 2 Cards (Прошлое, Причины) -->
+        <div class="tarot-cross-row">
+          <div class="tarot-slot-mini" id="slot-cross-0">
+            <img src="${c[0].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png'}" alt="${c[0].name}">
+            <div class="tarot-compact-label">${getNum(c[0])}${c[0].name}</div>
+          </div>
+          <div class="tarot-slot-mini" id="slot-cross-1">
+            <img src="${c[1].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/02_The_Magician.png'}" alt="${c[1].name}">
+            <div class="tarot-compact-label">${getNum(c[1])}${c[1].name}</div>
+          </div>
+        </div>
+
+        <!-- Row 2: Center 1 Card (Суть ситуации) -->
+        <div class="tarot-cross-row">
+          <div class="tarot-slot-mini center-card" id="slot-cross-2">
+            <img src="${c[2].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/03_The_Popess_(The_High_Priestess).png'}" alt="${c[2].name}">
+            <div class="tarot-compact-label" style="color: var(--purple); font-weight: 800;">${getNum(c[2])}${c[2].name}</div>
+          </div>
+        </div>
+
+        <!-- Row 3: Bottom 2 Cards (Совет, Исход) -->
+        <div class="tarot-cross-row">
+          <div class="tarot-slot-mini" id="slot-cross-3">
+            <img src="${c[3].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/04_The_Empress.png'}" alt="${c[3].name}">
+            <div class="tarot-compact-label">${getNum(c[3])}${c[3].name}</div>
+          </div>
+          <div class="tarot-slot-mini" id="slot-cross-4">
+            <img src="${c[4].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/05_The_Emperor.png'}" alt="${c[4].name}">
+            <div class="tarot-compact-label">${getNum(c[4])}${c[4].name}</div>
+          </div>
+        </div>
+      `;
+
+      for (let i = 0; i < 5; i++) {
+        const el = document.getElementById(`slot-cross-${i}`);
+        if (el) el.onclick = () => openCardMeaningModal(c[i]);
+      }
+    }
+
+    // White Sheet Spheres Setup
+    function initWhiteSheetSpheres(mode) {
+      const cont = document.getElementById('white-sheet-spheres-container');
+      cont.innerHTML = '';
+
+      const sub = document.querySelector('#tarot-white-sheet .white-sheet-sub');
+      if (sub) {
+        sub.innerText = (mode === 1) ? 'Персональный инсайт от астролога' : 'Выберите сферу жизни, к которой относится ваш вопрос';
+      }
+
+      const chips = mode === 1 ? [
+        '✦ Карта дня', '✦ Да или Нет', '✦ Послание свыше'
+      ] : [
+        '✦ Ситуация', '♥ Любовь', '↗ Карьера', '☲ Отношения', '◈ Финансы', '◉ Духовность'
+      ];
+
+      chips.forEach((c, idx) => {
+        const chip = document.createElement('div');
+        chip.className = `white-sheet-chip ${idx === 0 ? 'active' : ''}`;
+        chip.innerText = c;
+        chip.onclick = () => {
+          document.querySelectorAll('.white-sheet-chip').forEach(ch => ch.classList.remove('active'));
+          chip.classList.add('active');
+        };
+        cont.appendChild(chip);
+      });
+
+      updateInsightTokenBadges();
+    }
+
+    function updateInsightTokenBadges() {
+      const badge = document.getElementById('white-sheet-quota-badge');
+      if (badge) {
+        badge.innerText = (currentTarotMode === 3 || currentTarotMode === 5) ? '0 ост.' : (insightTokensRemaining + ' ост.');
+      }
+    }
+
+    // Handle White Sheet CTA Click
+    function handleWhiteSheetCta() {
+      if (insightTokensRemaining > 0) {
+        insightTokensRemaining = 0;
+        updateInsightTokenBadges();
+        switchMainScreen('chat');
+      } else {
+        openPaywallModal();
+      }
+    }
+
+    // Leveled Out & Flatter Fan Deck Renderer
+    function renderTarotFanDeck() {
+      const deck = document.getElementById('tarot-fan-deck');
+      if (!deck) return;
+      deck.innerHTML = '';
+
+      const totalFanCards = 19;
+      const maxAngle = 14; // gentle tilt between -14° and +14°
+      const maxDrop = 14;  // gentle leveling: only 14px total sagitta from center to edge
+
+      for (let i = 0; i < totalFanCards; i++) {
+        const c = document.createElement('img');
+        c.className = 'fan-card-item';
+        c.src = 'astra_assets/04_ТАРО_И_РУНЫ/ic_gods_card_back.png';
+        
+        // norm from -1 (leftmost) to +1 (rightmost)
+        const norm = (i - (totalFanCards - 1) / 2) / ((totalFanCards - 1) / 2);
+        const angle = norm * maxAngle;
+        const top = 4 + Math.pow(norm, 2) * maxDrop;
+        const left = 50 + norm * 41; // spreads from 9% to 91%
+
+        c.style.left = `calc(${left}% - 29px)`;
+        c.style.top = `${top}px`;
+        c.style.transform = `rotate(${angle}deg)`;
+        c.style.zIndex = i + 1;
+
+        c.onclick = () => {
+          const drawn = getRandomTarotCards(1);
+          if (drawn.length > 0) {
+            initTarot1Slot(drawn[0]);
+            c.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease';
+            c.style.transform = `rotate(${angle}deg) translateY(-20px) scale(1.12)`;
+            c.style.boxShadow = '0 0 24px rgba(120, 75, 246, 0.95)';
+            c.style.zIndex = 100;
+            setTimeout(() => {
+              c.style.transform = `rotate(${angle}deg)`;
+              c.style.boxShadow = '';
+              c.style.zIndex = i + 1;
+            }, 600);
+            showTarotTooltip('Карта вытянута', `Вы выбрали аркан: «${drawn[0].name}»`);
+          }
+        };
+        deck.appendChild(c);
+      }
+    }
+
+    function resetTarotSpread() {
+      const reloadIcon = document.getElementById('tarot-reload-icon');
+      if (reloadIcon) {
+        const curRot = (parseInt(reloadIcon.dataset.rot || '0') + 360);
+        reloadIcon.dataset.rot = curRot;
+        reloadIcon.style.transform = `rotate(${curRot}deg)`;
+      }
+
+      if (currentTarotMode === 1) initTarot1Slot();
+      else if (currentTarotMode === 3) renderTarot3CardsSpread();
+      else if (currentTarotMode === 5) renderTarot5CardsCrossSpread();
+
+      showTarotTooltip('Карты перетасованы', 'Колода Райдера-Уэйта обновлена. Вытянуты новые арканы.');
+    }
+
+    // 78 Cards Catalog Grid
+    function renderTarotCatalog(suitFilter) {
+      const grid = document.getElementById('tarot-catalog-grid');
+      grid.innerHTML = '';
+      if (!window.ASTRA_TAROT_DATABASE) return;
+
+      const filtered = ASTRA_TAROT_DATABASE.filter(c => {
+        if (suitFilter === 'all') return true;
+        if (suitFilter === 'major') return c.arcana === 'major';
+        return c.suit === suitFilter;
+      });
+
+      filtered.forEach(c => {
+        const cardEl = document.createElement('div');
+        cardEl.style.cssText = 'background: var(--bg-card); border-radius: 14px; overflow: hidden; cursor: pointer; text-align: center; border: 1px solid var(--bg-card-border); position: relative;';
+        cardEl.onclick = () => openCardMeaningModal(c);
+        
+        const lockBadge = c.free ? '' : '<div style="position: absolute; top: 6px; right: 6px; background: rgba(0,0,0,0.6); border-radius: 8px; padding: 2px 6px; font-size: 11px;">🔒</div>';
+
+        cardEl.innerHTML = `
+          ${lockBadge}
+          <img src="${c.imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png'}" style="width: 100%; height: 130px; object-fit: cover;" alt="${c.name}">
+          <div style="font-size: 11px; font-weight: 700; color: #FFF; padding: 6px 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${c.name}</div>
+        `;
+        grid.appendChild(cardEl);
+      });
+    }
+
+    function filterTarotSuit(suit, el) {
+      document.querySelectorAll('#tarot-catalog-view .sound-cat-chip').forEach(c => c.classList.remove('active'));
+      if (el) el.classList.add('active');
+      renderTarotCatalog(suit);
+    }
+
+    // Card Meaning Modal Sheet
+    function openCardMeaningModal(card) {
+      currentActiveSheetCard = card;
+      isCardSheetFlipped = false;
+      
+      document.getElementById('sheet-card-img').src = card.imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png';
+      document.getElementById('sheet-card-title').innerText = card.name;
+      document.getElementById('sheet-card-arcana').innerText = card.arcana === 'major' ? 'Старший Аркан' : 'Младший Аркан';
+      document.getElementById('sheet-card-desc-text').innerText = card.upright ? card.upright.text : (card.text || 'Карта указывает на силу интуиции и своевременность действий.');
+      document.getElementById('sheet-card-rec-text').innerText = card.upright ? card.upright.rec_text : 'Рекомендация: доверьтесь внутреннему голосу и действуйте мудро.';
+      document.getElementById('sheet-card-pos-label').innerText = 'Прямая позиция';
+      document.getElementById('card-sheet-flip-inner').style.transform = 'rotateZ(0deg)';
+
+      openSheet('sheet-card-meaning');
+    }
+
+    function toggleCard3DFlip() {
+      if (!currentActiveSheetCard) return;
+      isCardSheetFlipped = !isCardSheetFlipped;
+      const inner = document.getElementById('card-sheet-flip-inner');
+      const label = document.getElementById('sheet-card-pos-label');
+      if (isCardSheetFlipped) {
+        inner.style.transform = 'rotateZ(180deg)';
+        label.innerText = 'Перевёрнутая позиция';
+      } else {
+        inner.style.transform = 'rotateZ(0deg)';
+        label.innerText = 'Прямая позиция';
+      }
+    }
+
+    function sendCardToMentorChat() {
+      closeSheet('sheet-card-meaning');
+      switchMainScreen('chat');
+    }
+
+    // Rules Modal
+    function openTarotRulesModal() {
+      document.getElementById('modal-tarot-rules').style.display = 'flex';
+    }
+    function closeTarotRulesModal() {
+      document.getElementById('modal-tarot-rules').style.display = 'none';
+    }
+
+    // --- Affirmations Controller ---
+    function nextAffirmation() {
+      affIndex = (affIndex + 1) % AFFIRMATIONS_COLLECTION.length;
+      const item = AFFIRMATIONS_COLLECTION[affIndex];
+      document.getElementById('affirmation-cat-badge').innerText = item.cat;
+      document.getElementById('affirmation-text-display').innerText = item.text;
+    }
+
+    // --- Oracle & Gods Drawers ---
+    function drawOracleCard() {
+      const slot = document.getElementById('oracle-slot');
+      slot.className = 'tarot-slot-hero filled';
+      slot.innerHTML = `
+        <img class="tarot-card-img-hero" src="03_ДЕВЫ_МУДРОСТИ/59_Tree_of_Life.png" alt="Oracle" style="border-radius: 18px;">
+      `;
+      document.getElementById('oracle-actions-bar').style.display = 'flex';
+    }
+
+    function drawDeityCard() {
+      const slot = document.getElementById('gods-slot');
+      slot.className = 'tarot-slot-hero filled';
+      slot.innerHTML = `
+        <img class="tarot-card-img-hero" src="astra_assets/01_ФОНЫ_И_БАННЕРЫ_ВЫСОКОГО_РАЗРЕШЕНИЯ/ic_gods_empty.png" onerror="this.src='astra_assets/01_ФОНЫ_И_БАННЕРЫ_ВЫСОКОГО_РАЗРЕШЕНИЯ/ic_sharing_moon.png'" alt="Deity">
+        <div style="font-size: 13px; font-weight: 800; color: var(--amber); margin-top: 6px;">Хануман (Сила Духа)</div>
+      `;
+    }
+
+    // --- Dreamer (Сонник) Controller ---
+    function switchDreamMode(mode) {
+      document.getElementById('tab-dream-new').classList.toggle('active', mode === 'new');
+      document.getElementById('tab-dream-archive').classList.toggle('active', mode === 'archive');
+      document.getElementById('dream-new-box').style.display = mode === 'new' ? 'block' : 'none';
+      document.getElementById('dream-archive-box').style.display = mode === 'archive' ? 'block' : 'none';
+      if (mode === 'archive') renderDreamArchive();
+    }
+
+    function interpretDreamAction() {
+      const text = document.getElementById('dream-input-text').value.trim() || 'Полет над сияющим океаном';
+      const resBox = document.getElementById('dream-result-card');
+      resBox.style.display = 'block';
+      resBox.innerHTML = `
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+          <span style="font-size: 12px; color: var(--amber); font-weight: 700;">19 Октября 2026 • Анализ сна</span>
+          <button style="background: none; border: none; cursor: pointer; color: #EF4444; font-size: 16px;" onclick="deleteDreamEntry(this)">🗑️</button>
+        </div>
+        <img src="astra_assets/01_ФОНЫ_И_БАННЕРЫ_ВЫСОКОГО_РАЗРЕШЕНИЯ/dreamer_top_image.png" onerror="this.src='astra_assets/01_ФОНЫ_И_БАННЕРЫ_ВЫСОКОГО_РАЗРЕШЕНИЯ/ic_sharing_moon.png'" style="width: 100%; height: 130px; object-fit: cover; border-radius: 14px; margin-bottom: 10px;" alt="Dream">
+        <div style="font-size: 15px; font-weight: 800; color: #FFF; margin-bottom: 6px;">«${text.slice(0, 35)}...»</div>
+        <div style="font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.85); margin-bottom: 12px;">
+          Образы сна отражают стремление к внутренней ясности. В вашей натальной карте это активирует 9-й дом высшего познания.
+        </div>
+        <button class="btn-primary" onclick="switchMainScreen('chat')">
+          <span>Обсудить сон с Варуной в чате →</span>
+        </button>
+      `;
+    }
+
+    function deleteDreamEntry(btn) {
+      if (confirm('Удалить этот сон? Сон и его смыслы исчезнут навсегда.')) {
+        document.getElementById('dream-result-card').style.display = 'none';
+        document.getElementById('dream-input-text').value = '';
+      }
+    }
+
+    function renderDreamArchive() {
+      const box = document.getElementById('dream-archive-box');
+      box.innerHTML = `
+        <div class="card-glass" style="margin-bottom: 8px;">
+          <div style="display: flex; justify-content: space-between;">
+            <div style="font-size: 14px; font-weight: 700; color: #FFF;">Полет над сияющим океаном</div>
+            <div style="font-size: 12px; color: var(--text-muted);">18 Окт 2026</div>
+          </div>
+        </div>
+        <div class="card-glass" style="margin-bottom: 8px;">
+          <div style="display: flex; justify-content: space-between;">
+            <div style="font-size: 14px; font-weight: 700; color: #FFF;">Золотой храм в горах</div>
+            <div style="font-size: 12px; color: var(--text-muted);">15 Окт 2026</div>
+          </div>
+        </div>
+        <div class="card-glass" style="margin-bottom: 8px;">
+          <div style="display: flex; justify-content: space-between;">
+            <div style="font-size: 14px; font-weight: 700; color: #FFF;">Белая птица у окна</div>
+            <div style="font-size: 12px; color: var(--text-muted);">12 Окт 2026</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // --- Runes Controller ---
+    function drawDailyRune(rune) {
+      if (rune) {
+        currentRune = rune;
+      } else if (!currentRune) {
+        currentRune = RUNES_LIST[0]; // Laguz
+      } else {
+        currentRune = RUNES_LIST[Math.floor(Math.random() * RUNES_LIST.length)];
+      }
+      const stoneImg = document.getElementById('rune-hero-stone-img');
+      if (stoneImg) {
+        stoneImg.src = '02_СКАНДИНАВСКИЕ_РУНЫ/' + currentRune.img;
+        stoneImg.alt = currentRune.name;
+      }
+      const nameDisp = document.getElementById('rune-name-display');
+      if (nameDisp) nameDisp.innerText = currentRune.name;
+      const subDisp = document.getElementById('rune-sub-display');
+      if (subDisp) subDisp.innerText = `«${currentRune.desc}»`;
+    }
+
+    function openRuneMeaningModal() {
+      if (!currentRune) drawDailyRune();
+      alert(`РУНА ${currentRune.name} (${currentRune.glyph})\n\n${currentRune.desc}\n\nРекомендация: созерцайте этот священный глиф для сонастройки с космическим потоком.`);
+    }
+
+    function openRunesCatalogModal() {
+      const grid = document.getElementById('all-runes-grid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      RUNES_LIST.forEach(r => {
+        const item = document.createElement('div');
+        item.style.cssText = 'background: rgba(28, 30, 48, 0.75); border-radius: 16px; padding: 12px 6px; text-align: center; border: 1px solid rgba(255, 255, 255, 0.08); cursor: pointer; display: flex; flex-direction: column; align-items: center; justify-content: center; transition: transform 0.2s;';
+        item.onmouseenter = () => item.style.transform = 'translateY(-3px)';
+        item.onmouseleave = () => item.style.transform = 'translateY(0)';
+        item.onclick = () => {
+          drawDailyRune(r);
+          closeSheet('modal-runes-catalog');
+        };
+        item.innerHTML = `
+          <img src="02_СКАНДИНАВСКИЕ_РУНЫ/${r.img}" style="width: 72px; height: 90px; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));" alt="${r.name}">
+          <div style="font-size: 13px; font-weight: 700; color: #FFF; margin-top: 8px;">${r.name}</div>
+          <div style="font-size: 10px; color: #A0A5BA; margin-top: 2px; max-width: 95px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">«${r.desc}»</div>
+        `;
+        grid.appendChild(item);
+      });
+      openSheet('modal-runes-catalog');
+    }
+
+    // --- Soundscape (68 Healing Sounds) ---
+    let currentSoundCategory = 'Все';
+
+    function initSoundscape() {
+      if (!window.ASTRA_SOUNDS_DATABASE) return;
+
+      const cats = ['Все', 'Герцы', 'Природа', 'Животные', 'ASMR', 'Инструменты', 'Шумы', 'Бинауральная музыка'];
+      const chipsContainer = document.getElementById('sound-category-chips');
+      chipsContainer.innerHTML = '';
+
+      cats.forEach(c => {
+        const chip = document.createElement('div');
+        chip.className = `sound-cat-chip ${c === currentSoundCategory ? 'active' : ''}`;
+        chip.innerText = c;
+        chip.onclick = () => {
+          currentSoundCategory = c;
+          document.querySelectorAll('.sound-cat-chip').forEach(ch => ch.classList.remove('active'));
+          chip.classList.add('active');
+          renderSoundsGrid();
+        };
+        chipsContainer.appendChild(chip);
+      });
+
+      renderSoundsGrid();
+    }
+
+    function renderSoundsGrid() {
+      const grid = document.getElementById('sounds-list-grid');
+      grid.innerHTML = '';
+      if (!window.ASTRA_SOUNDS_DATABASE) return;
+
+      const filtered = ASTRA_SOUNDS_DATABASE.filter(s => {
+        if (currentSoundCategory === 'Все') return true;
+        return s.categories && s.categories.includes(currentSoundCategory);
+      });
+
+      filtered.forEach(s => {
+        const card = document.createElement('div');
+        card.className = 'sound-card-item';
+        card.onclick = () => openSoundPlayer(s);
+        
+        card.innerHTML = `
+          <div class="sound-card-left">
+            <div class="sound-card-cat">${s.categories ? s.categories[0] : 'Резонанс'}</div>
+            <div class="sound-card-title">${s.name}</div>
+            <div class="sound-card-sub">${s.description ? s.description.slice(0, 48) + '...' : 'Гармония ума и тела'}</div>
+          </div>
+          <div class="sound-card-right">
+            <img class="sound-card-thumb" src="${s.cardIconUrl || 'astra_assets/06_МЕДИТАЦИИ_И_ПРАКТИКИ/meditation_crystal.png'}" onerror="this.src='astra_assets/06_МЕДИТАЦИИ_И_ПРАКТИКИ/meditation_crystal.png'" alt="${s.name}">
+            <div class="sound-card-plus-badge">PLUS</div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function openSoundPlayerById(soundId) {
+      if (!window.ASTRA_SOUNDS_DATABASE) return;
+      const s = ASTRA_SOUNDS_DATABASE.find(x => x.id === soundId) || ASTRA_SOUNDS_DATABASE[0];
+      openSoundPlayer(s);
+    }
+
+    function openSoundPlayer(s) {
+      currentSoundPlaying = s;
+      document.getElementById('player-track-name').innerText = s.name;
+      document.getElementById('player-track-category').innerText = s.categories ? s.categories.join(' • ') : 'ЦЕЛЕБНЫЕ ГЕРЦЫ';
+      document.getElementById('player-track-desc').innerText = s.description || 'Целебный резонанс пробуждает гармонию и ясность ума.';
+      document.getElementById('player-disc-img').src = s.cardIconUrl || 'astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png';
+      
+      const audioEl = document.getElementById('real-sound-audio');
+      if (s.soundUrl) {
+        audioEl.src = s.soundUrl;
+        audioEl.play().catch(() => {});
+      }
+      document.getElementById('player-toggle-btn').innerText = '⏸';
+      document.getElementById('modal-player-fullscreen').style.display = 'flex';
+    }
+
+    function toggleSoundPlayback() {
+      const audioEl = document.getElementById('real-sound-audio');
+      const btn = document.getElementById('player-toggle-btn');
+      if (audioEl.paused) {
+        audioEl.play();
+        btn.innerText = '⏸';
+      } else {
+        audioEl.pause();
+        btn.innerText = '▶';
+      }
+    }
+
+    function closeSoundPlayer() {
+      document.getElementById('modal-player-fullscreen').style.display = 'none';
+      const audioEl = document.getElementById('real-sound-audio');
+      audioEl.pause();
+    }
+
+    function prevSoundTrack() {
+      openSoundPlayerById(291);
+    }
+
+    function nextSoundTrack() {
+      openSoundPlayerById(294);
+    }
+
+    function cycleSleepTimer() {
+      const timers = [0, 15, 30, 45, 60];
+      const idx = (timers.indexOf(sleepTimerMinutes) + 1) % timers.length;
+      sleepTimerMinutes = timers[idx];
+      document.getElementById('player-timer-val').innerText = sleepTimerMinutes === 0 ? 'Выкл' : sleepTimerMinutes + ' мин';
+
+      if (sleepTimerInterval) clearInterval(sleepTimerInterval);
+      if (sleepTimerMinutes > 0) {
+        sleepTimerInterval = setTimeout(() => {
+          closeSoundPlayer();
+          alert('Таймер сна сработал: воспроизведение завершено. Спокойного сна!');
+        }, sleepTimerMinutes * 60 * 1000);
+      }
+    }
+
+    function toggleSoundFavorite() {
+      const btn = document.getElementById('player-fav-btn');
+      btn.style.color = btn.style.color === 'rgb(255, 184, 77)' ? '#FFF' : '#FFB84D';
+    }
+
+    // --- Floating Mentors Switcher ---
+    function openFloatingMentorMenu() {
+      const list = document.getElementById('floating-mentor-list');
+      list.innerHTML = '';
+
+      VEDIC_MASTERS.forEach((m, idx) => {
+        const item = document.createElement('div');
+        item.className = `floating-mentor-item ${idx === currentMasterIndex ? 'active' : ''}`;
+        item.onclick = () => {
+          currentMasterIndex = idx;
+          try { localStorage.setItem('astra_current_master_idx', idx); } catch (e) {}
+          updateActiveMasterUI();
+          closeFloatingMentorMenu();
+        };
+        item.innerHTML = `
+          <div style="display: flex; align-items: center; gap: 12px;">
+            <img src="${m.avatar}" onerror="this.src='10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png'" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(255,255,255,0.25);" alt="${m.name}">
+            <div>
+              <div style="font-size: 15px; font-weight: 700; color: #FFFFFF;">${m.name}</div>
+              <div style="font-size: 12px; color: #A0A5BA;">${m.title}</div>
+            </div>
+          </div>
+          <div style="font-size: 16px; color: #FFFFFF; font-weight: 700;">${idx === currentMasterIndex ? '✓' : ''}</div>
+        `;
+        list.appendChild(item);
+      });
+
+      document.getElementById('floating-mentor-menu').style.display = 'flex';
+    }
+
+    function closeFloatingMentorMenu() {
+      document.getElementById('floating-mentor-menu').style.display = 'none';
+    }
+
+    function updateActiveMasterUI() {
+      const m = VEDIC_MASTERS[currentMasterIndex];
+      document.getElementById('chat-header-name').innerText = m.name;
+      document.getElementById('chat-header-avatar').src = m.avatar;
+      const statusEl = document.getElementById('chat-header-status');
+      if (statusEl) statusEl.innerText = m.title + ' • НА СВЯЗИ';
+      document.getElementById('chat-mentor-greeting-bubble').innerText = m.greeting;
+      const whiteAvatar = document.getElementById('white-sheet-mentor-avatar');
+      if (whiteAvatar) whiteAvatar.src = m.avatar;
+    }
+
+    function sendUserChatMessage() {
+      const input = document.getElementById('chat-input-box');
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = '';
+
+      appendChatMessage('user', text);
+
+      setTimeout(() => {
+        const m = VEDIC_MASTERS[currentMasterIndex];
+        const reply = `${m.name}: «Я слышу твой запрос. Энергии дня говорят о том, что сейчас важно сохранять спокойную уверенность. Доверься своему внутреннему компасу.»`;
+        appendChatMessage('mentor', reply);
+      }, 700);
+    }
+
+    function sendChatMessageQuick(text) {
+      document.getElementById('chat-input-box').value = text;
+      sendUserChatMessage();
+    }
+
+    function appendChatMessage(sender, text) {
+      const area = document.getElementById('chat-msg-area');
+      const row = document.createElement('div');
+      row.className = `chat-msg-row ${sender}`;
+      row.innerHTML = `<div class="chat-bubble">${text}</div>`;
+      area.appendChild(row);
+      area.scrollTop = area.scrollHeight;
+    }
+
+    function rateInsight(type, btn) {
+      if (type === 'good') {
+        btn.style.color = '#10B981';
+        btn.innerText = '👍 Спасибо!';
+      } else {
+        btn.style.color = '#EF4444';
+        btn.innerText = '👎 Учтем';
+      }
+    }
+
+    // --- Settings & RuStore Account Deletion ---
+    function openSettingsScreen() {
+      document.getElementById('modal-settings-screen').style.display = 'flex';
+    }
+    function closeSettingsScreen() {
+      document.getElementById('modal-settings-screen').style.display = 'none';
+    }
+    function editBirthDataPrompt() {
+      prompt('Введите ваш город рождения:', 'Сочи, Россия');
+    }
+    function confirmAccountDeletion() {
+      if (confirm('ВНИМАНИЕ! Вы собираетесь удалить свой аккаунт и все сохраненные натальные расчеты. Это действие необратимо. Продолжить?')) {
+        alert('Все персональные данные успешно удалены согласно требованиям Федерального закона и политике RuStore.');
+        closeSettingsScreen();
+      }
+    }
+
+    // --- Paywall Controller ---
+    function openPaywallModal() {
+      document.getElementById('modal-paywall').style.display = 'flex';
+    }
+    function closePaywallModal() {
+      document.getElementById('modal-paywall').style.display = 'none';
+    }
+    function selectPaywallPlan(el, plan) {
+      document.querySelectorAll('.paywall-plan-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+    function activateAstraPlusSubscription() {
+      alert('Поздравляем! Подписка Астра Плюс успешно активирована. Все арканы, звуки и наставники разблокированы.');
+      closePaywallModal();
+    }
+
+    // --- Avatar Picker Modal ---
+    function openAvatarSelectorModal() {
+      const grid = document.getElementById('avatar-picker-grid');
+      grid.innerHTML = '';
+      
+      const avatars = [
+        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png',
+        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/02_Selena_Lunar_Peace.png',
+        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/03_Maya_Tarot_Intuition.png',
+        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/04_Orion_Clarity_Power.png',
+        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/05_Taya_Dream_Keeper.png',
+        '11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/01_Default_Female_Muse_master.png'
+      ];
+
+      avatars.forEach(src => {
+        const item = document.createElement('div');
+        item.style.cssText = 'border-radius: 16px; overflow: hidden; cursor: pointer; aspect-ratio: 1; border: 2px solid rgba(255,255,255,0.1);';
+        item.onclick = () => {
+          document.getElementById('profile-avatar-display').src = src;
+          closeSheet('modal-avatar-selector');
+        };
+        item.innerHTML = `<img src="${src}" onerror="this.src='10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png'" style="width: 100%; height: 100%; object-fit: cover;">`;
+        grid.appendChild(item);
+      });
+
+      openSheet('modal-avatar-selector');
+    }
+
+    // --- Shared Utilities ---
+    function openSheet(id) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'flex';
+    }
+    function closeSheet(id) {
+      const el = document.getElementById(id);
+      if (el) el.style.display = 'none';
+    }
+    function saveTarotSnapshot() {
+      alert('Снимок успешно сохранен в вашу галерею!');
+    }
+    function shareToSocial(platform) {
+      alert(`Поделиться в ${platform.toUpperCase()}: готово!`);
+    }
+
+    /* ========================================================
+       10. ЛОГИКА КАЛЕНДАРЯ (Screen 1) — 1:1 СТРУКТУРА MOONLY
+       ======================================================== */
+    function enableDragToScroll(container) {
+      if (container._dragInitialized) return;
+      container._dragInitialized = true;
+
+      let isDown = false;
+      let startX = 0;
+      let scrollLeft = 0;
+      let dragDistance = 0;
+
+      container.addEventListener('mousedown', (e) => {
+        isDown = true;
+        startX = e.pageX - container.offsetLeft;
+        scrollLeft = container.scrollLeft;
+        dragDistance = 0;
+      });
+
+      container.addEventListener('mouseleave', () => { isDown = false; });
+      container.addEventListener('mouseup', () => { isDown = false; });
+
+      container.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - container.offsetLeft;
+        const walk = (x - startX) * 1.5;
+        container.scrollLeft = scrollLeft - walk;
+        dragDistance += Math.abs(walk);
+      });
+    }
+
+    function initMoonlyCalendarStrip() {
+      const container = document.getElementById('calendar-days-track');
+      if (!container) return;
+      container.innerHTML = '';
+      enableDragToScroll(container);
+
+      const weekdaysRu = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
+      const baseDate = new Date(2026, 9, 1); // 1 Октября 2026
+
+      for (let dayNum = 1; dayNum <= 30; dayNum++) {
+        const d = new Date(baseDate);
+        d.setDate(dayNum);
+        const weekday = weekdaysRu[d.getDay()];
+        const isSelected = (dayNum === 13); // по умолчанию 13-й день (Полнолуние)
+        const isToday = (dayNum === 13);
+
+        const item = document.createElement('div');
+        item.className = `day-scroll-item ${isSelected ? 'selected' : ''} ${isToday ? 'is-today' : ''}`;
+        item.dataset.day = dayNum;
+
+        let starIndicator = '';
+        if (dayNum === 15) {
+          starIndicator = '<span style="color: #F7B64D; font-size: 10px; margin-right: 2px;">✦</span>';
+        }
+
+        item.innerHTML = `
+          <div class="day-scroll-weekday">${starIndicator}${weekday}</div>
+          <img class="day-scroll-moon" src="moonly_3d_icons/moon_${dayNum}.png" alt="Moon ${dayNum}">
+          <div class="day-scroll-num">${dayNum}</div>
+        `;
+
+        item.onclick = () => {
+          document.querySelectorAll('.day-scroll-item').forEach(el => el.classList.remove('selected'));
+          item.classList.add('selected');
+          updateDayData(dayNum, weekday);
+        };
+
+        container.appendChild(item);
+      }
+
+      // Center selected day on load
+      setTimeout(() => {
+        const active = container.querySelector('.day-scroll-item.selected');
+        if (active) {
+          container.scrollLeft = active.offsetLeft - container.offsetWidth / 2 + active.offsetWidth / 2;
+        }
+      }, 50);
+
+      // Load initial day data
+      updateDayData(13, 'ПН');
+    }
+    const initCalendarStrip = initMoonlyCalendarStrip;
+
+    function updateDayData(moonDay, weekday) {
+      // Обновление даты транзита
+      const dateLabel = document.getElementById('transit-date-label');
+      if (dateLabel) {
+        dateLabel.innerText = `${moonDay} ОКТЯБРЯ — ${Math.min(moonDay + 2, 31)} ОКТЯБРЯ`;
+      }
+
+      // Обновление заголовка дня
+      const dayHeader = document.getElementById('calendar-day-header');
+      if (dayHeader) {
+        dayHeader.innerText = `${moonDay}-й лунный день`;
+      }
+
+      // Обновление угловой 3D сферы
+      const moonCorner = document.getElementById('calendar-moon-corner');
+      if (moonCorner) {
+        moonCorner.src = `moonly_3d_icons/moon_${moonDay}.png`;
+      }
+
+      // Фаза Луны
+      let phaseName = "Растущая Луна";
+      if (moonDay === 1 || moonDay === 30) phaseName = "Новолуние";
+      else if (moonDay < 15) phaseName = "Растущая Луна";
+      else if (moonDay === 15) phaseName = "Полнолуние";
+      else phaseName = "Убывающая Луна";
+
+      const lunarTitle = document.getElementById('calendar-lunar-phase-title');
+      if (lunarTitle) {
+        lunarTitle.innerText = `${moonDay}-й лунный день • ${phaseName}`;
+      }
+
+      // Обратный отсчет до Полнолуния
+      const daysToFull = (15 - moonDay >= 0) ? (15 - moonDay) : (45 - moonDay);
+      const countdownEl = document.getElementById('calendar-full-moon-countdown');
+      if (countdownEl) {
+        countdownEl.innerText = daysToFull === 0 ? "Сегодня в зените ✦" : `Через ${daysToFull} дн. ✦`;
+      }
+
+      // Знаки зодиака для транзита
+      const zodiacList = [
+        "Овен ♈", "Телец ♉", "Близнецы ♊", "Рак ♋", 
+        "Лев ♌", "Дева ♍", "Весы ♎", "Скорпион ♏",
+        "Стрелец ♐", "Козерог ♑", "Водолей ♒", "Рыбы ♓"
+      ];
+      const zodiacIndex = Math.floor((moonDay * 12) / 30) % 12;
+      const zodiacEl = document.getElementById('calendar-lunar-zodiac');
+      if (zodiacEl) {
+        zodiacEl.innerText = zodiacList[zodiacIndex];
+      }
+
+      // Обновление транзитной карточки
+      const transitSign = document.getElementById('transit-sign-title');
+      if (transitSign) {
+        transitSign.innerText = `Луна в ${zodiacList[zodiacIndex].split(' ')[0] === 'Овен' ? 'Овне' : zodiacList[zodiacIndex].split(' ')[0] === 'Телец' ? 'Тельце' : zodiacList[zodiacIndex].split(' ')[0] === 'Близнецы' ? 'Близнецах' : zodiacList[zodiacIndex].split(' ')[0] === 'Рак' ? 'Раке' : zodiacList[zodiacIndex].split(' ')[0] === 'Лев' ? 'Льве' : zodiacList[zodiacIndex].split(' ')[0] === 'Дева' ? 'Деве' : zodiacList[zodiacIndex].split(' ')[0] === 'Весы' ? 'Весах' : zodiacList[zodiacIndex].split(' ')[0] === 'Скорпион' ? 'Скорпионе' : zodiacList[zodiacIndex].split(' ')[0] === 'Стрелец' ? 'Стрельце' : zodiacList[zodiacIndex].split(' ')[0] === 'Козерог' ? 'Козероге' : zodiacList[zodiacIndex].split(' ')[0] === 'Водолей' ? 'Водолее' : 'Рыбах'}`;
+      }
+
+      // Описания фокуса дня
+      const dayDescriptions = {
+        1: "День замыслов, чистого листа и закладки фундамента ментальных целей на весь лунный месяц.",
+        2: "День первых практических шагов, щедрости и доверия интуиции тела при выборе пищи.",
+        3: "День воина, концентрации астральной энергии и преодоления внутренних сомнений.",
+        4: "День выбора между добром и злом. Время глубокого самоанализа и верности традициям.",
+        5: "День алхимии и трансформации. Пища духовная и телесная усваивается с удвоенной силой.",
+        6: "День интуиции, работы с тонкими запахами и созерцания космической благодати.",
+        7: "День силы слова, молитвы и исполнения искренних вербальных намерений.",
+        8: "День алхимического огня и обновления. Благоприятно освобождаться от старых обид.",
+        9: "День осторожности, иллюзий и духовной стойкости. Сохраняйте чистоту мыслей.",
+        10: "День созидания, укрепления семейных уз и обретения благословения предков.",
+        11: "День Кундалини, непоколебимой воли и высшей концентрации духовных сил.",
+        12: "День милосердия, сострадания и мудрости сердца. Молитвы обретают отклик.",
+        13: "День омоложения, колеса прялки и раскрытия тайн. Время распутывать кармические узлы.",
+        14: "День священной трубы, призыва высших сил и мощного старта самых важных начинаний.",
+        15: "Полнолуние. Пик астральной энергии, максимальная ясность ума и вещие сновидения.",
+        16: "День равновесия, чистоты души и гармонии между физическим и духовным планами.",
+        17: "День радости, праздника жизни, экстаза творчества и женской энергии Шакти.",
+        18: "День зеркала: окружающий мир отражает наши скрытые мысли и внутреннюю суть.",
+        19: "День паутины и самоконтроля. Время избегать конфликтов и очищать жилище огнем.",
+        20: "День парения орла, духовного прозрения и преодоления земных привязанностей.",
+        21: "День верности цели, рыцарства, объединения единомышленников и движения вперед.",
+        22: "День мудрости, тайных знаний, постижения книг и предсказательных символов.",
+        23: "Время внутренней дисциплины и очищения от ментального шума.",
+        24: "День пробуждения сил природы, плодородия и закладки фундамента проектов.",
+        25: "День внутренней тишины и созерцания. Слушайте тихий голос души.",
+        26: "Избегайте суеты, хвастовства и пустых разговоров. Постигайте меру вещей.",
+        27: "День водной стихии, глубокой интуиции и постижения сокровенных тайн.",
+        28: "День духовного света и прозрения. Время созерцания высшей гармонии.",
+        29: "День завершения, очищения пространства и спокойного созерцания перед Новолунием.",
+        30: "День искренней благодарности Вселенной и любви ко всему живому."
+      };
+
+      const focusEl = document.getElementById('calendar-day-focus');
+      if (focusEl) {
+        focusEl.innerText = dayDescriptions[moonDay] || `Благоприятный день для духовных практик, созерцания и гармонии с космическими циклами.`;
+      }
+
+      const lunarInsightEl = document.getElementById('calendar-lunar-insight');
+      if (lunarInsightEl) {
+        lunarInsightEl.innerText = `Энергия лунного дня ${moonDay} направляет намерения — замыслы кристаллизуются, обретая устойчивую форму.`;
+      }
+    }
+
+    // Modal Helpers
+    function openMonthCalendarModal() {
+      alert('Месячный календарь: открыт режим полного обзора лунного цикла.');
+    }
+    function openDayDetailModal() {
+      alert('Подробный прогноз лунного дня открыт.');
+    }
+    function openTransitDetailModal() {
+      alert('Детальная карта астрологических транзитов открыта.');
+    }
+    function openRoutineModal(title, desc, icon) {
+      alert(`${title}: ${desc}`);
+    }
+    function openDreamerModal() {
+      navigateToScreen('dream', false);
+    }
+
+    // --- Screen Router for Automated CDP Tests & Navigation ---
+    function navigateToScreen(screenName, hideTabs) {
+      const bottomNav = document.querySelector('.bottom-nav');
+      const isFullscreenModal = (screenName === 'player' || screenName === 'paywall' || screenName === 'settings');
+      if (bottomNav) {
+        bottomNav.style.display = (hideTabs && isFullscreenModal) ? 'none' : 'flex';
+      }
+      document.querySelectorAll('.screen-view').forEach(s => {
+        s.style.paddingBottom = '100px';
+      });
+
+      document.querySelectorAll('.bottom-sheet-overlay, .player-fullscreen-modal, .settings-screen-modal, .paywall-modal, .rules-modal')
+        .forEach(m => m.style.display = 'none');
+
+      switch (screenName) {
+        case 'calendar':
+          switchMainScreen('calendar');
+          break;
+        case 'affirmations':
+          switchMainScreen('practices');
+          switchPracticeTab('affirmations', document.querySelector('.practice-pill:nth-child(1)'));
+          break;
+        case 'tarot_1':
+          switchMainScreen('practices');
+          switchPracticeTab('tarot', document.querySelector('.practice-pill:nth-child(2)'));
+          setTarotMode(1);
+          break;
+        case 'tarot_3':
+          switchMainScreen('practices');
+          switchPracticeTab('tarot', document.querySelector('.practice-pill:nth-child(2)'));
+          setTarotMode(3);
+          break;
+        case 'tarot_5':
+          switchMainScreen('practices');
+          switchPracticeTab('tarot', document.querySelector('.practice-pill:nth-child(2)'));
+          setTarotMode(5);
+          break;
+        case 'tarot_all':
+          switchMainScreen('practices');
+          switchPracticeTab('tarot', document.querySelector('.practice-pill:nth-child(2)'));
+          setTarotMode('all');
+          break;
+        case 'oracle':
+          switchMainScreen('practices');
+          switchPracticeTab('oracle', document.querySelector('.practice-pill:nth-child(3)'));
+          drawOracleCard();
+          break;
+        case 'gods':
+          switchMainScreen('practices');
+          switchPracticeTab('gods', document.querySelector('.practice-pill:nth-child(4)'));
+          drawDeityCard();
+          break;
+        case 'dream':
+          switchMainScreen('practices');
+          switchPracticeTab('dream', document.querySelector('.practice-pill:nth-child(5)'));
+          break;
+        case 'runes':
+          switchMainScreen('practices');
+          switchPracticeTab('runes', document.querySelector('.practice-pill:nth-child(6)'));
+          drawDailyRune(RUNES_LIST[0]);
+          break;
+        case 'runes_catalog':
+          switchMainScreen('practices');
+          switchPracticeTab('runes', document.querySelector('.practice-pill:nth-child(6)'));
+          openRunesCatalogModal();
+          break;
+        case 'healing':
+          switchMainScreen('healing');
+          break;
+        case 'player':
+          switchMainScreen('healing');
+          openSoundPlayerById(291);
+          break;
+        case 'chat':
+          switchMainScreen('chat');
+          break;
+        case 'you':
+          switchMainScreen('you');
+          break;
+        case 'settings':
+          switchMainScreen('you');
+          openSettingsScreen();
+          break;
+        case 'paywall':
+          openPaywallModal();
+          break;
+        default:
+          switchMainScreen('calendar');
+      }
+    }
+
+    window.addEventListener('message', (event) => {
+      if (event.data && event.data.action === 'navigateScreen') {
+        navigateToScreen(event.data.screen, event.data.hideTabs);
+      }
+    });
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initMoonlyCalendarStrip();
+      initSoundscape();
+      initTarot1Slot();
+      drawDailyRune();
+      updateActiveMasterUI();
+
+      const params = new URLSearchParams(window.location.search);
+      const initialScreen = params.get('screen');
+      const hideTabsFlag = params.get('hide_tabs') === '1' || params.get('hide_tabs') === 'true';
+      if (initialScreen) {
+        setTimeout(() => navigateToScreen(initialScreen, hideTabsFlag), 50);
+      }
+    });
+  </script>
+</body>
+</html>

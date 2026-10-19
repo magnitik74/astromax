@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>АСТРА — Галерея Видеолупов Аффирмаций (40 циклов 9:16)</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #141418;
+      color: #E8E6E3;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      padding: 30px;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    h1 {
+      font-size: 28px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #F5A623;
+      margin-bottom: 8px;
+    }
+    p.subtitle {
+      font-size: 15px;
+      color: #9E9EA7;
+      max-width: 650px;
+      margin: 0 auto;
+      line-height: 1.5;
+    }
+    .categories {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-top: 20px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      background: #1E1E24;
+      border: 1px solid #2D2D36;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+      color: #D1D0D6;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 24px;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+    .card {
+      background: #1A1A20;
+      border: 1px solid #282832;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      border-color: #F5A623;
+    }
+    .video-wrapper {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 9 / 16;
+      background: #0E0E12;
+      overflow: hidden;
+    }
+    video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .info {
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .title {
+      font-size: 13px;
+      font-weight: 600;
+      color: #F5A623;
+    }
+    .meta {
+      font-size: 12px;
+      color: #7A7A85;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>АСТРА • 40 ВИДЕОЛУПОВ АФФИРМАЦИЙ (9:16)</h1>
+    <p class="subtitle">5 священных стихий (Панча Махабхута), авторский колор-грейдинг под бархатный графит (#141418) и медовый янтарь (#F5A623), бесконечный бесшовный пинг-понг луп без звука.</p>
+    <div class="categories">
+      <span class="badge">💧 Вода (01–08): Покой и доверие</span>
+      <span class="badge">🔥 Огонь (09–16): Сила и трансформация</span>
+      <span class="badge">✨ Эфир (17–24): Космос и интуиция</span>
+      <span class="badge">💨 Воздух (25–32): Ясность и свобода</span>
+      <span class="badge">🌱 Земля (33–40): Изобилие и тело</span>
+    </div>
+  </header>
+
+  <div class="grid" id="grid"></div>
+
+  <script>
+    const grid = document.getElementById('grid');
+    const elements = [
+      { start: 1, end: 8, name: 'Вода (Джала)', desc: 'Покой и доверие' },
+      { start: 9, end: 16, name: 'Огонь (Теджас)', desc: 'Сила духа и трансформация' },
+      { start: 17, end: 24, name: 'Эфир (Акаша)', desc: 'Интуиция и высший путь' },
+      { start: 25, end: 32, name: 'Воздух (Ваю)', desc: 'Ясность ума и свобода' },
+      { start: 33, end: 40, name: 'Земля (Притхви)', desc: 'Изобилие и здоровье' }
+    ];
+
+    for (let i = 1; i <= 40; i++) {
+      const num = String(i).padStart(2, '0');
+      const el = elements.find(e => i >= e.start && i <= e.end);
+
+      const card = document.createElement('div');
+      card.className = 'card';
+      card.innerHTML = `
+        <div class="video-wrapper">
+          <video 
+            src="08_АФФИРМАЦИИ_ВИДЕО/astra_loop_${num}.mp4" 
+            poster="08_АФФИРМАЦИИ_ВИДЕО/astra_loop_${num}_poster.webp" 
+            autoplay loop muted playsinline
+          ></video>
+        </div>
+        <div class="info">
+          <div class="title">astra_loop_${num}.mp4</div>
+          <div class="meta">${el.name} • ${el.desc}</div>
+        </div>
+      `;
+      grid.appendChild(card);
+    }
+  </script>
+</body>
+</html>

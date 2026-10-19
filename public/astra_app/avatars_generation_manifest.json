@@ -1,0 +1,90 @@
+[
+  {
+    "id": "default_female_1",
+    "category": "default_gender",
+    "gender": "female",
+    "name": "Муза Тишины (Женский базовый)",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/01_Default_Female_Muse.webp",
+    "prompt": "Cinematic portrait of a serene young woman, gentle eyes, subtle warm smile, soft natural studio lighting with golden rim glow, wearing minimalist cream raw linen tunic, dreamy pastel sage green and oat background, quiet luxury wellness, 8k, square --v 6.1"
+  },
+  {
+    "id": "default_male_1",
+    "category": "default_gender",
+    "gender": "male",
+    "name": "Проводник Ясности (Мужской базовый)",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/02_Default_Male_Guide.webp",
+    "prompt": "Cinematic portrait of a calm charismatic young man, thoughtful intelligent gaze, soft natural studio lighting with golden rim glow, wearing minimalist dark charcoal cashmere knit, warm oat and terracotta background, quiet luxury wellness, 8k, square --v 6.1"
+  },
+  {
+    "id": "zodiac_aries",
+    "name": "Овен — Первопроходец Огня",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_01_Aries.webp",
+    "prompt": "Stylized ethereal portrait embodying Aries zodiac energy, warm golden dawn light, fiery subtle aura, cream and terracotta tones, 8k, square"
+  },
+  {
+    "id": "zodiac_taurus",
+    "name": "Телец — Хранитель Земли",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_02_Taurus.webp",
+    "prompt": "Stylized ethereal portrait embodying Taurus zodiac energy, lush peaceful botanical aesthetic, calm grounding presence, sage green tones, 8k, square"
+  },
+  {
+    "id": "zodiac_gemini",
+    "name": "Близнецы — Дыхание Ветра",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_03_Gemini.webp",
+    "prompt": "Stylized ethereal portrait embodying Gemini zodiac energy, airy luminous atmosphere, playful intelligent gaze, light lavender tones, 8k, square"
+  },
+  {
+    "id": "zodiac_cancer",
+    "name": "Рак — Лунная Забота",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_04_Cancer.webp",
+    "prompt": "Stylized ethereal portrait embodying Cancer zodiac energy, soft water reflections, maternal tenderness, pearl and silver tones, 8k, square"
+  },
+  {
+    "id": "zodiac_leo",
+    "name": "Лев — Солнечное Сердце",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_05_Leo.webp",
+    "prompt": "Stylized ethereal portrait embodying Leo zodiac energy, radiant sunburst glow, noble warm smile, rich amber and gold tones, 8k, square"
+  },
+  {
+    "id": "zodiac_virgo",
+    "name": "Дева — Чистый Разум",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_06_Virgo.webp",
+    "prompt": "Stylized ethereal portrait embodying Virgo zodiac energy, minimalist pristine geometry, quiet observant eyes, earthy clay tones, 8k, square"
+  },
+  {
+    "id": "zodiac_libra",
+    "name": "Весы — Гармония Красоты",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_07_Libra.webp",
+    "prompt": "Stylized ethereal portrait embodying Libra zodiac energy, graceful balance, artistic poise, soft dusty rose tones, 8k, square"
+  },
+  {
+    "id": "zodiac_scorpio",
+    "name": "Скорпион — Глубинная Трансформация",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_08_Scorpio.webp",
+    "prompt": "Stylized ethereal portrait embodying Scorpio zodiac energy, intense magnetic gaze, mystic depth, deep plum and indigo tones, 8k, square"
+  },
+  {
+    "id": "zodiac_sagittarius",
+    "name": "Стрелец — Путник Горизонта",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_09_Sagittarius.webp",
+    "prompt": "Stylized ethereal portrait embodying Sagittarius zodiac energy, visionary joyful expression, golden hour horizon, terracotta tones, 8k, square"
+  },
+  {
+    "id": "zodiac_capricorn",
+    "name": "Козерог — Владыка Вершин",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_10_Capricorn.webp",
+    "prompt": "Stylized ethereal portrait embodying Capricorn zodiac energy, stoic mature elegance, mountain silence, graphite tones, 8k, square"
+  },
+  {
+    "id": "zodiac_aquarius",
+    "name": "Водолей — Звездный Мыслитель",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_11_Aquarius.webp",
+    "prompt": "Stylized ethereal portrait embodying Aquarius zodiac energy, futuristic serene aura, cosmic clarity, celestial cyan tones, 8k, square"
+  },
+  {
+    "id": "zodiac_pisces",
+    "name": "Рыбы — Океан Интуиции",
+    "targetFile": "D:/projects/monly/АСТРА_АССЕТЫ/11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/zodiac_12_Pisces.webp",
+    "prompt": "Stylized ethereal portrait embodying Pisces zodiac energy, deep dreamy serenity, mystical water veil, soft seafoam and lilac tones, 8k, square"
+  }
+]

@@ -1,0 +1,1187 @@
+[
+  {
+    "order": 25,
+    "id": "254ae98b-6216-4ca7-8571-a110879c50c6",
+    "name": "The Two of Wands",
+    "originalFileName": "25_The_Two_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "25_The_Two_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\25_The_Two_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Two of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 19,
+    "id": "256d93fd-61d6-4408-969e-1c3676c2a9ba",
+    "name": "The Moon",
+    "originalFileName": "19_The_Moon.png",
+    "originalFileExists": true,
+    "targetFileName": "19_The_Moon.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\19_The_Moon.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A glowing golden crescent moon in deep night sky, two cute soft rounded wolves howling by a winding blue river leading from deep hills, friendly crayfish peeking out of water, magical dreamscape, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 43,
+    "id": "275ac510-746e-43af-bdd0-98ae510ca07f",
+    "name": "The Six of Cups",
+    "originalFileName": "43_The_Six_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "43_The_Six_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\43_The_Six_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Six of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 8,
+    "id": "2a5192c2-bcab-4a4f-8955-9e3cc78efa64",
+    "name": "The Chariot",
+    "originalFileName": "08_The_Chariot.png",
+    "originalFileExists": true,
+    "targetFileName": "08_The_Chariot.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\08_The_Chariot.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A brave young hero standing in an ornate stone chariot drawn by two cute rounded resting sphinxes, canopy of stars above, determined but serene expression, moving forward steadily, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 1,
+    "id": "2a9e64ee-c3a6-4ff9-9fdf-33100f626646",
+    "name": "The Fool",
+    "originalFileName": "01_The_Fool.png",
+    "originalFileExists": true,
+    "targetFileName": "01_The_Fool.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\01_The_Fool.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical young traveler in a pointed soft jester hat holding a wooden staff with a small bundle over shoulder, walking cheerfully on the edge of a cliff, accompanied by a happy small white clay dog looking up, a playful cute crocodile below in water, golden warm sun rising above, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 23,
+    "id": "2d8adc2d-eb76-4551-938d-59a42fb94f6a",
+    "name": "The Blank Сard",
+    "originalFileName": "23_The_Blank_Сard.png",
+    "originalFileExists": true,
+    "targetFileName": "23_The_Blank_Сard.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\23_The_Blank_Сard.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Blank Сard, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 47,
+    "id": "37e3bb2f-099d-4637-9731-fe55dfda4b83",
+    "name": "The Ten of Cups",
+    "originalFileName": "47_The_Ten_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "47_The_Ten_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\47_The_Ten_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Ten of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 24,
+    "id": "3aa7d1de-6dae-4f26-9931-58b92061119b",
+    "name": "The Ace of Wands",
+    "originalFileName": "24_The_Ace_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "24_The_Ace_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\24_The_Ace_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Ace of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 55,
+    "id": "4efa6a98-9cad-4adf-8159-e2baa3554202",
+    "name": "The Four of Swords",
+    "originalFileName": "55_The_Four_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "55_The_Four_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\55_The_Four_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Four of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 71,
+    "id": "51ad1c93-6aa7-4cee-9d50-8367b93c81d2",
+    "name": "The Six of Pentacles",
+    "originalFileName": "71_The_Six_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "71_The_Six_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\71_The_Six_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Six of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 53,
+    "id": "921189df-b9d1-42c9-9c83-5776c0e3f5b5",
+    "name": "The Two of Swords",
+    "originalFileName": "53_The_Two_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "53_The_Two_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\53_The_Two_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Two of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 31,
+    "id": "9e46b552-9325-41b9-b569-536a477764cb",
+    "name": "The Eight of Wands",
+    "originalFileName": "31_The_Eight_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "31_The_Eight_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\31_The_Eight_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Eight of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 16,
+    "id": "9f1d0e0f-ab9c-4664-8e60-ab1180840608",
+    "name": "The Devil",
+    "originalFileName": "16_The_Devil.png",
+    "originalFileExists": true,
+    "targetFileName": "16_The_Devil.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\16_The_Devil.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical stylized winged creature perched on a stone pedestal with two figures loosely holding draped ribbons, gentle allegorical depiction of habits and attachments, soft shadows, warm playful tone, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 21,
+    "id": "a195092a-7124-4e14-afbe-bc3fae1ccd77",
+    "name": "Judgement",
+    "originalFileName": "21_Judgement.png",
+    "originalFileExists": true,
+    "targetFileName": "21_Judgement.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\21_Judgement.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A benevolent winged angel sounding a gentle golden horn from soft clouds, figures below joyfully raising their hands in awakening and renewal, fresh start and higher calling, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 70,
+    "id": "a1f97bc9-4ac1-466a-9102-6981d5baa354",
+    "name": "The Five of Pentacles",
+    "originalFileName": "70_The_Five_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "70_The_Five_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\70_The_Five_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Five of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 28,
+    "id": "a36c2b68-a714-4e5c-8526-f730ef72bf61",
+    "name": "The Five of Wands",
+    "originalFileName": "28_The_Five_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "28_The_Five_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\28_The_Five_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Five of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 62,
+    "id": "a41d7e7e-96c3-4006-b5d2-865de7052606",
+    "name": "The Page of Swords",
+    "originalFileName": "62_The_Page_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "62_The_Page_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\62_The_Page_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Page of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 44,
+    "id": "a698d267-eb43-4b02-aa71-526217c553ad",
+    "name": "The Seven of Cups",
+    "originalFileName": "44_The_Seven_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "44_The_Seven_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\44_The_Seven_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Seven of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 65,
+    "id": "0089b8b5-432b-4556-9750-3298fc6f8457",
+    "name": "The King of Swords",
+    "originalFileName": "65_The_King_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "65_The_King_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\65_The_King_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The King of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 40,
+    "id": "00fc3df3-e068-4c7b-a9d1-e52ee5f5efa0",
+    "name": "The Three of Cups",
+    "originalFileName": "40_The_Three_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "40_The_Three_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\40_The_Three_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Three of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 37,
+    "id": "016316aa-2db5-41e2-8569-9dae8eea2ffe",
+    "name": "The King of Wands",
+    "originalFileName": "37_The_King_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "37_The_King_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\37_The_King_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The King of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 59,
+    "id": "03b18ec1-6fba-4407-9ed9-a8ffd8ee940a",
+    "name": "The Eight of Swords",
+    "originalFileName": "59_The_Eight_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "59_The_Eight_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\59_The_Eight_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Eight of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 22,
+    "id": "161373a9-7574-476e-80d1-01778c744d4f",
+    "name": "The World",
+    "originalFileName": "22_The_World.png",
+    "originalFileExists": true,
+    "targetFileName": "22_The_World.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\22_The_World.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A dancing radiant figure surrounded by an oval wreath of laurel leaves, flanked by four cute rounded guardian totems in four corners, ultimate wholeness, completion and cosmic harmony, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 18,
+    "id": "049a891f-7293-4ba5-9cb0-03236d5ef552",
+    "name": "The Star",
+    "originalFileName": "18_The_Star.png",
+    "originalFileExists": true,
+    "targetFileName": "18_The_Star.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\18_The_Star.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A naked graceful maiden kneeling beside a calm starry pool, pouring clear water from two jugs (one onto earth, one into pond), large radiant eight-pointed star shining brightly in twilight sky surrounded by seven smaller stars, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 30,
+    "id": "074390c4-17a8-4f09-9916-74d8bda934c6",
+    "name": "The Seven of Wands",
+    "originalFileName": "30_The_Seven_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "30_The_Seven_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\30_The_Seven_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Seven of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 7,
+    "id": "0daad6ad-d9ca-4d5c-88f8-1088055024c9",
+    "name": "The Lovers",
+    "originalFileName": "07_The_Lovers.png",
+    "originalFileExists": true,
+    "targetFileName": "07_The_Lovers.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\07_The_Lovers.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "Two loving figures standing hand in hand under a large benevolent radiant sun, surrounded by lush peaceful garden trees, soft floral blooms, harmonious union and mutual trust, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 72,
+    "id": "0dccf03b-31e4-41e2-97a1-2e24604cc179",
+    "name": "The Seven of Pentacles",
+    "originalFileName": "72_The_Seven_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "72_The_Seven_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\72_The_Seven_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Seven of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 26,
+    "id": "0e89cae9-cb3f-4e3a-9b59-518bb4e6eb24",
+    "name": "The Three of Wands",
+    "originalFileName": "26_The_Three_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "26_The_Three_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\26_The_Three_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Three of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 5,
+    "id": "11e71ce3-24bf-4f37-8426-26f8ab666a7c",
+    "name": "The Emperor",
+    "originalFileName": "05_The_Emperor.png",
+    "originalFileExists": true,
+    "targetFileName": "05_The_Emperor.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\05_The_Emperor.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A calm wise leader seated on a solid stone throne decorated with soft carved ram heads, holding a golden scepter and orb, sturdy posture, draped in warm terracotta cloak, gentle confident expression, stylized geometric mountains in background, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 60,
+    "id": "122d3566-0ff2-45f2-9439-9c7c2c4664db",
+    "name": "The Nine of Swords",
+    "originalFileName": "60_The_Nine_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "60_The_Nine_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\60_The_Nine_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Nine of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 4,
+    "id": "1674afb2-7cda-4bab-afbe-aaf85a714f57",
+    "name": "The Empress",
+    "originalFileName": "04_The_Empress.png",
+    "originalFileExists": true,
+    "targetFileName": "04_The_Empress.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\04_The_Empress.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A gentle loving empress resting comfortably on soft velvet cushions in a lush blooming garden, wearing a loose cozy gown, surrounded by soft golden wheat sheaves and wild flowers, warm radiant maternal glow, peace, nature and abundance, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 15,
+    "id": "17bd108b-0ad1-4ff3-9961-90fa6e65c8d4",
+    "name": "Temperance",
+    "originalFileName": "15_Temperance.png",
+    "originalFileExists": true,
+    "targetFileName": "15_Temperance.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\15_Temperance.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A graceful winged angel standing with one foot in a calm sparkling stream and one on stone bank, gently pouring liquid light back and forth between two clay cups, path winding toward golden sun in distant mountains, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 45,
+    "id": "1ad336a0-3d91-48da-83a0-2671a14bf87b",
+    "name": "The Eight of Cups",
+    "originalFileName": "45_The_Eight_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "45_The_Eight_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\45_The_Eight_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Eight of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 50,
+    "id": "a976d5e5-81ae-499c-a662-b829abfa186d",
+    "name": "The Queen of Cups",
+    "originalFileName": "50_The_Queen_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "50_The_Queen_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\50_The_Queen_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Queen of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 29,
+    "id": "af04aeb3-04b2-45d6-93d4-9999bc8531e9",
+    "name": "The Six of Wands",
+    "originalFileName": "29_The_Six_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "29_The_Six_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\29_The_Six_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Six of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 63,
+    "id": "1cc465c5-9014-4614-b1e5-ff475bcfab6e",
+    "name": "The Knight of Swords",
+    "originalFileName": "63_The_Knight_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "63_The_Knight_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\63_The_Knight_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Knight of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 11,
+    "id": "1dd14603-f44c-48cb-a38e-ce016e08830b",
+    "name": "Wheel of Fortune",
+    "originalFileName": "11_Wheel_of_Fortune.png",
+    "originalFileExists": true,
+    "targetFileName": "11_Wheel_of_Fortune.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\11_Wheel_of_Fortune.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical rotating celestial stone wheel floating among soft pastel clouds, surrounded by four cute symbolic winged creatures reading scrolls in four corners, cyclical nature of life, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 20,
+    "id": "55022f6d-eab5-4a0f-99b7-05184292eb93",
+    "name": "The Sun",
+    "originalFileName": "20_The_Sun.png",
+    "originalFileExists": true,
+    "targetFileName": "20_The_Sun.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\20_The_Sun.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A joyful radiant child riding a friendly white horse under a huge smiling warm golden sun, large sunflowers blooming along a stone wall, pure happiness, vitality and celebration, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 68,
+    "id": "5965cd65-e7d6-4c0e-abb6-f7f3fbcbaa5e",
+    "name": "The Three of Pentacles",
+    "originalFileName": "68_The_Three_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "68_The_Three_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\68_The_Three_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Three of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 67,
+    "id": "5ae412c5-2eb3-4082-ae17-3bd6ed36c4c3",
+    "name": "The Two of Pentacles",
+    "originalFileName": "67_The_Two_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "67_The_Two_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\67_The_Two_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Two of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 39,
+    "id": "5d69ea2d-0c25-4514-a7cc-2b513310899f",
+    "name": "The Two of Cups",
+    "originalFileName": "39_The_Two_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "39_The_Two_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\39_The_Two_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Two of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 74,
+    "id": "6072dee5-3e30-4274-b230-61a6c0b999cd",
+    "name": "The Nine of Pentacles",
+    "originalFileName": "74_The_Nine_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "74_The_Nine_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\74_The_Nine_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Nine of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 76,
+    "id": "60b34b33-0450-4023-8b07-5dcd8077acda",
+    "name": "The Page of Pentacles",
+    "originalFileName": "76_The_Page_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "76_The_Page_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\76_The_Page_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Page of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 14,
+    "id": "6373fef8-379c-4fff-8328-540574d31089",
+    "name": "Death",
+    "originalFileName": "14_Death.png",
+    "originalFileExists": true,
+    "targetFileName": "14_Death.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\14_Death.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A transformative mystical figure in gentle soft armor holding a white five-petaled rose banner, sunrise breaking over a distant river between two towers, shedding the old to welcome new rebirth, peaceful transformation, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 79,
+    "id": "65c2f404-7eb7-4232-8bd8-9eaf3ab98149",
+    "name": "The King of Pentacles",
+    "originalFileName": "79_The_King_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "79_The_King_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\79_The_King_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The King of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 6,
+    "id": "730a2b6a-d9c6-4808-a8b9-a56e24efac58",
+    "name": "The Pope (The Hierophant)",
+    "originalFileName": "06_The_Pope_(The_Hierophant).png",
+    "originalFileExists": true,
+    "targetFileName": "06_The_Pope_(The_Hierophant).webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\06_The_Pope_(The_Hierophant).png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Pope (The Hierophant), symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 54,
+    "id": "77f30ae0-0c6d-48ac-8266-b1aac03a4d78",
+    "name": "The Three of Swords",
+    "originalFileName": "54_The_Three_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "54_The_Three_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\54_The_Three_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Three of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 77,
+    "id": "7960a059-84c0-4f95-98ef-e5246f10f9d8",
+    "name": "The Knight of Pentacles",
+    "originalFileName": "77_The_Knight_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "77_The_Knight_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\77_The_Knight_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Knight of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 49,
+    "id": "7afc6058-4b91-4d61-a32f-f2255ef67537",
+    "name": "The Knight of Cups",
+    "originalFileName": "49_The_Knight_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "49_The_Knight_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\49_The_Knight_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Knight of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 17,
+    "id": "b133c104-7035-4e2e-880a-316a0f02e909",
+    "name": "The Tower",
+    "originalFileName": "17_The_Tower.png",
+    "originalFileExists": true,
+    "targetFileName": "17_The_Tower.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\17_The_Tower.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A stylized stone tower on a rocky summit touched by a gentle lightning flash, crowns of flowers falling softly, stars emerging in the dusk sky, releasing old structures for freedom, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 2,
+    "id": "b38edb78-c8ff-4d78-af23-708df02bfdeb",
+    "name": "The Magician",
+    "originalFileName": "02_The_Magician.png",
+    "originalFileExists": true,
+    "targetFileName": "02_The_Magician.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\02_The_Magician.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A serene young mystic standing behind a stone altar with four sacred elemental tools (cup, wand, sword, pentacle coin), one hand raised toward the glowing sky holding a small wand, the other pointing down to earth, glowing infinity symbol floating above head, blooming roses and lilies around, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 12,
+    "id": "b6a677df-a49a-4c2a-ac5c-9f2176fe6423",
+    "name": "Strength",
+    "originalFileName": "12_Strength.png",
+    "originalFileExists": true,
+    "targetFileName": "12_Strength.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\12_Strength.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A gentle serene woman lovingly embracing and calming a cute rounded soft golden lion, infinity symbol hovering softly above, flowers winding around them, triumph of gentleness and love over force, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 52,
+    "id": "b6bb4fb8-7579-4ea5-8f02-44fb5129a227",
+    "name": "The Ace of Swords",
+    "originalFileName": "52_The_Ace_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "52_The_Ace_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\52_The_Ace_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Ace of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 32,
+    "id": "b6da2208-211e-4491-bd54-cb6231de1082",
+    "name": "The Nine of Wands",
+    "originalFileName": "32_The_Nine_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "32_The_Nine_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\32_The_Nine_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Nine of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 64,
+    "id": "b8a256f2-d35a-40a4-b1a9-728ce5de96cf",
+    "name": "The Queen of Swords",
+    "originalFileName": "64_The_Queen_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "64_The_Queen_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\64_The_Queen_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Queen of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 9,
+    "id": "b91c0446-f9bb-4dc0-800c-2b1c054033b7",
+    "name": "Justice",
+    "originalFileName": "09_Justice.png",
+    "originalFileExists": true,
+    "targetFileName": "09_Justice.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\09_Justice.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A balanced serene figure seated on a stone bench holding upright double-edged sword in right hand and golden scales in left, steady calm gaze, draped in balanced drapery, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 35,
+    "id": "ba756f35-44ea-4499-be22-82cd9a88a189",
+    "name": "The Knight of Wands",
+    "originalFileName": "35_The_Knight_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "35_The_Knight_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\35_The_Knight_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Knight of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 69,
+    "id": "be067efb-48d8-4639-a854-2b6cb4fe5f4b",
+    "name": "The Four of Pentacles",
+    "originalFileName": "69_The_Four_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "69_The_Four_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\69_The_Four_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Four of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 33,
+    "id": "bf54af10-44b2-43df-b075-96833aa1f3e4",
+    "name": "The Ten of Wands",
+    "originalFileName": "33_The_Ten_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "33_The_Ten_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\33_The_Ten_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Ten of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 73,
+    "id": "c8f298c0-a442-4a92-8a6b-7028ae1b8484",
+    "name": "The Eight of Pentacles",
+    "originalFileName": "73_The_Eight_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "73_The_Eight_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\73_The_Eight_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Eight of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 78,
+    "id": "cc6fc114-0fd3-4c64-abcf-4e0c15949930",
+    "name": "The Queen of Pentacles",
+    "originalFileName": "78_The_Queen_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "78_The_Queen_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\78_The_Queen_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Queen of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 42,
+    "id": "cf95e1f4-5226-46a2-a646-8eede2e975b2",
+    "name": "The Five of Cups",
+    "originalFileName": "42_The_Five_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "42_The_Five_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\42_The_Five_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Five of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 51,
+    "id": "d3b755ae-a452-4ec6-a563-8e52a9bf9f26",
+    "name": "The King of Cups",
+    "originalFileName": "51_The_King_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "51_The_King_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\51_The_King_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The King of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 13,
+    "id": "d6ceaf84-a11a-4014-ad9e-9e45c7e04600",
+    "name": "The Hanged Man",
+    "originalFileName": "13_The_Hanged_Man.png",
+    "originalFileExists": true,
+    "targetFileName": "13_The_Hanged_Man.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\13_The_Hanged_Man.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A peaceful figure suspended upside down by one foot from a living T-shaped wooden tree branch, serene relaxed expression with glowing halo of insight around head, calm surrender and higher perspective, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 3,
+    "id": "d72d64f7-7f0d-4331-8de8-d79922bf98bd",
+    "name": "The Popess (The High Priestess)",
+    "originalFileName": "03_The_Popess_(The_High_Priestess).png",
+    "originalFileExists": true,
+    "targetFileName": "03_The_Popess_(The_High_Priestess).webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\03_The_Popess_(The_High_Priestess).png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Popess (The High Priestess), symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 57,
+    "id": "d9fd6f3f-f159-407e-92d2-416824c89717",
+    "name": "The Six of Swords",
+    "originalFileName": "57_The_Six_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "57_The_Six_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\57_The_Six_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Six of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 38,
+    "id": "da938586-85f3-43a1-98fe-468530088e78",
+    "name": "The Ace of Cups",
+    "originalFileName": "38_The_Ace_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "38_The_Ace_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\38_The_Ace_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Ace of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 46,
+    "id": "dbcef536-d080-4561-a5f0-bb2f2c8eed62",
+    "name": "The Nine of Cups",
+    "originalFileName": "46_The_Nine_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "46_The_Nine_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\46_The_Nine_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Nine of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 56,
+    "id": "dc812a01-ab62-4f07-a6e5-e026c73a3685",
+    "name": "The Five of Swords",
+    "originalFileName": "56_The_Five_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "56_The_Five_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\56_The_Five_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Five of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 48,
+    "id": "93015908-1ab0-450c-b1bf-2087320b43cb",
+    "name": "The Page of Cups",
+    "originalFileName": "48_The_Page_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "48_The_Page_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\48_The_Page_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Page of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 61,
+    "id": "97aeefd0-0bc2-4986-b180-e0da51263323",
+    "name": "The Ten of Swords",
+    "originalFileName": "61_The_Ten_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "61_The_Ten_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\61_The_Ten_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Ten of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 34,
+    "id": "e4dfcb7f-f4a6-4337-b58b-63e93ae258ef",
+    "name": "The Page of Wands",
+    "originalFileName": "34_The_Page_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "34_The_Page_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\34_The_Page_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Page of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 36,
+    "id": "ec9cfe34-1570-4b89-8a53-9da22cdbd279",
+    "name": "The Queen of Wands",
+    "originalFileName": "36_The_Queen_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "36_The_Queen_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\36_The_Queen_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Queen of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 58,
+    "id": "ecd637d8-d11a-4fac-b253-6f9c06f26510",
+    "name": "The Seven of Swords",
+    "originalFileName": "58_The_Seven_of_Swords.png",
+    "originalFileExists": true,
+    "targetFileName": "58_The_Seven_of_Swords.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\58_The_Seven_of_Swords.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Seven of Swords, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 41,
+    "id": "ef938315-9e06-4cd6-b7cc-4c7f8e745c6c",
+    "name": "The Four of Cups",
+    "originalFileName": "41_The_Four_of_Cups.png",
+    "originalFileExists": true,
+    "targetFileName": "41_The_Four_of_Cups.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\41_The_Four_of_Cups.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Four of Cups, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 27,
+    "id": "f293cdc9-2efd-45ba-88a5-608c1399e585",
+    "name": "The Four of Wands",
+    "originalFileName": "27_The_Four_of_Wands.png",
+    "originalFileExists": true,
+    "targetFileName": "27_The_Four_of_Wands.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\27_The_Four_of_Wands.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Four of Wands, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 10,
+    "id": "f405aa6b-01aa-431c-b2b9-d4ff90ec5d71",
+    "name": "The Hermit",
+    "originalFileName": "10_The_Hermit.png",
+    "originalFileExists": true,
+    "targetFileName": "10_The_Hermit.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\10_The_Hermit.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A contemplative wise elder standing alone on a quiet snowy mountain peak, holding a glowing lantern with a six-pointed star inside in one hand and a wooden walking stick in the other, starry night sky, inner guiding light, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 75,
+    "id": "fa08daae-6ed0-4315-bcdc-70a597e885db",
+    "name": "The Ten of Pentacles",
+    "originalFileName": "75_The_Ten_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "75_The_Ten_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\75_The_Ten_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Ten of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 66,
+    "id": "fa2e8ada-14b0-4bd3-9b60-7a8833a0f42f",
+    "name": "The Ace of Pentacles",
+    "originalFileName": "66_The_Ace_of_Pentacles.png",
+    "originalFileExists": true,
+    "targetFileName": "66_The_Ace_of_Pentacles.webp",
+    "controlNetConfig": {
+      "mode": "Image-to-Image / Depth / Pose",
+      "sourceImage": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\01_ТАРО_КАРТЫ\\66_The_Ace_of_Pentacles.png",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "generationPrompt": "A whimsical clay illustration depicting the archetype of The Ace of Pentacles, symbol of cosmic journey, whimsical soft 3D clay animation style, cute rounded clay characters and objects, tactile matte velvet clay and felt texture, warm diffused morning sunlight with subtle golden rim lighting, cozy peaceful atmosphere, studio clay miniature sculpture, pastel palette of warm peach, beige, terracotta and sage green, clean solid background, masterpiece, 8k --ar 9:16 --v 6.1"
+  }
+]

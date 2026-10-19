@@ -1,0 +1,743 @@
+[
+  {
+    "order": 25,
+    "id": "29432607-6503-4fd1-a29e-f4e64f33e73a",
+    "name": "Wisdom",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\25_Wisdom.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\25_Wisdom.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Wisdom, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 23,
+    "id": "3423ccb1-7f82-41d3-aff5-7774f0385713",
+    "name": "Mandala",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\23_Mandala.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\23_Mandala.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Mandala, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 31,
+    "id": "380d9877-df5e-45ee-b15f-b0109ad8d1fb",
+    "name": "Divine Love",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\31_Divine_Love.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\31_Divine_Love.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Divine Love, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 33,
+    "id": "3c9dcf2a-c9f6-488f-8193-f9d29f42d796",
+    "name": "Family Tree",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\33_Family_Tree.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\33_Family_Tree.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Family Tree, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 75,
+    "id": "800024a5-fe44-4b37-8dfd-a895ce6e6302",
+    "name": "Fairytale",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\75_Fairytale.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\75_Fairytale.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Fairytale, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 78,
+    "id": "b3111846-e0dc-4b7b-a422-a02bd7e9fb0e",
+    "name": "Pachamama",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\78_Pachamama.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\78_Pachamama.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Pachamama, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 59,
+    "id": "9ceff9d0-9b0d-4c4a-a41e-b54452bec1cf",
+    "name": "Tree of Life",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\59_Tree_of_Life.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\59_Tree_of_Life.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Tree of Life, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 10,
+    "id": "a6e07043-1a69-47ec-8b53-00e91a6549a4",
+    "name": "Parents",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\10_Parents.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\10_Parents.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Parents, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 51,
+    "id": "aa72e3ce-f0be-4fe8-98bc-ba9e2b8b25df",
+    "name": "Body",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\51_Body.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\51_Body.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Body, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 14,
+    "id": "ad3f6972-4949-4d59-8685-f4d5ab654537",
+    "name": "Earth",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\14_Earth.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\14_Earth.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Earth, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 47,
+    "id": "0a43ddd9-1c79-413e-9ad5-79c231f7a01b",
+    "name": "Success",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\47_Success.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\47_Success.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Success, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 24,
+    "id": "0bcb446a-0d66-4d72-a3c7-934ff869396f",
+    "name": "Self-Care",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\24_Self-Care.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\24_Self-Care.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Self-Care, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 46,
+    "id": "1bf17af0-6370-455b-af8b-0ea2e66a809d",
+    "name": "Dark Night of the Soul",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\46_Dark_Night_of_the_Soul.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\46_Dark_Night_of_the_Soul.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Dark Night of the Soul, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 48,
+    "id": "1e4bdc42-d6fb-4ec5-a116-51616ad63520",
+    "name": "Crystal",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\48_Crystal.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\48_Crystal.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Crystal, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 40,
+    "id": "242e35ff-9c89-44eb-aa79-5bfe4c31f518",
+    "name": "Marriage",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\40_Marriage.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\40_Marriage.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Marriage, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 58,
+    "id": "1cb8ed97-233f-4b8c-9198-5964967fe617",
+    "name": "Water",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\58_Water.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\58_Water.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Water, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 63,
+    "id": "25d48ee7-5363-4442-b02e-317d3f63a16a",
+    "name": "Sisterhood",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\63_Sisterhood.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\63_Sisterhood.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Sisterhood, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 3,
+    "id": "6b56aaba-e3d8-4236-8be3-a08fe4771f20",
+    "name": "Childhood",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\03_Childhood.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\03_Childhood.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Childhood, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 69,
+    "id": "6db7eded-df04-4bb5-b4a7-1d3c76d5fb15",
+    "name": "Universe",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\69_Universe.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\69_Universe.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Universe, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 5,
+    "id": "72d1d601-6488-41b3-8693-8a47502b7403",
+    "name": "Youth",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\05_Youth.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\05_Youth.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Youth, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 71,
+    "id": "193042d6-2930-491b-8f3a-653f54064244",
+    "name": "Sun",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\71_Sun.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\71_Sun.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Sun, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 16,
+    "id": "7753c15a-0cae-4632-8aa9-48e07cb6c550",
+    "name": "Prayer",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\16_Prayer.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\16_Prayer.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Prayer, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 52,
+    "id": "785c9c52-5486-4456-810d-d95870048877",
+    "name": "Dreams",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\52_Dreams.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\52_Dreams.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Dreams, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 68,
+    "id": "7a510472-d08f-4636-a44f-98d06ecb25b8",
+    "name": "Melody",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\68_Melody.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\68_Melody.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Melody, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 27,
+    "id": "82a08c34-5ea4-4459-86f5-dc1a5f343222",
+    "name": "Masculine Energy",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\27_Masculine_Energy.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\27_Masculine_Energy.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Masculine Energy, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 60,
+    "id": "8dad7aa9-e309-4e56-b3f6-9e76d2951990",
+    "name": "Freedom",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\60_Freedom.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\60_Freedom.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Freedom, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 9,
+    "id": "91e02782-7480-4adf-b2b9-0d9ca7b48486",
+    "name": "Brotherhood",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\09_Brotherhood.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\09_Brotherhood.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Brotherhood, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 19,
+    "id": "1cbb9cad-3e36-4e86-83d5-8d31e2a75216",
+    "name": "Goddess",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\19_Goddess.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\19_Goddess.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Goddess, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 7,
+    "id": "33de0602-92c1-45a8-8e2f-8b95860bd830",
+    "name": "Intuition",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\07_Intuition.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\07_Intuition.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Intuition, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 13,
+    "id": "3bd6df45-0e37-462a-98c9-bf85467a4c5e",
+    "name": "Feminine Energy",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\13_Feminine_Energy.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\13_Feminine_Energy.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Feminine Energy, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 65,
+    "id": "3c947b5e-2645-4ffa-9897-e3946aae25fc",
+    "name": "Ritual",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\65_Ritual.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\65_Ritual.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Ritual, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 41,
+    "id": "4c0c93e6-2d34-4f13-8f98-78c5675a7e85",
+    "name": "Planets",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\41_Planets.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\41_Planets.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Planets, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 35,
+    "id": "512b9bc5-a7f9-4b07-b490-d57aa651f1c0",
+    "name": "Abundance",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\35_Abundance.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\35_Abundance.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Abundance, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 28,
+    "id": "5740454a-438a-4889-9c37-f419a01d8bbb",
+    "name": "Fire",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\28_Fire.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\28_Fire.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Fire, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 50,
+    "id": "5a168ad1-cc59-4752-b276-bc60997ec470",
+    "name": "Heart Center",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\50_Heart_Center.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\50_Heart_Center.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Heart Center, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 42,
+    "id": "5fd2eddc-3045-4578-aa77-7f30010a7fb8",
+    "name": "Harvest",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\42_Harvest.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\42_Harvest.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Harvest, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 70,
+    "id": "6357d811-fc80-4650-a917-4a1e3e65242a",
+    "name": "Cosmic Vibrations",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\70_Cosmic_Vibrations.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\70_Cosmic_Vibrations.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Cosmic Vibrations, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 32,
+    "id": "b66b5368-8052-4f21-bda5-a7245eacd2dd",
+    "name": "Moon Rabbit",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\32_Moon_Rabbit.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\32_Moon_Rabbit.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Moon Rabbit, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 20,
+    "id": "b8b36c18-aaeb-4ec9-a4d5-3c5beb308866",
+    "name": "Home",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\20_Home.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\20_Home.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Home, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 67,
+    "id": "b8da2ebd-cfd9-444e-9d36-2bc3575487ca",
+    "name": "Balance",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\67_Balance.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\67_Balance.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Balance, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 57,
+    "id": "cbf76854-8b9f-442a-a6cc-9608639595ef",
+    "name": "Air",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\57_Air.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\57_Air.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Air, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 6,
+    "id": "cc046802-ac10-4a60-8fc8-039241470766",
+    "name": "Witch",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\06_Witch.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\06_Witch.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Witch, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 56,
+    "id": "cc4d1b93-10e4-45c8-8e63-c4d93fd68260",
+    "name": "Fox",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\56_Fox.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\56_Fox.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Fox, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 49,
+    "id": "d83f020e-8bc6-4df0-8b6d-3555fbf93e38",
+    "name": "Journey",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\49_Journey.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\49_Journey.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Journey, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 26,
+    "id": "dba0efaf-bc80-4ce6-81a6-01bb8abc36d6",
+    "name": "Sexuality",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\26_Sexuality.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\26_Sexuality.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Sexuality, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 39,
+    "id": "dd472de8-7f11-4b0d-a7eb-8bd49e040c1f",
+    "name": "Dance",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\39_Dance.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\39_Dance.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Dance, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 44,
+    "id": "dd8e8b78-b4d0-4fbd-813f-0446328ae069",
+    "name": "Nature",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\44_Nature.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\44_Nature.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Nature, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 36,
+    "id": "9270e26c-1abd-4af2-af00-1803debbeec2",
+    "name": "Transformation",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\36_Transformation.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\36_Transformation.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Transformation, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 1,
+    "id": "de455a10-5280-4a00-8b86-6bfbd1b0ed4e",
+    "name": "Birth",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\01_Birth.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\01_Birth.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Birth, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 53,
+    "id": "df491478-b6ec-4b11-83d0-cfcb73b141b9",
+    "name": "Female Body",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\53_Female_Body.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\53_Female_Body.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Female Body, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 29,
+    "id": "e1949dd7-93ca-4bb6-a8c8-dd953a166bcd",
+    "name": "Red Tent",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\29_Red_Tent.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\29_Red_Tent.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Red Tent, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 38,
+    "id": "ea359fc6-5240-427f-b5d4-48ff94926c86",
+    "name": "Intimacy",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\38_Intimacy.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\38_Intimacy.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Intimacy, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 11,
+    "id": "ee65d81b-2a7d-4f92-bc65-45050696d621",
+    "name": "Strength",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\11_Strength.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\11_Strength.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Strength, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 8,
+    "id": "f0961089-8699-4f93-a12b-37613f7ab067",
+    "name": "Nourishing Yourself",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\08_Nourishing_Yourself.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\08_Nourishing_Yourself.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Nourishing Yourself, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 66,
+    "id": "f12c71f2-4ba6-4281-896e-026d41ffc64b",
+    "name": "Cat",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\66_Cat.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\66_Cat.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Cat, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 62,
+    "id": "f54c75ec-7c4a-4460-8738-767a9469ce08",
+    "name": "Happiness",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\62_Happiness.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\62_Happiness.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Happiness, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 15,
+    "id": "ff91fd9a-0c30-4468-8a1d-bb31102634ef",
+    "name": "Akashic Records",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\15_Akashic_Records.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\03_ДЕВЫ_МУДРОСТИ\\15_Akashic_Records.webp",
+    "controlNet": {
+      "mode": "OpenPose/Face",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Celestial Goddess of Akashic Records, ethereal celestial muse goddess representing cosmic harmony, serene porcelain features, flowing hair with delicate golden diadem, soft volumetric backlighting, muted soothing pastel palette of sage, terracotta, dusty rose and cream, peaceful meditative mood, high-end digital painting, 8k --ar 9:16 --v 6.1"
+  }
+]

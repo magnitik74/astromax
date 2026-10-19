@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>АСТРА — Ритуал Аффирмации (Полная версия: Свайп + Стихии + Избранное)</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      user-select: none;
+      -webkit-user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: #0A0A0D;
+      color: #F5F5F7;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      overflow: hidden;
+    }
+
+    .screen-container {
+      position: relative;
+      width: 100%;
+      max-width: 430px;
+      height: 100vh;
+      max-height: 932px;
+      overflow: hidden;
+      background: #141418;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media (min-width: 500px) {
+      .screen-container {
+        border-radius: 40px;
+        height: 880px;
+        border: 1px solid #282832;
+      }
+    }
+
+    /* Фоновые видео с плавным кроссфейдом */
+    .video-background {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 1;
+      transition: opacity 0.5s ease;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at center, rgba(20, 20, 24, 0.25) 0%, rgba(20, 20, 24, 0.75) 100%),
+                  linear-gradient(180deg, rgba(20, 20, 24, 0.65) 0%, transparent 22%, transparent 60%, rgba(20, 20, 24, 0.95) 100%);
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Верхняя панель */
+    .top-bar {
+      position: relative;
+      z-index: 10;
+      padding: 44px 20px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .meta-badge {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: rgba(245, 166, 35, 0.95);
+      background: rgba(30, 30, 36, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(245, 166, 35, 0.25);
+      padding: 6px 14px;
+      border-radius: 20px;
+    }
+
+    .top-actions {
+      display: flex;
+      gap: 10px;
+    }
+
+    .icon-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(30, 30, 36, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      color: #E8E6E3;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      cursor: pointer;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .icon-btn:active {
+      transform: scale(0.9);
+      background: rgba(245, 166, 35, 0.25);
+    }
+
+    .icon-btn.fav-active {
+      color: #FF5A5F;
+      border-color: rgba(255, 90, 95, 0.4);
+      background: rgba(255, 90, 95, 0.15);
+    }
+
+    /* Горизонтальный скролл стихий */
+    .elements-scroll {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 2px;
+    }
+
+    .elements-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .element-pill {
+      white-space: nowrap;
+      font-size: 12px;
+      font-weight: 500;
+      padding: 6px 14px;
+      border-radius: 16px;
+      background: rgba(24, 24, 30, 0.6);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      color: #A3A3B0;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .element-pill.active {
+      background: #F5A623;
+      color: #141418;
+      border-color: #F5A623;
+      font-weight: 600;
+    }
+
+    /* Правые боковые плавающие действия (как в Reels/TikTok) */
+    .side-actions {
+      position: absolute;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      align-items: center;
+    }
+
+    .side-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(20, 20, 26, 0.65);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      color: #FFF;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .side-btn:active {
+      transform: scale(0.88);
+    }
+
+    .side-btn.liked {
+      color: #FF4757;
+      text-shadow: 0 0 12px rgba(255, 71, 87, 0.6);
+      border-color: rgba(255, 71, 87, 0.4);
+    }
+
+    /* Центр: Карточка аффирмации */
+    .center-content {
+      position: relative;
+      z-index: 10;
+      padding: 0 44px 0 32px;
+      text-align: center;
+      margin-top: -20px;
+    }
+
+    .category-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: #D1D0D6;
+      margin-bottom: 20px;
+      letter-spacing: 0.5px;
+    }
+
+    .affirmation-text {
+      font-size: 25px;
+      font-weight: 400;
+      line-height: 1.45;
+      color: #FFFFFF;
+      text-shadow: 0 2px 24px rgba(0, 0, 0, 0.7);
+      letter-spacing: -0.2px;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    .affirmation-text strong {
+      color: #F5A623;
+      font-weight: 500;
+    }
+
+    /* Навигация свайпа (стрелочки для десктопа + подсказка) */
+    .swipe-hint {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin-top: 20px;
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.45);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .nav-arrow {
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 16px;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: color 0.2s, transform 0.2s;
+    }
+
+    .nav-arrow:hover {
+      color: #F5A623;
+      transform: scale(1.2);
+    }
+
+    /* Низ: Ритуал закрепления */
+    .bottom-ritual {
+      position: relative;
+      z-index: 10;
+      padding: 0 24px 38px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .pearls-container {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      padding: 8px 18px;
+      background: rgba(20, 20, 24, 0.6);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-radius: 30px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .pearl {
+      width: 13px;
+      height: 13px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .pearl.active {
+      background: #F5A623;
+      border-color: #FFC062;
+      box-shadow: 0 0 14px rgba(245, 166, 35, 0.8), 0 0 24px rgba(245, 166, 35, 0.4);
+      transform: scale(1.25);
+    }
+
+    .tap-trigger {
+      width: 100%;
+      padding: 15px 20px;
+      border-radius: 20px;
+      background: rgba(245, 166, 35, 0.15);
+      border: 1px solid rgba(245, 166, 35, 0.4);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      color: #FFF;
+      font-size: 14px;
+      font-weight: 500;
+      text-align: center;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+      transition: all 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .tap-trigger:active {
+      transform: scale(0.97);
+      background: rgba(245, 166, 35, 0.28);
+      border-color: #F5A623;
+      box-shadow: 0 0 30px rgba(245, 166, 35, 0.4);
+    }
+
+    .tap-hint {
+      font-size: 11px;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Модальное окно завершения ритуала */
+    .completion-modal {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(14, 14, 18, 0.9);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 32px;
+      text-align: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
+
+    .completion-modal.show {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .streak-badge {
+      font-size: 46px;
+      margin-bottom: 12px;
+      filter: drop-shadow(0 0 20px rgba(245, 166, 35, 0.6));
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .completion-title {
+      font-size: 24px;
+      font-weight: 600;
+      color: #FFFFFF;
+      margin-bottom: 8px;
+    }
+
+    .completion-subtitle {
+      font-size: 14px;
+      color: #A3A3B0;
+      margin-bottom: 24px;
+      line-height: 1.5;
+    }
+
+    .streak-card {
+      background: rgba(30, 30, 38, 0.7);
+      border: 1px solid rgba(245, 166, 35, 0.3);
+      padding: 14px 28px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .streak-count {
+      font-size: 30px;
+      font-weight: 700;
+      color: #F5A623;
+    }
+
+    .streak-label {
+      text-align: left;
+      font-size: 12px;
+      color: #C0C0CB;
+      line-height: 1.3;
+    }
+
+    .action-btn {
+      width: 100%;
+      padding: 16px;
+      border-radius: 18px;
+      font-size: 15px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.2s;
+    }
+
+    .action-btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-share {
+      background: linear-gradient(135deg, #F5A623 0%, #D48812 100%);
+      color: #141418;
+      box-shadow: 0 4px 20px rgba(245, 166, 35, 0.4);
+      margin-bottom: 12px;
+    }
+
+    .btn-close {
+      background: rgba(255, 255, 255, 0.08);
+      color: #E0E0E6;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* Радиальная золотая волна */
+    .ripple-wave {
+      position: absolute;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245, 166, 35, 0.45) 0%, rgba(245, 166, 35, 0) 70%);
+      transform: scale(0);
+      pointer-events: none;
+      z-index: 5;
+      animation: ripple 0.8s ease-out forwards;
+    }
+
+    @keyframes ripple {
+      to {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="screen-container" id="screen">
+    <!-- Фоновое видео (текущее и следующее для кроссфейда) -->
+    <video class="video-background" id="videoBg" autoplay loop muted playsinline></video>
+
+    <!-- Световой оверлей -->
+    <div class="overlay"></div>
+
+    <!-- Верхняя панель: дата + табы стихий -->
+    <div class="top-bar">
+      <div class="top-nav">
+        <div class="meta-badge" id="dateBadge">18 ОКТЯБРЯ • ЛУНА В РОХИНИ</div>
+        <div class="top-actions">
+          <button class="icon-btn" id="audioToggle" title="Звук 432 Гц">🔊</button>
+        </div>
+      </div>
+
+      <!-- Горизонтальные чипсы стихий -->
+      <div class="elements-scroll" id="elementFilter">
+        <div class="element-pill active" data-el="all">Все (40)</div>
+        <div class="element-pill" data-el="water">💧 Вода</div>
+        <div class="element-pill" data-el="fire">🔥 Огонь</div>
+        <div class="element-pill" data-el="celestial">✨ Эфир</div>
+        <div class="element-pill" data-el="air">💨 Воздух</div>
+        <div class="element-pill" data-el="earth">🌱 Земля</div>
+        <div class="element-pill" data-el="fav">❤️ Мой алтарь</div>
+      </div>
+    </div>
+
+    <!-- Правые плавающие кнопки (Reels style) -->
+    <div class="side-actions">
+      <button class="side-btn" id="likeBtn" title="В избранное">🤍</button>
+      <button class="side-btn" id="sideShareBtn" title="В Сторис">📸</button>
+    </div>
+
+    <!-- Центр: Текст аффирмации -->
+    <div class="center-content">
+      <div class="category-tag" id="categoryTag">🕊️ Внутренний покой и доверие</div>
+      <div class="affirmation-text" id="affirmText">
+        «Я легко открываюсь <strong>новому опыту</strong>, новым вызовам и близким по духу людям.»
+      </div>
+      <div class="swipe-hint">
+        <button class="nav-arrow" id="prevBtn" title="Предыдущая">▲</button>
+        <span id="slideIndicator">1 / 40 • Свайп для перехода</span>
+        <button class="nav-arrow" id="nextBtn" title="Следующая">▼</button>
+      </div>
+    </div>
+
+    <!-- Низ: Ритуал закрепления -->
+    <div class="bottom-ritual">
+      <div class="pearls-container">
+        <div class="pearl active" id="p1"></div>
+        <div class="pearl" id="p2"></div>
+        <div class="pearl" id="p3"></div>
+      </div>
+
+      <div class="tap-trigger" id="tapBtn">
+        <span id="tapTitle">Вдохни и коснись экрана</span>
+        <span class="tap-hint" id="tapCounter">Повторение 1 из 3</span>
+      </div>
+    </div>
+
+    <!-- Модальное окно завершения ритуала -->
+    <div class="completion-modal" id="modal">
+      <div class="streak-badge">✨</div>
+      <div class="completion-title">Намерение закреплено</div>
+      <div class="completion-subtitle">Ты синхронизировал своё состояние с энергией дня. Твоя ментальная сила растёт.</div>
+
+      <div class="streak-card">
+        <div class="streak-count" id="streakDisplay">5</div>
+        <div class="streak-label">
+          <strong>Дней в потоке</strong><br>
+          Твой личный стрик осознанности
+        </div>
+      </div>
+
+      <button class="action-btn btn-share" id="modalShareBtn">
+        <span>📸</span> Поделиться в Stories
+      </button>
+      <button class="action-btn btn-close" id="restartBtn">
+        Повторить практику
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // --- БАЗА 40 АФФИРМАЦИЙ СО СТИХИЯМИ И ВИДЕО ---
+    const AFFIRMATIONS = [
+      // Вода (01-08)
+      { id: 1, loop: '01', el: 'water', cat: '🕊️ Внутренний покой', text: 'Я легко открываюсь <strong>новому опыту</strong>, новым вызовам и близким по духу людям.' },
+      { id: 2, loop: '02', el: 'water', cat: '🕊️ Покой и доверие', text: 'Моё сердце открыто для любви. Я принимаю мир с <strong>лёгкостью и благодарностью</strong>.' },
+      { id: 3, loop: '03', el: 'water', cat: '🕊️ Эмоциональный поток', text: 'Я отпускаю контроль и позволяю жизни <strong>нести меня к лучшему</strong>.' },
+      { id: 4, loop: '04', el: 'water', cat: '🕊️ Глубокая тишина', text: 'В глубине моей души царит <strong>абсолютная непоколебимая ясность</strong>.' },
+      { id: 5, loop: '05', el: 'water', cat: '🕊️ Очищение', text: 'С каждым выдохом я смываю с себя <strong>всё чужое и наносное</strong>.' },
+      { id: 6, loop: '06', el: 'water', cat: '🕊️ Принятие', text: 'Я принимаю все грани себя и ощущаю <strong>целостность бытия</strong>.' },
+      { id: 7, loop: '07', el: 'water', cat: '🕊️ Доверие судьбе', text: 'Всё происходящее разворачивается <strong>наилучшим образом для меня</strong>.' },
+      { id: 8, loop: '08', el: 'water', cat: '🕊️ Мягкая сила', text: 'Моя мягкость — это моя <strong>величайшая мудрость и сила</strong>.' },
+
+      // Огонь (09-16)
+      { id: 9, loop: '09', el: 'fire', cat: '☀️ Сила духа', text: 'Внутри меня горит <strong>неугасимое пламя уверенности</strong> и воли.' },
+      { id: 10, loop: '10', el: 'fire', cat: '☀️ Трансформация', text: 'Я сжигаю старые страхи и возрождаюсь в <strong>новом величии</strong>.' },
+      { id: 11, loop: '11', el: 'fire', cat: '☀️ Энергия действия', text: 'Я действую смело, вдохновенно и <strong>вижу результаты своих шагов</strong>.' },
+      { id: 12, loop: '12', el: 'fire', cat: '☀️ Внутренний свет', text: 'Мой свет разгоняет любые сомнения на <strong>моём пути</strong>.' },
+      { id: 13, loop: '13', el: 'fire', cat: '☀️ Харизма и лидерство', text: 'Моя аура наполнена <strong>теплом, силой и достоинством</strong>.' },
+      { id: 14, loop: '14', el: 'fire', cat: '☀️ Пробуждение силы', text: 'Каждое препятствие лишь умножает мою <strong>жизненную стойкость</strong>.' },
+      { id: 15, loop: '15', el: 'fire', cat: '☀️ Ясность цели', text: 'Я точно знаю, куда иду, и Вселенная <strong>открывает мне дороги</strong>.' },
+      { id: 16, loop: '16', el: 'fire', cat: '☀️ Радость жизни', text: 'Я праздную каждый день и наполняю пространство <strong>своим теплом</strong>.' },
+
+      // Эфир / Космос (17-24)
+      { id: 17, loop: '17', el: 'celestial', cat: '✨ Космос и интуиция', text: 'Я соединён с высшим разумом и <strong>слышу шёпот своей интуиции</strong>.' },
+      { id: 18, loop: '18', el: 'celestial', cat: '✨ Высший путь', text: 'Звёзды ведут меня к моему <strong>истинному предназначению</strong>.' },
+      { id: 19, loop: '19', el: 'celestial', cat: '✨ Мудрость предков', text: 'Сила моего рода и древняя мудрость <strong>защищают меня каждую секунду</strong>.' },
+      { id: 20, loop: '20', el: 'celestial', cat: '✨ Космическое сияние', text: 'Моё сознание безгранично, как <strong>ночное звёздное небо</strong>.' },
+      { id: 21, loop: '21', el: 'celestial', cat: '✨ Синхрония', text: 'Случайности не случайны. Я нахожусь в <strong>нужном месте в нужное время</strong>.' },
+      { id: 22, loop: '22', el: 'celestial', cat: '✨ Тайна бытия', text: 'Я доверяю великому космическому замыслу и <strong>спокоен за своё будущее</strong>.' },
+      { id: 23, loop: '23', el: 'celestial', cat: '✨ Духовное зрение', text: 'Я вижу суть вещей за пределами <strong>иллюзий и суеты</strong>.' },
+      { id: 24, loop: '24', el: 'celestial', cat: '✨ Созидательная сила', text: 'Мои мысли материализуют <strong>гармонию, свет и порядок</strong>.' },
+
+      // Воздух (25-32)
+      { id: 25, loop: '25', el: 'air', cat: '💨 Ясность и свобода', text: 'Мой ум чист и прозрачен, как <strong>утренний горный воздух</strong>.' },
+      { id: 26, loop: '26', el: 'air', cat: '💨 Свободное дыхание', text: 'Я вдыхаю вдохновение и <strong>выдыхаю благодарность</strong>.' },
+      { id: 27, loop: '27', el: 'air', cat: '💨 Легкость бытия', text: 'Я отпускаю тяжесть прошлого и лечу <strong>навстречу своей мечте</strong>.' },
+      { id: 28, loop: '28', el: 'air', cat: '💨 Тонкое восприятие', text: 'Я чувствую красоту момента в <strong>каждом дуновении ветра</strong>.' },
+      { id: 29, loop: '29', el: 'air', cat: '💨 Новые горизонты', text: 'Передо мной открыты бесконечные просторы <strong>для роста и творчества</strong>.' },
+      { id: 30, loop: '30', el: 'air', cat: '💨 Внутренняя свобода', text: 'Никакие чужие мнения не способны <strong>ограничить мой полёт</strong>.' },
+      { id: 31, loop: '31', el: 'air', cat: '💨 Перезагрузка', text: 'С каждым новым вдохом я обновляю <strong>каждую клетку своего сознания</strong>.' },
+      { id: 32, loop: '32', el: 'air', cat: '💨 Полёт мысли', text: 'Мои идеи приносят пользу миру и <strong>воплощаются с лёгкостью</strong>.' },
+
+      // Земля (33-40)
+      { id: 33, loop: '33', el: 'earth', cat: '🌱 Изобилие и здоровье', text: 'Моё тело наполнено <strong>жизненной силой, здоровьем и молодостью</strong>.' },
+      { id: 34, loop: '34', el: 'earth', cat: '🌱 Заземление', text: 'Я крепко стою на ногах и черпаю <strong>неисчерпаемую энергию Земли</strong>.' },
+      { id: 35, loop: '35', el: 'earth', cat: '🌱 Поток богатства', text: 'Изобилие течёт ко мне непрерывным <strong>щедрым потоком возможностей</strong>.' },
+      { id: 36, loop: '36', el: 'earth', cat: '🌱 Плодородие', text: 'Все семена моих трудов дают <strong>богатый и благословенный урожай</strong>.' },
+      { id: 37, loop: '37', el: 'earth', cat: '🌱 Цветение души', text: 'Я расцветаю в своей неповторимой <strong>красоте и гармонии</strong>.' },
+      { id: 38, loop: '38', el: 'earth', cat: '🌱 Безопасность', text: 'Я в полной безопасности. Мир щедро <strong>заботится обо мне</strong>.' },
+      { id: 39, loop: '39', el: 'earth', cat: '🌱 Укоренение', text: 'Я живу в согласии со своими природными <strong>биоритмами и телом</strong>.' },
+      { id: 40, loop: '40', el: 'earth', cat: '🌱 Величие покоя', text: 'Мой внутренний мир стабилен, как <strong>древние несокрушимые скалы</strong>.' }
+    ];
+
+    // --- ЗВУКОВОЙ ДВИЖОК ASTRA (Web Audio API) ---
+    class AstraAudioEngine {
+      constructor() {
+        this.ctx = null;
+        this.droneOsc = null;
+        this.droneGain = null;
+        this.isMuted = false;
+        this.isPlaying = false;
+      }
+
+      init() {
+        if (this.ctx) return;
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        this.ctx = new AudioCtx();
+      }
+
+      start432HzDrone() {
+        if (!this.ctx || this.isPlaying || this.isMuted) return;
+        this.isPlaying = true;
+
+        this.droneOsc = this.ctx.createOscillator();
+        const subOsc = this.ctx.createOscillator();
+        this.droneGain = this.ctx.createGain();
+
+        this.droneOsc.type = 'sine';
+        this.droneOsc.frequency.setValueAtTime(432, this.ctx.currentTime);
+
+        subOsc.type = 'sine';
+        subOsc.frequency.setValueAtTime(216, this.ctx.currentTime);
+
+        const filter = this.ctx.createBiquadFilter();
+        filter.type = 'lowpass';
+        filter.frequency.setValueAtTime(450, this.ctx.currentTime);
+
+        this.droneGain.gain.setValueAtTime(0, this.ctx.currentTime);
+        this.droneGain.gain.linearRampToValueAtTime(0.08, this.ctx.currentTime + 3);
+
+        this.droneOsc.connect(filter);
+        subOsc.connect(filter);
+        filter.connect(this.droneGain);
+        this.droneGain.connect(this.ctx.destination);
+
+        this.droneOsc.start();
+        subOsc.start();
+      }
+
+      playTibetanBell(step) {
+        if (!this.ctx || this.isMuted) return;
+        const baseFreq = step === 1 ? 432 : step === 2 ? 528 : 648;
+
+        const osc = this.ctx.createOscillator();
+        const overtone = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(baseFreq, this.ctx.currentTime);
+
+        overtone.type = 'sine';
+        overtone.frequency.setValueAtTime(baseFreq * 2.76, this.ctx.currentTime);
+
+        gain.gain.setValueAtTime(0.25, this.ctx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.0001, this.ctx.currentTime + 3.5);
+
+        osc.connect(gain);
+        overtone.connect(gain);
+        gain.connect(this.ctx.destination);
+
+        osc.start();
+        overtone.start();
+        osc.stop(this.ctx.currentTime + 3.6);
+        overtone.stop(this.ctx.currentTime + 3.6);
+      }
+
+      toggleMute() {
+        this.isMuted = !this.isMuted;
+        if (this.droneGain) {
+          this.droneGain.gain.setValueAtTime(this.isMuted ? 0 : 0.08, this.ctx.currentTime);
+        }
+        return this.isMuted;
+      }
+    }
+
+    const audio = new AstraAudioEngine();
+
+    // Haptic
+    function triggerHaptic(type) {
+      if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.HapticFeedback) {
+        if (type === 'success') {
+          window.Telegram.WebApp.HapticFeedback.notificationOccurred('success');
+        } else if (type === 'selection') {
+          window.Telegram.WebApp.HapticFeedback.selectionChanged();
+        } else {
+          window.Telegram.WebApp.HapticFeedback.impactOccurred('medium');
+        }
+      } else if (navigator.vibrate) {
+        navigator.vibrate(type === 'success' ? [40, 60, 80] : 30);
+      }
+    }
+
+    // --- УПРАВЛЕНИЕ ЛЕНТОЙ И СТИХИЯМИ ---
+    let currentFilter = 'all';
+    let filteredList = [...AFFIRMATIONS];
+    let currentIndex = 0;
+    let favorites = JSON.parse(localStorage.getItem('astra_favorites') || '[]');
+    let currentStep = 1;
+    let streak = parseInt(localStorage.getItem('astra_streak') || '5', 10);
+
+    const videoBg = document.getElementById('videoBg');
+    const categoryTag = document.getElementById('categoryTag');
+    const affirmText = document.getElementById('affirmText');
+    const slideIndicator = document.getElementById('slideIndicator');
+    const likeBtn = document.getElementById('likeBtn');
+    const p1 = document.getElementById('p1');
+    const p2 = document.getElementById('p2');
+    const p3 = document.getElementById('p3');
+    const tapBtn = document.getElementById('tapBtn');
+    const tapTitle = document.getElementById('tapTitle');
+    const tapCounter = document.getElementById('tapCounter');
+    const modal = document.getElementById('modal');
+    const streakDisplay = document.getElementById('streakDisplay');
+    const restartBtn = document.getElementById('restartBtn');
+    const screen = document.getElementById('screen');
+    const audioToggle = document.getElementById('audioToggle');
+
+    function renderCurrentAffirmation() {
+      if (filteredList.length === 0) {
+        categoryTag.textContent = '❤️ Мой алтарь пуст';
+        affirmText.innerHTML = 'Нажимай на сердечко на любых аффирмациях, чтобы сохранять их сюда ✨';
+        slideIndicator.textContent = '0 / 0';
+        likeBtn.textContent = '🤍';
+        likeBtn.classList.remove('liked');
+        return;
+      }
+
+      const item = filteredList[currentIndex];
+      categoryTag.textContent = item.cat;
+      affirmText.innerHTML = `«${item.text}»`;
+      slideIndicator.textContent = `${currentIndex + 1} / ${filteredList.length} • Свайп для перехода`;
+
+      // Плавная смена видео
+      const nextSrc = `08_АФФИРМАЦИИ_ВИДЕО/astra_loop_${item.loop}.mp4`;
+      const nextPoster = `08_АФФИРМАЦИИ_ВИДЕО/astra_loop_${item.loop}_poster.webp`;
+      if (videoBg.getAttribute('src') !== nextSrc) {
+        videoBg.style.opacity = '0.3';
+        setTimeout(() => {
+          videoBg.src = nextSrc;
+          videoBg.poster = nextPoster;
+          videoBg.style.opacity = '1';
+        }, 150);
+      }
+
+      // Статус лайка
+      const isFav = favorites.includes(item.id);
+      likeBtn.textContent = isFav ? '❤️' : '🤍';
+      likeBtn.classList.toggle('liked', isFav);
+
+      resetRitual();
+    }
+
+    function resetRitual() {
+      currentStep = 1;
+      p1.classList.add('active');
+      p2.classList.remove('active');
+      p3.classList.remove('active');
+      tapTitle.textContent = 'Вдохни и коснись экрана';
+      tapCounter.textContent = 'Повторение 1 из 3';
+    }
+
+    function applyFilter(filter) {
+      currentFilter = filter;
+      if (filter === 'all') {
+        filteredList = [...AFFIRMATIONS];
+      } else if (filter === 'fav') {
+        filteredList = AFFIRMATIONS.filter(a => favorites.includes(a.id));
+      } else {
+        filteredList = AFFIRMATIONS.filter(a => a.el === filter);
+      }
+      currentIndex = 0;
+      renderCurrentAffirmation();
+    }
+
+    // Чипсы фильтров
+    document.querySelectorAll('.element-pill').forEach(pill => {
+      pill.addEventListener('click', () => {
+        triggerHaptic('selection');
+        document.querySelectorAll('.element-pill').forEach(p => p.classList.remove('active'));
+        pill.classList.add('active');
+        applyFilter(pill.getAttribute('data-el'));
+      });
+    });
+
+    // Навигация след/пред
+    function nextItem() {
+      if (filteredList.length <= 1) return;
+      triggerHaptic('selection');
+      currentIndex = (currentIndex + 1) % filteredList.length;
+      renderCurrentAffirmation();
+    }
+
+    function prevItem() {
+      if (filteredList.length <= 1) return;
+      triggerHaptic('selection');
+      currentIndex = (currentIndex - 1 + filteredList.length) % filteredList.length;
+      renderCurrentAffirmation();
+    }
+
+    document.getElementById('nextBtn').addEventListener('click', nextItem);
+    document.getElementById('prevBtn').addEventListener('click', prevItem);
+
+    // Свайп жестами (Touch gestures)
+    let touchStartY = 0;
+    screen.addEventListener('touchstart', (e) => {
+      touchStartY = e.touches[0].clientY;
+    }, { passive: true });
+
+    screen.addEventListener('touchend', (e) => {
+      const touchEndY = e.changedTouches[0].clientY;
+      const diffY = touchStartY - touchEndY;
+      if (Math.abs(diffY) > 50) {
+        if (diffY > 0) nextItem(); // Свайп вверх -> Следующая
+        else prevItem(); // Свайп вниз -> Предыдущая
+      }
+    }, { passive: true });
+
+    // Лайк (В избранное)
+    likeBtn.addEventListener('click', () => {
+      if (filteredList.length === 0) return;
+      triggerHaptic('impact');
+      const item = filteredList[currentIndex];
+      const idx = favorites.indexOf(item.id);
+      if (idx >= 0) {
+        favorites.splice(idx, 1);
+      } else {
+        favorites.push(item.id);
+      }
+      localStorage.setItem('astra_favorites', JSON.stringify(favorites));
+      renderCurrentAffirmation();
+    });
+
+    // Ритуал 3 касания
+    function createRipple(e) {
+      const rect = screen.getBoundingClientRect();
+      const x = (e.clientX || rect.width / 2) - rect.left;
+      const y = (e.clientY || rect.height / 2) - rect.top;
+
+      const ripple = document.createElement('div');
+      ripple.className = 'ripple-wave';
+      ripple.style.left = `${x - 100}px`;
+      ripple.style.top = `${y - 100}px`;
+      ripple.style.width = '200px';
+      ripple.style.height = '200px';
+
+      screen.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 800);
+    }
+
+    tapBtn.addEventListener('pointerdown', (e) => {
+      audio.init();
+      audio.start432HzDrone();
+
+      createRipple(e);
+      triggerHaptic('impact');
+      audio.playTibetanBell(currentStep);
+
+      affirmText.style.transform = 'scale(1.03)';
+      setTimeout(() => affirmText.style.transform = 'scale(1)', 400);
+
+      if (currentStep === 1) {
+        currentStep = 2;
+        p2.classList.add('active');
+        tapTitle.textContent = 'Вдохни глубже и повтори второй раз';
+        tapCounter.textContent = 'Повторение 2 из 3';
+      } else if (currentStep === 2) {
+        currentStep = 3;
+        p3.classList.add('active');
+        tapTitle.textContent = 'Закрепи намерение финальным касанием';
+        tapCounter.textContent = 'Повторение 3 из 3';
+      } else if (currentStep === 3) {
+        triggerHaptic('success');
+        streak += 1;
+        localStorage.setItem('astra_streak', streak);
+        streakDisplay.textContent = streak;
+
+        setTimeout(() => {
+          modal.classList.add('show');
+        }, 500);
+      }
+    });
+
+    restartBtn.addEventListener('click', () => {
+      modal.classList.remove('show');
+      resetRitual();
+    });
+
+    // Звук
+    audioToggle.addEventListener('click', () => {
+      audio.init();
+      const muted = audio.toggleMute();
+      audioToggle.textContent = muted ? '🔇' : '🔊';
+    });
+
+    // Шеринг
+    function shareAffirmation() {
+      triggerHaptic('impact');
+      const item = filteredList[currentIndex] || AFFIRMATIONS[0];
+      if (navigator.share) {
+        navigator.share({
+          title: 'АСТРА • Намерение дня',
+          text: `«${item.text.replace(/<[^>]*>?/gm, '')}» — АСТРА @astra_guide_bot`,
+          url: 'https://t.me/astra_guide_bot'
+        }).catch(() => {});
+      } else {
+        alert('Карточка аффирмации сохранена! Открой Telegram Stories и прикрепи её ✨');
+      }
+    }
+
+    document.getElementById('sideShareBtn').addEventListener('click', shareAffirmation);
+    document.getElementById('modalShareBtn').addEventListener('click', shareAffirmation);
+
+    // Первый запуск
+    renderCurrentAffirmation();
+  </script>
+</body>
+</html>

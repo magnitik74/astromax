@@ -1,0 +1,5810 @@
+[
+  {
+    "id": 1,
+    "dayOfYear": 1,
+    "textRu": "Я легко открываюсь новому опыту, новым вызовам и близким по духу людям.",
+    "textEn": "I flow easily with new experiences, new challenges and new people",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 2,
+    "dayOfYear": 2,
+    "textRu": "Моё сердце открыто для любви. Я принимаю любовь с лёгкостью и благодарностью.",
+    "textEn": "It's easy to love for me. I'm easy to love.",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 3,
+    "dayOfYear": 3,
+    "textRu": "Я наполняю свой род светом, исцеляя и укрепляя связь поколений.",
+    "textEn": "I raise my family tree's vibrations and cleanse it from destructive programs",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 4,
+    "dayOfYear": 4,
+    "textRu": "С каждым днём моя жизнь наполняется всё большей гармонией и радостью.",
+    "textEn": "My life gets better all the time",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 5,
+    "dayOfYear": 5,
+    "textRu": "Забота о своём теле и душе приносит мне глубокое наслаждение и покой.",
+    "textEn": "Nourishing myself is a joyful experience",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 6,
+    "dayOfYear": 6,
+    "textRu": "Я нахожусь в прекрасном потоке постоянного обновления и роста.",
+    "textEn": "I am on an ever-changing journey",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 7,
+    "dayOfYear": 7,
+    "textRu": "Каждое событие жизни помогает мне глубже познать свою истинную природу.",
+    "textEn": "Life constantly offers me options to get to know myself better",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 8,
+    "dayOfYear": 8,
+    "textRu": "Я с радостью впускаю в свой круг искренних, светлых и вдохновляющих людей.",
+    "textEn": "I happily accept pure, new people into my circle",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 9,
+    "dayOfYear": 9,
+    "textRu": "Моя душа безошибочно ведёт меня туда, где раскрывается моё истинное я.",
+    "textEn": "My soul takes me there where it needs to be",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 10,
+    "dayOfYear": 10,
+    "textRu": "Я осознаю бесконечный потенциал и внутреннюю силу своего духа.",
+    "textEn": "I acknowledge the limitlessness of myself",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 11,
+    "dayOfYear": 11,
+    "textRu": "Поток материального и духовного изобилия свободно входит в мою жизнь.",
+    "textEn": "My income is constantly increasing",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 12,
+    "dayOfYear": 12,
+    "textRu": "Я ясно вижу своё предназначение и с уверенностью иду своим путём.",
+    "textEn": "I can already recognize my realization and myself in it",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 13,
+    "dayOfYear": 13,
+    "textRu": "Светлые и чистые мысли — самый надёжный путь к здоровью и долголетию.",
+    "textEn": "Filling my mind with pleasant thoughts is the shortest path to health",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 14,
+    "dayOfYear": 14,
+    "textRu": "Мой внутренний голос всегда подсказывает мне верное и мудрое решение.",
+    "textEn": "My intuition is always on my side",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 15,
+    "dayOfYear": 15,
+    "textRu": "Я чувствую безопасность, благодарность и чуткую связь со своим телом.",
+    "textEn": "It's safe for me to be in contact with my body",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 16,
+    "dayOfYear": 16,
+    "textRu": "Я достоин everything that is good.",
+    "textEn": "I deserve everything that is good",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 17,
+    "dayOfYear": 17,
+    "textRu": "I listen with love to Мой body's messages.",
+    "textEn": "I listen with love to my body's messages",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 18,
+    "dayOfYear": 18,
+    "textRu": "I take responsibility for everything that happens to me.",
+    "textEn": "I take responsibility for everything that happens to me",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 19,
+    "dayOfYear": 19,
+    "textRu": "Мой happy thoughts help to create Мой healthy body.",
+    "textEn": "My happy thoughts help to create my healthy body",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 20,
+    "dayOfYear": 20,
+    "textRu": "I become more lovable every day.",
+    "textEn": "I become more lovable every day",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 21,
+    "dayOfYear": 21,
+    "textRu": "I'm stronger than Мой complexes.",
+    "textEn": "I'm stronger than my complexes",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 22,
+    "dayOfYear": 22,
+    "textRu": "I enjoy food, that nourishes and supports Мой body.",
+    "textEn": "I enjoy food, that nourishes and supports my body",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 23,
+    "dayOfYear": 23,
+    "textRu": "Я — constantly discovering new ways to improve Мой health.",
+    "textEn": "I am constantly discovering new ways to improve my health",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 24,
+    "dayOfYear": 24,
+    "textRu": "Every day I find reasons to be grateful.",
+    "textEn": "Every day I find reasons to be grateful",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 25,
+    "dayOfYear": 25,
+    "textRu": "I'm surrounded by the love of Мой close ones.",
+    "textEn": "I'm surrounded by the love of my close ones",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 26,
+    "dayOfYear": 26,
+    "textRu": "I maintain the unity of Мой emotional, spiritual, mental and physical health.",
+    "textEn": "I maintain the unity of my emotional, spiritual, mental and physical health",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 27,
+    "dayOfYear": 27,
+    "textRu": "Я доверяю Мой intuition. Я — willing to listen to that still, small voice within.",
+    "textEn": "I trust my intuition. I am willing to listen to that still, small voice within.",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 28,
+    "dayOfYear": 28,
+    "textRu": "I have the right to choose myself in any situation.",
+    "textEn": "I have the right to choose myself in any situation",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 29,
+    "dayOfYear": 29,
+    "textRu": "I only speak positively in Мой world. Negativity has no part in Мой life.",
+    "textEn": "I only speak positively in my world. Negativity has no part in my life",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 30,
+    "dayOfYear": 30,
+    "textRu": "Я принимаю the light and shadow sides of Мой personality.",
+    "textEn": "I accept the light and shadow sides of my personality",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 31,
+    "dayOfYear": 31,
+    "textRu": "Я — greeted by love wherever I go.",
+    "textEn": "I am greeted by love wherever I go",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 32,
+    "dayOfYear": 32,
+    "textRu": "Я — fully present in the moment and focus on what is now.",
+    "textEn": "I am fully present in the moment and focus on what is now",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 33,
+    "dayOfYear": 33,
+    "textRu": "Every day brings me new opportunities.",
+    "textEn": "Every day brings me new opportunities",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_33",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33_poster.webp"
+    }
+  },
+  {
+    "id": 34,
+    "dayOfYear": 34,
+    "textRu": "Я доверяю the world around me.",
+    "textEn": "I trust the world around me",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_34",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34_poster.webp"
+    }
+  },
+  {
+    "id": 35,
+    "dayOfYear": 35,
+    "textRu": "Whatever difficulties come Мой way, I have the power to overcome them.",
+    "textEn": "Whatever difficulties come my way, I have the power to overcome them",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_35",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35_poster.webp"
+    }
+  },
+  {
+    "id": 36,
+    "dayOfYear": 36,
+    "textRu": "This difficult time helps me become better and more whole.",
+    "textEn": "This difficult time helps me become better and more whole",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_36",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36_poster.webp"
+    }
+  },
+  {
+    "id": 37,
+    "dayOfYear": 37,
+    "textRu": "I refuse to judge and control Мой loved ones. That gives me freedom.",
+    "textEn": "I refuse to judge and control my loved ones. That gives me freedom.",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_37",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37_poster.webp"
+    }
+  },
+  {
+    "id": 38,
+    "dayOfYear": 38,
+    "textRu": "Я достоин Мой own love.",
+    "textEn": "I deserve my own love",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_38",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38_poster.webp"
+    }
+  },
+  {
+    "id": 39,
+    "dayOfYear": 39,
+    "textRu": "I allow all blissful happenings to take place in Мой life.",
+    "textEn": "I allow all blissful happenings to take place in my life",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_39",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39_poster.webp"
+    }
+  },
+  {
+    "id": 40,
+    "dayOfYear": 40,
+    "textRu": "I do Мой best where I can and for everything else Я доверяю life.",
+    "textEn": "I do my best where I can and for everything else I trust life",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_40",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40_poster.webp"
+    }
+  },
+  {
+    "id": 41,
+    "dayOfYear": 41,
+    "textRu": "I'm ready to walk Мой own path of happiness.",
+    "textEn": "I'm ready to walk my own path of happiness",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 42,
+    "dayOfYear": 42,
+    "textRu": "I make a choice in favor of happiness, abundance and well-being of soul and body.",
+    "textEn": "I make a choice in favor of happiness, abundance and well-being of soul and body",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 43,
+    "dayOfYear": 43,
+    "textRu": "I listen to what Мой body is telling me.",
+    "textEn": "I listen to what my body is telling me",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 44,
+    "dayOfYear": 44,
+    "textRu": "I have enough strength to overcome any situation.",
+    "textEn": "I have enough strength to overcome any situation",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 45,
+    "dayOfYear": 45,
+    "textRu": "I always work with and for wonderful people. I love Мой job.",
+    "textEn": "I always work with and for wonderful people. I love my job.",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 46,
+    "dayOfYear": 46,
+    "textRu": "Я принимаю myself in any state.",
+    "textEn": "I accept myself in any state",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 47,
+    "dayOfYear": 47,
+    "textRu": "Any dream imagined is ready to come true.",
+    "textEn": "Any dream imagined is ready to come true",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 48,
+    "dayOfYear": 48,
+    "textRu": "I give attention to all Мой emotions and don't label them good and bad.",
+    "textEn": "I give attention to all my emotions and don't label them good and bad",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 49,
+    "dayOfYear": 49,
+    "textRu": "I love being myself.",
+    "textEn": "I love being myself",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 50,
+    "dayOfYear": 50,
+    "textRu": "I live in the paradise of Мой own creation.",
+    "textEn": "I live in the paradise of my own creation",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 51,
+    "dayOfYear": 51,
+    "textRu": "I have the perfect living space.",
+    "textEn": "I have the perfect living space",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 52,
+    "dayOfYear": 52,
+    "textRu": "When I let go of excessive control, it's easier for me to accept what is happening.",
+    "textEn": "When I let go of excessive control, it's easier for me to accept what is happening",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 53,
+    "dayOfYear": 53,
+    "textRu": "I set goals in harmony with Мой soul.",
+    "textEn": "I set goals in harmony with my soul",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 54,
+    "dayOfYear": 54,
+    "textRu": "Health and safety are Мой top priorities.",
+    "textEn": "Health and safety are my top priorities",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 55,
+    "dayOfYear": 55,
+    "textRu": "I can see the best in others.",
+    "textEn": "I can see the best in others",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 56,
+    "dayOfYear": 56,
+    "textRu": "Any new experience is a step on the way to yourself.",
+    "textEn": "Any new experience is a step on the way to yourself",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 57,
+    "dayOfYear": 57,
+    "textRu": "Я — reliable, responsible and respected at work.",
+    "textEn": "I am reliable, responsible and respected at work",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 58,
+    "dayOfYear": 58,
+    "textRu": "I forgive myself for not being perfect.",
+    "textEn": "I forgive myself for not being perfect",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 59,
+    "dayOfYear": 59,
+    "textRu": "By focusing on positive thoughts, I fight off any disease.",
+    "textEn": "By focusing on positive thoughts, I fight off any disease",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 60,
+    "dayOfYear": 60,
+    "textRu": "I have the inner strength to navigate challenges at work.",
+    "textEn": "I have the inner strength to navigate challenges at work",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 61,
+    "dayOfYear": 61,
+    "textRu": "The point of power is always in the present moment.",
+    "textEn": "The point of power is always in the present moment",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 62,
+    "dayOfYear": 62,
+    "textRu": "Мой environment helps me develop and become better.",
+    "textEn": "My environment helps me develop and become better",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 63,
+    "dayOfYear": 63,
+    "textRu": "I lovingly choose foods that benefit Мой body.",
+    "textEn": "I lovingly choose foods that benefit my body",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 64,
+    "dayOfYear": 64,
+    "textRu": "I honor who Я —.",
+    "textEn": "I honor who I am",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 65,
+    "dayOfYear": 65,
+    "textRu": "Я — safe in the Universe, and life loves and supports me.",
+    "textEn": "I am safe in the Universe, and life loves and supports me",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 66,
+    "dayOfYear": 66,
+    "textRu": "I gladly accept the blessings that life gives me.",
+    "textEn": "I gladly accept the blessings that life gives me",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 67,
+    "dayOfYear": 67,
+    "textRu": "Я — happy to be in harmony with myself.",
+    "textEn": "I am happy to be in harmony with myself",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 68,
+    "dayOfYear": 68,
+    "textRu": "Living a creative life is important to me.",
+    "textEn": "Living a creative life is important to me",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 69,
+    "dayOfYear": 69,
+    "textRu": "If a few others don't accept me, I'm fine with that.",
+    "textEn": "If a few others don't accept me, I'm fine with that",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 70,
+    "dayOfYear": 70,
+    "textRu": "Before helping others, I help myself.",
+    "textEn": "Before helping others, I help myself",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 71,
+    "dayOfYear": 71,
+    "textRu": "Я принимаю all the parts of myself that now require Мой attention.",
+    "textEn": "I accept all the parts of myself that now require my attention",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 72,
+    "dayOfYear": 72,
+    "textRu": "Я достоин love.",
+    "textEn": "I deserve love",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 73,
+    "dayOfYear": 73,
+    "textRu": "Only good can come to me.",
+    "textEn": "Only good can come to me",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 74,
+    "dayOfYear": 74,
+    "textRu": "What I see as a tragedy today will be a valuable lesson tomorrow.",
+    "textEn": "What I see as a tragedy today will be a valuable lesson tomorrow",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 75,
+    "dayOfYear": 75,
+    "textRu": "There is so much love in Мой life.",
+    "textEn": "There is so much love in my life",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 76,
+    "dayOfYear": 76,
+    "textRu": "I welcome new ideas.",
+    "textEn": "I welcome new ideas",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 77,
+    "dayOfYear": 77,
+    "textRu": "Others respect me for following Мой own beliefs.",
+    "textEn": "Others respect me for following my own beliefs",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 78,
+    "dayOfYear": 78,
+    "textRu": "I take time to rest after working hard.",
+    "textEn": "I take time to rest after working hard",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 79,
+    "dayOfYear": 79,
+    "textRu": "I radiate positive vibrations into the world.",
+    "textEn": "I radiate positive vibrations into the world",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 80,
+    "dayOfYear": 80,
+    "textRu": "I'm happy about Мой friends’ achievements.",
+    "textEn": "I'm happy about my friends’ achievements",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 81,
+    "dayOfYear": 81,
+    "textRu": "Я выбираю to be with those with who Я — most comfortable with.",
+    "textEn": "I choose to be with those with who I am most comfortable with",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 82,
+    "dayOfYear": 82,
+    "textRu": "All is well in Мой world. Everything is working out for Мой highest good. Я — safe.",
+    "textEn": "All is well in my world. Everything is working out for my highest good. I am safe.",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 83,
+    "dayOfYear": 83,
+    "textRu": "I listen to what Мой body needs.",
+    "textEn": "I listen to what my body needs",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 84,
+    "dayOfYear": 84,
+    "textRu": "Я — responsible for looking after me.",
+    "textEn": "I am responsible for looking after me",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 85,
+    "dayOfYear": 85,
+    "textRu": "I know that everything will happen at the right time. I'm in no rush.",
+    "textEn": "I know that everything will happen at the right time. I'm in no rush.",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 86,
+    "dayOfYear": 86,
+    "textRu": "Today, Я — going to trust myself and Мой instincts.",
+    "textEn": "Today, I am going to trust myself and my instincts",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 87,
+    "dayOfYear": 87,
+    "textRu": "Мой body allows me to get to know it better.",
+    "textEn": "My body allows me to get to know it better",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 88,
+    "dayOfYear": 88,
+    "textRu": "I let go of old ideas about myself and am at peace with myself.",
+    "textEn": "I let go of old ideas about myself and am at peace with myself",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 89,
+    "dayOfYear": 89,
+    "textRu": "Я принимаю Мой body the way it is now.",
+    "textEn": "I accept my body the way it is now",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 90,
+    "dayOfYear": 90,
+    "textRu": "I devote a portion of Мой time to helping others.",
+    "textEn": "I devote a portion of my time to helping others",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 91,
+    "dayOfYear": 91,
+    "textRu": "I'm ready to feel unity with myself right now.",
+    "textEn": "I'm ready to feel unity with myself right now",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 92,
+    "dayOfYear": 92,
+    "textRu": "When I help others, Мой soul sings.",
+    "textEn": "When I help others, my soul sings",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 93,
+    "dayOfYear": 93,
+    "textRu": "Я принимаю the hierarchy of Мой Kin and show respect for elders.",
+    "textEn": "I accept the hierarchy of my Kin and show respect for elders",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 94,
+    "dayOfYear": 94,
+    "textRu": "Я принимаю myself as a bright part of this world.",
+    "textEn": "I accept myself as a bright part of this world",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 95,
+    "dayOfYear": 95,
+    "textRu": "By taking care of Мой body, I allow myself to grow spiritually.",
+    "textEn": "By taking care of my body, I allow myself to grow spiritually",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 96,
+    "dayOfYear": 96,
+    "textRu": "I listen to Мой feelings and Я — gentle with myself. All Мой feelings are Мой friends.",
+    "textEn": "I listen to my feelings and I am gentle with myself. All my feelings are my friends.",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 97,
+    "dayOfYear": 97,
+    "textRu": "Я отпускаю all drama from Мой life.",
+    "textEn": "I release all drama from my life",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 98,
+    "dayOfYear": 98,
+    "textRu": "I take care of myself the best I can now.",
+    "textEn": "I take care of myself the best I can now",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 99,
+    "dayOfYear": 99,
+    "textRu": "Мой day begins and ends with gratitude.",
+    "textEn": "My day begins and ends with gratitude",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 100,
+    "dayOfYear": 100,
+    "textRu": "I always find time to take care of Мой health.",
+    "textEn": "I always find time to take care of my health",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 101,
+    "dayOfYear": 101,
+    "textRu": "Я доверяю myself to make the right decision.",
+    "textEn": "I trust myself to make the right decision",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 102,
+    "dayOfYear": 102,
+    "textRu": "I value moving forward and at the same time looking after Мой well-being.",
+    "textEn": "I value moving forward and at the same time looking after my well-being",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 103,
+    "dayOfYear": 103,
+    "textRu": "In Мой realization, the spiritual and the material are well balanced.",
+    "textEn": "In my realization, the spiritual and the material are well balanced",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 104,
+    "dayOfYear": 104,
+    "textRu": "I acknowledge the desire of Мой soul, spirit and body to be healthy.",
+    "textEn": "I acknowledge the desire of my soul, spirit and body to be healthy",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 105,
+    "dayOfYear": 105,
+    "textRu": "Я принимаю Мой Kin's strength and support.",
+    "textEn": "I accept my Kin's strength and support",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 106,
+    "dayOfYear": 106,
+    "textRu": "Я — the Light.",
+    "textEn": "I am the Light",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 107,
+    "dayOfYear": 107,
+    "textRu": "When Я — filled with self-love, I can truly love others.",
+    "textEn": "When I am filled with self-love, I can truly love others",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 108,
+    "dayOfYear": 108,
+    "textRu": "I let go of the need to criticize myself.",
+    "textEn": "I let go of the need to criticize myself",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 109,
+    "dayOfYear": 109,
+    "textRu": "Everyone I encounter today has Мой best interests at heart.",
+    "textEn": "Everyone I encounter today has my best interests at heart",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 110,
+    "dayOfYear": 110,
+    "textRu": "I spend time with positive, energetic people.",
+    "textEn": "I spend time with positive, energetic people",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 111,
+    "dayOfYear": 111,
+    "textRu": "Я — learning to accept and love myself.",
+    "textEn": "I am learning to accept and love myself",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 112,
+    "dayOfYear": 112,
+    "textRu": "It's easy for me to give and receive love.",
+    "textEn": "It's easy for me to give and receive love",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 113,
+    "dayOfYear": 113,
+    "textRu": "I leave the attitudes of jealousy and rivalry behind.",
+    "textEn": "I leave the attitudes of jealousy and rivalry behind",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_33",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33_poster.webp"
+    }
+  },
+  {
+    "id": 114,
+    "dayOfYear": 114,
+    "textRu": "Я — learning valuable lessons from myself every day.",
+    "textEn": "I am learning valuable lessons from myself every day",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_34",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34_poster.webp"
+    }
+  },
+  {
+    "id": 115,
+    "dayOfYear": 115,
+    "textRu": "With an open heart, I can see the world beyond Мой own experiences.",
+    "textEn": "With an open heart, I can see the world beyond my own experiences",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_35",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35_poster.webp"
+    }
+  },
+  {
+    "id": 116,
+    "dayOfYear": 116,
+    "textRu": "Wellness is the natural state of Мой body. Я — in perfect health.",
+    "textEn": "Wellness is the natural state of my body. I am in perfect health.",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_36",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36_poster.webp"
+    }
+  },
+  {
+    "id": 117,
+    "dayOfYear": 117,
+    "textRu": "Я — in the process of positive change.",
+    "textEn": "I am in the process of positive change",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_37",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37_poster.webp"
+    }
+  },
+  {
+    "id": 118,
+    "dayOfYear": 118,
+    "textRu": "Life loves me!.",
+    "textEn": "Life loves me!",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_38",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38_poster.webp"
+    }
+  },
+  {
+    "id": 119,
+    "dayOfYear": 119,
+    "textRu": "Мой friends love and respect me.",
+    "textEn": "My friends love and respect me",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_39",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39_poster.webp"
+    }
+  },
+  {
+    "id": 120,
+    "dayOfYear": 120,
+    "textRu": "Any path can be mine but I will definitely see the one for me.",
+    "textEn": "Any path can be mine but I will definitely see the one for me",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_40",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40_poster.webp"
+    }
+  },
+  {
+    "id": 121,
+    "dayOfYear": 121,
+    "textRu": "Every day I get closer to Мой dreams.",
+    "textEn": "Every day I get closer to my dreams",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 122,
+    "dayOfYear": 122,
+    "textRu": "I bring joy to people around me.",
+    "textEn": "I bring joy to people around me",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 123,
+    "dayOfYear": 123,
+    "textRu": "I do all that I can to heal.",
+    "textEn": "I do all that I can to heal",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 124,
+    "dayOfYear": 124,
+    "textRu": "We are all eternal spirit.",
+    "textEn": "We are all eternal spirit",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 125,
+    "dayOfYear": 125,
+    "textRu": "I can realize everything that I can imagine.",
+    "textEn": "I can realize everything that I can imagine",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 126,
+    "dayOfYear": 126,
+    "textRu": "I find new eco-friendly ways to feel safe.",
+    "textEn": "I find new eco-friendly ways to feel safe",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 127,
+    "dayOfYear": 127,
+    "textRu": "Я — in harmony with nature.",
+    "textEn": "I am in harmony with nature",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 128,
+    "dayOfYear": 128,
+    "textRu": "I listen to the words of loved ones, but the decision is up to me.",
+    "textEn": "I listen to the words of loved ones, but the decision is up to me",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 129,
+    "dayOfYear": 129,
+    "textRu": "Я — divinely guided and protected at all time.",
+    "textEn": "I am divinely guided and protected at all time",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 130,
+    "dayOfYear": 130,
+    "textRu": "The Universe is abundant. It has enough resources for everyone.",
+    "textEn": "The Universe is abundant. It has enough resources for everyone.",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 131,
+    "dayOfYear": 131,
+    "textRu": "I enjoy Мой company.",
+    "textEn": "I enjoy my company",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 132,
+    "dayOfYear": 132,
+    "textRu": "I can agree with what is happening now as much as Я — ready.",
+    "textEn": "I can agree with what is happening now as much as I am ready",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 133,
+    "dayOfYear": 133,
+    "textRu": "I forgive myself and set myself free.",
+    "textEn": "I forgive myself and set myself free",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 134,
+    "dayOfYear": 134,
+    "textRu": "I allow myself to be unproductive and do Мой best regardless.",
+    "textEn": "I allow myself to be unproductive and do my best regardless",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 135,
+    "dayOfYear": 135,
+    "textRu": "Мой realization is a way to achieve pleasure.",
+    "textEn": "My realization is a way to achieve pleasure",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 136,
+    "dayOfYear": 136,
+    "textRu": "Inside me, I feel calm, and nobody can disturb this peacefulness.",
+    "textEn": "Inside me, I feel calm, and nobody can disturb this peacefulness",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 137,
+    "dayOfYear": 137,
+    "textRu": "I'm ready to accept and love myself right now.",
+    "textEn": "I'm ready to accept and love myself right now",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 138,
+    "dayOfYear": 138,
+    "textRu": "I live without being bothered by the opinions of others.",
+    "textEn": "I live without being bothered by the opinions of others",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 139,
+    "dayOfYear": 139,
+    "textRu": "Я — grateful to Мой parents for the gift of life.",
+    "textEn": "I am grateful to my parents for the gift of life",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 140,
+    "dayOfYear": 140,
+    "textRu": "Я — grateful for any experience. It makes me who Я —.",
+    "textEn": "I am grateful for any experience. It makes me who I am.",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 141,
+    "dayOfYear": 141,
+    "textRu": "Я доверяю the process of life.",
+    "textEn": "I trust the process of life",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 142,
+    "dayOfYear": 142,
+    "textRu": "I receive signals from the body and soul that want to tell me something important.",
+    "textEn": "I receive signals from the body and soul that want to tell me something important",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 143,
+    "dayOfYear": 143,
+    "textRu": "I drink lots of water to cleanse Мой body and mind.",
+    "textEn": "I drink lots of water to cleanse my body and mind",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 144,
+    "dayOfYear": 144,
+    "textRu": "I can control the flow of thoughts and choose those that develop Мой consciousness.",
+    "textEn": "I can control the flow of thoughts and choose those that develop my consciousness",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 145,
+    "dayOfYear": 145,
+    "textRu": "There is always a place in the world for what I create.",
+    "textEn": "There is always a place in the world for what I create",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 146,
+    "dayOfYear": 146,
+    "textRu": "This world needs me. It has a worthy place for me.",
+    "textEn": "This world needs me. It has a worthy place for me.",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 147,
+    "dayOfYear": 147,
+    "textRu": "The past is over.",
+    "textEn": "The past is over",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 148,
+    "dayOfYear": 148,
+    "textRu": "I look within to find Мой treasures.",
+    "textEn": "I look within to find my treasures",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 149,
+    "dayOfYear": 149,
+    "textRu": "I respect Мой parents and accept them as they are.",
+    "textEn": "I respect my parents and accept them as they are",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 150,
+    "dayOfYear": 150,
+    "textRu": "I can afford better health and at the same time, retain the love and care of others.",
+    "textEn": "I can afford better health and at the same time, retain the love and care of others",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 151,
+    "dayOfYear": 151,
+    "textRu": "I acknowledge and give room to things I can't accept yet.",
+    "textEn": "I acknowledge and give room to things I can't accept yet",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 152,
+    "dayOfYear": 152,
+    "textRu": "I breathe in energy and love, I exhale negativity and doubt.",
+    "textEn": "I breathe in energy and love, I exhale negativity and doubt",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 153,
+    "dayOfYear": 153,
+    "textRu": "Я — stronger than Мой pain. I can overcome everything.",
+    "textEn": "I am stronger than my pain. I can overcome everything.",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_33",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33_poster.webp"
+    }
+  },
+  {
+    "id": 154,
+    "dayOfYear": 154,
+    "textRu": "As I forgive myself, it becomes easier to forgive others.",
+    "textEn": "As I forgive myself, it becomes easier to forgive others",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_34",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34_poster.webp"
+    }
+  },
+  {
+    "id": 155,
+    "dayOfYear": 155,
+    "textRu": "I make a difference in the world by simply existing in it.",
+    "textEn": "I make a difference in the world by simply existing in it",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_35",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35_poster.webp"
+    }
+  },
+  {
+    "id": 156,
+    "dayOfYear": 156,
+    "textRu": "Я принимаю Мой father and give myself acceptance.",
+    "textEn": "I accept my father and give myself acceptance",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_36",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36_poster.webp"
+    }
+  },
+  {
+    "id": 157,
+    "dayOfYear": 157,
+    "textRu": "Today is the future I created yesterday.",
+    "textEn": "Today is the future I created yesterday",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_37",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37_poster.webp"
+    }
+  },
+  {
+    "id": 158,
+    "dayOfYear": 158,
+    "textRu": "I have the courage to live Мой dreams.",
+    "textEn": "I have the courage to live my dreams",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_38",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38_poster.webp"
+    }
+  },
+  {
+    "id": 159,
+    "dayOfYear": 159,
+    "textRu": "Я — creatively inspired by the world around me.",
+    "textEn": "I am creatively inspired by the world around me",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_39",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39_poster.webp"
+    }
+  },
+  {
+    "id": 160,
+    "dayOfYear": 160,
+    "textRu": "On the path of self-development, Я принимаю the help of masters.",
+    "textEn": "On the path of self-development, I accept the help of masters",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_40",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40_poster.webp"
+    }
+  },
+  {
+    "id": 161,
+    "dayOfYear": 161,
+    "textRu": "I now live in limitless love, light, and joy.",
+    "textEn": "I now live in limitless love, light, and joy",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 162,
+    "dayOfYear": 162,
+    "textRu": "I listen to Мой true desires.",
+    "textEn": "I listen to my true desires",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 163,
+    "dayOfYear": 163,
+    "textRu": "I stay whole in any relationships.",
+    "textEn": "I stay whole in any relationships",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 164,
+    "dayOfYear": 164,
+    "textRu": "Whenever I fall down, I get back up again.",
+    "textEn": "Whenever I fall down, I get back up again",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 165,
+    "dayOfYear": 165,
+    "textRu": "I distinguish Мой own goals from those that are not mine.",
+    "textEn": "I distinguish my own goals from those that are not mine",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 166,
+    "dayOfYear": 166,
+    "textRu": "Today Я — at peace.",
+    "textEn": "Today I am at peace",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 167,
+    "dayOfYear": 167,
+    "textRu": "I can have a love life and a career at the same time.",
+    "textEn": "I can have a love life and a career at the same time",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 168,
+    "dayOfYear": 168,
+    "textRu": "I love myself and Мой life.",
+    "textEn": "I love myself and my life",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 169,
+    "dayOfYear": 169,
+    "textRu": "I appreciate myself for the path that I have already taken.",
+    "textEn": "I appreciate myself for the path that I have already taken",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 170,
+    "dayOfYear": 170,
+    "textRu": "Я — at home in Мой body.",
+    "textEn": "I am at home in my body",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 171,
+    "dayOfYear": 171,
+    "textRu": "I love Мой family members just as they are.",
+    "textEn": "I love my family members just as they are",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 172,
+    "dayOfYear": 172,
+    "textRu": "I welcome miracles into Мой life.",
+    "textEn": "I welcome miracles into my life",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 173,
+    "dayOfYear": 173,
+    "textRu": "I feel Мой body here and now.",
+    "textEn": "I feel my body here and now",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 174,
+    "dayOfYear": 174,
+    "textRu": "I can let myself be in contact with Мой strengths and intuition.",
+    "textEn": "I can let myself be in contact with my strengths and intuition",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 175,
+    "dayOfYear": 175,
+    "textRu": "Мой path is bright and hardships free.",
+    "textEn": "My path is bright and hardships free",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 176,
+    "dayOfYear": 176,
+    "textRu": "I give myself space to grow and learn.",
+    "textEn": "I give myself space to grow and learn",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 177,
+    "dayOfYear": 177,
+    "textRu": "I feel a sense of support deep within me.",
+    "textEn": "I feel a sense of support deep within me",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 178,
+    "dayOfYear": 178,
+    "textRu": "Я принимаю myself. That helps me accept others.",
+    "textEn": "I accept myself. That helps me accept others.",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 179,
+    "dayOfYear": 179,
+    "textRu": "I listen to Мой heart and make the right choice.",
+    "textEn": "I listen to my heart and make the right choice",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 180,
+    "dayOfYear": 180,
+    "textRu": "Old, negative patterns no longer limit me. I let them go with ease.",
+    "textEn": "Old, negative patterns no longer limit me. I let them go with ease.",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 181,
+    "dayOfYear": 181,
+    "textRu": "I value being in contact with myself.",
+    "textEn": "I value being in contact with myself",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 182,
+    "dayOfYear": 182,
+    "textRu": "I'm strong enough to overcome any addiction.",
+    "textEn": "I'm strong enough to overcome any addiction",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 183,
+    "dayOfYear": 183,
+    "textRu": "Я выбираю the goals that inspire me.",
+    "textEn": "I choose the goals that inspire me",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 184,
+    "dayOfYear": 184,
+    "textRu": "Мой body appreciates how I take care of it.",
+    "textEn": "My body appreciates how I take care of it",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 185,
+    "dayOfYear": 185,
+    "textRu": "I enjoy the process of eating.",
+    "textEn": "I enjoy the process of eating",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 186,
+    "dayOfYear": 186,
+    "textRu": "It's safe for me to manifest in the world.",
+    "textEn": "It's safe for me to manifest in the world",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 187,
+    "dayOfYear": 187,
+    "textRu": "I feel the support of something bigger on the way to Мой true calling.",
+    "textEn": "I feel the support of something bigger on the way to my true calling",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 188,
+    "dayOfYear": 188,
+    "textRu": "Мой ancestors have all been through these lessons, which means I can too.",
+    "textEn": "My ancestors have all been through these lessons, which means I can too",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 189,
+    "dayOfYear": 189,
+    "textRu": "There is always a place in the world for Мой creativity.",
+    "textEn": "There is always a place in the world for my creativity",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 190,
+    "dayOfYear": 190,
+    "textRu": "It's in Мой power to create the life Я достоин.",
+    "textEn": "It's in my power to create the life I deserve",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 191,
+    "dayOfYear": 191,
+    "textRu": "I believe that I was created for happiness and I'm ever so grateful.",
+    "textEn": "I believe that I was created for happiness and I'm ever so grateful",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 192,
+    "dayOfYear": 192,
+    "textRu": "Life supports me in every possible way.",
+    "textEn": "Life supports me in every possible way",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 193,
+    "dayOfYear": 193,
+    "textRu": "Good mental health is a journey, not a destination.",
+    "textEn": "Good mental health is a journey, not a destination",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_33",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33_poster.webp"
+    }
+  },
+  {
+    "id": 194,
+    "dayOfYear": 194,
+    "textRu": "I stand Мой ground and know when to say no.",
+    "textEn": "I stand my ground and know when to say no",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_34",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34_poster.webp"
+    }
+  },
+  {
+    "id": 195,
+    "dayOfYear": 195,
+    "textRu": "Я принимаю the health condition of Мой loved ones.",
+    "textEn": "I accept the health condition of my loved ones",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_35",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35_poster.webp"
+    }
+  },
+  {
+    "id": 196,
+    "dayOfYear": 196,
+    "textRu": "Я достоин love.",
+    "textEn": "I deserve love",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_36",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36_poster.webp"
+    }
+  },
+  {
+    "id": 197,
+    "dayOfYear": 197,
+    "textRu": "Я — stronger than I think.",
+    "textEn": "I am stronger than I think",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_37",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37_poster.webp"
+    }
+  },
+  {
+    "id": 198,
+    "dayOfYear": 198,
+    "textRu": "Thanks to the experience of Мой ancestors, I will be able to cope with anything.",
+    "textEn": "Thanks to the experience of my ancestors, I will be able to cope with anything",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_38",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38_poster.webp"
+    }
+  },
+  {
+    "id": 199,
+    "dayOfYear": 199,
+    "textRu": "I come from the loving space of Мой heart, and love opens all the doors.",
+    "textEn": "I come from the loving space of my heart, and love opens all the doors",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_39",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39_poster.webp"
+    }
+  },
+  {
+    "id": 200,
+    "dayOfYear": 200,
+    "textRu": "Я — pain free and totally in sync with life.",
+    "textEn": "I am pain free and totally in sync with life",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_40",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40_poster.webp"
+    }
+  },
+  {
+    "id": 201,
+    "dayOfYear": 201,
+    "textRu": "Whatever I need to know is revealed to me at exactly the right time.",
+    "textEn": "Whatever I need to know is revealed to me at exactly the right time",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 202,
+    "dayOfYear": 202,
+    "textRu": "I notice and satisfy the needs of Мой body intuitively.",
+    "textEn": "I notice and satisfy the needs of my body intuitively",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 203,
+    "dayOfYear": 203,
+    "textRu": "Я — part of the boundless love that fills the Universe.",
+    "textEn": "I am part of the boundless love that fills the Universe",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 204,
+    "dayOfYear": 204,
+    "textRu": "I see clearly with the eyes of love.",
+    "textEn": "I see clearly with the eyes of love",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 205,
+    "dayOfYear": 205,
+    "textRu": "I allow myself to relax and unwind.",
+    "textEn": "I allow myself to relax and unwind",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 206,
+    "dayOfYear": 206,
+    "textRu": "Я — deeply fulfilled by all that I do.",
+    "textEn": "I am deeply fulfilled by all that I do",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 207,
+    "dayOfYear": 207,
+    "textRu": "We are all family, and the planet is our home.",
+    "textEn": "We are all family, and the planet is our home",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 208,
+    "dayOfYear": 208,
+    "textRu": "There is plenty for everyone, and we bless and prosper each other.",
+    "textEn": "There is plenty for everyone, and we bless and prosper each other",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 209,
+    "dayOfYear": 209,
+    "textRu": "I can try new things and make mistakes. This is Мой unique path.",
+    "textEn": "I can try new things and make mistakes. This is my unique path.",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 210,
+    "dayOfYear": 210,
+    "textRu": "I focus on the positive things in every single day.",
+    "textEn": "I focus on the positive things in every single day",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 211,
+    "dayOfYear": 211,
+    "textRu": "Мой world is abundant and I enjoy sharing it.",
+    "textEn": "My world is abundant and I enjoy sharing it",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 212,
+    "dayOfYear": 212,
+    "textRu": "It's important that I like myself first.",
+    "textEn": "It's important that I like myself first",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 213,
+    "dayOfYear": 213,
+    "textRu": "Я принимаю Мой importance and make space for it.",
+    "textEn": "I accept my importance and make space for it",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 214,
+    "dayOfYear": 214,
+    "textRu": "I effortlessly make new friends.",
+    "textEn": "I effortlessly make new friends",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 215,
+    "dayOfYear": 215,
+    "textRu": "I let deserving and bright people into Мой life.",
+    "textEn": "I let deserving and bright people into my life",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 216,
+    "dayOfYear": 216,
+    "textRu": "I love and approve of myself.",
+    "textEn": "I love and approve of myself",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 217,
+    "dayOfYear": 217,
+    "textRu": "The body lovingly tells me what it wants.",
+    "textEn": "The body lovingly tells me what it wants",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 218,
+    "dayOfYear": 218,
+    "textRu": "I can see Мой fears and control them.",
+    "textEn": "I can see my fears and control them",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 219,
+    "dayOfYear": 219,
+    "textRu": "I can express myself and still be safe.",
+    "textEn": "I can express myself and still be safe",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 220,
+    "dayOfYear": 220,
+    "textRu": "Perfect health is Мой Divine right, and I claim it now.",
+    "textEn": "Perfect health is my Divine right, and I claim it now",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 221,
+    "dayOfYear": 221,
+    "textRu": "Я — liberating myself from fear, judgment, and doubt.",
+    "textEn": "I am liberating myself from fear, judgment, and doubt",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 222,
+    "dayOfYear": 222,
+    "textRu": "I have compassion for all.",
+    "textEn": "I have compassion for all",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 223,
+    "dayOfYear": 223,
+    "textRu": "Я — always headed in the right direction.",
+    "textEn": "I am always headed in the right direction",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 224,
+    "dayOfYear": 224,
+    "textRu": "Food makes me happy, but I know how to deal with Мой emotions without it.",
+    "textEn": "Food makes me happy, but I know how to deal with my emotions without it",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 225,
+    "dayOfYear": 225,
+    "textRu": "Я — resilient to external circumstances.",
+    "textEn": "I am resilient to external circumstances",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 226,
+    "dayOfYear": 226,
+    "textRu": "There is no warmer, cozier and more reliable home than Мой body.",
+    "textEn": "There is no warmer, cozier and more reliable home than my body",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 227,
+    "dayOfYear": 227,
+    "textRu": "Я — thankful for all the love in Мой life. I find it everywhere.",
+    "textEn": "I am thankful for all the love in my life. I find it everywhere.",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 228,
+    "dayOfYear": 228,
+    "textRu": "This world has prepared a lot of resources, energy and love for me.",
+    "textEn": "This world has prepared a lot of resources, energy and love for me",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 229,
+    "dayOfYear": 229,
+    "textRu": "Я — grateful for everyone who love and care for me.",
+    "textEn": "I am grateful for everyone who love and care for me",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 230,
+    "dayOfYear": 230,
+    "textRu": "I consciously choose who and what surrounds me.",
+    "textEn": "I consciously choose who and what surrounds me",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 231,
+    "dayOfYear": 231,
+    "textRu": "I recognize Мой worth and free myself from others' expectations.",
+    "textEn": "I recognize my worth and free myself from others' expectations",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 232,
+    "dayOfYear": 232,
+    "textRu": "Deep at the center of Мой being is an infinite well of love.",
+    "textEn": "Deep at the center of my being is an infinite well of love",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 233,
+    "dayOfYear": 233,
+    "textRu": "Мой body is amazing. It deserves all attention and care.",
+    "textEn": "My body is amazing. It deserves all attention and care.",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_33",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33_poster.webp"
+    }
+  },
+  {
+    "id": 234,
+    "dayOfYear": 234,
+    "textRu": "I find it truly fascinating to observe myself.",
+    "textEn": "I find it truly fascinating to observe myself",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_34",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34_poster.webp"
+    }
+  },
+  {
+    "id": 235,
+    "dayOfYear": 235,
+    "textRu": "I thank Мой fears for keeping me safe. They are Мой friends.",
+    "textEn": "I thank my fears for keeping me safe. They are my friends.",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_35",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35_poster.webp"
+    }
+  },
+  {
+    "id": 236,
+    "dayOfYear": 236,
+    "textRu": "Drive and ambition allow me to achieve Мой own goals.",
+    "textEn": "Drive and ambition allow me to achieve my own goals",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_36",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36_poster.webp"
+    }
+  },
+  {
+    "id": 237,
+    "dayOfYear": 237,
+    "textRu": "People listen to me. Мой opinion matters.",
+    "textEn": "People listen to me. My opinion matters.",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_37",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37_poster.webp"
+    }
+  },
+  {
+    "id": 238,
+    "dayOfYear": 238,
+    "textRu": "I have many skills to offer.",
+    "textEn": "I have many skills to offer",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_38",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38_poster.webp"
+    }
+  },
+  {
+    "id": 239,
+    "dayOfYear": 239,
+    "textRu": "I free myself from the imposed roles and connect with Мой true self.",
+    "textEn": "I free myself from the imposed roles and connect with my true self",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_39",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39_poster.webp"
+    }
+  },
+  {
+    "id": 240,
+    "dayOfYear": 240,
+    "textRu": "I allow myself to be who Я —, without judgment.",
+    "textEn": "I allow myself to be who I am, without judgment",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_40",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40_poster.webp"
+    }
+  },
+  {
+    "id": 241,
+    "dayOfYear": 241,
+    "textRu": "Everything I do for myself is filled with love.",
+    "textEn": "Everything I do for myself is filled with love",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 242,
+    "dayOfYear": 242,
+    "textRu": "I have me. This is enough for all.",
+    "textEn": "I have me. This is enough for all.",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 243,
+    "dayOfYear": 243,
+    "textRu": "I acknowledge the current state of Мой health and am ready to improve it.",
+    "textEn": "I acknowledge the current state of my health and am ready to improve it",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 244,
+    "dayOfYear": 244,
+    "textRu": "I have the right to disagree with what is happening and give myself time to do so.",
+    "textEn": "I have the right to disagree with what is happening and give myself time to do so",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 245,
+    "dayOfYear": 245,
+    "textRu": "Мой life gets more fabulous every day.",
+    "textEn": "My life gets more fabulous every day",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 246,
+    "dayOfYear": 246,
+    "textRu": "Я отпускаю all of Мой childhood traumas and move into love.",
+    "textEn": "I release all of my childhood traumas and move into love",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 247,
+    "dayOfYear": 247,
+    "textRu": "I allow myself to live in pleasure and abundance.",
+    "textEn": "I allow myself to live in pleasure and abundance",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 248,
+    "dayOfYear": 248,
+    "textRu": "I commensurate Мой resources with Мой plans.",
+    "textEn": "I commensurate my resources with my plans",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 249,
+    "dayOfYear": 249,
+    "textRu": "I can love myself, even though Мой purpose is still hidden.",
+    "textEn": "I can love myself, even though my purpose is still hidden",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 250,
+    "dayOfYear": 250,
+    "textRu": "Я принимаю Мой power.",
+    "textEn": "I accept my power",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 251,
+    "dayOfYear": 251,
+    "textRu": "I prosper wherever I turn.",
+    "textEn": "I prosper wherever I turn",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 252,
+    "dayOfYear": 252,
+    "textRu": "I'm letting go of what no longer serves any purpose in Мой life.",
+    "textEn": "I'm letting go of what no longer serves any purpose in my life",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 253,
+    "dayOfYear": 253,
+    "textRu": "I will get through this situation and come out of it even more whole.",
+    "textEn": "I will get through this situation and come out of it even more whole",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 254,
+    "dayOfYear": 254,
+    "textRu": "I feel the power within me and can realize it when I'm ready.",
+    "textEn": "I feel the power within me and can realize it when I'm ready",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 255,
+    "dayOfYear": 255,
+    "textRu": "Я — ready to start acting.",
+    "textEn": "I am ready to start acting",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 256,
+    "dayOfYear": 256,
+    "textRu": "Мой inner strength knows no bounds.",
+    "textEn": "My inner strength knows no bounds",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 257,
+    "dayOfYear": 257,
+    "textRu": "Я — thankful that Мой body is both beautiful and strong.",
+    "textEn": "I am thankful that my body is both beautiful and strong",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 258,
+    "dayOfYear": 258,
+    "textRu": "All events in Мой life have a higher purpose behind them.",
+    "textEn": "All events in my life have a higher purpose behind them",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 259,
+    "dayOfYear": 259,
+    "textRu": "I allow myself the level of relaxation that is comfortable for me now.",
+    "textEn": "I allow myself the level of relaxation that is comfortable for me now",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 260,
+    "dayOfYear": 260,
+    "textRu": "Я доверяю myself and Мой choices.",
+    "textEn": "I trust myself and my choices",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 261,
+    "dayOfYear": 261,
+    "textRu": "I focus on what I can control and I let go of what I can't.",
+    "textEn": "I focus on what I can control and I let go of what I can't",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 262,
+    "dayOfYear": 262,
+    "textRu": "Мой mind is full of brilliant ideas.",
+    "textEn": "My mind is full of brilliant ideas",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 263,
+    "dayOfYear": 263,
+    "textRu": "Я — attentive to Мой feelings and desires.",
+    "textEn": "I am attentive to my feelings and desires",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 264,
+    "dayOfYear": 264,
+    "textRu": "Я принимаю others as a whole and let them be themselves.",
+    "textEn": "I accept others as a whole and let them be themselves",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 265,
+    "dayOfYear": 265,
+    "textRu": "I'm surrounded by kind and sincere people.",
+    "textEn": "I'm surrounded by kind and sincere people",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 266,
+    "dayOfYear": 266,
+    "textRu": "Я принимаю Мой mother and give myself acceptance.",
+    "textEn": "I accept my mother and give myself acceptance",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 267,
+    "dayOfYear": 267,
+    "textRu": "Everything I do now, I do out of love for myself.",
+    "textEn": "Everything I do now, I do out of love for myself",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 268,
+    "dayOfYear": 268,
+    "textRu": "Life is a magnificent journey. Я — fascinated to be a part of it.",
+    "textEn": "Life is a magnificent journey. I am fascinated to be a part of it.",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 269,
+    "dayOfYear": 269,
+    "textRu": "The more peaceful Я — inside, the more peace I have to share with others.",
+    "textEn": "The more peaceful I am inside, the more peace I have to share with others",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 270,
+    "dayOfYear": 270,
+    "textRu": "I act as if I already have what I want.",
+    "textEn": "I act as if I already have what I want",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 271,
+    "dayOfYear": 271,
+    "textRu": "Я — beautiful, and everybody loves me.",
+    "textEn": "I am beautiful, and everybody loves me",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 272,
+    "dayOfYear": 272,
+    "textRu": "I attract success and luck into Мой life.",
+    "textEn": "I attract success and luck into my life",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 273,
+    "dayOfYear": 273,
+    "textRu": "Я доверяю myself. I can rely on myself.",
+    "textEn": "I trust myself. I can rely on myself.",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_33",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33_poster.webp"
+    }
+  },
+  {
+    "id": 274,
+    "dayOfYear": 274,
+    "textRu": "I give myself time to live through the pain.",
+    "textEn": "I give myself time to live through the pain",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_34",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34_poster.webp"
+    }
+  },
+  {
+    "id": 275,
+    "dayOfYear": 275,
+    "textRu": "Я — part of something greater and this greater is in me.",
+    "textEn": "I am part of something greater and this greater is in me",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_35",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35_poster.webp"
+    }
+  },
+  {
+    "id": 276,
+    "dayOfYear": 276,
+    "textRu": "Я — ready to look at this situation from the position of an observer and see more.",
+    "textEn": "I am ready to look at this situation from the position of an observer and see more",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_36",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36_poster.webp"
+    }
+  },
+  {
+    "id": 277,
+    "dayOfYear": 277,
+    "textRu": "I'm happy to be a part of Мой family.",
+    "textEn": "I'm happy to be a part of my family",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_37",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37_poster.webp"
+    }
+  },
+  {
+    "id": 278,
+    "dayOfYear": 278,
+    "textRu": "Я — grateful to be alive.",
+    "textEn": "I am grateful to be alive",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_38",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38_poster.webp"
+    }
+  },
+  {
+    "id": 279,
+    "dayOfYear": 279,
+    "textRu": "I balance Мой life between work, rest, and play.",
+    "textEn": "I balance my life between work, rest, and play",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_39",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39_poster.webp"
+    }
+  },
+  {
+    "id": 280,
+    "dayOfYear": 280,
+    "textRu": "I deal with any issues through a constructive dialogue.",
+    "textEn": "I deal with any issues through a constructive dialogue",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_40",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40_poster.webp"
+    }
+  },
+  {
+    "id": 281,
+    "dayOfYear": 281,
+    "textRu": "I'm brave enough to make Мой dreams come true.",
+    "textEn": "I'm brave enough to make my dreams come true",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 282,
+    "dayOfYear": 282,
+    "textRu": "Я отпускаю all criticism.",
+    "textEn": "I release all criticism",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 283,
+    "dayOfYear": 283,
+    "textRu": "I believe in myself as a person and all Мой capabilities.",
+    "textEn": "I believe in myself as a person and all my capabilities",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 284,
+    "dayOfYear": 284,
+    "textRu": "I love Мой beautiful mind.",
+    "textEn": "I love my beautiful mind",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 285,
+    "dayOfYear": 285,
+    "textRu": "Life is Мой main source of inspiration.",
+    "textEn": "Life is my main source of inspiration",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 286,
+    "dayOfYear": 286,
+    "textRu": "This is a beautiful scenario of Мой reality. I like it.",
+    "textEn": "This is a beautiful scenario of my reality. I like it.",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 287,
+    "dayOfYear": 287,
+    "textRu": "Я выбираю to live Мой life in love and joy.",
+    "textEn": "I choose to live my life in love and joy",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 288,
+    "dayOfYear": 288,
+    "textRu": "Я — healthy, whole, and complete.",
+    "textEn": "I am healthy, whole, and complete",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 289,
+    "dayOfYear": 289,
+    "textRu": "I respect other's decisions.",
+    "textEn": "I respect other's decisions",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 290,
+    "dayOfYear": 290,
+    "textRu": "I can slow down and see the beauty in the moment.",
+    "textEn": "I can slow down and see the beauty in the moment",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 291,
+    "dayOfYear": 291,
+    "textRu": "The whole world is Мой home. It makes me feel calm and safe.",
+    "textEn": "The whole world is my home. It makes me feel calm and safe.",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 292,
+    "dayOfYear": 292,
+    "textRu": "Я достоин love and a happy relationship.",
+    "textEn": "I deserve love and a happy relationship",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 293,
+    "dayOfYear": 293,
+    "textRu": "I matter to myself and acknowledge myself in every moment.",
+    "textEn": "I matter to myself and acknowledge myself in every moment",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 294,
+    "dayOfYear": 294,
+    "textRu": "I return to the basics of life: forgiveness, courage, gratitude, love, and humor.",
+    "textEn": "I return to the basics of life: forgiveness, courage, gratitude, love, and humor",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 295,
+    "dayOfYear": 295,
+    "textRu": "Я — loved, and Я — at peace.",
+    "textEn": "I am loved, and I am at peace",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 296,
+    "dayOfYear": 296,
+    "textRu": "I give myself permission to do what is right for me.",
+    "textEn": "I give myself permission to do what is right for me",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 297,
+    "dayOfYear": 297,
+    "textRu": "I treat others with respect, and they treat me the same.",
+    "textEn": "I treat others with respect, and they treat me the same",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 298,
+    "dayOfYear": 298,
+    "textRu": "I allow myself to think and feel as much as I'm ready for now.",
+    "textEn": "I allow myself to think and feel as much as I'm ready for now",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 299,
+    "dayOfYear": 299,
+    "textRu": "Я — willing to ask for help when I need it.",
+    "textEn": "I am willing to ask for help when I need it",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 300,
+    "dayOfYear": 300,
+    "textRu": "Loving others is easy when I love and accept myself.",
+    "textEn": "Loving others is easy when I love and accept myself",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 301,
+    "dayOfYear": 301,
+    "textRu": "I let go of trying to control other people.",
+    "textEn": "I let go of trying to control other people",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 302,
+    "dayOfYear": 302,
+    "textRu": "I claim Мой power and move beyond all limitations.",
+    "textEn": "I claim my power and move beyond all limitations",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 303,
+    "dayOfYear": 303,
+    "textRu": "I forgive everyone in Мой past for all perceived wrongs.",
+    "textEn": "I forgive everyone in my past for all perceived wrongs",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 304,
+    "dayOfYear": 304,
+    "textRu": "Because of working on myself, I can hear myself better.",
+    "textEn": "Because of working on myself, I can hear myself better",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 305,
+    "dayOfYear": 305,
+    "textRu": "Я отпускаю all negative thoughts of the past and all worries about the future.",
+    "textEn": "I release all negative thoughts of the past and all worries about the future",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 306,
+    "dayOfYear": 306,
+    "textRu": "I call upon Мой strength.",
+    "textEn": "I call upon my strength",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 307,
+    "dayOfYear": 307,
+    "textRu": "I have enough resources to deal with any situation.",
+    "textEn": "I have enough resources to deal with any situation",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 308,
+    "dayOfYear": 308,
+    "textRu": "I agree with the state that I'm in now.",
+    "textEn": "I agree with the state that I'm in now",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 309,
+    "dayOfYear": 309,
+    "textRu": "Love flows through Мой body.",
+    "textEn": "Love flows through my body",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 310,
+    "dayOfYear": 310,
+    "textRu": "Я — comfortable being alone with myself.",
+    "textEn": "I am comfortable being alone with myself",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 311,
+    "dayOfYear": 311,
+    "textRu": "No one is Мой friend, no one is Мой enemy but everyone is the teacher to me.",
+    "textEn": "No one is my friend, no one is my enemy but everyone is the teacher to me",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 312,
+    "dayOfYear": 312,
+    "textRu": "In any situation, I stay true to Мой values.",
+    "textEn": "In any situation, I stay true to my values",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 313,
+    "dayOfYear": 313,
+    "textRu": "I can live different periods in Мой life.",
+    "textEn": "I can live different periods in my life",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_33",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33_poster.webp"
+    }
+  },
+  {
+    "id": 314,
+    "dayOfYear": 314,
+    "textRu": "I recognize the trinity of body, soul and spirit and let it be within me.",
+    "textEn": "I recognize the trinity of body, soul and spirit and let it be within me",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_34",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34_poster.webp"
+    }
+  },
+  {
+    "id": 315,
+    "dayOfYear": 315,
+    "textRu": "Behind Мой fear is a resource and potential for development.",
+    "textEn": "Behind my fear is a resource and potential for development",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_35",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35_poster.webp"
+    }
+  },
+  {
+    "id": 316,
+    "dayOfYear": 316,
+    "textRu": "Я выбираю the path of kindness.",
+    "textEn": "I choose the path of kindness",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_36",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36_poster.webp"
+    }
+  },
+  {
+    "id": 317,
+    "dayOfYear": 317,
+    "textRu": "Today is a sacred gift from Life.",
+    "textEn": "Today is a sacred gift from Life",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_37",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37_poster.webp"
+    }
+  },
+  {
+    "id": 318,
+    "dayOfYear": 318,
+    "textRu": "Я — grateful for Мой healthy body. I love life.",
+    "textEn": "I am grateful for my healthy body. I love life.",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_38",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38_poster.webp"
+    }
+  },
+  {
+    "id": 319,
+    "dayOfYear": 319,
+    "textRu": "Мой goals make me happy because they lead me to Мой realization.",
+    "textEn": "My goals make me happy because they lead me to my realization",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_39",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39_poster.webp"
+    }
+  },
+  {
+    "id": 320,
+    "dayOfYear": 320,
+    "textRu": "I believe in healing from any sickness.",
+    "textEn": "I believe in healing from any sickness",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_40",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40_poster.webp"
+    }
+  },
+  {
+    "id": 321,
+    "dayOfYear": 321,
+    "textRu": "Мой anxiety does not control Мой life. I do.",
+    "textEn": "My anxiety does not control my life. I do.",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 322,
+    "dayOfYear": 322,
+    "textRu": "I can build strong and prosperous relationships.",
+    "textEn": "I can build strong and prosperous relationships",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 323,
+    "dayOfYear": 323,
+    "textRu": "Я принимаю the path to health that I follow.",
+    "textEn": "I accept the path to health that I follow",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  },
+  {
+    "id": 324,
+    "dayOfYear": 324,
+    "textRu": "Hardships arise when I have the strength to overcome them.",
+    "textEn": "Hardships arise when I have the strength to overcome them",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_04",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_04_poster.webp"
+    }
+  },
+  {
+    "id": 325,
+    "dayOfYear": 325,
+    "textRu": "I attract only healthy relationships. Я — always treated well.",
+    "textEn": "I attract only healthy relationships. I am always treated well.",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_05",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_05_poster.webp"
+    }
+  },
+  {
+    "id": 326,
+    "dayOfYear": 326,
+    "textRu": "I feel the connection between Мой body, spirit and soul.",
+    "textEn": "I feel the connection between my body, spirit and soul",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_06",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_06_poster.webp"
+    }
+  },
+  {
+    "id": 327,
+    "dayOfYear": 327,
+    "textRu": "Everything around me is joyful for the soul.",
+    "textEn": "Everything around me is joyful for the soul",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_07",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_07_poster.webp"
+    }
+  },
+  {
+    "id": 328,
+    "dayOfYear": 328,
+    "textRu": "I lovingly care for the blooming garden of Мой soul.",
+    "textEn": "I lovingly care for the blooming garden of my soul",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_08",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_08_poster.webp"
+    }
+  },
+  {
+    "id": 329,
+    "dayOfYear": 329,
+    "textRu": "Я — becoming closer to Мой true self every day.",
+    "textEn": "I am becoming closer to my true self every day",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_09",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_09_poster.webp"
+    }
+  },
+  {
+    "id": 330,
+    "dayOfYear": 330,
+    "textRu": "Я доверяю that Я — on the right path.",
+    "textEn": "I trust that I am on the right path",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_10",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_10_poster.webp"
+    }
+  },
+  {
+    "id": 331,
+    "dayOfYear": 331,
+    "textRu": "I feel safe and ready to take action.",
+    "textEn": "I feel safe and ready to take action",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_11",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_11_poster.webp"
+    }
+  },
+  {
+    "id": 332,
+    "dayOfYear": 332,
+    "textRu": "Мой positive thoughts and faith strengthen Мой health.",
+    "textEn": "My positive thoughts and faith strengthen my health",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_12",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_12_poster.webp"
+    }
+  },
+  {
+    "id": 333,
+    "dayOfYear": 333,
+    "textRu": "I'm fine with who Я —, and I love who Я — becoming.",
+    "textEn": "I'm fine with who I am, and I love who I am becoming",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_13",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_13_poster.webp"
+    }
+  },
+  {
+    "id": 334,
+    "dayOfYear": 334,
+    "textRu": "I see the beauty in every person.",
+    "textEn": "I see the beauty in every person",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_14",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_14_poster.webp"
+    }
+  },
+  {
+    "id": 335,
+    "dayOfYear": 335,
+    "textRu": "By seeing beauty in myself, Я — able to find it in every person.",
+    "textEn": "By seeing beauty in myself, I am able to find it in every person",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_15",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_15_poster.webp"
+    }
+  },
+  {
+    "id": 336,
+    "dayOfYear": 336,
+    "textRu": "Я принимаю Мой emotions and let them serve their purpose.",
+    "textEn": "I accept my emotions and let them serve their purpose",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_16",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_16_poster.webp"
+    }
+  },
+  {
+    "id": 337,
+    "dayOfYear": 337,
+    "textRu": "I can listen to Мой body and hear what's important for me.",
+    "textEn": "I can listen to my body and hear what's important for me",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_17",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_17_poster.webp"
+    }
+  },
+  {
+    "id": 338,
+    "dayOfYear": 338,
+    "textRu": "Я — ready to be in contact with Мой health.",
+    "textEn": "I am ready to be in contact with my health",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_18",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_18_poster.webp"
+    }
+  },
+  {
+    "id": 339,
+    "dayOfYear": 339,
+    "textRu": "I have that something in me that supports me and gives me security.",
+    "textEn": "I have that something in me that supports me and gives me security",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_19",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_19_poster.webp"
+    }
+  },
+  {
+    "id": 340,
+    "dayOfYear": 340,
+    "textRu": "I now go beyond other people’s fears and limitations.",
+    "textEn": "I now go beyond other people’s fears and limitations",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_20",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_20_poster.webp"
+    }
+  },
+  {
+    "id": 341,
+    "dayOfYear": 341,
+    "textRu": "Мой pain is temporary. It will pass and I will find peace within.",
+    "textEn": "My pain is temporary. It will pass and I will find peace within.",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_21",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_21_poster.webp"
+    }
+  },
+  {
+    "id": 342,
+    "dayOfYear": 342,
+    "textRu": "I like Мой reflection in the mirror.",
+    "textEn": "I like my reflection in the mirror",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_22",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_22_poster.webp"
+    }
+  },
+  {
+    "id": 343,
+    "dayOfYear": 343,
+    "textRu": "I'm unique. I refuse to compare myself to others.",
+    "textEn": "I'm unique. I refuse to compare myself to others.",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_23",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_23_poster.webp"
+    }
+  },
+  {
+    "id": 344,
+    "dayOfYear": 344,
+    "textRu": "There is strength within me that has always been there, helping me persevere.",
+    "textEn": "There is strength within me that has always been there, helping me persevere",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_24",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_24_poster.webp"
+    }
+  },
+  {
+    "id": 345,
+    "dayOfYear": 345,
+    "textRu": "Мой soul knows why it's here.",
+    "textEn": "My soul knows why it's here",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_25",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_25_poster.webp"
+    }
+  },
+  {
+    "id": 346,
+    "dayOfYear": 346,
+    "textRu": "Hardships arise as a natural extension of Мой development.",
+    "textEn": "Hardships arise as a natural extension of my development",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_26",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_26_poster.webp"
+    }
+  },
+  {
+    "id": 347,
+    "dayOfYear": 347,
+    "textRu": "I face any uncertainties in life with curiosity.",
+    "textEn": "I face any uncertainties in life with curiosity",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_27",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_27_poster.webp"
+    }
+  },
+  {
+    "id": 348,
+    "dayOfYear": 348,
+    "textRu": "The boundaries of Мой body are safe.",
+    "textEn": "The boundaries of my body are safe",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_28",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_28_poster.webp"
+    }
+  },
+  {
+    "id": 349,
+    "dayOfYear": 349,
+    "textRu": "Every situation is an opportunity to learn something new.",
+    "textEn": "Every situation is an opportunity to learn something new",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_29",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_29_poster.webp"
+    }
+  },
+  {
+    "id": 350,
+    "dayOfYear": 350,
+    "textRu": "Through Мой contributions, I make positive changes to the world.",
+    "textEn": "Through my contributions, I make positive changes to the world",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_30",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_30_poster.webp"
+    }
+  },
+  {
+    "id": 351,
+    "dayOfYear": 351,
+    "textRu": "I allow myself to ground as much as Я — comfortable with right now.",
+    "textEn": "I allow myself to ground as much as I am comfortable with right now",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_31",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_31_poster.webp"
+    }
+  },
+  {
+    "id": 352,
+    "dayOfYear": 352,
+    "textRu": "I distribute attention between myself and others.",
+    "textEn": "I distribute attention between myself and others",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_32",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_32_poster.webp"
+    }
+  },
+  {
+    "id": 353,
+    "dayOfYear": 353,
+    "textRu": "I express love for the world through Мой beauty.",
+    "textEn": "I express love for the world through my beauty",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_33",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_33_poster.webp"
+    }
+  },
+  {
+    "id": 354,
+    "dayOfYear": 354,
+    "textRu": "Я принимаю that I can be in contact with Мой power.",
+    "textEn": "I accept that I can be in contact with my power",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_34",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_34_poster.webp"
+    }
+  },
+  {
+    "id": 355,
+    "dayOfYear": 355,
+    "textRu": "Every day I find something new to like in myself.",
+    "textEn": "Every day I find something new to like in myself",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_35",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_35_poster.webp"
+    }
+  },
+  {
+    "id": 356,
+    "dayOfYear": 356,
+    "textRu": "I see a lot of things to be grateful for.",
+    "textEn": "I see a lot of things to be grateful for",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_36",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_36_poster.webp"
+    }
+  },
+  {
+    "id": 357,
+    "dayOfYear": 357,
+    "textRu": "I always find the right time to implement Мой plans.",
+    "textEn": "I always find the right time to implement my plans",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_37",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_37_poster.webp"
+    }
+  },
+  {
+    "id": 358,
+    "dayOfYear": 358,
+    "textRu": "Today, no person, place, or thing can irritate me. I'm at peace.",
+    "textEn": "Today, no person, place, or thing can irritate me. I'm at peace.",
+    "category": {
+      "id": "health",
+      "nameRu": "Здоровье и энергия тела",
+      "icon": "🌱"
+    },
+    "video": {
+      "loopId": "astra_loop_38",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_38_poster.webp"
+    }
+  },
+  {
+    "id": 359,
+    "dayOfYear": 359,
+    "textRu": "Life is more vibrant and exciting when Я — in better contact with myself.",
+    "textEn": "Life is more vibrant and exciting when I am in better contact with myself",
+    "category": {
+      "id": "intuition",
+      "nameRu": "Интуиция и ясность пути",
+      "icon": "🌙"
+    },
+    "video": {
+      "loopId": "astra_loop_39",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_39_poster.webp"
+    }
+  },
+  {
+    "id": 360,
+    "dayOfYear": 360,
+    "textRu": "I let Мой inner strength guide me.",
+    "textEn": "I let my inner strength guide me",
+    "category": {
+      "id": "strength",
+      "nameRu": "Сила духа и уверенность",
+      "icon": "☀️"
+    },
+    "video": {
+      "loopId": "astra_loop_40",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_40_poster.webp"
+    }
+  },
+  {
+    "id": 361,
+    "dayOfYear": 361,
+    "textRu": "I cross all bridges with joy and ease.",
+    "textEn": "I cross all bridges with joy and ease",
+    "category": {
+      "id": "peace",
+      "nameRu": "Внутренний покой и доверие",
+      "icon": "🕊️"
+    },
+    "video": {
+      "loopId": "astra_loop_01",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_01_poster.webp"
+    }
+  },
+  {
+    "id": 362,
+    "dayOfYear": 362,
+    "textRu": "By being myself, I bring happiness to other people.",
+    "textEn": "By being myself, I bring happiness to other people",
+    "category": {
+      "id": "abundance",
+      "nameRu": "Изобилие и поток возможностей",
+      "icon": "✨"
+    },
+    "video": {
+      "loopId": "astra_loop_02",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_02_poster.webp"
+    }
+  },
+  {
+    "id": 363,
+    "dayOfYear": 363,
+    "textRu": "When I think I'm falling, I'm actually taking off.",
+    "textEn": "When I think I'm falling, I'm actually taking off",
+    "category": {
+      "id": "love",
+      "nameRu": "Любовь, тепло и принятие",
+      "icon": "🌿"
+    },
+    "video": {
+      "loopId": "astra_loop_03",
+      "mp4Url": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03.mp4",
+      "posterUrl": "assets/08_АФФИРМАЦИИ_ВИДЕО/astra_loop_03_poster.webp"
+    }
+  }
+]

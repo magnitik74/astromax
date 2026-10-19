@@ -24,6 +24,26 @@
   ],
   "rewrites": [
     {
+      "source": "/hub",
+      "destination": "/astra_viewer_hub.html"
+    },
+    {
+      "source": "/app",
+      "destination": "/astra_app/astra_main_app.html"
+    },
+    {
+      "source": "/onboarding",
+      "destination": "/astra_app/astra_onboarding_demo.html"
+    },
+    {
+      "source": "/ritual",
+      "destination": "/astra_app/astra_affirmation_ritual_demo.html"
+    },
+    {
+      "source": "/gallery",
+      "destination": "/astra_app/astra_video_loops_gallery.html"
+    },
+    {
       "source": "/health",
       "destination": "/api/health"
     },

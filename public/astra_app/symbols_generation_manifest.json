@@ -1,0 +1,522 @@
+[
+  {
+    "order": 10,
+    "id": "34e40f40-731b-4c29-90ad-679aa6606cac",
+    "name": "Mangala",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\10_Mangala.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\10_Mangala.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Mangala, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 11,
+    "id": "51e17343-71bf-4093-a820-64b96db6a580",
+    "name": "Shukra",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\11_Shukra.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\11_Shukra.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Shukra, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 28,
+    "id": "8c381c0b-10bc-42f5-9b3c-c575678833ce",
+    "name": "Yama",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\28_Yama.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\28_Yama.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Yama, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 33,
+    "id": "a36bfe7e-8f83-4924-bc49-c7a270e82adb",
+    "name": "Lakshmi",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\33_Lakshmi.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\33_Lakshmi.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Lakshmi, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 32,
+    "id": "a41cf31d-1981-4c4c-b4c8-87d76450d0d3",
+    "name": "Parvati",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\32_Parvati.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\32_Parvati.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Parvati, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 27,
+    "id": "acde43c4-3afc-4d1b-8fe2-fb92a7cdb939",
+    "name": "Rudra",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\27_Rudra.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\27_Rudra.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Rudra, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 30,
+    "id": "b0ee941b-ce83-4261-a55e-086213ce95f1",
+    "name": "Hanuman",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\30_Hanuman.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\30_Hanuman.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Hanuman, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 23,
+    "id": "ada32d52-e87c-433a-8c77-a91382907b2e",
+    "name": "Tara",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\23_Tara.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\23_Tara.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Tara, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 12,
+    "id": "17c86a16-5279-4da7-a995-94a5b5064067",
+    "name": "Budha",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\12_Budha.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\12_Budha.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Budha, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 3,
+    "id": "1b9e4913-3614-44b8-be9c-57a5746504e7",
+    "name": "Narasimha",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\03_Narasimha.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\03_Narasimha.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Narasimha, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 20,
+    "id": "5b5e2ea6-9e45-4170-b327-2d98abcd911d",
+    "name": "Ashvini",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\20_Ashvini.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\20_Ashvini.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Ashvini, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 15,
+    "id": "5f9b58c4-2f64-4a27-80d2-529a9523d3b2",
+    "name": "Rama",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\15_Rama.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\15_Rama.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Rama, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 4,
+    "id": "624d0505-dc52-4fda-b56b-7603c7e58f1b",
+    "name": "Mitra",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\04_Mitra.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\04_Mitra.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Mitra, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 25,
+    "id": "0e2f01a6-616d-40b5-a19a-7f73bdd55216",
+    "name": "Kama",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\25_Kama.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\25_Kama.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Kama, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 35,
+    "id": "36269b9d-91f5-46f5-9647-851dfa4e583f",
+    "name": "Kali",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\35_Kali.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\35_Kali.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Kali, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 40,
+    "id": "4dab3656-1574-4464-9568-47852a1d2120",
+    "name": "Varuna",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\40_Varuna.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\40_Varuna.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Varuna, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 26,
+    "id": "4ed8cab2-00a6-4882-97f8-85ca3f1e1039",
+    "name": "Parjanya",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\26_Parjanya.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\26_Parjanya.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Parjanya, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 38,
+    "id": "5ecef456-19c9-46a1-b4e2-92d79c484107",
+    "name": "Ganesha",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\38_Ganesha.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\38_Ganesha.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Ganesha, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 36,
+    "id": "6092c7a0-947f-43d2-9177-e2e726017db3",
+    "name": "Indra",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\36_Indra.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\36_Indra.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Indra, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 29,
+    "id": "684ea671-6dc8-459d-b420-e00edc27db36",
+    "name": "Shiva",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\29_Shiva.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\29_Shiva.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Shiva, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 6,
+    "id": "742e0caf-30f0-4cf6-abda-13b0e6ff27c0",
+    "name": "Prajapati",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\06_Prajapati.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\06_Prajapati.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Prajapati, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 24,
+    "id": "8b37ff84-5308-42af-8a9f-0c12a42387a7",
+    "name": "Gayatri",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\24_Gayatri.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\24_Gayatri.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Gayatri, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 8,
+    "id": "b24bee9a-178b-45e4-945e-611d9c557f00",
+    "name": "Surya",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\08_Surya.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\08_Surya.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Surya, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 16,
+    "id": "b2c6424c-a9d3-42e2-976c-095205776c10",
+    "name": "Radha",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\16_Radha.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\16_Radha.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Radha, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 19,
+    "id": "b8aaecf9-2621-46ac-9ab7-4899c2769c53",
+    "name": "Savitri",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\19_Savitri.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\19_Savitri.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Savitri, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 7,
+    "id": "06c24e81-ebed-4d90-b612-0c3d21541f88",
+    "name": "Daksha",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\07_Daksha.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\07_Daksha.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Daksha, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 5,
+    "id": "08ebf1f9-e65b-470f-adc9-6eeb4c2ede9c",
+    "name": "Vayu",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\05_Vayu.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\05_Vayu.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Vayu, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 9,
+    "id": "0dd42da7-85cc-4c8b-82b8-044634d031cd",
+    "name": "Chandra",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\09_Chandra.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\09_Chandra.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Chandra, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 13,
+    "id": "0deec4e8-4443-4b1e-9b68-513cc16da4b7",
+    "name": "Brihaspati",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\13_Brihaspati.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\13_Brihaspati.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Brihaspati, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 34,
+    "id": "bbf524ac-f940-4e72-8167-0dadcf2b67f7",
+    "name": "Krishna",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\34_Krishna.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\34_Krishna.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Krishna, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 39,
+    "id": "c2b30bd0-4f3b-41f0-bbf7-59f23ebe92ab",
+    "name": "Vishnu",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\39_Vishnu.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\39_Vishnu.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Vishnu, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 21,
+    "id": "cf69d6aa-72ae-4bda-b381-4336e201bf10",
+    "name": "Vishvakarma",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\21_Vishvakarma.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\21_Vishvakarma.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Vishvakarma, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 22,
+    "id": "d11faa1b-afed-464b-a8ed-9d019dfcbbb8",
+    "name": "Kartikeya",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\22_Kartikeya.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\22_Kartikeya.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Kartikeya, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 14,
+    "id": "99c1b01d-9020-43d7-8e22-326a0e2cb346",
+    "name": "Shani",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\14_Shani.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\14_Shani.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Shani, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 2,
+    "id": "e04b7d66-0d51-45a3-b540-abaadac99a1a",
+    "name": "Dhanvantari",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\02_Dhanvantari.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\02_Dhanvantari.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Dhanvantari, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 31,
+    "id": "e880c1f0-9793-4a26-8afd-7c8c156c6a2a",
+    "name": "Saraswati",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\31_Saraswati.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\31_Saraswati.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Saraswati, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 1,
+    "id": "eae18fa9-8784-46d2-9161-9d1de7d6906f",
+    "name": "Agni",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\01_Agni.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\01_Agni.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Agni, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 17,
+    "id": "ee8c2482-2ab2-41f6-a618-a7524726e415",
+    "name": "Brahma",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\17_Brahma.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\17_Brahma.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Brahma, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 18,
+    "id": "f84716d8-db3e-494d-9883-b9220ff4c0c5",
+    "name": "Aditi",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\18_Aditi.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\18_Aditi.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Aditi, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  },
+  {
+    "order": 37,
+    "id": "fc21b68d-2af7-4b4a-b07f-5429b4ea1115",
+    "name": "Durga",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\37_Durga.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\04_СИМВОЛЫ_И_БОЖЕСТВА\\37_Durga.webp",
+    "controlNet": {
+      "mode": "Depth/Pose",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Sacred Vedic Planetary Deity Durga, stylized Vedic temple sculpture of sacred deity, serene calm facial expression with hands in peaceful namaste blessing, soft matte clay and terra-cotta texture, framed by an elegant arched temple alcove, warm glowing celestial planet sphere behind, ambient candlelight, sacred geometry, 8k --ar 9:16 --v 6.1"
+  }
+]

@@ -1,0 +1,314 @@
+[
+  {
+    "order": 14,
+    "id": "a94cb514-6b63-477e-bd56-c7ea31bc1583",
+    "name": "Tiwaz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\14_Tiwaz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\14_Tiwaz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Tiwaz, symbolizing God, justice, sacrifice, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 3,
+    "id": "afa90064-c9da-48e3-ba47-8ba0d4574d25",
+    "name": "Jera",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\03_Jera.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\03_Jera.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Jera, symbolizing Gradual progress, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 8,
+    "id": "0350e4a9-80b4-4f9c-ae9f-974c29949a7e",
+    "name": "Kenaz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\08_Kenaz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\08_Kenaz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Kenaz, symbolizing Flame, knowledge, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 22,
+    "id": "0b6f7bb4-79e2-43ff-9571-4f28e5e5fa16",
+    "name": "Algiz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\22_Algiz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\22_Algiz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Algiz, symbolizing Protection, connection with the Divine, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 13,
+    "id": "18afaf1f-6626-4c0c-a5bb-b93813343d8f",
+    "name": "Wunjo",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\13_Wunjo.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\13_Wunjo.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Wunjo, symbolizing Heart joy, integrity, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 4,
+    "id": "1c59b4ad-7b7a-4df8-a334-6e7aab52b2ee",
+    "name": "Isa",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\04_Isa.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\04_Isa.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Isa, symbolizing Freezing, crystallizing, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 15,
+    "id": "2a273ea9-daa9-41e5-9fbc-742a82ce1205",
+    "name": "Nauthiz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\15_Nauthiz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\15_Nauthiz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Nauthiz, symbolizing Necessity, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 21,
+    "id": "2f226a7b-6b77-48d5-b68b-f6809809cd2a",
+    "name": "Mannaz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\21_Mannaz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\21_Mannaz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Mannaz, symbolizing Perfection, human, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 20,
+    "id": "3bae44d3-b79c-48aa-9791-d0bea6326764",
+    "name": "Laguz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\20_Laguz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\20_Laguz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Laguz, symbolizing Secrets of water, intuition, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 19,
+    "id": "594dd787-9e16-4bda-8a02-1ba6ce4ac631",
+    "name": "Inguz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\19_Inguz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\19_Inguz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Inguz, symbolizing Sacred seed, process, space, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 16,
+    "id": "6f3996e1-66e4-4679-9c79-cf2b65023f59",
+    "name": "Sowilo",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\16_Sowilo.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\16_Sowilo.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Sowilo, symbolizing Sun, success, prosperity, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 5,
+    "id": "7788681c-9d27-41bb-aecf-bb785dea3b52",
+    "name": "Fehu",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\05_Fehu.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\05_Fehu.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Fehu, symbolizing Vitality, wealth, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 17,
+    "id": "7ded90eb-a622-495b-88f2-bea584d65734",
+    "name": "Dagaz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\17_Dagaz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\17_Dagaz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Dagaz, symbolizing Day, awakening, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 18,
+    "id": "8c5bbf32-c3c3-4abd-945f-f8242ff9000a",
+    "name": "Othala",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\18_Othala.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\18_Othala.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Othala, symbolizing Kin, heritage, egregor, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 11,
+    "id": "b2fbc995-5a14-4cb0-99a1-0dc00e781128",
+    "name": "Gebo",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\11_Gebo.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\11_Gebo.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Gebo, symbolizing Gift, partnership, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 6,
+    "id": "b6fd82a6-7a4a-4667-a5d4-ac7cd8bf771f",
+    "name": "Uruz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\06_Uruz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\06_Uruz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Uruz, symbolizing Natural force, manifestation, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 9,
+    "id": "badc002e-b687-46e9-bd50-c88b6a77a8b8",
+    "name": "Ehwaz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\09_Ehwaz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\09_Ehwaz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Ehwaz, symbolizing Horse, trust, change for the better, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 7,
+    "id": "d09eb594-57fa-4a48-9d81-cfe8b891ca47",
+    "name": "Raido",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\07_Raido.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\07_Raido.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Raido, symbolizing Journey, synchronization, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 12,
+    "id": "d65a3008-61ce-4bab-9299-28e3bd5aae49",
+    "name": "Berkano",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\12_Berkano.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\12_Berkano.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Berkano, symbolizing Birch goddess, birth, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 24,
+    "id": "e4ff6e02-62cf-4e0b-bdd6-40a9e0fe335a",
+    "name": "Ansuz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\24_Ansuz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\24_Ansuz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Ansuz, symbolizing Voice of the Universe, inspiration, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 10,
+    "id": "ef9af45e-a5c3-48c1-9662-752d18229fe0",
+    "name": "Perthro",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\10_Perthro.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\10_Perthro.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Perthro, symbolizing Unknown, fate, game, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 23,
+    "id": "f2715d1d-f948-4a55-8dbe-506a0d09ba20",
+    "name": "Eihwaz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\23_Eihwaz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\23_Eihwaz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Eihwaz, symbolizing Transition, path of the heart, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 2,
+    "id": "f4f87dd0-459a-4bfc-8da1-2774a3e43048",
+    "name": "Thurisaz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\02_Thurisaz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\02_Thurisaz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Thurisaz, symbolizing Manifestation, protection, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  },
+  {
+    "order": 1,
+    "id": "ff8cc6f2-1207-4bb1-bc89-41dfa722c88f",
+    "name": "Hagalaz",
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\01_Hagalaz.png",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\02_СКАНДИНАВСКИЕ_РУНЫ\\01_Hagalaz.webp",
+    "controlNet": {
+      "mode": "Depth/Silhouette",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Elder Futhark Rune Hagalaz, symbolizing Radical change, transformation, smooth tactile river pebble stone talisman, rounded matte dark navy and charcoal ceramic pebble, engraved sacred ivory runic symbol with soft inner glow, studio lighting with gentle soft rim light, clean solid background, minimalist zen aesthetic, 8k, square --v 6.1"
+  }
+]

@@ -1,0 +1,1849 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>АСТРА — Каноничный Онбординг (1:1 Moonly Architecture)</title>
+
+  <!-- Оригинальные шрифты Moonly -->
+  <style>
+    @font-face {
+      font-family: 'Recoleta';
+      src: url('../benchmarks/fonts/Recoleta-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Recoleta';
+      src: url('../benchmarks/fonts/Recoleta-SemiBold.otf') format('opentype');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Recoleta';
+      src: url('../benchmarks/fonts/Recoleta-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Roobert';
+      src: url('../benchmarks/fonts/Roobert-Regular.otf') format('opentype');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Roobert';
+      src: url('../benchmarks/fonts/Roobert-Medium.otf') format('opentype');
+      font-weight: 500;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Roobert';
+      src: url('../benchmarks/fonts/Roobert-SemiBold.otf') format('opentype');
+      font-weight: 600;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'Roobert';
+      src: url('../benchmarks/fonts/Roobert-Bold.otf') format('opentype');
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    :root {
+      --bg-dark: #0d0e12;
+      --card-bg: #1a1c23;
+      --card-bg-elevated: #222530;
+      --card-bg-trans: rgba(26, 28, 35, 0.94);
+      --accent-gold: #e2b97e;
+      --accent-gold-btn: #e5a85a;
+      --text-main: #f5eee6;
+      --text-muted: #8b93a8;
+      --border-subtle: rgba(226, 185, 126, 0.16);
+      --border-gold: rgba(226, 185, 126, 0.45);
+      --font-serif: 'Recoleta', Georgia, serif;
+      --font-sans: 'Roobert', -apple-system, BlinkMacSystemFont, sans-serif;
+      --radius-card: 20px;
+      --radius-btn: 32px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+
+    body {
+      background-color: #060709;
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow-x: hidden;
+    }
+
+    /* Мобильный экран-контейнер */
+    .app-viewport {
+      width: 100%;
+      max-width: 420px;
+      height: 100vh;
+      max-height: 900px;
+      background-color: var(--bg-dark);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    }
+
+    @media (min-width: 500px) {
+      .app-viewport {
+        height: 860px;
+        border-radius: 40px;
+      }
+    }
+
+    /* Верхний прогресс-бар (13 шагов) */
+    .top-nav {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      right: 16px;
+      height: 36px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 50;
+    }
+
+    .back-btn {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.08);
+      border: none;
+      color: var(--text-main);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s;
+    }
+
+    .progress-track {
+      flex: 1;
+      height: 4px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 4px;
+      margin: 0 14px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 8%;
+      background: linear-gradient(90deg, #e2b97e, #e5a85a);
+      border-radius: 4px;
+      transition: width 0.35s ease;
+    }
+
+    .step-counter {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 600;
+      min-width: 34px;
+      text-align: right;
+    }
+
+    /* Экраны */
+    .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      padding: 56px 20px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateX(25px);
+      transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      z-index: 10;
+    }
+
+    .screen.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateX(0);
+    }
+
+    /* Типографика */
+    h1.title-serif {
+      font-family: var(--font-serif);
+      font-size: 28px;
+      line-height: 1.25;
+      font-weight: 700;
+      color: var(--text-main);
+      text-align: center;
+      letter-spacing: -0.3px;
+    }
+
+    p.subtitle-text {
+      font-size: 14px;
+      line-height: 1.45;
+      color: var(--text-muted);
+      text-align: center;
+      margin-top: 8px;
+      padding: 0 8px;
+    }
+
+    .badge-caps {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(226, 185, 126, 0.1);
+      border: 1px solid var(--border-subtle);
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 11px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      margin: 0 auto 12px auto;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    /* Кнопки CTA */
+    .btn-gold {
+      width: 100%;
+      height: 56px;
+      border-radius: var(--radius-btn);
+      background: linear-gradient(135deg, #e5a85a 0%, #d49341 100%);
+      color: #121319;
+      font-size: 16px;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 8px 24px rgba(229, 168, 90, 0.28);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      margin-top: auto;
+      flex-shrink: 0;
+    }
+
+    .btn-gold:active {
+      transform: scale(0.97);
+    }
+
+    /* Карточки опроса (Quiz & Options) */
+    .quiz-options {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 24px;
+    }
+
+    .quiz-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-card:active {
+      transform: scale(0.98);
+    }
+
+    .quiz-card.selected {
+      background: rgba(226, 185, 126, 0.12);
+      border-color: var(--accent-gold);
+      box-shadow: 0 0 16px rgba(226, 185, 126, 0.18);
+    }
+
+    .quiz-card-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .quiz-radio {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(226, 185, 126, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+      flex-shrink: 0;
+    }
+
+    .quiz-card.selected .quiz-radio {
+      border-color: var(--accent-gold);
+      background: var(--accent-gold);
+    }
+
+    .quiz-card.selected .quiz-radio::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #121319;
+    }
+
+    /* ЭКРАН 1: ИНТРО */
+    .intro-hero {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .intro-hero img {
+      width: 78%;
+      max-height: 280px;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 35px rgba(0, 0, 0, 0.7)) drop-shadow(0 0 25px rgba(179, 136, 255, 0.18));
+      animation: celestialSway 5.5s ease-in-out infinite;
+      transform-origin: center bottom;
+      will-change: transform;
+    }
+
+    @keyframes celestialSway {
+      0% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+      }
+      25% {
+        transform: translateY(-9px) rotate(2.4deg) scale(1.015);
+      }
+      50% {
+        transform: translateY(-2px) rotate(0deg) scale(1);
+      }
+      75% {
+        transform: translateY(-10px) rotate(-2.4deg) scale(1.015);
+      }
+      100% {
+        transform: translateY(0px) rotate(0deg) scale(1);
+      }
+    }
+
+    /* ЭКРАН 2: ПОЛ */
+    .gender-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      margin-top: 40px;
+    }
+
+    .gender-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 24px;
+      padding: 32px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .gender-card.selected {
+      border-color: var(--accent-gold);
+      background: rgba(226, 185, 126, 0.12);
+      box-shadow: 0 0 20px rgba(226, 185, 126, 0.2);
+    }
+
+    .gender-symbol {
+      font-size: 38px;
+      color: var(--accent-gold);
+    }
+
+    .gender-label {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    /* БАРАБАНЫ ВЫБОРА ДАТЫ И ВРЕМЕНИ (WHEEL PICKERS) */
+    .wheel-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      height: 220px;
+      margin: 30px 0;
+      position: relative;
+    }
+
+    .wheel-overlay-highlight {
+      position: absolute;
+      top: 50%;
+      left: 10px;
+      right: 10px;
+      height: 48px;
+      transform: translateY(-50%);
+      background: rgba(226, 185, 126, 0.08);
+      border-top: 1px solid var(--border-gold);
+      border-bottom: 1px solid var(--border-gold);
+      border-radius: 12px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .wheel-col {
+      flex: 1;
+      height: 100%;
+      overflow-y: scroll;
+      scroll-snap-type: y mandatory;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      position: relative;
+      z-index: 1;
+      padding: 86px 0;
+    }
+
+    .wheel-col::-webkit-scrollbar {
+      display: none;
+    }
+
+    .wheel-item {
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      scroll-snap-align: center;
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .wheel-item.selected {
+      color: var(--accent-gold);
+      font-size: 22px;
+      font-weight: 700;
+    }
+
+    /* СВИТЧ ДЛЯ НЕИЗВЕСТНОГО ВРЕМЕНИ */
+    .switch-box {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 12px;
+    }
+
+    .switch-pill {
+      width: 46px;
+      height: 26px;
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 13px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+
+    .switch-pill.on {
+      background: var(--accent-gold);
+    }
+
+    .switch-knob {
+      width: 22px;
+      height: 22px;
+      background: white;
+      border-radius: 50%;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .switch-pill.on .switch-knob {
+      transform: translateX(20px);
+    }
+
+    /* ЭКРАН 7: МЕСТО РОЖДЕНИЯ (BORN PLACE SEARCH) */
+    .search-input-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 20px 0 14px 0;
+    }
+
+    .search-input-card input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      color: var(--text-main);
+      font-size: 16px;
+      font-family: var(--font-sans);
+      outline: none;
+    }
+
+    .search-input-card input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .places-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      overflow-y: auto;
+      max-height: 360px;
+      padding-right: 4px;
+    }
+
+    .place-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 13px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .place-item:active, .place-item.selected {
+      background: rgba(226, 185, 126, 0.12);
+      border-color: var(--accent-gold);
+    }
+
+    .place-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .place-country {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* ЭКРАН 8: ВЫБОР ЖРИЦЫ (PRIESTESS CHOICE) */
+    .priestess-carousel {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+
+    .priestess-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 14px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .priestess-card.selected {
+      border-color: var(--accent-gold);
+      background: rgba(226, 185, 126, 0.12);
+      box-shadow: 0 0 16px rgba(226, 185, 126, 0.2);
+    }
+
+    .priestess-avatar {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      border: 2px solid var(--accent-gold);
+      margin-bottom: 8px;
+      object-fit: cover;
+    }
+
+    .priestess-name {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .priestess-role {
+      font-size: 11px;
+      color: var(--accent-gold);
+      margin-top: 2px;
+    }
+
+    .priestess-desc {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      margin-top: 4px;
+      line-height: 1.35;
+    }
+
+    /* ЭКРАН 9: МОРФИНГ ЛИЦ И ЗОДИАКА (PERSONAL IMAGES) */
+    .morph-visual {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .morph-rings {
+      width: 200px;
+      height: 200px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .morph-circle {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px dashed rgba(226, 185, 126, 0.4);
+      animation: spinRings 12s linear infinite;
+    }
+
+    .morph-circle-1 { width: 100%; height: 100%; }
+    .morph-circle-2 { width: 75%; height: 75%; animation-direction: reverse; animation-duration: 8s; }
+
+    @keyframes spinRings {
+      100% { transform: rotate(360deg); }
+    }
+
+    .morph-center-glyph {
+      font-size: 54px;
+      color: var(--accent-gold);
+      filter: drop-shadow(0 0 20px rgba(226, 185, 126, 0.7));
+      animation: pulseGlyph 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseGlyph {
+      0% { transform: scale(0.95); opacity: 0.85; }
+      100% { transform: scale(1.1); opacity: 1; }
+    }
+
+    /* ЭКРАН 10: РАСЧЕТ КАРТЫ (PERSONALIZING - ОРИГИНАЛЬНЫЙ МЕДАЛЬОН MOONLY) */
+    .calculating-box {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .original-loader-wrap {
+      position: relative;
+      width: 170px;
+      height: 170px;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .original-loader-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 0 25px rgba(226, 185, 126, 0.45));
+      animation: pulseMedallion 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes pulseMedallion {
+      0% { transform: scale(0.97) rotate(0deg); }
+      100% { transform: scale(1.04) rotate(4deg); }
+    }
+
+    .loader-percent-badge {
+      position: absolute;
+      bottom: -10px;
+      background: rgba(22, 24, 32, 0.92);
+      border: 1px solid var(--accent-gold);
+      border-radius: 14px;
+      padding: 4px 14px;
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--accent-gold);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+    }
+
+    .calc-steps-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      max-width: 320px;
+      text-align: left;
+    }
+
+    .calc-step-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13.5px;
+      color: var(--text-muted);
+      opacity: 0.4;
+      transition: all 0.3s ease;
+    }
+
+    .calc-step-row.done {
+      opacity: 1;
+      color: var(--text-main);
+    }
+
+    .calc-step-icon {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(226, 185, 126, 0.15);
+      color: var(--accent-gold);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    /* ЭКРАН 11: ДО И ПОСЛЕ (BEFORE / AFTER) */
+    .before-after-container {
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      flex: 1;
+      justify-content: center;
+    }
+
+    .ba-card {
+      border-radius: var(--radius-card);
+      padding: 16px 18px;
+      position: relative;
+    }
+
+    .ba-card.before {
+      background: #15161b;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .ba-card.after {
+      background: linear-gradient(180deg, #222533 0%, #191b26 100%);
+      border: 1.5px solid var(--accent-gold);
+      box-shadow: 0 8px 30px rgba(226, 185, 126, 0.15);
+    }
+
+    .ba-card-badge {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 8px;
+    }
+
+    .ba-card.before .ba-card-badge { color: #828a9e; }
+    .ba-card.after .ba-card-badge { color: var(--accent-gold); }
+
+    .ba-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .ba-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13.5px;
+    }
+
+    .ba-card.before .ba-item { color: #8f95a8; }
+    .ba-card.after .ba-item { color: #f5eee6; font-weight: 500; }
+
+    .ba-cross { color: #ff5e62; font-weight: 700; font-size: 14px; }
+    .ba-check { color: var(--accent-gold); font-weight: 700; font-size: 14px; }
+
+    /* ЭКРАН 12: РИСОВАНИЕ РУНЫ (DRAWING) */
+    .drawing-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .canvas-wrap {
+      width: 280px;
+      height: 280px;
+      background: rgba(26, 28, 35, 0.6);
+      border: 1px solid var(--border-subtle);
+      border-radius: 32px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: inset 0 0 30px rgba(0, 0, 0, 0.8), 0 0 25px rgba(226, 185, 126, 0.1);
+      touch-action: none;
+    }
+
+    .rune-outline-hint {
+      position: absolute;
+      width: 140px;
+      height: 140px;
+      opacity: 0.25;
+      pointer-events: none;
+      filter: drop-shadow(0 0 8px #e2b97e);
+    }
+
+    #drawingCanvas {
+      width: 100%;
+      height: 100%;
+      border-radius: 32px;
+      cursor: crosshair;
+    }
+
+    /* ЭКРАН 13: РОСКОШНЫЙ ПЕЙВОЛЛ MOONLY */
+    .paywall-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: #0d0e12;
+      background-size: cover;
+      background-position: center top;
+      background-repeat: no-repeat;
+      display: flex;
+      flex-direction: column;
+      padding: 24px 20px;
+      z-index: 100;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(100%);
+      transition: all 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .paywall-screen.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .paywall-dark-gradient {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(13, 14, 18, 0.25) 0%, rgba(13, 14, 18, 0.82) 48%, #0d0e12 90%);
+      z-index: 1;
+    }
+
+    .paywall-content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .paywall-close-x {
+      align-self: flex-end;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.16);
+      border: none;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .social-proof-stars {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--accent-gold);
+      font-weight: 600;
+      margin: 10px 0 4px 0;
+    }
+
+    .review-bubble {
+      background: rgba(26, 28, 35, 0.85);
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      padding: 12px 14px;
+      margin: 12px 0;
+      font-size: 12px;
+      line-height: 1.45;
+      color: #cfd4e2;
+      text-align: center;
+      font-style: italic;
+    }
+
+    .rates-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 10px 0 16px 0;
+    }
+
+    .rate-box {
+      background: rgba(26, 28, 35, 0.95);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-card);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      transition: all 0.2s;
+    }
+
+    .rate-box.active {
+      border: 1.5px solid var(--accent-gold);
+      background: rgba(34, 37, 50, 0.96);
+      box-shadow: 0 0 20px rgba(226, 185, 126, 0.22);
+    }
+
+    .rate-badge-hit {
+      position: absolute;
+      top: -10px;
+      right: 14px;
+      background: linear-gradient(90deg, #e5a85a, #d49341);
+      color: #121319;
+      font-size: 9.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      padding: 3px 8px;
+      border-radius: 8px;
+    }
+
+    /* DOWNSELL MODAL (3 ДНЯ ЗА 49 РУБЛЕЙ) */
+    .downsell-box {
+      position: absolute;
+      bottom: 24px;
+      left: 18px;
+      right: 18px;
+      background: #1c1f2b;
+      border: 1.5px solid var(--accent-gold);
+      border-radius: 24px;
+      padding: 22px;
+      z-index: 150;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.92);
+      display: none;
+      animation: popUp 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    @keyframes popUp {
+      from { transform: scale(0.92); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app-viewport">
+
+    <!-- ВЕРХНЯЯ НАВИГАЦИЯ И ПРОГРЕСС -->
+    <div class="top-nav" id="topNav">
+      <button class="back-btn" id="backBtn" onclick="prevScreen()">‹</button>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+      <div class="step-counter" id="stepCounter">1 / 13</div>
+    </div>
+
+    <!-- 1. MediaInfo: ИНТРО -->
+    <div class="screen active" id="screen1">
+      <div style="margin-top: 10px;">
+        <div class="badge-caps">✦ АСТРА · КОСМИЧЕСКИЙ РИТМ</div>
+        <h1 class="title-serif">Настройтесь на ритм<br>Вселенной</h1>
+        <p class="subtitle-text">Пара шагов — и АСТРА подстроится под вашу индивидуальную карту и задачи души</p>
+      </div>
+
+      <div class="intro-hero">
+        <img src="../benchmarks/dreamer_cloud_with_moon.png" alt="Moon & Clouds">
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Отправиться в путь →
+      </button>
+    </div>
+
+    <!-- 2. GenderSelection: ПОЛ -->
+    <div class="screen" id="screen2">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Укажите ваш пол</h1>
+        <p class="subtitle-text">Это поможет настроить язык планетарных транзитов и астрологических наставлений</p>
+      </div>
+
+      <div class="gender-grid">
+        <div class="gender-card selected" onclick="selectGender('female', this)">
+          <div class="gender-symbol">♀</div>
+          <div class="gender-label">Женский</div>
+        </div>
+        <div class="gender-card" onclick="selectGender('male', this)">
+          <div class="gender-symbol">♂</div>
+          <div class="gender-label">Мужской</div>
+        </div>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Продолжить →
+      </button>
+    </div>
+
+    <!-- 3. Quiz 1: ЦЕЛИ -->
+    <div class="screen" id="screen3">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Что вы хотите изменить<br>в жизни?</h1>
+        <p class="subtitle-text">Выберите главное намерение, на котором сфокусируется ваш персональный расчет</p>
+      </div>
+
+      <div class="quiz-options">
+        <div class="quiz-card selected" onclick="selectQuiz(this)">
+          <div class="quiz-card-title">Найти истинный путь и предназначение</div>
+          <div class="quiz-radio"></div>
+        </div>
+        <div class="quiz-card" onclick="selectQuiz(this)">
+          <div class="quiz-card-title">Финансовый рост и уверенность в решениях</div>
+          <div class="quiz-radio"></div>
+        </div>
+        <div class="quiz-card" onclick="selectQuiz(this)">
+          <div class="quiz-card-title">Гармония в любви и глубокий союз</div>
+          <div class="quiz-radio"></div>
+        </div>
+        <div class="quiz-card" onclick="selectQuiz(this)">
+          <div class="quiz-card-title">Укрепить душевное спокойствие и равновесие</div>
+          <div class="quiz-radio"></div>
+        </div>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Продолжить →
+      </button>
+    </div>
+
+    <!-- 4. Quiz 2: ПРЕПЯТСТВИЯ -->
+    <div class="screen" id="screen4">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Что сильнее всего<br>отнимает энергию?</h1>
+        <p class="subtitle-text">Мы выявим теневые аспекты и планетарные блоки, требующие проработки</p>
+      </div>
+
+      <div class="quiz-options">
+        <div class="quiz-card selected" onclick="selectQuiz(this)">
+          <div class="quiz-card-title">Навязчивые мысли и внутренняя тревога</div>
+          <div class="quiz-radio"></div>
+        </div>
+        <div class="quiz-card" onclick="selectQuiz(this)">
+          <div class="quiz-card-title">Упадок сил, лень и прокрастинация</div>
+          <div class="quiz-radio"></div>
+        </div>
+        <div class="quiz-card" onclick="selectQuiz(this)">
+          <div class="quiz-card-title">Путаница в мыслях и неясность целей</div>
+          <div class="quiz-radio"></div>
+        </div>
+        <div class="quiz-card" onclick="selectQuiz(this)">
+          <div class="quiz-card-title">Стресс на работе и эмоциональное выгорание</div>
+          <div class="quiz-radio"></div>
+        </div>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Продолжить →
+      </button>
+    </div>
+
+    <!-- 5. DateSelection: ДАТА РОЖДЕНИЯ (WHEEL PICKER) -->
+    <div class="screen" id="screen5">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Когда вы родились?</h1>
+        <p class="subtitle-text">Дата определяет базовые координаты планет и ваш солнечный знак</p>
+      </div>
+
+      <div class="wheel-container">
+        <div class="wheel-overlay-highlight"></div>
+        <!-- День -->
+        <div class="wheel-col" id="wheelDay">
+          <div class="wheel-item">15</div>
+          <div class="wheel-item">16</div>
+          <div class="wheel-item">17</div>
+          <div class="wheel-item selected">18</div>
+          <div class="wheel-item">19</div>
+          <div class="wheel-item">20</div>
+          <div class="wheel-item">21</div>
+        </div>
+        <!-- Месяц -->
+        <div class="wheel-col" id="wheelMonth">
+          <div class="wheel-item">Мар</div>
+          <div class="wheel-item">Апр</div>
+          <div class="wheel-item selected">Май</div>
+          <div class="wheel-item">Июн</div>
+          <div class="wheel-item">Июл</div>
+          <div class="wheel-item">Авг</div>
+        </div>
+        <!-- Год -->
+        <div class="wheel-col" id="wheelYear">
+          <div class="wheel-item">1993</div>
+          <div class="wheel-item">1994</div>
+          <div class="wheel-item">1995</div>
+          <div class="wheel-item selected">1996</div>
+          <div class="wheel-item">1997</div>
+          <div class="wheel-item">1998</div>
+          <div class="wheel-item">1999</div>
+        </div>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Продолжить →
+      </button>
+    </div>
+
+    <!-- 6. TimeSelection: ВРЕМЯ РОЖДЕНИЯ (WHEEL PICKER) -->
+    <div class="screen" id="screen6">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Время рождения</h1>
+        <p class="subtitle-text">Точное время необходимо для расчёта восходящего знака (Асцендента) и домов</p>
+      </div>
+
+      <div class="wheel-container">
+        <div class="wheel-overlay-highlight"></div>
+        <!-- Часы -->
+        <div class="wheel-col" id="wheelHour">
+          <div class="wheel-item">12</div>
+          <div class="wheel-item">13</div>
+          <div class="wheel-item selected">14</div>
+          <div class="wheel-item">15</div>
+          <div class="wheel-item">16</div>
+        </div>
+        <!-- Разделитель -->
+        <div style="font-size: 24px; font-weight: 700; color: var(--accent-gold); z-index: 5;">:</div>
+        <!-- Минуты -->
+        <div class="wheel-col" id="wheelMinute">
+          <div class="wheel-item">20</div>
+          <div class="wheel-item">25</div>
+          <div class="wheel-item selected">30</div>
+          <div class="wheel-item">35</div>
+          <div class="wheel-item">40</div>
+        </div>
+      </div>
+
+      <div class="switch-box">
+        <span style="font-size: 14px; color: var(--text-muted); font-weight: 500;">Не знаю точное время</span>
+        <div class="switch-pill" id="unknownTimeToggle" onclick="toggleUnknownTime()">
+          <div class="switch-knob"></div>
+        </div>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Продолжить →
+      </button>
+    </div>
+
+    <!-- 7. BornPlace: МЕСТО РОЖДЕНИЯ -->
+    <div class="screen" id="screen7">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Место рождения</h1>
+        <p class="subtitle-text">Географическая точка выстраивает сетку домов и определяет Асцендент</p>
+      </div>
+
+      <div class="search-input-card">
+        <span style="color: var(--accent-gold); font-size: 18px;">🔍</span>
+        <input type="text" id="cityInput" placeholder="Начните вводить город или страну..." value="Москва, Россия" oninput="filterPlaces()" onfocus="if(this.value==='Москва, Россия'){this.value=''; filterPlaces();}">
+        <span style="color: var(--text-muted); font-size: 14px; cursor: pointer; padding: 4px;" onclick="document.getElementById('cityInput').value=''; filterPlaces();">✕</span>
+      </div>
+
+      <div class="places-list" id="placesList">
+        <div class="place-item" onclick="choosePlace('Москва, Россия')">
+          <div>
+            <div class="place-name">Москва</div>
+            <div class="place-country">Россия · Московская область</div>
+          </div>
+          <span style="color: var(--accent-gold);">✓</span>
+        </div>
+        <div class="place-item" onclick="choosePlace('Санкт-Петербург, Россия')">
+          <div>
+            <div class="place-name">Санкт-Петербург</div>
+            <div class="place-country">Россия · Ленинградская область</div>
+          </div>
+        </div>
+        <div class="place-item" onclick="choosePlace('Новосибирск, Россия')">
+          <div>
+            <div class="place-name">Новосибирск</div>
+            <div class="place-country">Россия · Новосибирская область</div>
+          </div>
+        </div>
+        <div class="place-item" onclick="choosePlace('Екатеринбург, Россия')">
+          <div>
+            <div class="place-name">Екатеринбург</div>
+            <div class="place-country">Россия · Свердловская область</div>
+          </div>
+        </div>
+        <div class="place-item" onclick="choosePlace('Казань, Россия')">
+          <div>
+            <div class="place-name">Казань</div>
+            <div class="place-country">Россия · Татарстан</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Подтвердить место →
+      </button>
+    </div>
+
+    <!-- 8. PriestessChoice: ВЫБОР ЖРИЦЫ / НАСТАВНИКА (ОРИГИНАЛЬНЫЕ КАРТЫ MOONLY) -->
+    <div class="screen" id="screen8">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Выберите вашего<br>Наставника</h1>
+        <p class="subtitle-text">Кто будет вести вас через транзиты планет и давать личные рекомендации?</p>
+      </div>
+
+      <div class="priestess-carousel">
+        <div class="priestess-card selected" onclick="selectPriestess(this, 'alena')">
+          <img src="../benchmarks/ic_tarot_card_v2_2.png" style="width: 54px; height: 76px; object-fit: contain; margin-bottom: 8px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));" alt="Алёна">
+          <div class="priestess-name">Алёна</div>
+          <div class="priestess-role">Жрица Интуиции</div>
+          <div class="priestess-desc">Глубокая связь с Луной, сновидениями и подсознанием</div>
+        </div>
+
+        <div class="priestess-card" onclick="selectPriestess(this, 'artem')">
+          <img src="../benchmarks/ic_gods_card_back.png" style="width: 54px; height: 76px; object-fit: contain; margin-bottom: 8px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));" alt="Артём">
+          <div class="priestess-name">Артём</div>
+          <div class="priestess-role">Жрец Действия</div>
+          <div class="priestess-desc">Карьера, масштаб, финансы и преодоление страхов</div>
+        </div>
+
+        <div class="priestess-card" onclick="selectPriestess(this, 'elena')">
+          <img src="../benchmarks/ic_oracle_card_back.png" style="width: 54px; height: 76px; object-fit: contain; margin-bottom: 8px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));" alt="Елена">
+          <div class="priestess-name">Елена</div>
+          <div class="priestess-role">Жрица Гармонии</div>
+          <div class="priestess-desc">Отношения, исцеление травм и баланс стихий</div>
+        </div>
+
+        <div class="priestess-card" onclick="selectPriestess(this, 'sofia')">
+          <img src="../benchmarks/meditation_crystal.png" style="width: 54px; height: 76px; object-fit: contain; margin-bottom: 8px; filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));" alt="София">
+          <div class="priestess-name">София</div>
+          <div class="priestess-role">Жрица Судьбы</div>
+          <div class="priestess-desc">Кармические уроки, реинкарнация и предназначение</div>
+        </div>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Выбрать Наставника →
+      </button>
+    </div>
+
+    <!-- 9. PersonalImages: МОРФИНГ ЗНАКОВ И АРХЕТИПА -->
+    <div class="screen" id="screen9">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Синхронизация Знака</h1>
+        <p class="subtitle-text">Считываем положение планет на момент вашего первого вздоха...</p>
+      </div>
+
+      <div class="morph-visual">
+        <div class="morph-rings">
+          <div class="morph-circle morph-circle-1"></div>
+          <div class="morph-circle morph-circle-2"></div>
+          <div class="morph-center-glyph" id="morphGlyph">♉︎</div>
+        </div>
+        <h3 class="title-serif" style="font-size: 20px; color: var(--accent-gold); margin-top: 20px;" id="zodiacSignTitle">Солнце в Тельце</h3>
+        <p style="font-size: 13px; color: var(--text-muted); margin-top: 4px;">Финансовая опора · Непоколебимая стойкость</p>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Продолжить синхронизацию →
+      </button>
+    </div>
+
+    <!-- 10. Personalizing: РИТУАЛ РАСЧЕТА КАРТЫ (ОРИГИНАЛЬНЫЙ МЕДАЛЬОН MOONLY) -->
+    <div class="screen" id="screen10">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Создание Космического<br>Паспорта</h1>
+        <p class="subtitle-text">Точный астрономический расчет координат планет</p>
+      </div>
+
+      <div class="calculating-box">
+        <div class="original-loader-wrap">
+          <img src="../benchmarks/loader_1.png" class="original-loader-img" alt="Moonly Celestial Medallion">
+          <div class="loader-percent-badge" id="calcPercent">0%</div>
+        </div>
+
+        <div class="calc-steps-list">
+          <div class="calc-step-row" id="cStep1"><div class="calc-step-icon">✓</div> Анализ ваших талантов…</div>
+          <div class="calc-step-row" id="cStep2"><div class="calc-step-icon">✓</div> Определение истинной природы…</div>
+          <div class="calc-step-row" id="cStep3"><div class="calc-step-icon">✓</div> Раскрытие эмоций и подсознания…</div>
+          <div class="calc-step-row" id="cStep4"><div class="calc-step-icon">✓</div> Расчет кармических задач…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 11. BeforeAfter: СРАВНЕНИЕ ДО И ПОСЛЕ -->
+    <div class="screen" id="screen11">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Более 140 000 человек<br>изменили жизнь с АСТРА</h1>
+        <p class="subtitle-text">Почувствуйте разницу между жизнью вслепую и осознанным движением</p>
+      </div>
+
+      <div class="before-after-container">
+        <!-- До -->
+        <div class="ba-card before">
+          <div class="ba-card-badge">До АСТРА</div>
+          <div class="ba-list">
+            <div class="ba-item"><span class="ba-cross">✕</span> Жизнь на автопилоте и хаос</div>
+            <div class="ba-item"><span class="ba-cross">✕</span> Нет чётких приоритетов и опор</div>
+            <div class="ba-item"><span class="ba-cross">✕</span> Тревога и сомнения в решениях</div>
+          </div>
+        </div>
+
+        <!-- С АСТРА -->
+        <div class="ba-card after">
+          <div class="ba-card-badge">С АСТРА</div>
+          <div class="ba-list">
+            <div class="ba-item"><span class="ba-check">✓</span> Уверенность в завтрашнем дне</div>
+            <div class="ba-item"><span class="ba-check">✓</span> Фокус на своих сильных сторонах</div>
+            <div class="ba-item"><span class="ba-check">✓</span> Личный Наставник рядом 24/7</div>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-gold" onclick="nextScreen()">
+        Закрепить намерение →
+      </button>
+    </div>
+
+    <!-- 12. Drawing: ЖЕСТ РИСОВАНИЯ РУНЫ (ОРИГИНАЛЬНЫЙ РУНИЧЕСКИЙ КАМЕНЬ) -->
+    <div class="screen" id="screen12">
+      <div style="margin-top: 10px;">
+        <h1 class="title-serif">Нарисуйте священный<br>символ</h1>
+        <p class="subtitle-text">Проведите пальцем по экрану, чтобы активировать вашу связь со Звёздами</p>
+      </div>
+
+      <div class="drawing-container">
+        <div class="canvas-wrap" id="canvasWrap" style="background-image: url('../benchmarks/rune_of_the_day_opened.png'); background-size: 240px 240px; background-position: center; background-repeat: no-repeat;">
+          <svg class="rune-outline-hint" viewBox="0 0 100 100">
+            <path d="M 50 15 L 50 85 M 50 25 L 75 45 M 50 45 L 75 65" fill="none" stroke="#e2b97e" stroke-width="4" stroke-linecap="round"></path>
+          </svg>
+          <canvas id="drawingCanvas" width="280" height="280"></canvas>
+        </div>
+        <p style="font-size: 12px; color: var(--accent-gold); margin-top: 16px; font-weight: 600;" id="drawingHint">
+          Нарисуйте руну Феху для открытия финансового потока
+        </p>
+      </div>
+
+      <button class="btn-gold" id="finishDrawingBtn" onclick="openPaywall()">
+        Символ начертан →
+      </button>
+    </div>
+
+    <!-- 13. fragment_onboarding_page_paywall: РОСКОШНЫЙ ПЕЙВОЛЛ MOONLY -->
+    <div class="paywall-screen" id="paywallScreen">
+      <div class="paywall-dark-gradient"></div>
+      <div class="paywall-content">
+        <button class="paywall-close-x" onclick="triggerDownsell()">✕</button>
+
+        <div style="margin-top: 6px; text-align: center;">
+          <h1 class="title-serif" style="font-size: 26px;">Твой путеводитель<br>готов</h1>
+          <div class="social-proof-stars">
+            ★★★★★ 4.9 · 140 000+ расчетов
+          </div>
+          <p class="subtitle-text" style="font-size: 13px; margin-top: 2px;">
+            Полный Космический Паспорт, ежедневный транзитный прогноз и безлимитный Наставник
+          </p>
+        </div>
+
+        <div class="review-bubble" style="display: flex; align-items: center; gap: 12px; text-align: left;">
+          <img src="../benchmarks/ic_pw_review_avatar_1.png" style="width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--accent-gold); flex-shrink: 0;" alt="Review">
+          <div>
+            «Точность анализа до мурашек! Наставник помогает мне принимать верные решения каждый день».<br>
+            <span style="color: var(--accent-gold); font-weight: 600; font-style: normal; font-size: 11px;">— Анна М., Москва</span>
+          </div>
+        </div>
+
+        <div class="rates-stack">
+          <!-- LIFETIME -->
+          <div class="rate-box active" onclick="selectRate(this)">
+            <div class="rate-badge-hit">Хит · Навсегда</div>
+            <div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--text-main);">Доступ Навсегда</div>
+              <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Разовый платёж, без подписок</div>
+            </div>
+            <div style="font-size: 18px; font-weight: 800; color: var(--accent-gold);">1 490 ₽</div>
+          </div>
+
+          <!-- 1 ГОД -->
+          <div class="rate-box" onclick="selectRate(this)">
+            <div>
+              <div style="font-size: 15px; font-weight: 700; color: var(--text-main);">1 Год доступа</div>
+              <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Всего 82 ₽ в месяц</div>
+            </div>
+            <div style="font-size: 18px; font-weight: 800; color: var(--accent-gold);">990 ₽</div>
+          </div>
+        </div>
+
+        <button class="btn-gold" style="margin-top: auto;" onclick="alert('Оплата через СБП / Карту РФ в 1 клик')">
+          Получить доступ навсегда →
+        </button>
+      </div>
+
+      <!-- DOWNSELL OKHO -->
+      <div class="downsell-box" id="downsellBox">
+        <h3 class="title-serif" style="font-size: 18px; color: var(--accent-gold); margin-bottom: 6px;">Подождите секунду!</h3>
+        <p style="font-size: 13px; color: #cfd3e0; line-height: 1.45; margin-bottom: 14px;">
+          Откройте пробный доступ на 3 дня всего за 49 ₽, чтобы лично оценить точность прогнозов и силу вашего Наставника.
+        </p>
+        <button class="btn-gold" style="height: 46px; font-size: 14px; margin-bottom: 10px;" onclick="alert('Активация триала на 3 дня за 49 ₽')">
+          Попробовать 3 дня за 49 ₽
+        </button>
+        <div style="text-align: center;">
+          <span style="font-size: 12px; color: var(--text-muted); cursor: pointer;" onclick="closeAllPaywalls()">Нет, спасибо, я ухожу</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    let currentStep = 1;
+    const totalSteps = 13;
+    let selectedGender = 'female';
+    let selectedMentor = 'alena';
+
+    function updateNav(step) {
+      const bar = document.getElementById('progressBar');
+      const counter = document.getElementById('stepCounter');
+      const backBtn = document.getElementById('backBtn');
+      const topNav = document.getElementById('topNav');
+
+      const pct = (step / totalSteps) * 100;
+      bar.style.width = pct + '%';
+      counter.innerText = `${step} / ${totalSteps}`;
+
+      if (step === 1) {
+        backBtn.style.opacity = '0';
+        backBtn.style.pointerEvents = 'none';
+      } else {
+        backBtn.style.opacity = '1';
+        backBtn.style.pointerEvents = 'auto';
+      }
+
+      if (step === 13) {
+        topNav.style.display = 'none';
+      } else {
+        topNav.style.display = 'flex';
+      }
+    }
+
+    function showScreen(step) {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      const pScreen = document.getElementById('paywallScreen');
+      if (pScreen) pScreen.classList.remove('active');
+      const target = document.getElementById('screen' + step);
+      if (target) {
+        target.classList.add('active');
+        currentStep = step;
+        updateNav(step);
+
+        // Специальная логика экранов
+        if (step === 7) {
+          filterPlaces();
+        } else if (step === 10) {
+          runCalculationRitual();
+        } else if (step === 12) {
+          initDrawingCanvas();
+        }
+      }
+    }
+
+    function nextScreen() {
+      if (currentStep < totalSteps) {
+        if (currentStep === 12) {
+          openPaywall();
+        } else {
+          showScreen(currentStep + 1);
+        }
+      }
+    }
+
+    function prevScreen() {
+      if (currentStep > 1) {
+        showScreen(currentStep - 1);
+      }
+    }
+
+    function selectGender(gender, el) {
+      selectedGender = gender;
+      document.querySelectorAll('.gender-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function selectQuiz(el) {
+      const parent = el.parentElement;
+      parent.querySelectorAll('.quiz-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function toggleUnknownTime() {
+      const toggle = document.getElementById('unknownTimeToggle');
+      const hour = document.getElementById('wheelHour');
+      const minute = document.getElementById('wheelMinute');
+      toggle.classList.toggle('on');
+      const disabled = toggle.classList.contains('on');
+      hour.style.opacity = disabled ? '0.25' : '1';
+      minute.style.opacity = disabled ? '0.25' : '1';
+    }
+
+    // БАЗА ГОРОДОВ И ГЕОКОДИНГ (РОССИЯ, СНГ, МИР + ОНЛАЙН АВТОКОМПЛИТ)
+    const CITIES_DB = [
+      { name: 'Москва', region: 'Московская область', country: 'Россия' },
+      { name: 'Санкт-Петербург', region: 'Ленинградская область', country: 'Россия' },
+      { name: 'Новосибирск', region: 'Новосибирская область', country: 'Россия' },
+      { name: 'Екатеринбург', region: 'Свердловская область', country: 'Россия' },
+      { name: 'Казань', region: 'Республика Татарстан', country: 'Россия' },
+      { name: 'Нижний Новгород', region: 'Нижегородская область', country: 'Россия' },
+      { name: 'Челябинск', region: 'Челябинская область', country: 'Россия' },
+      { name: 'Красноярск', region: 'Красноярский край', country: 'Россия' },
+      { name: 'Самара', region: 'Самарская область', country: 'Россия' },
+      { name: 'Уфа', region: 'Республика Башкортостан', country: 'Россия' },
+      { name: 'Ростов-на-Дону', region: 'Ростовская область', country: 'Россия' },
+      { name: 'Омск', region: 'Омская область', country: 'Россия' },
+      { name: 'Краснодар', region: 'Краснодарский край', country: 'Россия' },
+      { name: 'Воронеж', region: 'Воронежская область', country: 'Россия' },
+      { name: 'Пермь', region: 'Пермский край', country: 'Россия' },
+      { name: 'Волгоград', region: 'Волгоградская область', country: 'Россия' },
+      { name: 'Саратов', region: 'Саратовская область', country: 'Россия' },
+      { name: 'Тюмень', region: 'Тюменская область', country: 'Россия' },
+      { name: 'Тольятти', region: 'Самарская область', country: 'Россия' },
+      { name: 'Барнаул', region: 'Алтайский край', country: 'Россия' },
+      { name: 'Ижевск', region: 'Удмуртская Республика', country: 'Россия' },
+      { name: 'Ульяновск', region: 'Ульяновская область', country: 'Россия' },
+      { name: 'Иркутск', region: 'Иркутская область', country: 'Россия' },
+      { name: 'Владивосток', region: 'Приморский край', country: 'Россия' },
+      { name: 'Ярославль', region: 'Ярославская область', country: 'Россия' },
+      { name: 'Хабаровск', region: 'Хабаровский край', country: 'Россия' },
+      { name: 'Махачкала', region: 'Республика Дагестан', country: 'Россия' },
+      { name: 'Томск', region: 'Томская область', country: 'Россия' },
+      { name: 'Оренбург', region: 'Оренбургская область', country: 'Россия' },
+      { name: 'Кемерово', region: 'Кемеровская область', country: 'Россия' },
+      { name: 'Новокузнецк', region: 'Кемеровская область', country: 'Россия' },
+      { name: 'Рязань', region: 'Рязанская область', country: 'Россия' },
+      { name: 'Астрахань', region: 'Астраханская область', country: 'Россия' },
+      { name: 'Набережные Челны', region: 'Республика Татарстан', country: 'Россия' },
+      { name: 'Пенза', region: 'Пензенская область', country: 'Россия' },
+      { name: 'Липецк', region: 'Липецкая область', country: 'Россия' },
+      { name: 'Киров', region: 'Кировская область', country: 'Россия' },
+      { name: 'Чебоксары', region: 'Чувашская Республика', country: 'Россия' },
+      { name: 'Калининград', region: 'Калининградская область', country: 'Россия' },
+      { name: 'Тула', region: 'Тульская область', country: 'Россия' },
+      { name: 'Курск', region: 'Курская область', country: 'Россия' },
+      { name: 'Ставрополь', region: 'Ставропольский край', country: 'Россия' },
+      { name: 'Сочи', region: 'Краснодарский край', country: 'Россия' },
+      { name: 'Улан-Удэ', region: 'Республика Бурятия', country: 'Россия' },
+      { name: 'Тверь', region: 'Тверская область', country: 'Россия' },
+      { name: 'Магнитогорск', region: 'Челябинская область', country: 'Россия' },
+      { name: 'Иваново', region: 'Ивановская область', country: 'Россия' },
+      { name: 'Брянск', region: 'Брянская область', country: 'Россия' },
+      { name: 'Белгород', region: 'Белгородская область', country: 'Россия' },
+      { name: 'Сургут', region: 'ХМАО - Югра', country: 'Россия' },
+      { name: 'Владимир', region: 'Владимирская область', country: 'Россия' },
+      { name: 'Чита', region: 'Забайкальский край', country: 'Россия' },
+      { name: 'Архангельск', region: 'Архангельская область', country: 'Россия' },
+      { name: 'Калуга', region: 'Калужская область', country: 'Россия' },
+      { name: 'Смоленск', region: 'Смоленская область', country: 'Россия' },
+      { name: 'Якутск', region: 'Республика Саха (Якутия)', country: 'Россия' },
+      { name: 'Грозный', region: 'Чеченская Республика', country: 'Россия' },
+      { name: 'Владикавказ', region: 'Республика Северная Осетия', country: 'Россия' },
+      { name: 'Мурманск', region: 'Мурманская область', country: 'Россия' },
+      { name: 'Петрозаводск', region: 'Республика Карелия', country: 'Россия' },
+      { name: 'Кострома', region: 'Костромская область', country: 'Россия' },
+      { name: 'Новороссийск', region: 'Краснодарский край', country: 'Россия' },
+      { name: 'Йошкар-Ола', region: 'Республика Марий Эл', country: 'Россия' },
+      { name: 'Сыктывкар', region: 'Республика Коми', country: 'Россия' },
+      { name: 'Нальчик', region: 'Кабардино-Балкария', country: 'Россия' },
+      { name: 'Нижневартовск', region: 'ХМАО - Югра', country: 'Россия' },
+      { name: 'Севастополь', region: 'Крым', country: 'Россия' },
+      { name: 'Симферополь', region: 'Крым', country: 'Россия' },
+      { name: 'Норильск', region: 'Красноярский край', country: 'Россия' },
+      { name: 'Псков', region: 'Псковская область', country: 'Россия' },
+      { name: 'Южно-Сахалинск', region: 'Сахалинская область', country: 'Россия' },
+      { name: 'Петропавловск-Камчатский', region: 'Камчатский край', country: 'Россия' },
+      { name: 'Магадан', region: 'Магаданская область', country: 'Россия' },
+      { name: 'Минск', region: 'Минская область', country: 'Беларусь' },
+      { name: 'Алматы', region: 'Алматинская область', country: 'Казахстан' },
+      { name: 'Астана', region: 'Акмолинская область', country: 'Казахстан' },
+      { name: 'Ташкент', region: 'Ташкентская область', country: 'Узбекистан' },
+      { name: 'Ереван', region: 'Ереван', country: 'Армения' },
+      { name: 'Тбилиси', region: 'Тбилиси', country: 'Грузия' },
+      { name: 'Баку', region: 'Апшерон', country: 'Азербайджан' },
+      { name: 'Бишкек', region: 'Чуйская область', country: 'Кыргызстан' },
+      { name: 'Душанбе', region: 'Душанбе', country: 'Таджикистан' },
+      { name: 'Кишинёв', region: 'Кишинёв', country: 'Молдова' },
+      { name: 'Дубай', region: 'Эмират Дубай', country: 'ОАЭ' },
+      { name: 'Стамбул', region: 'Мраморноморский регион', country: 'Турция' },
+      { name: 'Анталья', region: 'Средиземноморский регион', country: 'Турция' },
+      { name: 'Бали (Денпасар)', region: 'Бали', country: 'Индонезия' },
+      { name: 'Пхукет', region: 'Пхукет', country: 'Таиланд' },
+      { name: 'Бангкок', region: 'Центральный Таиланд', country: 'Таиланд' },
+      { name: 'Белград', region: 'Центральная Сербия', country: 'Сербия' },
+      { name: 'Берлин', region: 'Берлин', country: 'Германия' },
+      { name: 'Париж', region: 'Иль-де-Франс', country: 'Франция' },
+      { name: 'Лондон', region: 'Большой Лондон', country: 'Великобритания' },
+      { name: 'Рим', region: 'Лацио', country: 'Италия' },
+      { name: 'Барселона', region: 'Каталония', country: 'Испания' },
+      { name: 'Прага', region: 'Прага', country: 'Чехия' },
+      { name: 'Варшава', region: 'Мазовецкое воеводство', country: 'Польша' },
+      { name: 'Тель-Авив', region: 'Тель-Авивский округ', country: 'Израиль' },
+      { name: 'Лимасол', region: 'Округ Лимасол', country: 'Кипр' },
+      { name: 'Нью-Йорк', region: 'Штат Нью-Йорк', country: 'США' },
+      { name: 'Лос-Анджелес', region: 'Калифорния', country: 'США' }
+    ];
+
+    let selectedPlace = 'Москва, Россия';
+    let citySearchDebounce = null;
+
+    function renderPlaces(list, currentVal) {
+      const container = document.getElementById('placesList');
+      if (!container) return;
+
+      if (!list || list.length === 0) {
+        const fallbackText = currentVal || 'Выбранное место';
+        container.innerHTML = `
+          <div class="place-item selected" onclick="choosePlace('${fallbackText}')">
+            <div>
+              <div class="place-name">${fallbackText}</div>
+              <div class="place-country">Использовать как географическую точку рождения</div>
+            </div>
+            <span style="color: var(--accent-gold);">✓</span>
+          </div>
+        `;
+        return;
+      }
+
+      container.innerHTML = list.map(p => {
+        const full = `${p.name}, ${p.country}`;
+        const isSel = selectedPlace === full || selectedPlace.startsWith(p.name);
+        return `
+          <div class="place-item ${isSel ? 'selected' : ''}" onclick="choosePlace('${full}')">
+            <div>
+              <div class="place-name">${p.name}</div>
+              <div class="place-country">${p.country} · ${p.region}</div>
+            </div>
+            ${isSel ? '<span style="color: var(--accent-gold);">✓</span>' : ''}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function filterPlaces() {
+      const input = document.getElementById('cityInput');
+      const query = input ? input.value.trim() : '';
+      const qLower = query.toLowerCase();
+
+      // 1. Быстрый локальный поиск (0мс оффлайн)
+      if (!query || query === 'Москва, Россия') {
+        renderPlaces(CITIES_DB.slice(0, 6), '');
+        return;
+      }
+
+      const filtered = CITIES_DB.filter(c =>
+        c.name.toLowerCase().includes(qLower) ||
+        c.region.toLowerCase().includes(qLower) ||
+        c.country.toLowerCase().includes(qLower)
+      );
+      renderPlaces(filtered, query);
+
+      // 2. Онлайн-геокодинг для редких городов/посёлков (Nominatim)
+      clearTimeout(citySearchDebounce);
+      if (query.length >= 2) {
+        citySearchDebounce = setTimeout(() => {
+          fetch('https://nominatim.openstreetmap.org/search?format=json&q=' + encodeURIComponent(query) + '&accept-language=ru&limit=5')
+            .then(res => res.json())
+            .then(data => {
+              if (Array.isArray(data) && data.length > 0) {
+                const apiResults = data.map(item => {
+                  const parts = item.display_name.split(',').map(s => s.trim());
+                  const cityName = parts[0];
+                  const countryName = parts[parts.length - 1];
+                  const regionName = parts.length > 2 ? parts[1] : '';
+                  return { name: cityName, region: regionName, country: countryName };
+                });
+                const combined = [...filtered];
+                apiResults.forEach(ar => {
+                  if (!combined.some(c => c.name.toLowerCase() === ar.name.toLowerCase())) {
+                    combined.push(ar);
+                  }
+                });
+                renderPlaces(combined, query);
+              }
+            })
+            .catch(() => {});
+        }, 350);
+      }
+    }
+
+    function choosePlace(name) {
+      selectedPlace = name;
+      const input = document.getElementById('cityInput');
+      if (input) input.value = name;
+      const foundInDb = CITIES_DB.filter(c => `${c.name}, ${c.country}` === name || c.name === name);
+      if (foundInDb.length > 0) {
+        const list = [foundInDb[0], ...CITIES_DB.filter(c => c.name !== foundInDb[0].name).slice(0, 5)];
+        renderPlaces(list, name);
+      } else {
+        renderPlaces(CITIES_DB.slice(0, 6), name);
+      }
+    }
+
+    function selectPriestess(el, mentor) {
+      selectedMentor = mentor;
+      document.querySelectorAll('.priestess-card').forEach(c => c.classList.remove('selected'));
+      el.classList.add('selected');
+    }
+
+    function runCalculationRitual() {
+      const text = document.getElementById('calcPercent');
+      const s1 = document.getElementById('cStep1');
+      const s2 = document.getElementById('cStep2');
+      const s3 = document.getElementById('cStep3');
+      const s4 = document.getElementById('cStep4');
+
+      let progress = 0;
+
+      const interval = setInterval(() => {
+        progress += 2;
+        if (progress > 100) progress = 100;
+
+        if (text) text.innerText = progress + '%';
+
+        if (progress > 20 && s1) s1.classList.add('done');
+        if (progress > 45 && s2) s2.classList.add('done');
+        if (progress > 70 && s3) s3.classList.add('done');
+        if (progress > 90 && s4) s4.classList.add('done');
+
+        if (progress >= 100) {
+          clearInterval(interval);
+          setTimeout(() => {
+            nextScreen(); // Переход к экрану 11 (Before/After)
+          }, 600);
+        }
+      }, 45);
+    }
+
+    // ИНТЕРАКТИВНОЕ РИСОВАНИЕ РУНЫ
+    function initDrawingCanvas() {
+      const canvas = document.getElementById('drawingCanvas');
+      const ctx = canvas.getContext('2d');
+      let drawing = false;
+
+      ctx.strokeStyle = '#e2b97e';
+      ctx.lineWidth = 6;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.shadowColor = '#e5a85a';
+      ctx.shadowBlur = 12;
+
+      function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return {
+          x: (clientX - rect.left) * (canvas.width / rect.width),
+          y: (clientY - rect.top) * (canvas.height / rect.height)
+        };
+      }
+
+      function startDraw(e) {
+        drawing = true;
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      }
+
+      function draw(e) {
+        if (!drawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+      }
+
+      function stopDraw() {
+        if (drawing) {
+          drawing = false;
+          document.getElementById('drawingHint').innerText = '✨ Сила руны пробуждена!';
+          document.getElementById('drawingHint').style.color = '#fff';
+        }
+      }
+
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDraw);
+      canvas.addEventListener('touchstart', startDraw);
+      canvas.addEventListener('touchmove', draw);
+      canvas.addEventListener('touchend', stopDraw);
+    }
+
+    function openPaywall() {
+      document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+      const pScreen = document.getElementById('paywallScreen');
+      const bgImg = selectedGender === 'female'
+        ? '../benchmarks/new_paywall_bg_female_2.png'
+        : '../benchmarks/new_paywall_bg_male_2.png';
+      pScreen.style.backgroundImage = `url('${bgImg}')`;
+      pScreen.classList.add('active');
+      currentStep = 13;
+      updateNav(13);
+    }
+
+    function triggerDownsell() {
+      document.getElementById('downsellBox').style.display = 'block';
+    }
+
+    function closeAllPaywalls() {
+      document.getElementById('downsellBox').style.display = 'none';
+      document.getElementById('paywallScreen').classList.remove('active');
+      showScreen(12);
+    }
+
+    function selectRate(el) {
+      document.querySelectorAll('.rate-box').forEach(b => b.classList.remove('active'));
+      el.classList.add('active');
+    }
+
+    // Инициализация
+    updateNav(1);
+  </script>
+</body>
+</html>

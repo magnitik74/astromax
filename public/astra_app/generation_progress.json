@@ -1,0 +1,72 @@
+{
+  "default_female_1": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.165Z",
+    "name": "Муза Тишины (Женский базовый)"
+  },
+  "default_male_1": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.172Z",
+    "name": "Проводник Ясности (Мужской базовый)"
+  },
+  "zodiac_aries": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.172Z",
+    "name": "Овен — Первопроходец Огня"
+  },
+  "zodiac_taurus": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.172Z",
+    "name": "Телец — Хранитель Земли"
+  },
+  "zodiac_gemini": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.172Z",
+    "name": "Близнецы — Дыхание Ветра"
+  },
+  "zodiac_cancer": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.172Z",
+    "name": "Рак — Лунная Забота"
+  },
+  "zodiac_leo": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.172Z",
+    "name": "Лев — Солнечное Сердце"
+  },
+  "zodiac_virgo": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.173Z",
+    "name": "Дева — Чистый Разум"
+  },
+  "zodiac_libra": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.173Z",
+    "name": "Весы — Гармония Красоты"
+  },
+  "zodiac_scorpio": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.173Z",
+    "name": "Скорпион — Глубинная Трансформация"
+  },
+  "zodiac_sagittarius": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.173Z",
+    "name": "Стрелец — Путник Горизонта"
+  },
+  "zodiac_capricorn": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.173Z",
+    "name": "Козерог — Владыка Вершин"
+  },
+  "zodiac_aquarius": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.173Z",
+    "name": "Водолей — Звездный Мыслитель"
+  },
+  "zodiac_pisces": {
+    "status": "success",
+    "timestamp": "2026-10-18T04:53:29.173Z",
+    "name": "Рыбы — Океан Интуиции"
+  }
+}

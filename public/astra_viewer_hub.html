@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>АСТРА • Студия Просмотра и Тестирования</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    }
+
+    body {
+      background: #0A0A0D;
+      color: #E6E6EB;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* 1. Верхний мастер-хедер */
+    header {
+      background: #121216;
+      border-bottom: 1px solid #202028;
+      padding: 8px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      flex-shrink: 0;
+      height: 52px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .logo-badge {
+      background: linear-gradient(135deg, #F5A623 0%, #D48812 100%);
+      color: #121216;
+      font-weight: 800;
+      font-size: 12px;
+      padding: 4px 8px;
+      border-radius: 6px;
+      letter-spacing: 1px;
+    }
+
+    .brand-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: #FFF;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .nav-tabs::-webkit-scrollbar { display: none; }
+
+    .tab-btn {
+      background: #181820;
+      border: 1px solid #262632;
+      color: #9E9EB0;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+
+    .tab-btn:hover {
+      color: #FFF;
+      border-color: #F5A623;
+    }
+
+    .tab-btn.active {
+      background: rgba(245, 166, 35, 0.15);
+      border-color: #F5A623;
+      color: #F5A623;
+      font-weight: 700;
+    }
+
+    /* 2. Подпанель управления (Навигация + Сравнение + Зум) */
+    .sub-bar {
+      background: #14141A;
+      border-bottom: 1px solid #202028;
+      padding: 6px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 90;
+      flex-shrink: 0;
+      height: 46px;
+      gap: 12px;
+    }
+
+    .sub-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      overflow: hidden;
+    }
+
+    .steps-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav-arrow-btn {
+      background: #1C1C24;
+      border: 1px solid #2C2C38;
+      color: #E6E6EB;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.15s;
+    }
+
+    .nav-arrow-btn:hover {
+      background: #282834;
+      border-color: #F5A623;
+      color: #F5A623;
+    }
+
+    .nav-arrow-btn:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+      border-color: #24242D;
+    }
+
+    .step-select-wrap {
+      display: flex;
+      align-items: center;
+      background: #1C1C24;
+      border: 1px solid #2C2C38;
+      border-radius: 8px;
+      padding: 0 10px;
+      height: 30px;
+      gap: 8px;
+    }
+
+    .step-badge {
+      font-size: 11px;
+      font-weight: 700;
+      color: #F5A623;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .step-select {
+      background: transparent;
+      border: none;
+      color: #FFF;
+      font-size: 12px;
+      font-weight: 500;
+      outline: none;
+      cursor: pointer;
+      max-width: 340px;
+    }
+
+    .step-select option {
+      background: #141418;
+      color: #FFF;
+    }
+
+    /* Переключатель режима сравнения */
+    .compare-mode-group {
+      display: none;
+      align-items: center;
+      gap: 4px;
+      background: #191822;
+      border: 1px solid #2B293C;
+      border-radius: 8px;
+      padding: 2px 4px;
+    }
+
+    .cmp-btn {
+      background: transparent;
+      border: none;
+      color: #9A99AA;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s;
+    }
+
+    .cmp-btn:hover {
+      color: #FFF;
+    }
+
+    .cmp-btn.active {
+      background: #2C2A40;
+      color: #F5A623;
+      font-weight: 700;
+    }
+
+    .hotkey-hint {
+      font-size: 11px;
+      color: #6C6B7B;
+      white-space: nowrap;
+    }
+
+    /* Блок масштабирования (Zoom) */
+    .zoom-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-shrink: 0;
+    }
+
+    .zoom-btn {
+      background: #1C1C24;
+      border: 1px solid #2C2C38;
+      color: #B5B5C4;
+      padding: 4px 8px;
+      border-radius: 8px;
+      font-size: 11px;
+      font-weight: 600;
+      height: 30px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.15s;
+    }
+
+    .zoom-btn:hover {
+      color: #FFF;
+      border-color: #F5A623;
+    }
+
+    .zoom-btn.active {
+      background: rgba(245, 166, 35, 0.15);
+      border-color: #F5A623;
+      color: #F5A623;
+    }
+
+    .zoom-icon-btn {
+      background: #1C1C24;
+      border: 1px solid #2C2C38;
+      color: #FFF;
+      width: 26px;
+      height: 30px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 13px;
+      font-weight: 700;
+      transition: all 0.15s;
+    }
+
+    .zoom-icon-btn:hover {
+      border-color: #F5A623;
+      color: #F5A623;
+    }
+
+    .zoom-val {
+      font-size: 11px;
+      font-weight: 700;
+      color: #F5A623;
+      min-width: 40px;
+      text-align: center;
+    }
+
+    /* 3. Главная рабочая сцена со скроллом при зуме */
+    main {
+      flex: 1;
+      position: relative;
+      background: radial-gradient(circle at center, #15151D 0%, #08080A 100%);
+      overflow: auto;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    /* Контейнер-обертка масштаба */
+    .scaler-box {
+      margin: auto;
+      position: relative;
+      flex-shrink: 0;
+      transition: width 0.15s ease-out, height 0.15s ease-out;
+    }
+
+    .scaler-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform-origin: top left;
+      transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* Одиночный смартфон */
+    .single-stage {
+      width: 454px;
+      height: 956px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    /* Смартфон iPhone Frame */
+    .phone-mockup {
+      position: relative;
+      width: 454px;
+      height: 956px;
+      background: #000;
+      border-radius: 52px;
+      border: 12px solid #25252E;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.85), 0 0 24px rgba(245, 166, 35, 0.12);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex-shrink: 0;
+    }
+
+    /* Dynamic Island */
+    .dynamic-island {
+      position: absolute;
+      top: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 30px;
+      background: #000;
+      border-radius: 20px;
+      z-index: 999;
+      pointer-events: none;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      padding-right: 12px;
+      box-shadow: 0 0 4px rgba(0,0,0,0.8);
+    }
+
+    .island-lens {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #1D2A4A 0%, #090B10 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    /* Home Indicator */
+    .home-indicator {
+      position: absolute;
+      bottom: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 134px;
+      height: 5px;
+      background: rgba(255, 255, 255, 0.35);
+      border-radius: 3px;
+      z-index: 999;
+      pointer-events: none;
+    }
+
+    iframe {
+      width: 430px;
+      height: 932px;
+      border: none;
+      background: #141418;
+      display: block;
+    }
+
+    /* Режим Side-by-Side Сравнения с Moonly */
+    .compare-stage {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    .compare-row {
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      justify-content: center;
+    }
+
+    .compare-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .col-header {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 12px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .col-header.moonly {
+      background: #191822;
+      border: 1px solid #2B293C;
+      color: #9A99AA;
+    }
+
+    .col-header.astra {
+      background: rgba(245, 166, 35, 0.12);
+      border: 1px solid rgba(245, 166, 35, 0.4);
+      color: #F5A623;
+    }
+
+    .header-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+    }
+
+    .header-dot.moonly { background: #7C7B8E; }
+    .header-dot.astra { background: #F5A623; box-shadow: 0 0 8px #F5A623; }
+
+    .phone-mockup.moonly-border {
+      border-color: #242330;
+      box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+    }
+
+    .phone-mockup.astra-border {
+      border-color: #383024;
+      box-shadow: 0 0 60px rgba(0, 0, 0, 0.9), 0 0 30px rgba(245, 166, 35, 0.18);
+    }
+
+    /* Полноэкранный режим для галерей */
+    .full-frame {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 1. Верхний мастер-хедер -->
+  <header>
+    <div class="brand">
+      <div class="logo-badge">ASTRA</div>
+      <div class="brand-title">Студия Просмотра и Тестирования</div>
+    </div>
+
+    <div class="nav-tabs">
+      <button class="tab-btn active" data-view="onboarding">🌟 Онбординг (21 шаг)</button>
+      <button class="tab-btn" data-view="screens" style="color: #F5A623; font-weight: 700;">📱 Экраны приложения Астра</button>
+    </div>
+  </header>
+
+  <!-- 2. Подпанель управления (Навигация + Сравнение + Зум) -->
+  <div class="sub-bar" id="subBar">
+    <div class="sub-bar-left">
+      
+      <!-- Группа навигации по Онбордингу -->
+      <div class="steps-group" id="stepsGroup">
+        <button class="nav-arrow-btn" id="prevBtn" title="Предыдущий шаг (стрелка влево)">◀</button>
+        <div class="step-select-wrap">
+          <span class="step-badge" id="stepBadge">ШАГ 1 / 21</span>
+          <select class="step-select" id="stepSelector">
+            <option value="0">01. В согласии с ритмом Вселенной (Bento)</option>
+            <option value="1">02. Выбор архетипа проводника</option>
+            <option value="2">03. Что вы хотите изменить в жизни?</option>
+            <option value="3">04. Личный астролог и 5 наставников 24/7</option>
+            <option value="4">05. Влияет ли на вас Полнолуние?</option>
+            <option value="5">06. Фаза Луны в реальном времени</option>
+            <option value="6">07. Что отнимает вашу энергию больше всего?</option>
+            <option value="7">08. Читайте Транзиты, а не знаки</option>
+            <option value="8">09. Насколько вы доверяете своей интуиции?</option>
+            <option value="9">10. Расширьте кругозор силой карт Таро</option>
+            <option value="10">11. Медитации, созданные для вас</option>
+            <option value="11">12. Практика — ключ к гармонии</option>
+            <option value="12">13. Помните ли вы свои сны?</option>
+            <option value="13">14. Расшифруйте тайный язык снов</option>
+            <option value="14">15. Выберите своего наставника</option>
+            <option value="15">16. Чувствуете ли вы своё призвание?</option>
+            <option value="16">17. Ваша натальная карта — ваша суперсила</option>
+            <option value="17">18. Укажите данные рождения</option>
+            <option value="18">19. Совместимость с близкими людьми</option>
+            <option value="19">20. Анализ вашей карты рождения...</option>
+            <option value="20">21. Более 10 млн человек изменили жизнь</option>
+          </select>
+        </div>
+        <button class="nav-arrow-btn" id="nextBtn" title="Следующий шаг (стрелка вправо)">▶</button>
+      </div>
+
+      <!-- Группа навигации по отдельным экранам приложения -->
+      <div class="steps-group" id="screensGroup" style="display: none;">
+        <button class="nav-arrow-btn" id="prevScreenBtn" title="Предыдущий экран (стрелка влево)">◀</button>
+        <div class="step-select-wrap">
+          <span class="step-badge" id="screenBadge">ЭКРАН 1 / 19</span>
+          <select class="step-select" id="screenSelector">
+            <option value="calendar">01. 📅 Календарь и Дневная лента (3D-Луна, стрижка, транзит)</option>
+            <option value="tarot_1">02. 🔮 Таро: Режим 1 (Быстрый ответ 1 карта, Hero-масштаб)</option>
+            <option value="tarot_3">03. 🃏 Таро: Режим 2 (Текущая ситуация 3 карты)</option>
+            <option value="tarot_5">04. 🔯 Таро: Режим 3 (Взгляд в будущее 5 карт)</option>
+            <option value="tarot_all">05. 🗂️ Таро: Режим 4 (Каталог всех 78 карт, 5 мастей)</option>
+            <option value="tarot_sheet">06. 📜 Таро: Выплывающий Bottom Sheet с 3D-переворотом (Flip)</option>
+            <option value="oracle">07. ✨ Оракул Астры (Метафорические карты)</option>
+            <option value="gods">08. 🕉️ Ведические Архетипы & Боги (Хануман)</option>
+            <option value="dream">09. 🌙 Сонник (Расшифровка и архив сновидений)</option>
+            <option value="runes">10. ᛚ Руна дня (Hero 3D-диск и глиф)</option>
+            <option value="runes_catalog">11. ᚠ Руны: Каталог всех 24 рун Старшего Футарка</option>
+            <option value="affirmations">12. 🌸 Аффирмация дня (Ken Burns арт)</option>
+            <option value="healing">13. 🎶 Исцеление звуком (Каталог 68 частот)</option>
+            <option value="player">14. 🎧 Полноэкранный аудиоплеер (Видеофон, таймер сна)</option>
+            <option value="chat">15. 💬 Светлый чат с наставником (Алтея, инсайты, оценка)</option>
+            <option value="you">16. 👤 Профиль «Вы» (Звездная рамка, натал, матрица)</option>
+            <option value="avatars">17. 👑 Галерея 60 аватаров пользователя</option>
+            <option value="settings">18. ⚙️ Настройки (Болтик, удаление аккаунта RuStore)</option>
+            <option value="paywall">19. 💎 Пейвол «Астра Плюс» (3 тарифа: Неделя, Год, Навсегда)</option>
+          </select>
+        </div>
+        <button class="nav-arrow-btn" id="nextScreenBtn" title="Следующий экран (стрелка вправо)">▶</button>
+        <button class="cmp-btn active" id="toggleTabsBtn" style="margin-left: 8px; border: 1px solid #F5A623;" title="Скрыть или показать нижний таб-бар приложения">Таб-бар: ВКЛ</button>
+      </div>
+
+      <!-- Переключатель режима сравнения -->
+      <div class="compare-mode-group" id="compareModeGroup">
+        <button class="cmp-btn active" data-cmp="both" title="Показать оба экрана рядом">⚖️ Оба рядом</button>
+        <button class="cmp-btn" data-cmp="astra" title="Показать только АСТРУ (крупно)">🌟 Только АСТРА</button>
+        <button class="cmp-btn" data-cmp="moonly" title="Показать только оригинал Moonly">🌙 Только Moonly</button>
+      </div>
+
+      <span class="hotkey-hint" id="hotkeyHint">горячие клавиши: [ ← ] / [ → ] (листание), [ T ] (вкладки), [ Пробел ] (сравнение)</span>
+    </div>
+
+    <!-- Масштабирование -->
+    <div class="zoom-group">
+      <button class="zoom-btn active" id="zoomAutoBtn" title="Автоматически подогнать под высоту экрана">📐 Авто</button>
+      <button class="zoom-btn" id="zoomComfortBtn" title="Комфортный читаемый размер (65%)">🔍 65%</button>
+      <button class="zoom-btn" id="zoom100Btn" title="100% натуральный размер">📱 100%</button>
+      <button class="zoom-icon-btn" id="zoomOutBtn" title="Уменьшить">−</button>
+      <span class="zoom-val" id="zoomValLabel">60%</span>
+      <button class="zoom-icon-btn" id="zoomInBtn" title="Увеличить">+</button>
+      <button class="zoom-btn" id="reloadBtn" title="Перезагрузить экраны">🔄</button>
+    </div>
+  </div>
+
+  <!-- 3. Рабочая сцена -->
+  <main id="mainStage">
+
+    <!-- Контейнер масштабирования одиночного экрана (Онбординг / Экраны / Ритуал) -->
+    <div class="scaler-box" id="singleScalerBox">
+      <div class="scaler-inner" id="singleScalerInner">
+        <div class="single-stage" id="singleStage">
+          <div class="phone-mockup astra-border">
+            <div class="dynamic-island">
+              <div class="island-lens"></div>
+            </div>
+            <iframe id="phoneFrame" src="astra_app/astra_onboarding_demo.html"></iframe>
+            <div class="home-indicator"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Контейнер масштабирования режима сравнения (Сравнение 1:1) -->
+    <div class="scaler-box" id="compareScalerBox" style="display: none;">
+      <div class="scaler-inner" id="compareScalerInner">
+        <div class="compare-stage" id="compareStage">
+          <div class="compare-row" id="compareRow">
+            <!-- Колонка Moonly -->
+            <div class="compare-col" id="colMoonly">
+              <div class="col-header moonly">
+                <span class="header-dot moonly"></span>
+                <span>Оригинал Moonly (Исходник)</span>
+              </div>
+              <div class="phone-mockup moonly-border">
+                <div class="dynamic-island">
+                  <div class="island-lens"></div>
+                </div>
+                <iframe id="moonlyFrame" src="фигасе/real_onboarding_official/screen_mockups/html_screens/00_slide_1_bento.html"></iframe>
+                <div class="home-indicator"></div>
+              </div>
+            </div>
+
+            <!-- Колонка АСТРА -->
+            <div class="compare-col" id="colAstra">
+              <div class="col-header astra">
+                <span class="header-dot astra"></span>
+                <span>«АСТРА» (Наш результат)</span>
+              </div>
+              <div class="phone-mockup astra-border">
+                <div class="dynamic-island">
+                  <div class="island-lens"></div>
+                </div>
+                <iframe id="astraCompareFrame" src="astra_app/astra_onboarding_demo.html"></iframe>
+                <div class="home-indicator"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. Полноэкранные галереи (Видеолупы и Аватары) -->
+    <iframe class="full-frame" id="fullFrame"></iframe>
+  </main>
+
+  <script>
+    const tabs = document.querySelectorAll('.tab-btn');
+    const stepsGroup = document.getElementById('stepsGroup');
+    const screensGroup = document.getElementById('screensGroup');
+    const compareModeGroup = document.getElementById('compareModeGroup');
+    const cmpBtns = document.querySelectorAll('.cmp-btn');
+    const hotkeyHint = document.getElementById('hotkeyHint');
+
+    const stepSelector = document.getElementById('stepSelector');
+    const stepBadge = document.getElementById('stepBadge');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+
+    const screenSelector = document.getElementById('screenSelector');
+    const screenBadge = document.getElementById('screenBadge');
+    const prevScreenBtn = document.getElementById('prevScreenBtn');
+    const nextScreenBtn = document.getElementById('nextScreenBtn');
+    const toggleTabsBtn = document.getElementById('toggleTabsBtn');
+
+    const mainStage = document.getElementById('mainStage');
+    const singleScalerBox = document.getElementById('singleScalerBox');
+    const singleScalerInner = document.getElementById('singleScalerInner');
+    const compareScalerBox = document.getElementById('compareScalerBox');
+    const compareScalerInner = document.getElementById('compareScalerInner');
+
+    const colMoonly = document.getElementById('colMoonly');
+    const colAstra = document.getElementById('colAstra');
+
+    const phoneFrame = document.getElementById('phoneFrame');
+    const moonlyFrame = document.getElementById('moonlyFrame');
+    const astraCompareFrame = document.getElementById('astraCompareFrame');
+    const fullFrame = document.getElementById('fullFrame');
+
+    const zoomAutoBtn = document.getElementById('zoomAutoBtn');
+    const zoomComfortBtn = document.getElementById('zoomComfortBtn');
+    const zoom100Btn = document.getElementById('zoom100Btn');
+    const zoomOutBtn = document.getElementById('zoomOutBtn');
+    const zoomInBtn = document.getElementById('zoomInBtn');
+    const zoomValLabel = document.getElementById('zoomValLabel');
+    const reloadBtn = document.getElementById('reloadBtn');
+
+    const TOTAL_STEPS = 21;
+    let currentStepIndex = 0;
+    let activeView = 'onboarding'; // 'onboarding' | 'screens' | 'compare' | 'ritual' | 'videos' | 'avatars'
+    let compareMode = 'both'; // 'both' | 'astra' | 'moonly'
+
+    // Экраны
+    const SCREENS_LIST = [
+      'calendar', 'tarot_1', 'tarot_3', 'tarot_5', 'tarot_all', 'tarot_sheet',
+      'oracle', 'gods', 'dream', 'runes', 'runes_catalog', 'affirmations',
+      'healing', 'player', 'chat', 'you', 'avatars', 'settings', 'paywall'
+    ];
+    let currentScreenIndex = 0;
+    let areTabsHidden = false; // По умолчанию таб-бар приложения ВСЕГДА включен и отображается!
+
+    // Состояние зума
+    let isAutoFit = true;
+    let currentScale = 0.55;
+
+    const MOONLY_SLIDE_FILES = [
+      '00_slide_1_bento.html', '01_slide_2_gender.html', '02_slide_3_quiz.html',
+      '03_slide_4_guidance.html', '04_slide_5_moon.html', '05_slide_6_moon.html',
+      '06_slide_7_quiz.html', '07_slide_8_transits.html', '08_slide_9_tarot.html',
+      '09_slide_10_tarot.html', '10_slide_11_medi.html', '11_slide_12_practice.html',
+      '12_slide_13_practice.html', '13_slide_13_dreamer.html', '14_jhriza_slide.html',
+      '15_slide_14_birth_chart.html', '16_slide_15_birth_chart.html', '17_slide_8_data.html',
+      '18_slide_17_compatibility.html', '19_slide_18_personalisation.html', '20_slide_22_before_after.html'
+    ];
+
+    // Функция перерасчета масштабирования
+    function updateLayoutScaling() {
+      if (activeView === 'videos' || activeView === 'avatars') return;
+
+      const availW = mainStage.clientWidth - 32;
+      const availH = mainStage.clientHeight - 32;
+
+      let baseW, baseH, targetBox, targetInner;
+
+      if (activeView === 'compare') {
+        targetBox = compareScalerBox;
+        targetInner = compareScalerInner;
+
+        if (compareMode === 'both') {
+          baseW = 940; // 454 + 32 + 454
+          baseH = 1010;
+        } else {
+          baseW = 454;
+          baseH = 1010;
+        }
+      } else {
+        targetBox = singleScalerBox;
+        targetInner = singleScalerInner;
+        baseW = 454;
+        baseH = 956;
+      }
+
+      if (isAutoFit) {
+        const scaleW = availW / baseW;
+        const scaleH = availH / baseH;
+        currentScale = Math.min(scaleW, scaleH);
+        if (currentScale > 1.05) currentScale = 1.05;
+
+        zoomAutoBtn.classList.add('active');
+        zoomComfortBtn.classList.remove('active');
+        zoom100Btn.classList.remove('active');
+      } else {
+        zoomAutoBtn.classList.remove('active');
+        zoomComfortBtn.classList.toggle('active', Math.abs(currentScale - 0.65) < 0.03);
+        zoom100Btn.classList.toggle('active', Math.abs(currentScale - 1.0) < 0.03);
+      }
+
+      const pct = Math.round(currentScale * 100);
+      zoomValLabel.textContent = `${pct}%`;
+
+      if (targetBox && targetInner) {
+        targetBox.style.width = `${Math.round(baseW * currentScale)}px`;
+        targetBox.style.height = `${Math.round(baseH * currentScale)}px`;
+        targetInner.style.transform = `scale(${currentScale})`;
+      }
+    }
+
+    window.addEventListener('resize', () => {
+      if (isAutoFit) updateLayoutScaling();
+    });
+
+    // Зум-кнопки
+    zoomAutoBtn.addEventListener('click', () => {
+      isAutoFit = true;
+      updateLayoutScaling();
+    });
+
+    zoomComfortBtn.addEventListener('click', () => {
+      isAutoFit = false;
+      currentScale = 0.65;
+      updateLayoutScaling();
+    });
+
+    zoom100Btn.addEventListener('click', () => {
+      isAutoFit = false;
+      currentScale = 1.0;
+      updateLayoutScaling();
+    });
+
+    zoomInBtn.addEventListener('click', () => {
+      isAutoFit = false;
+      currentScale = Math.min(1.5, Math.round((currentScale + 0.05) * 100) / 100);
+      updateLayoutScaling();
+    });
+
+    zoomOutBtn.addEventListener('click', () => {
+      isAutoFit = false;
+      currentScale = Math.max(0.25, Math.round((currentScale - 0.05) * 100) / 100);
+      updateLayoutScaling();
+    });
+
+    reloadBtn.addEventListener('click', () => {
+      if (activeView === 'onboarding' || activeView === 'screens' || activeView === 'ritual') {
+        phoneFrame.src = phoneFrame.src;
+      } else if (activeView === 'compare') {
+        moonlyFrame.src = moonlyFrame.src;
+        astraCompareFrame.src = astraCompareFrame.src;
+      }
+    });
+
+    // Переключение главных вкладок студии
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        tabs.forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+
+        activeView = tab.getAttribute('data-view');
+        singleScalerBox.style.display = 'none';
+        compareScalerBox.style.display = 'none';
+        fullFrame.style.display = 'none';
+        stepsGroup.style.display = 'none';
+        screensGroup.style.display = 'none';
+        compareModeGroup.style.display = 'none';
+
+        if (activeView === 'onboarding') {
+          singleScalerBox.style.display = 'block';
+          stepsGroup.style.display = 'flex';
+          phoneFrame.src = 'astra_app/astra_onboarding_demo.html';
+          setStep(currentStepIndex);
+        } else if (activeView === 'screens') {
+          singleScalerBox.style.display = 'block';
+          screensGroup.style.display = 'flex';
+          loadAppScreen(currentScreenIndex);
+        } else if (activeView === 'compare') {
+          compareScalerBox.style.display = 'block';
+          stepsGroup.style.display = 'flex';
+          compareModeGroup.style.display = 'flex';
+          applyCompareMode(compareMode);
+          setStep(currentStepIndex);
+        } else if (activeView === 'ritual') {
+          singleScalerBox.style.display = 'block';
+          phoneFrame.src = 'astra_app/astra_affirmation_ritual_demo.html';
+        } else if (activeView === 'videos') {
+          fullFrame.style.display = 'block';
+          fullFrame.src = 'astra_app/astra_video_loops_gallery.html';
+        } else if (activeView === 'avatars') {
+          fullFrame.style.display = 'block';
+          fullFrame.src = 'astra_app/astra_all_avatars_gallery.html';
+        }
+
+        updateLayoutScaling();
+      });
+    });
+
+    // --- Логика переключения отдельных экранов Астры ---
+    function loadAppScreen(idx) {
+      if (idx < 0) idx = 0;
+      if (idx >= SCREENS_LIST.length) idx = SCREENS_LIST.length - 1;
+      currentScreenIndex = idx;
+
+      const screenKey = SCREENS_LIST[idx];
+      screenSelector.value = screenKey;
+      screenBadge.textContent = `ЭКРАН ${idx + 1} / ${SCREENS_LIST.length}`;
+      prevScreenBtn.disabled = (idx === 0);
+      nextScreenBtn.disabled = (idx === SCREENS_LIST.length - 1);
+
+      const targetUrl = `astra_app/astra_main_app.html?screen=${screenKey}&hide_tabs=${areTabsHidden ? '1' : '0'}`;
+
+      // Если в фрейме уже открыта astra_main_app, отправляем postMessage для мгновенного перехода без перезагрузки
+      if (phoneFrame.src && phoneFrame.src.includes('astra_main_app.html')) {
+        try {
+          phoneFrame.contentWindow.postMessage({
+            action: 'navigateScreen',
+            screen: screenKey,
+            hideTabs: areTabsHidden
+          }, '*');
+        } catch (e) {
+          phoneFrame.src = targetUrl;
+        }
+      } else {
+        phoneFrame.src = targetUrl;
+      }
+    }
+
+    screenSelector.addEventListener('change', (e) => {
+      const idx = SCREENS_LIST.indexOf(e.target.value);
+      if (idx !== -1) loadAppScreen(idx);
+    });
+
+    prevScreenBtn.addEventListener('click', () => {
+      loadAppScreen(currentScreenIndex - 1);
+    });
+
+    nextScreenBtn.addEventListener('click', () => {
+      loadAppScreen(currentScreenIndex + 1);
+    });
+
+    // Переключатель таб-бара
+    toggleTabsBtn.addEventListener('click', () => {
+      areTabsHidden = !areTabsHidden;
+      toggleTabsBtn.classList.toggle('active', !areTabsHidden);
+      toggleTabsBtn.textContent = areTabsHidden ? 'Таб-бар: СКРЫТ' : 'Таб-бар: ВКЛ';
+      
+      try {
+        phoneFrame.contentWindow.postMessage({
+          action: 'navigateScreen',
+          screen: SCREENS_LIST[currentScreenIndex],
+          hideTabs: areTabsHidden
+        }, '*');
+      } catch (e) {}
+    });
+
+    // --- Логика сравнения: оба / только Астра / только Moonly ---
+    cmpBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        cmpBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        applyCompareMode(btn.getAttribute('data-cmp'));
+      });
+    });
+
+    function applyCompareMode(mode) {
+      compareMode = mode;
+      cmpBtns.forEach(b => b.classList.toggle('active', b.getAttribute('data-cmp') === mode));
+
+      if (mode === 'both') {
+        colMoonly.style.display = 'flex';
+        colAstra.style.display = 'flex';
+      } else if (mode === 'astra') {
+        colMoonly.style.display = 'none';
+        colAstra.style.display = 'flex';
+      } else if (mode === 'moonly') {
+        colMoonly.style.display = 'flex';
+        colAstra.style.display = 'none';
+      }
+      updateLayoutScaling();
+    }
+
+    // Установка активного шага онбординга
+    function setStep(idx) {
+      if (idx < 0) idx = 0;
+      if (idx >= TOTAL_STEPS) idx = TOTAL_STEPS - 1;
+      currentStepIndex = idx;
+
+      stepSelector.value = idx;
+      stepBadge.textContent = `ШАГ ${idx + 1} / ${TOTAL_STEPS}`;
+      prevBtn.disabled = (idx === 0);
+      nextBtn.disabled = (idx === TOTAL_STEPS - 1);
+
+      if (activeView === 'onboarding') {
+        if (phoneFrame.contentWindow && phoneFrame.contentWindow.renderSlide) {
+          phoneFrame.contentWindow.currentSlide = idx;
+          phoneFrame.contentWindow.renderSlide(idx);
+        }
+      } else if (activeView === 'compare') {
+        const moonlyFile = MOONLY_SLIDE_FILES[idx] || MOONLY_SLIDE_FILES[0];
+        moonlyFrame.src = 'фигасе/real_onboarding_official/screen_mockups/html_screens/' + moonlyFile;
+        if (astraCompareFrame.contentWindow && astraCompareFrame.contentWindow.renderSlide) {
+          astraCompareFrame.contentWindow.currentSlide = idx;
+          astraCompareFrame.contentWindow.renderSlide(idx);
+        }
+      }
+    }
+
+    stepSelector.addEventListener('change', (e) => {
+      setStep(parseInt(e.target.value, 10));
+    });
+
+    prevBtn.addEventListener('click', () => {
+      setStep(currentStepIndex - 1);
+    });
+
+    nextBtn.addEventListener('click', () => {
+      setStep(currentStepIndex + 1);
+    });
+
+    // Управление с клавиатуры
+    window.addEventListener('keydown', (e) => {
+      if (e.target.tagName === 'SELECT' || e.target.tagName === 'INPUT') return;
+
+      if (activeView === 'screens') {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          loadAppScreen(currentScreenIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          loadAppScreen(currentScreenIndex + 1);
+        } else if (e.key.toLowerCase() === 't' || e.key.toLowerCase() === 'е') {
+          e.preventDefault();
+          toggleTabsBtn.click();
+        }
+      } else if (activeView === 'onboarding' || activeView === 'compare') {
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          setStep(currentStepIndex - 1);
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          setStep(currentStepIndex + 1);
+        }
+      }
+
+      if (activeView === 'compare' && e.code === 'Space') {
+        e.preventDefault();
+        if (compareMode === 'both') {
+          applyCompareMode('astra');
+        } else if (compareMode === 'astra') {
+          applyCompareMode('moonly');
+        } else {
+          applyCompareMode('both');
+        }
+      }
+    });
+
+    // Двусторонняя синхронизация
+    window.addEventListener('message', (e) => {
+      if (e.data && e.data.type === 'slideChange') {
+        const newIdx = e.data.index;
+        if (typeof newIdx === 'number' && newIdx !== currentStepIndex) {
+          currentStepIndex = newIdx;
+          stepSelector.value = newIdx;
+          stepBadge.textContent = `ШАГ ${newIdx + 1} / ${TOTAL_STEPS}`;
+          prevBtn.disabled = (newIdx === 0);
+          nextBtn.disabled = (newIdx === TOTAL_STEPS - 1);
+
+          if (activeView === 'compare') {
+            const moonlyFile = MOONLY_SLIDE_FILES[newIdx] || MOONLY_SLIDE_FILES[0];
+            moonlyFrame.src = 'фигасе/real_onboarding_official/screen_mockups/html_screens/' + moonlyFile;
+          }
+        }
+      }
+    });
+
+    // Инициализация при старте
+    window.addEventListener('DOMContentLoaded', () => {
+      updateLayoutScaling();
+    });
+
+    window.onload = () => {
+      updateLayoutScaling();
+    };
+  </script>
+</body>
+</html>

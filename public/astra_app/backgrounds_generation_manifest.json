@@ -1,0 +1,904 @@
+[
+  {
+    "index": 1,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\01_Make_It_Yours.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\01_Make_It_Yours.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 01_Make_It_Yours, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 2,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\02_The_13th_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\02_The_13th_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 02_The_13th_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 3,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\03_The_14th_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\03_The_14th_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 03_The_14th_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 4,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\04_The_15th_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\04_The_15th_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 04_The_15th_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 5,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\05_The_16th_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\05_The_16th_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 05_The_16th_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 6,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\06_The_17th_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\06_The_17th_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 06_The_17th_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 7,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\07_The_18th_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\07_The_18th_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 07_The_18th_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 8,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\08_The_19th_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\08_The_19th_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 08_The_19th_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 9,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\09_The_20th_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\09_The_20th_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 09_The_20th_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 10,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\10_The_21st_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\10_The_21st_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 10_The_21st_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 11,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\11_The_22nd_Moon_Day.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\11_The_22nd_Moon_Day.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 11_The_22nd_Moon_Day, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 12,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\12_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\12_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 12_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 13,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\13_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\13_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 13_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 14,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\14_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\14_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 14_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 15,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\15_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\15_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 15_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 16,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\16_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\16_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 16_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 17,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\17_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\17_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 17_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 18,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\18_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\18_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 18_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 19,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\19_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\19_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 19_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 20,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\20_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\20_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 20_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 21,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\21_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\21_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 21_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 22,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\22_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\22_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 22_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 23,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\23_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\23_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 23_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 24,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\24_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\24_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 24_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 25,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\25_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\25_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 25_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 26,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\26_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\26_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 26_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 27,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\27_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\27_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 27_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 28,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\28_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\28_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 28_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 29,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\29_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\29_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 29_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 30,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\30_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\30_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 30_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 31,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\31_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\31_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 31_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 32,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\32_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\32_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 32_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 33,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\33_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\33_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 33_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 34,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\34_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\34_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 34_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 35,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\35_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\35_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 35_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 36,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\36_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\36_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 36_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 37,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\37_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\37_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 37_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 38,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\38_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\38_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 38_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 39,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\39_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\39_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 39_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 40,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\40_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\40_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 40_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 41,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\41_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\41_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 41_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 42,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\42_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\42_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 42_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 43,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\43_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\43_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 43_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 44,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\44_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\44_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 44_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 45,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\45_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\45_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 45_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 46,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\46_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\46_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 46_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 47,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\47_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\47_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 47_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 48,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\48_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\48_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 48_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 49,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\49_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\49_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 49_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 50,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\50_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\50_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 50_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 51,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\51_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\51_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 51_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 52,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\52_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\52_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 52_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 53,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\53_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\53_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 53_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 54,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\54_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\54_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 54_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 55,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\55_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\55_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 55_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 56,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\56_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\56_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 56_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 57,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\57_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\57_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 57_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 58,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\58_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\58_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 58_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 59,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\59_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\59_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 59_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 60,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\60_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\60_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 60_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 61,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\61_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\61_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 61_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 62,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\62_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\62_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 62_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 63,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\63_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\63_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 63_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 64,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\64_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\64_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 64_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 65,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\65_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\65_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 65_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 66,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\66_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\66_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 66_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 67,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\67_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\67_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 67_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 68,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\68_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\68_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 68_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 69,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\69_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\69_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 69_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 70,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\70_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\70_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 70_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 71,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\71_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\71_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 71_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 72,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\72_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\72_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 72_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 73,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\73_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\73_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 73_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 74,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\74_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\74_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 74_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 75,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\75_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\75_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 75_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 76,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\76_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\76_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 76_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 77,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\77_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\77_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 77_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 78,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\78_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\78_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 78_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 79,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\79_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\79_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 79_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 80,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\80_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\80_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 80_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 81,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\81_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\81_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 81_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  },
+  {
+    "index": 82,
+    "originalFile": "D:\\projects\\monly\\фигасе\\СОРТИРОВАННЫЕ_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\82_EVENT.jpg",
+    "targetFile": "D:\\projects\\monly\\АСТРА_АССЕТЫ\\09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ\\82_EVENT.webp",
+    "controlNet": {
+      "mode": "Depth/ColorGrading",
+      "strength": 0.35,
+      "denoise": 0.65
+    },
+    "prompt": "Serene celestial twilight scenery for 82_EVENT, atmospheric minimalist landscape for cosmic wellness app, serene calm lake reflecting mountain silhouettes under soft twilight sky, warm gradient palette of dusty peach, sage green, and muted lavender, cinematic fine mist, gentle tranquil mood, 35mm film grain texture, high resolution, vertical 9:16 --v 6.1"
+  }
+]
