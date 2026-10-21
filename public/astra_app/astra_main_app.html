@@ -6,18 +6,20 @@
   <title>АСТРА • Космический Проводник</title>
   
   <!-- Favicon & App Icons -->
-  <link rel="icon" type="image/webp" href="00_ИКОНКИ_И_ЛОГОТИП_АСТРА/Astra_AppIcon_StarFlower_small_128.webp">
-  <link rel="apple-touch-icon" href="00_ИКОНКИ_И_ЛОГОТИП_АСТРА/Astra_AppIcon_MandalaLotus_master_1024.webp">
+  <link rel="icon" type="image/webp" href="00_icons_and_logo/Astra_AppIcon_StarFlower_small_128.webp">
+  <link rel="apple-touch-icon" href="00_icons_and_logo/Astra_AppIcon_MandalaLotus_master_1024.webp">
 
   <!-- Core Security & Data Modules -->
   <script src="astra_security_shield.js"></script>
   <script src="astra_tarot_runes_data.js"></script>
   <script src="astra_sounds_data.js"></script>
   <script src="astra_mentors_engine.js"></script>
+  <script src="astra_vedic_engine.js"></script>
+  <script src="astra_storage.js"></script>
 
   <style>
     /* ==========================================================================
-       ASTRA MASTER DESIGN SYSTEM (PIXEL-PERFECT MOONLY REPLICATION)
+       ASTRA MASTER DESIGN SYSTEM (PIXEL-PERFECT ASTRA REPLICATION)
        ========================================================================== */
     :root {
       --bg-dark: #0D0E15;
@@ -38,12 +40,12 @@
       --text-muted: #8E93A6;
       --text-dim: #5C6073;
 
-      --moonly-card: #18181D;
-      --moonly-card-highlight: #25252C;
-      --moonly-text-primary: #FFFFFF;
-      --moonly-text-secondary: #A0A5B5;
-      --moonly-text-muted: #8E8E93;
-      --moonly-text-sub: #6E7282;
+      --astra-card: #18181D;
+      --astra-card-highlight: #25252C;
+      --astra-text-primary: #FFFFFF;
+      --astra-text-secondary: #A0A5B5;
+      --astra-text-muted: #8E8E93;
+      --astra-text-sub: #6E7282;
 
       --radius-sm: 12px;
       --radius-md: 18px;
@@ -64,7 +66,7 @@
     }
 
     body {
-      background: #000;
+      background: #111214;
       color: var(--text-main);
       overflow: hidden;
       display: flex;
@@ -100,21 +102,15 @@
        TOP SAFE AREA & STATUS BAR (IPHONE DYNAMIC ISLAND / NOTCH COMPLIANCE)
        ========================================================================== */
     .app-top-safe-bar {
-      height: 48px;
-      padding: 12px 24px 0;
       display: flex;
-      align-items: center;
       justify-content: space-between;
-      color: rgba(255, 255, 255, 0.9);
-      font-size: 14.5px;
-      font-weight: 600;
-      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
-      z-index: 150;
-      flex-shrink: 0;
-      position: relative;
-      background: transparent;
+      align-items: center;
+      padding: max(48px, env(safe-area-inset-top, 48px)) 20px 12px;
+      background: var(--bg-dark);
+      z-index: 80;
+      position: sticky;
+      top: 0;
       transition: background 0.25s, color 0.25s;
-      pointer-events: none;
     }
     .status-time {
       font-weight: 600;
@@ -208,7 +204,7 @@
     }
 
       /* ==========================================================================
-         BOTTOM NAVIGATION BAR (MOONLY FLOATING AMBER FROSTED ISLAND DOCK)
+         BOTTOM NAVIGATION BAR (ASTRA FLOATING AMBER FROSTED ISLAND DOCK)
          ========================================================================== */
       .bottom-nav {
         position: absolute;
@@ -266,7 +262,7 @@
         transition: color 0.2s;
       }
 
-      /* Active Amber Frosted Pill Style (Strict Moonly Original) */
+      /* Active Amber Frosted Pill Style (Strict Astra Original) */
       .nav-tab-item.active {
         background: rgba(229, 138, 43, 0.35);
         border: 1px solid rgba(229, 138, 43, 0.65);
@@ -338,7 +334,7 @@
     }
     .btn-primary:active { transform: scale(0.97); }
 
-    /* 4 Circular Action Buttons Bar (Matching Moonly Standard) */
+    /* 4 Circular Action Buttons Bar (Matching Astra Standard) */
     .actions-4-bar {
       display: flex;
       justify-content: center;
@@ -372,8 +368,8 @@
       color: #FFFFFF;
     }
 
-    /* Moonly Rounded Slate Container Card */
-    .moonly-slate-card {
+    /* Astra Rounded Slate Container Card */
+    .astra-slate-card {
       background: rgba(28, 30, 48, 0.72);
       border: 1px solid rgba(255, 255, 255, 0.08);
       border-radius: 28px;
@@ -382,7 +378,7 @@
       position: relative;
       margin-bottom: 12px;
     }
-    .moonly-card-view-switcher {
+    .astra-card-view-switcher {
       display: inline-flex;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid rgba(255, 255, 255, 0.12);
@@ -432,7 +428,7 @@
     }
 
     /* ==========================================================================
-       SCREEN 1: CALENDAR (1:1 MOONLY SCREEN_06 AUTHENTIC SYSTEM)
+       SCREEN 1: CALENDAR (1:1 ASTRA SCREEN_06 AUTHENTIC SYSTEM)
        ========================================================================== */
     .calendar-header-row {
       display: flex;
@@ -445,7 +441,7 @@
 
     .days-scroll-card {
       flex: 1;
-      background: var(--moonly-card);
+      background: var(--astra-card);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 24px;
       display: flex;
@@ -488,7 +484,7 @@
     }
 
     .day-scroll-item.selected {
-      background: var(--moonly-card-highlight);
+      background: var(--astra-card-highlight);
       box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
     }
 
@@ -496,7 +492,7 @@
       font-size: 11px;
       font-weight: 700;
       text-transform: uppercase;
-      color: var(--moonly-text-muted);
+      color: var(--astra-text-muted);
       letter-spacing: 0.5px;
       line-height: 1;
       display: flex;
@@ -520,7 +516,7 @@
     .day-scroll-num {
       font-size: 13px;
       font-weight: 700;
-      color: var(--moonly-text-muted);
+      color: var(--astra-text-muted);
       line-height: 1;
     }
 
@@ -532,7 +528,7 @@
     .calendar-full-view-btn {
       width: 60px;
       height: 92px;
-      background: var(--moonly-card);
+      background: var(--astra-card);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 24px;
       display: flex;
@@ -546,7 +542,7 @@
 
     .calendar-full-view-btn:active {
       transform: scale(0.96);
-      background: var(--moonly-card-highlight);
+      background: var(--astra-card-highlight);
     }
 
     .calendar-full-view-icon {
@@ -558,7 +554,7 @@
     .calendar-full-view-month {
       font-size: 11px;
       font-weight: 700;
-      color: var(--moonly-text-muted);
+      color: var(--astra-text-muted);
       text-transform: uppercase;
       margin-top: 8px;
       letter-spacing: 0.8px;
@@ -576,7 +572,7 @@
     .calendar-action-card {
       flex: 1;
       height: 64px;
-      background: var(--moonly-card);
+      background: var(--astra-card);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 20px;
       display: flex;
@@ -589,7 +585,7 @@
 
     .calendar-action-card:active {
       transform: scale(0.97);
-      background: var(--moonly-card-highlight);
+      background: var(--astra-card-highlight);
     }
 
     .calendar-action-icon {
@@ -607,7 +603,7 @@
     .calendar-action-sub {
       font-size: 10px;
       font-weight: 700;
-      color: var(--moonly-text-muted);
+      color: var(--astra-text-muted);
       text-transform: uppercase;
       letter-spacing: 0.5px;
     }
@@ -615,14 +611,14 @@
     .calendar-action-title {
       font-size: 14px;
       font-weight: 700;
-      color: var(--moonly-text-primary);
+      color: var(--astra-text-primary);
       margin-top: 2px;
     }
 
     /* Card 1: view_calendar_v2_event_large.xml */
     .calendar-event-large-card {
       position: relative;
-      background: var(--moonly-card);
+      background: var(--astra-card);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 32px;
       overflow: hidden;
@@ -686,7 +682,7 @@
     .calendar-event-top-tag {
       font-size: 11px;
       font-weight: 700;
-      color: var(--moonly-text-secondary);
+      color: var(--astra-text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.6px;
     }
@@ -694,7 +690,7 @@
     .calendar-event-day-title {
       font-size: 16px;
       font-weight: 700;
-      color: var(--moonly-text-primary);
+      color: var(--astra-text-primary);
       margin-top: 2px;
     }
 
@@ -708,7 +704,7 @@
     .calendar-event-focus-tag {
       font-size: 11px;
       font-weight: 700;
-      color: var(--moonly-text-primary);
+      color: var(--astra-text-primary);
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin-top: 18px;
@@ -738,7 +734,7 @@
     .calendar-event-status-tag {
       font-size: 10px;
       font-weight: 700;
-      color: var(--moonly-text-secondary);
+      color: var(--astra-text-secondary);
       text-transform: uppercase;
       letter-spacing: 0.6px;
     }
@@ -750,7 +746,7 @@
       margin-top: 4px;
       font-size: 16px;
       font-weight: 700;
-      color: var(--moonly-text-primary);
+      color: var(--astra-text-primary);
     }
 
     .calendar-event-badge-icon {
@@ -812,7 +808,7 @@
     /* Card 3: view_calendar_v2_transit_card.xml */
     .calendar-transit-card {
       position: relative;
-      background: var(--moonly-card);
+      background: var(--astra-card);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 28px;
       padding: 20px;
@@ -825,7 +821,7 @@
     .calendar-transit-date {
       font-size: 11px;
       font-weight: 700;
-      color: var(--moonly-text-sub);
+      color: var(--astra-text-sub);
       text-transform: uppercase;
       letter-spacing: 0.8px;
     }
@@ -833,7 +829,7 @@
     .calendar-transit-title {
       font-size: 22px;
       font-weight: 700;
-      color: var(--moonly-text-primary);
+      color: var(--astra-text-primary);
       margin-top: 4px;
     }
 
@@ -852,14 +848,14 @@
     .calendar-transit-stat-label {
       font-size: 10px;
       font-weight: 600;
-      color: var(--moonly-text-secondary);
+      color: var(--astra-text-secondary);
       text-transform: uppercase;
     }
 
     .calendar-transit-stat-value {
       font-size: 16px;
       font-weight: 700;
-      color: var(--moonly-text-primary);
+      color: var(--astra-text-primary);
       margin-top: 4px;
       display: flex;
       align-items: center;
@@ -876,7 +872,7 @@
     .lifestyle-section-title {
       font-size: 11px;
       font-weight: 700;
-      color: var(--moonly-text-sub);
+      color: var(--astra-text-sub);
       text-transform: uppercase;
       letter-spacing: 0.8px;
       margin: 24px 16px 10px;
@@ -890,7 +886,7 @@
     }
 
     .lifestyle-badge-card {
-      background: var(--moonly-card);
+      background: var(--astra-card);
       border: 1px solid rgba(255, 255, 255, 0.06);
       border-radius: 20px;
       padding: 14px;
@@ -920,12 +916,12 @@
     .lifestyle-badge-name {
       font-size: 13px;
       font-weight: 700;
-      color: var(--moonly-text-primary);
+      color: var(--astra-text-primary);
     }
 
     .lifestyle-badge-desc {
       font-size: 11px;
-      color: var(--moonly-text-sub);
+      color: var(--astra-text-sub);
       margin-top: 2px;
     }
 
@@ -1014,7 +1010,7 @@
     }
 
     /* ==========================================================================
-       TAROT AUTHENTIC HEADER BAR (MOONLY 1:1 CAPSULE + ROUND BTNS)
+       TAROT AUTHENTIC HEADER BAR (ASTRA 1:1 CAPSULE + ROUND BTNS)
        ========================================================================== */
     .tarot-header-nav-row {
       display: flex;
@@ -1177,7 +1173,7 @@
       box-shadow: 0 10px 28px rgba(0, 0, 0, 0.6);
     }
 
-    /* 3-Cards Spread Layout (Moonly Scale) */
+    /* 3-Cards Spread Layout (Astra Scale) */
     .tarot-3cards-row {
       display: flex;
       justify-content: center;
@@ -1255,10 +1251,12 @@
     /* Fan Arc Container (Leveled Out & Flatter Radius) */
     .tarot-arc-fan-wrap {
       position: relative;
-      height: 98px;
+      height: 110px;
       width: 100%;
       overflow: visible;
       margin: 4px 0 2px;
+      touch-action: pan-y;
+      user-select: none;
     }
     .fan-card-item {
       position: absolute;
@@ -1276,7 +1274,7 @@
     }
 
     /* ==========================================================================
-       UNIVERSAL WHITE BOTTOM SHEET (STRICT MOONLY REPLICATION)
+       UNIVERSAL WHITE BOTTOM SHEET (STRICT ASTRA REPLICATION)
        ========================================================================== */
     .white-bottom-sheet {
       background: #FFFFFF !important;
@@ -1685,7 +1683,7 @@
       cursor: pointer;
     }
 
-    /* Floating Mentor Selector Menu (Moonly 1:1 Popover) */
+    /* Floating Mentor Selector Menu (Astra 1:1 Popover) */
     .floating-mentor-menu {
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
@@ -2198,7 +2196,127 @@
       border-radius: 14px;
       object-fit: cover;
     }
-  </style>
+  
+    <!-- Bottom Sheet System Styles -->
+    <style>
+      .bs-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.6);
+        backdrop-filter: blur(8px);
+        z-index: 200;
+        display: none;
+        align-items: flex-end;
+        animation: bsFadeIn 0.2s ease;
+      }
+      .bs-overlay.active { display: flex; }
+      @keyframes bsFadeIn { from { opacity: 0; } to { opacity: 1; } }
+      
+      .bs-sheet {
+        width: 100%;
+        max-width: 430px;
+        background: #161822;
+        border-radius: 28px 28px 0 0;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        box-shadow: 0 -20px 60px rgba(0,0,0,0.5);
+        animation: bsSlideUp 0.35s cubic-bezier(0.16,1,0.3,1);
+        max-height: 85vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      @keyframes bsSlideUp { from { transform: translateY(100%); } to { transform: translateY(0); } }
+      
+      .bs-handle {
+        width: 44px; height: 5px;
+        background: #3A3D4E;
+        border-radius: 3px;
+        margin: 14px auto 8px;
+      }
+      
+      .bs-header {
+        display: flex; justify-content: space-between; align-items: center;
+        padding: 0 20px 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+      }
+      .bs-title {
+        font-size: 20px; font-weight: 800; color: #FFF;
+        font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+      }
+      .bs-close {
+        width: 36px; height: 36px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.08);
+        border: 1px solid rgba(255,255,255,0.12);
+        color: #FFF; font-size: 18px;
+        display: flex; align-items: center; justify-content: center;
+        cursor: pointer;
+      }
+      .bs-close:active { background: rgba(255,255,255,0.15); }
+      
+      .bs-content { padding: 20px; overflow-y: auto; flex: 1; }
+      .bs-message { font-size: 15px; line-height: 1.6; color: rgba(255,255,255,0.9); margin-bottom: 20px; }
+      .bs-message strong { color: #FFF; }
+      
+      .bs-actions { display: flex; gap: 10px; }
+      .bs-btn {
+        flex: 1; height: 48px;
+        border-radius: 16px; font-size: 15px; font-weight: 700;
+        border: none; cursor: pointer;
+        transition: all 0.15s;
+        display: flex; align-items: center; justify-content: center; gap: 8px;
+      }
+      .bs-btn:active { transform: scale(0.98); }
+      .bs-btn-primary {
+        background: linear-gradient(135deg, #784BF6, #5B2FE3);
+        color: #FFF; box-shadow: 0 6px 20px rgba(120,75,246,0.4);
+      }
+      .bs-btn-secondary {
+        background: rgba(255,255,255,0.1);
+        border: 1px solid rgba(255,255,255,0.15);
+        color: #FFF;
+      }
+      .bs-btn-danger {
+        background: linear-gradient(135deg, #EF4444, #DC2626);
+        color: #FFF; box-shadow: 0 6px 20px rgba(239,68,68,0.4);
+      }
+      .bs-btn-success {
+        background: linear-gradient(135deg, #30D158, #28A845);
+        color: #FFF; box-shadow: 0 6px 20px rgba(48,209,88,0.4);
+      }
+      
+      .bs-input-group {
+        display: flex; flex-direction: column; gap: 8px;
+      }
+      .bs-input {
+        width: 100%; height: 48px;
+        border-radius: 14px;
+        background: #202230;
+        border: 1px solid rgba(255,255,255,0.12);
+        padding: 0 16px;
+        font-size: 16px; color: #FFF;
+        outline: none;
+        font-family: inherit;
+      }
+      .bs-input:focus { border-color: #784BF6; }
+      .bs-label { font-size: 13px; color: #8E93A6; font-weight: 600; }
+    
+    .day-scroll-month {
+      font-size: 9px;
+      color: #6E7282;
+      text-transform: uppercase;
+      margin-top: 2px;
+      font-weight: 600;
+    }
+    .day-scroll-item.is-today .day-scroll-month {
+      color: #F5A623;
+    }
+    .day-scroll-item.selected .day-scroll-month {
+      color: #F5A623;
+    }
+
+</style>
+</style>
 </head>
 <body>
 
@@ -2237,7 +2355,7 @@
             <!-- Дни генерируются JavaScript на 30 лунных дней -->
           </div>
           <div class="calendar-full-view-btn" onclick="openMonthCalendarModal()">
-            <img class="calendar-full-view-icon" src="moonly_3d_icons/ic_calendar_full_view.png" alt="Full View">
+            <img class="calendar-full-view-icon" src="astra_3d_spheres/ic_calendar_full_view.png" alt="Full View">
             <span class="calendar-full-view-month">ОКТ</span>
           </div>
         </div>
@@ -2245,14 +2363,14 @@
         <!-- Кнопки: Дневник снов + Таро дня -->
         <div class="calendar-actions-row">
           <div class="calendar-action-card" onclick="openDreamerModal()">
-            <img class="calendar-action-icon" src="moonly_3d_icons/ic_calendar_dreamer.png" alt="Dreamer">
+            <img class="calendar-action-icon" src="astra_3d_spheres/astrolabe_natal.png" alt="Dreamer">
             <div class="calendar-action-text">
               <span class="calendar-action-sub">ДНЕВНИК СНОВ</span>
               <span class="calendar-action-title">Записать сон</span>
             </div>
           </div>
           <div class="calendar-action-card" onclick="switchPracticeSection('tarot')">
-            <img class="calendar-action-icon" src="moonly_3d_icons/ic_calendar_tarot.png" alt="Tarot">
+            <img class="calendar-action-icon" src="astra_3d_spheres/tarot_glass_cards.png" alt="Tarot">
             <div class="calendar-action-text">
               <span class="calendar-action-sub">ТАРО ДНЯ</span>
               <span class="calendar-action-title">Спросить карты</span>
@@ -2260,20 +2378,20 @@
           </div>
         </div>
 
-        <!-- Карточка 1: ДЛЯ ТЕБЯ • Персональный гороскоп (Moonly screen_06.png Card 1) -->
+        <!-- Карточка 1: ДЛЯ ТЕБЯ • Персональный гороскоп (Astra screen_06.png Card 1) -->
         <div class="calendar-event-large-card" onclick="openDayDetailModal()">
-          <img class="calendar-event-bg-image" id="calendar-bg-img" src="09_ФОНЫ_ЛУННОГО_КАЛЕНДАРЯ/02_The_13th_Moon_Day.jpg" alt="Moon Day">
+          <img class="calendar-event-bg-image" id="calendar-bg-img" src="09_moon_calendar_bg/02_The_13th_Moon_Day.jpg" alt="Moon Day">
           <div class="calendar-event-gradient-overlay"></div>
           <div class="calendar-event-content">
             <div class="calendar-event-header">
               <div class="calendar-event-header-left">
-                <img class="calendar-event-header-icon" src="moonly_3d_icons/ic_new_spirituality.png" alt="Event">
+                <img class="calendar-event-header-icon" src="astra_3d_spheres/ic_new_spirituality.png" alt="Event">
                 <div>
                   <div class="calendar-event-top-tag">ДЛЯ ТЕБЯ</div>
                   <div class="calendar-event-day-title" id="calendar-day-header">Персональный гороскоп</div>
                 </div>
               </div>
-              <img class="calendar-event-arrow" src="moonly_3d_icons/ic_calendar_v2_arrow.png" alt="Arrow">
+              <img class="calendar-event-arrow" src="astra_3d_spheres/ic_calendar_v2_arrow.png" alt="Arrow">
             </div>
 
             <div class="calendar-event-focus-tag">В ФОКУСЕ</div>
@@ -2293,19 +2411,19 @@
           </div>
         </div>
 
-        <!-- Карточка 2: ЛУННЫЙ КАЛЕНДАРЬ • Растущая Луна (Moonly screen_06.png Card 2) -->
+        <!-- Карточка 2: ЛУННЫЙ КАЛЕНДАРЬ • Растущая Луна (Astra screen_06.png Card 2) -->
         <div class="calendar-event-large-card calendar-card-lunar" onclick="openDayDetailModal()">
           <div class="calendar-lunar-bg"></div>
           <div class="calendar-event-content">
             <div class="calendar-event-header">
               <div class="calendar-event-header-left">
-                <img class="calendar-event-header-icon" src="moonly_3d_icons/ic_rituals_new_moon.png" alt="Moon">
+                <img class="calendar-event-header-icon" src="astra_3d_spheres/ic_rituals_new_moon.png" alt="Moon">
                 <div>
                   <div class="calendar-event-top-tag">ЛУННЫЙ КАЛЕНДАРЬ</div>
                   <div class="calendar-event-day-title" id="calendar-lunar-phase-title">13-й лунный день • Растущая Луна</div>
                 </div>
               </div>
-              <img class="calendar-event-arrow" src="moonly_3d_icons/ic_calendar_v2_arrow.png" alt="Arrow">
+              <img class="calendar-event-arrow" src="astra_3d_spheres/ic_calendar_v2_arrow.png" alt="Arrow">
             </div>
 
             <div class="calendar-lunar-transit-row">
@@ -2325,7 +2443,7 @@
                   <span id="calendar-full-moon-countdown">Через 2 дня ✦</span>
                 </div>
               </div>
-              <img class="calendar-event-3d-moon-corner" id="calendar-moon-corner" src="moonly_3d_icons/moon_13.png" alt="3D Moon Sphere">
+              <img class="calendar-event-3d-moon-corner" id="calendar-moon-corner" src="astra_3d_spheres/moon_porcelain.jpg" alt="3D Moon Sphere">
             </div>
           </div>
         </div>
@@ -2343,7 +2461,7 @@
               <span class="calendar-transit-stat-label">ЗНАК ЗОДИАКА</span>
               <div class="calendar-transit-stat-value">
                 <span id="transit-zodiac-name">Телец</span>
-                <img class="calendar-transit-zodiac-icon" id="transit-zodiac-img" src="moonly_3d_icons/ic_transit_zodiac_taurus.png" alt="Taurus">
+                <img class="calendar-transit-zodiac-icon" id="transit-zodiac-img" src="astra_3d_spheres/ic_transit_zodiac_taurus.png" alt="Taurus">
               </div>
             </div>
           </div>
@@ -2352,29 +2470,29 @@
         <!-- Персональный ритм дня (4 Bento-бейджa) -->
         <div class="lifestyle-section-title">ПЕРСОНАЛЬНЫЙ ПЛАН НА ДЕНЬ</div>
         <div class="lifestyle-grid">
-          <div class="lifestyle-badge-card" onclick="openRoutineModal('Питание', 'Овощи, крупы и травяные чаи', 'moonly_3d_icons/ic_new_nutrition.png')">
-            <img class="lifestyle-badge-icon" src="moonly_3d_icons/ic_new_nutrition.png" alt="Nutrition">
+          <div class="lifestyle-badge-card" onclick="openRoutineModal('Питание', 'Овощи, крупы и травяные чаи', 'astra_3d_spheres/ic_new_nutrition.png')">
+            <img class="lifestyle-badge-icon" src="astra_3d_spheres/ic_new_nutrition.png" alt="Nutrition">
             <div class="lifestyle-badge-info">
               <span class="lifestyle-badge-name">Питание</span>
               <span class="lifestyle-badge-desc">Овощи, крупы</span>
             </div>
           </div>
-          <div class="lifestyle-badge-card" onclick="openRoutineModal('Здоровье', 'Мягкая растяжка и дыхание', 'moonly_3d_icons/ic_new_health.png')">
-            <img class="lifestyle-badge-icon" src="moonly_3d_icons/ic_new_health.png" alt="Health">
+          <div class="lifestyle-badge-card" onclick="openRoutineModal('Здоровье', 'Мягкая растяжка и дыхание', 'astra_3d_spheres/ic_new_health.png')">
+            <img class="lifestyle-badge-icon" src="astra_3d_spheres/ic_new_health.png" alt="Health">
             <div class="lifestyle-badge-info">
               <span class="lifestyle-badge-name">Здоровье</span>
               <span class="lifestyle-badge-desc">Мягкая йога</span>
             </div>
           </div>
-          <div class="lifestyle-badge-card" onclick="openRoutineModal('Романтика', 'Доверительные беседы и вечер при свечах', 'moonly_3d_icons/ic_new_romance.png')">
-            <img class="lifestyle-badge-icon" src="moonly_3d_icons/ic_new_romance.png" alt="Romance">
+          <div class="lifestyle-badge-card" onclick="openRoutineModal('Романтика', 'Доверительные беседы и вечер при свечах', 'astra_3d_spheres/ic_new_romance.png')">
+            <img class="lifestyle-badge-icon" src="astra_3d_spheres/ic_new_romance.png" alt="Romance">
             <div class="lifestyle-badge-info">
               <span class="lifestyle-badge-name">Романтика</span>
               <span class="lifestyle-badge-desc">Глубокие беседы</span>
             </div>
           </div>
-          <div class="lifestyle-badge-card" onclick="openRoutineModal('Карьера', 'Стратегическое планирование и аудит задач', 'moonly_3d_icons/ic_new_career.png')">
-            <img class="lifestyle-badge-icon" src="moonly_3d_icons/ic_new_career.png" alt="Career">
+          <div class="lifestyle-badge-card" onclick="openRoutineModal('Карьера', 'Стратегическое планирование и аудит задач', 'astra_3d_spheres/ic_new_career.png')">
+            <img class="lifestyle-badge-icon" src="astra_3d_spheres/ic_new_career.png" alt="Career">
             <div class="lifestyle-badge-info">
               <span class="lifestyle-badge-name">Карьера</span>
               <span class="lifestyle-badge-desc">Аналитика дел</span>
@@ -2384,12 +2502,12 @@
 
         <!-- Баннер Дневника Снов (Dreamer) -->
         <div class="dreamer-quick-banner" onclick="openDreamerModal()">
-          <img class="dreamer-quick-icon" src="moonly_3d_icons/ic_calendar_dreamer.png" alt="Dreamer">
+          <img class="dreamer-quick-icon" src="astra_3d_spheres/astrolabe_natal.png" alt="Dreamer">
           <div class="dreamer-quick-text">
             <span class="dreamer-quick-sub">ДНЕВНИК СНОВ</span>
             <span class="dreamer-quick-title">Записать и толковать сон с AI</span>
           </div>
-          <img class="calendar-event-arrow" src="moonly_3d_icons/ic_calendar_v2_arrow.png" alt="Arrow">
+          <img class="calendar-event-arrow" src="astra_3d_spheres/ic_calendar_v2_arrow.png" alt="Arrow">
         </div>
       </div>
 
@@ -2398,7 +2516,7 @@
       <!-- ================================================================== -->
       <div id="screen-practices" class="screen-view">
 
-        <!-- Practices Horizontal Category Ribbon (Exact Moonly Order) -->
+        <!-- Practices Horizontal Category Ribbon (Exact Astra Order) -->
         <div class="practices-tabs-scroll">
           <div class="practice-pill active" onclick="switchPracticeTab('affirmations', this)">Аффирмации</div>
           <div class="practice-pill" onclick="switchPracticeTab('tarot', this)">Таро</div>
@@ -2433,7 +2551,7 @@
         <!-- 2. TAROT SUBVIEW (SCREENS 2, 4, 6, 7 IN AUDIT) -->
         <div id="subview-tarot" class="practice-subview" style="display: none;">
           
-          <!-- Tarot Authentic Header Bar (Moonly Original 1:1) -->
+          <!-- Tarot Authentic Header Bar (Astra Original 1:1) -->
           <div class="tarot-header-nav-row">
             <!-- Round History Button -->
             <button class="tarot-nav-round-btn" title="История раскладов" onclick="showTarotTooltip('История раскладов', 'Здесь сохраняются ваши ежедневные расклады, вытянутые арканы и заметки интуиции.')">
@@ -2554,7 +2672,7 @@
                 <div class="white-sheet-sub">Персональный инсайт от астролога</div>
               </div>
               <div class="white-sheet-avatar-wrap">
-                <img class="white-sheet-avatar" id="white-sheet-mentor-avatar" src="10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png" alt="Astra">
+                <img class="white-sheet-avatar" id="white-sheet-mentor-avatar" src="10_ai_mentors/01_Astra_Personal_Astrologer.png" alt="Astra">
                 <div class="white-sheet-avatar-glow"></div>
               </div>
             </div>
@@ -2586,10 +2704,10 @@
 
         <!-- 3. ORACLE SUBVIEW (SCREEN 8 IN AUDIT) -->
         <div id="subview-oracle" class="practice-subview" style="display: none; padding: 10px 16px;">
-          <div class="moonly-slate-card" style="padding: 16px 16px 20px;">
+          <div class="astra-slate-card" style="padding: 16px 16px 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
               <div class="btn-pill-action" style="width: 36px; height: 36px; font-size: 14px;" title="История">⏱</div>
-              <div class="moonly-card-view-switcher">
+              <div class="astra-card-view-switcher">
                 <span class="card-view-dot active" title="Одна карта">▫️</span>
                 <span class="card-view-dot" title="Расклад">≡</span>
               </div>
@@ -2601,7 +2719,7 @@
 
             <div id="oracle-slot-container" style="display: flex; flex-direction: column; align-items: center; justify-content: center;">
               <div class="tarot-slot-hero filled" id="oracle-slot" style="width: 140px; height: 215px; border-radius: 18px;" onclick="drawOracleCard()">
-                <img class="tarot-card-img-hero" src="03_ДЕВЫ_МУДРОСТИ/59_Tree_of_Life.png" alt="Oracle" style="border-radius: 18px;">
+                <img class="tarot-card-img-hero" src="03_wisdom_maidens/59_Tree_of_Life.png" alt="Oracle" style="border-radius: 18px;">
               </div>
               <div style="font-size: 14px; font-weight: 700; color: #FFF; margin-top: 8px;">Древо жизни</div>
             </div>
@@ -2656,10 +2774,10 @@
 
         <!-- 6. RUNES SUBVIEW (SCREEN 10 IN AUDIT) -->
         <div id="subview-runes" class="practice-subview" style="display: none; padding: 10px 16px;">
-          <div class="moonly-slate-card" style="padding: 16px 16px 20px;">
+          <div class="astra-slate-card" style="padding: 16px 16px 20px;">
             <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
               <div style="width: 36px;"></div>
-              <div class="moonly-card-view-switcher">
+              <div class="astra-card-view-switcher">
                 <span class="card-view-dot active" title="Одна руна">▫️</span>
                 <span class="card-view-dot" title="Расклад">≡</span>
                 <span class="card-view-dot" title="История">⏱</span>
@@ -2672,7 +2790,7 @@
 
             <div class="rune-hero-stage" style="position: relative; display: flex; align-items: center; justify-content: center; min-height: 230px;">
               <div class="rune-aura-glow"></div>
-              <img id="rune-hero-stone-img" src="02_СКАНДИНАВСКИЕ_РУНЫ/20_Laguz.png" alt="Rune Laguz" class="rune-real-stone-img" onclick="drawDailyRune()">
+              <img id="rune-hero-stone-img" src="02_runes/20_Laguz.png" alt="Rune Laguz" class="rune-real-stone-img" onclick="drawDailyRune()">
             </div>
 
             <div class="actions-4-bar" style="margin-top: 18px; margin-bottom: 14px; display: flex; justify-content: center; gap: 14px;">
@@ -2756,7 +2874,7 @@
         <div class="chat-header-bar-light" onclick="openFloatingMentorMenu()">
           <div class="chat-mentor-info-col">
             <div class="chat-mentor-avatar-wrap">
-              <img class="chat-mentor-avatar-img" id="chat-header-avatar" src="10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png" alt="Astra">
+              <img class="chat-mentor-avatar-img" id="chat-header-avatar" src="10_ai_mentors/01_Astra_Personal_Astrologer.png" alt="Astra">
               <div class="chat-online-dot"></div>
             </div>
             <div>
@@ -2773,9 +2891,9 @@
         <!-- Messages Area -->
         <div class="chat-messages-container" id="chat-msg-area">
           
-          <!-- Tarot Insight Breakdown Card (Matching Moonly Screen 3) -->
+          <!-- Tarot Insight Breakdown Card (Matching Astra Screen 3) -->
           <div class="chat-insight-card" id="chat-hero-insight-card">
-            <img class="chat-insight-thumb" src="04_ТАРО_И_РУНЫ/tarot_cards/79_The_King_of_Pentacles.png" alt="King">
+            <img class="chat-insight-thumb" src="04_tarot_and_runes/tarot_cards/79_The_King_of_Pentacles.png" alt="King">
             <div>
               <div class="chat-insight-badge">Карта дня • Аркан</div>
               <div class="chat-insight-card-name" id="chat-insight-card-name">Король Пентаклей</div>
@@ -2826,8 +2944,8 @@
         <!-- Hero Avatar in Scalloped Star Frame -->
         <div class="you-hero-avatar-wrap">
           <div class="you-star-frame" onclick="openAvatarSelectorModal()">
-            <img class="you-star-border-img" src="moonly_3d_icons/ic_avatar_star_border_small_2.png" onerror="this.style.display='none'" alt="Frame">
-            <img class="you-avatar-img" id="profile-avatar-display" src="11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/01_Default_Female_Muse_master_1024.png" onerror="this.src='10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Luna_Wise_Mystic.png'" alt="Avatar">
+            <img class="you-star-border-img" src="astra_3d_spheres/ic_avatar_star_border_small_2.png" onerror="this.style.display='none'" alt="Frame">
+            <img class="you-avatar-img" id="profile-avatar-display" src="11_default_and_ai_avatars/01_Default_Female_Muse_master_1024.png" onerror="this.src='10_ai_mentors/01_Luna_Wise_Mystic.png'" alt="Avatar">
             <div class="you-zodiac-badge">♈</div>
           </div>
           <div style="font-size: 18px; font-weight: 800; margin-bottom: 4px;" id="profile-user-name">Александр</div>
@@ -2847,7 +2965,7 @@
           <div class="card-glass" style="cursor: pointer;" onclick="openSettingsScreen()">
             <div class="card-title-row">
               <div class="card-title">
-                <img src="moonly_3d_icons/ic_you_report_birth_chart.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Chart">
+                <img src="astra_3d_spheres/ic_you_report_birth_chart.png" onerror="this.src='astra_assets/07_3d_icons_and_elements/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Chart">
                 <span>🪐 Натальная карта</span>
               </div>
               <span style="font-size: 12px; color: var(--purple); font-weight: 700;">Изменить ></span>
@@ -2858,7 +2976,7 @@
           <div class="card-glass">
             <div class="card-title-row">
               <div class="card-title">
-                <img src="moonly_3d_icons/ic_you_report_numerology.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Matrix">
+                <img src="astra_3d_spheres/ic_you_report_numerology.png" onerror="this.src='astra_assets/07_3d_icons_and_elements/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Matrix">
                 <span>✨ Матрица судьбы</span>
               </div>
               <span style="font-size: 12px; color: var(--teal); font-weight: 700;">Аркан 7</span>
@@ -2871,7 +2989,7 @@
           <div class="card-glass" style="cursor: pointer;" onclick="openPaywallModal()">
             <div class="card-title-row">
               <div class="card-title">
-                <img src="moonly_3d_icons/ic_you_report_year.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Year">
+                <img src="astra_3d_spheres/ic_you_report_year.png" onerror="this.src='astra_assets/07_3d_icons_and_elements/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Year">
                 <span>🔭 Годовой прогноз 2026–2027</span>
               </div>
               <span style="font-size: 12px; color: #E58A2B; font-weight: 700;">PLUS 👑</span>
@@ -2882,7 +3000,7 @@
           <div class="card-glass" style="cursor: pointer;" onclick="openPaywallModal()">
             <div class="card-title-row">
               <div class="card-title">
-                <img src="moonly_3d_icons/ic_you_report_career.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Career">
+                <img src="astra_3d_spheres/ic_you_report_career.png" onerror="this.src='astra_assets/07_3d_icons_and_elements/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Career">
                 <span>🧭 Карьерный компас</span>
               </div>
               <span style="font-size: 12px; color: #E58A2B; font-weight: 700;">PLUS 👑</span>
@@ -2893,7 +3011,7 @@
           <div class="card-glass" style="cursor: pointer;" onclick="openPaywallModal()">
             <div class="card-title-row">
               <div class="card-title">
-                <img src="moonly_3d_icons/ic_you_report_astrocartography.png" onerror="this.src='astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Map">
+                <img src="astra_3d_spheres/ic_you_report_astrocartography.png" onerror="this.src='astra_assets/07_3d_icons_and_elements/icon.png'" style="width: 28px; height: 28px; object-fit: contain;" alt="Map">
                 <span>🗺️ Астрокартография</span>
               </div>
               <span style="font-size: 12px; color: #E58A2B; font-weight: 700;">PLUS 👑</span>
@@ -3010,7 +3128,7 @@
         <div style="font-size: 13px; color: var(--text-muted); margin-bottom: 16px;">3 простых шага к получению точного озарения:</div>
         
         <div class="rule-card">
-          <img class="rule-card-img" src="astra_assets/04_ТАРО_И_РУНЫ/ic_tarot_how_to_use_1.png" alt="Rule 1">
+          <img class="rule-card-img" src="astra_assets/04_tarot_and_runes/ic_tarot_how_to_use_1.png" alt="Rule 1">
           <div>
             <div style="font-size: 14px; font-weight: 700; color: #FFF;">1. Настройтесь на тишину</div>
             <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Закройте глаза, сделайте спокойный вдох и сфокусируйтесь на волнующем вас вопросе.</div>
@@ -3018,7 +3136,7 @@
         </div>
 
         <div class="rule-card">
-          <img class="rule-card-img" src="astra_assets/04_ТАРО_И_РУНЫ/ic_tarot_how_to_use_2.png" alt="Rule 2">
+          <img class="rule-card-img" src="astra_assets/04_tarot_and_runes/ic_tarot_how_to_use_2.png" alt="Rule 2">
           <div>
             <div style="font-size: 14px; font-weight: 700; color: #FFF;">2. Выберите карту сердцем</div>
             <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Доверьтесь первому импульсу при прикосновении к колоде. Вселенная не ошибается.</div>
@@ -3026,7 +3144,7 @@
         </div>
 
         <div class="rule-card">
-          <img class="rule-card-img" src="astra_assets/04_ТАРО_И_РУНЫ/ic_tarot_how_to_use_3.png" alt="Rule 3">
+          <img class="rule-card-img" src="astra_assets/04_tarot_and_runes/ic_tarot_how_to_use_3.png" alt="Rule 3">
           <div>
             <div style="font-size: 14px; font-weight: 700; color: #FFF;">3. Примите знак дня</div>
             <div style="font-size: 12px; color: var(--text-muted); margin-top: 2px;">Прочитайте совет аркана и используйте его мудрость для осознанных решений.</div>
@@ -3052,7 +3170,7 @@
         </div>
 
         <div class="player-disc-wrap">
-          <img class="player-center-thumb" id="player-disc-img" src="astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png" alt="Sound">
+          <img class="player-center-thumb" id="player-disc-img" src="astra_assets/07_3d_icons_and_elements/icon.png" alt="Sound">
         </div>
 
         <div>
@@ -3083,7 +3201,7 @@
         <button class="player-close-btn" onclick="closePaywallModal()">✕</button>
       </div>
 
-      <img class="paywall-muse-hero" src="moonly_paywall/new_paywall_bg_male_2.png" onerror="this.src='astra_assets/03_ПЕЙВОЛЫ_И_ПОДПИСКА/new_paywall_bg_male_2.png'" alt="Plus">
+      <img class="paywall-muse-hero" src="astra_retro_art/astra_altai_hero_official.png" onerror="this.onerror=null; this.src='paywall_bg.png'" alt="Астра Плюс">
 
       <div style="font-size: 22px; font-weight: 800; text-align: center; margin-bottom: 6px;">Ваш проводник к самопознанию</div>
       <div style="font-size: 13px; color: var(--text-muted); text-align: center; line-height: 1.45; margin-bottom: 18px;">
@@ -3093,7 +3211,7 @@
       <!-- 1 Week Tariff -->
       <div class="paywall-plan-card" onclick="selectPaywallPlan(this, 'week')">
         <div style="display: flex; align-items: center;">
-          <img class="paywall-plan-icon" src="moonly_paywall/ic_paywall_round_month.png" onerror="this.src='astra_assets/03_ПЕЙВОЛЫ_И_ПОДПИСКА/ic_paywall_round_month.png'" alt="W">
+          <img class="paywall-plan-icon" src="astra_assets/03_paywalls_and_subscriptions/ic_paywall_round_month.png" onerror="this.src='astra_assets/03_paywalls_and_subscriptions/ic_paywall_round_month.png'" alt="W">
           <div>
             <div style="font-size: 15px; font-weight: 700;">1 неделя</div>
             <div style="font-size: 12px; color: var(--text-muted);">449 ₽ в неделю</div>
@@ -3105,7 +3223,7 @@
       <!-- 1 Year Tariff (POPULAR) -->
       <div class="paywall-plan-card selected" onclick="selectPaywallPlan(this, 'year')">
         <div style="display: flex; align-items: center;">
-          <img class="paywall-plan-icon" src="moonly_paywall/ic_paywall_round_year.png" onerror="this.src='astra_assets/03_ПЕЙВОЛЫ_И_ПОДПИСКА/ic_paywall_round_year.png'" alt="Y">
+          <img class="paywall-plan-icon" src="astra_assets/03_paywalls_and_subscriptions/ic_paywall_round_year.png" onerror="this.src='astra_assets/03_paywalls_and_subscriptions/ic_paywall_round_year.png'" alt="Y">
           <div>
             <div style="display: flex; align-items: center; gap: 6px;">
               <span style="font-size: 15px; font-weight: 700;">1 год</span>
@@ -3120,7 +3238,7 @@
       <!-- Lifetime Tariff -->
       <div class="paywall-plan-card" onclick="selectPaywallPlan(this, 'lifetime')">
         <div style="display: flex; align-items: center;">
-          <img class="paywall-plan-icon" src="moonly_paywall/ic_paywall_round_lifetime.png" onerror="this.src='astra_assets/03_ПЕЙВОЛЫ_И_ПОДПИСКА/ic_paywall_round_lifetime.png'" alt="L">
+          <img class="paywall-plan-icon" src="astra_assets/03_paywalls_and_subscriptions/ic_paywall_round_lifetime.png" onerror="this.src='astra_assets/03_paywalls_and_subscriptions/ic_paywall_round_lifetime.png'" alt="L">
           <div>
             <div style="font-size: 15px; font-weight: 700;">Навсегда</div>
             <div style="font-size: 12px; color: var(--text-muted);">Разовый пожизненный доступ</div>
@@ -3134,7 +3252,7 @@
       </button>
 
       <div style="font-size: 11px; color: var(--text-dim); text-align: center; margin-top: 14px;">
-        Отмена подписки в любой момент • <span style="text-decoration: underline; cursor: pointer;" onclick="alert('Покупки успешно восстановлены!')">Восстановить покупки</span>
+        Отмена подписки в любой момент • <span style="text-decoration: underline; cursor: pointer;" onclick="bsAlert('Покупки успешно восстановлены!', 'Восстановление покупок')">Восстановить покупки</span>
       </div>
     </div>
 
@@ -3214,6 +3332,116 @@
   <!-- MASTER CONTROLLER JAVASCRIPT                                         -->
   <!-- ==================================================================== -->
   <script>
+    // ========================================================
+    // BOTTOM SHEET SYSTEM (Replaces alert/confirm/prompt)
+    // ========================================================
+    function showBottomSheet(options) {
+      return new Promise((resolve) => {
+        const overlay = document.createElement('div');
+        overlay.className = 'bs-overlay';
+        
+        let actionsHtml = '';
+        if (options.type === 'alert') {
+          actionsHtml = `<button class="bs-btn bs-btn-primary" data-value="ok">${options.confirmText || 'OK'}</button>`;
+        } else if (options.type === 'confirm') {
+          actionsHtml = `
+            <button class="bs-btn bs-btn-secondary" data-value="cancel">${options.cancelText || 'Отмена'}</button>
+            <button class="bs-btn bs-btn-${options.danger ? 'danger' : 'primary'}" data-value="confirm">${options.confirmText || 'Подтвердить'}</button>
+          `;
+        } else if (options.type === 'prompt') {
+          actionsHtml = `
+            <button class="bs-btn bs-btn-secondary" data-value="cancel">${options.cancelText || 'Отмена'}</button>
+            <button class="bs-btn bs-btn-primary" data-value="confirm">${options.confirmText || 'Готово'}</button>
+          `;
+        }
+        
+        let inputHtml = '';
+        if (options.type === 'prompt') {
+          inputHtml = `
+            <div class="bs-input-group">
+              <label class="bs-label">${options.label || ''}</label>
+              <input type="text" class="bs-input" id="bs-prompt-input" value="${options.defaultValue || ''}" placeholder="${options.placeholder || ''}">
+            </div>
+          `;
+        }
+        
+        overlay.innerHTML = `
+          <div class="bs-sheet">
+            <div class="bs-handle"></div>
+            <div class="bs-header">
+              <div class="bs-title">${options.title || 'Уведомление'}</div>
+              <button class="bs-close" data-value="close">✕</button>
+            </div>
+            <div class="bs-content">
+              <div class="bs-message">${options.message || ''}</div>
+              ${inputHtml}
+              <div class="bs-actions">${actionsHtml}</div>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(overlay);
+        requestAnimationFrame(() => overlay.classList.add('active'));
+        
+        const cleanup = (value) => {
+          overlay.classList.remove('active');
+          setTimeout(() => overlay.remove(), 300);
+          resolve(value);
+        };
+        
+        overlay.querySelectorAll('[data-value]').forEach(btn => {
+          btn.onclick = () => cleanup(btn.dataset.value);
+        });
+        
+        // Handle Enter key for prompt
+        if (options.type === 'prompt') {
+          const input = overlay.querySelector('#bs-prompt-input');
+          input.focus();
+          input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') cleanup('confirm');
+          });
+        }
+        
+        // Click overlay to close (for alert/confirm)
+        if (options.type !== 'prompt') {
+          overlay.onclick = (e) => {
+            if (e.target === overlay) cleanup(options.type === 'confirm' ? 'cancel' : 'ok');
+          };
+        }
+      });
+    }
+    
+    // Convenience wrappers
+    async function bsAlert(message, title = 'Уведомление') {
+      await showBottomSheet({ type: 'alert', title, message });
+    }
+    
+    async function bsConfirm(message, title = 'Подтверждение', options = {}) {
+      const result = await showBottomSheet({ 
+        type: 'confirm', title, message,
+        confirmText: options.confirmText,
+        cancelText: options.cancelText,
+        danger: options.danger
+      });
+      return result === 'confirm';
+    }
+    
+    async function bsPrompt(message, title = 'Ввод', options = {}) {
+      const result = await showBottomSheet({ 
+        type: 'prompt', title, message,
+        label: options.label,
+        placeholder: options.placeholder,
+        defaultValue: options.defaultValue,
+        confirmText: options.confirmText,
+        cancelText: options.cancelText
+      });
+      if (result === 'confirm') {
+        const input = document.getElementById('bs-prompt-input');
+        return input ? input.value : '';
+      }
+      return null;
+    }
+
     // --- State Management ---
     let currentMainScreen = 'calendar';
     let currentPracticeTab = 'affirmations';
@@ -3229,15 +3457,15 @@
 
     // 5 Cosmic Mentors Data (Astra Atmospheric Archetypes)
     const VEDIC_MASTERS = [
-      { id: 1, name: "А́стра", title: "ВАШ ЛИЧНЫЙ АСТРОЛОГ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png", greeting: "Здравствуй, светлая душа. Я Астра, твой личный проводник по ритмам звёзд и луны. Сегодня энергии дня направлены на созидание и обретение внутренней опоры. Какой вопрос волнует тебя сейчас?" },
-      { id: 2, name: "Селе́на", title: "ПРОВОДНИК УМИРОТВОРЕНИЯ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/02_Selena_Lunar_Peace.png", greeting: "Мир твоему сердцу. Я Селена, помогу отпустить суету дня, успокоить мысли и погрузиться в целительную тишину ночи." },
-      { id: 3, name: "Ма́йя", title: "СОВЕТНИК ТАРО И ЗНАКОВ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/03_Maya_Tarot_Intuition.png", greeting: "Приветствую! Я Майя. Знаки и арканы шепчут о скрытых возможностях вокруг тебя. Позволь мне помочь расшифровать подсказки твоей интуиции." },
-      { id: 4, name: "Орио́н", title: "НАСТАВНИК ЯСНОСТИ И СИЛЫ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/04_Orion_Clarity_Power.png", greeting: "Привет! Я Орион. Время отбросить сомнения, собрать энергию в единый фокус и уверенно двигаться к своим целям." },
-      { id: 5, name: "Та́я", title: "ХРАНИТЕЛЬНИЦА СНОВИДЕНИЙ", avatar: "10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/05_Taya_Dream_Keeper.png", greeting: "Тайны ночи и снов открываются чуткому сердцу. Я Тая, помогу разгадать скрытые послания твоих сновидений и подготовиться к отдыху." }
+      { id: 1, name: "А́стра", title: "ВАШ ЛИЧНЫЙ АСТРОЛОГ", avatar: "10_ai_mentors/01_Astra_Personal_Astrologer.png", greeting: "Здравствуй, светлая душа. Я Астра, твой личный проводник по ритмам звёзд и луны. Сегодня энергии дня направлены на созидание и обретение внутренней опоры. Какой вопрос волнует тебя сейчас?" },
+      { id: 2, name: "Селе́на", title: "ПРОВОДНИК УМИРОТВОРЕНИЯ", avatar: "10_ai_mentors/02_Selena_Lunar_Peace.png", greeting: "Мир твоему сердцу. Я Селена, помогу отпустить суету дня, успокоить мысли и погрузиться в целительную тишину ночи." },
+      { id: 3, name: "Ма́йя", title: "СОВЕТНИК ТАРО И ЗНАКОВ", avatar: "10_ai_mentors/03_Maya_Tarot_Intuition.png", greeting: "Приветствую! Я Майя. Знаки и арканы шепчут о скрытых возможностях вокруг тебя. Позволь мне помочь расшифровать подсказки твоей интуиции." },
+      { id: 4, name: "Орио́н", title: "НАСТАВНИК ЯСНОСТИ И СИЛЫ", avatar: "10_ai_mentors/04_Orion_Clarity_Power.png", greeting: "Привет! Я Орион. Время отбросить сомнения, собрать энергию в единый фокус и уверенно двигаться к своим целям." },
+      { id: 5, name: "Та́я", title: "ХРАНИТЕЛЬНИЦА СНОВИДЕНИЙ", avatar: "10_ai_mentors/05_Taya_Dream_Keeper.png", greeting: "Тайны ночи и снов открываются чуткому сердцу. Я Тая, помогу разгадать скрытые послания твоих сновидений и подготовиться к отдыху." }
     ];
     let currentMasterIndex = 0;
     try {
-      const savedMaster = parseInt(localStorage.getItem('astra_current_master_idx') || '0', 10);
+      const savedMaster = parseInt(AstraStorage.getSetting('current_master_idx') || '0', 10);
       if (!isNaN(savedMaster) && savedMaster >= 0 && savedMaster < VEDIC_MASTERS.length) {
         currentMasterIndex = savedMaster;
       }
@@ -3403,6 +3631,14 @@
         initTarot1Slot();
         initWhiteSheetSpheres(1);
         renderTarotFanDeck();
+      // Restore persisted daily card if present
+      try {
+        const saved = localStorage.getItem('astra_tarot_daily_card');
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (parsed && parsed.card) initTarot1Slot(parsed.card);
+        }
+      } catch(e){}
       } else if (mode === 3) {
         slot1Cont.style.display = 'none';
         slot3Cont.style.display = 'flex';
@@ -3434,7 +3670,7 @@
         card = drawn.length > 0 ? drawn[0] : {
           name: 'Король Пентаклей',
           arcana: 'minor',
-          imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/79_The_King_of_Pentacles.png',
+          imageFile: '04_tarot_and_runes/tarot_cards/79_The_King_of_Pentacles.png',
           upright: { text: 'Король Пентаклей олицетворяет надежность, глубокое мастерство и финансовое благополучие.' }
         };
       }
@@ -3444,7 +3680,7 @@
       slot.className = 'tarot-slot-hero filled';
       slot.onclick = () => openCardMeaningModal(card);
       slot.innerHTML = `
-        <img class="tarot-card-img-hero" src="${card.imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png'}" alt="${card.name}">
+        <img class="tarot-card-img-hero" src="${card.imageFile || '04_tarot_and_runes/tarot_cards/01_The_Fool.png'}" alt="${card.name}">
         <div style="font-size: 15px; font-weight: 700; color: #FFF; margin-top: 8px; text-shadow: 0 2px 8px #000;">${card.name}</div>
       `;
       cont.appendChild(slot);
@@ -3459,9 +3695,9 @@
       currentDrawnCards = getRandomTarotCards(3);
       if (currentDrawnCards.length < 3) {
         currentDrawnCards = [
-          { name: 'Шут', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png', arcana: 'major', upright: { text: 'Начало пути, чистый лист, спонтанность.' } },
-          { name: 'Туз Кубков', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/38_The_Ace_of_Cups.png', arcana: 'minor', upright: { text: 'Чаша изобилия, эмоциональное наполнение.' } },
-          { name: 'Туз Скипетров', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/24_The_Ace_of_Wands.png', arcana: 'minor', upright: { text: 'Огненная энергия творчества и вдохновения.' } }
+          { name: 'Шут', imageFile: '04_tarot_and_runes/tarot_cards/01_The_Fool.png', arcana: 'major', upright: { text: 'Начало пути, чистый лист, спонтанность.' } },
+          { name: 'Туз Кубков', imageFile: '04_tarot_and_runes/tarot_cards/38_The_Ace_of_Cups.png', arcana: 'minor', upright: { text: 'Чаша изобилия, эмоциональное наполнение.' } },
+          { name: 'Туз Скипетров', imageFile: '04_tarot_and_runes/tarot_cards/24_The_Ace_of_Wands.png', arcana: 'minor', upright: { text: 'Огненная энергия творчества и вдохновения.' } }
         ];
       }
 
@@ -3470,7 +3706,7 @@
         slot.className = 'tarot-slot-compact';
         slot.onclick = () => openCardMeaningModal(c);
         slot.innerHTML = `
-          <img src="${c.imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png'}" alt="${c.name}">
+          <img src="${c.imageFile || '04_tarot_and_runes/tarot_cards/01_The_Fool.png'}" alt="${c.name}">
           <div class="tarot-compact-label">${c.name}</div>
         `;
         cont.appendChild(slot);
@@ -3484,11 +3720,11 @@
       currentDrawnCards = getRandomTarotCards(5);
       if (currentDrawnCards.length < 5) {
         currentDrawnCards = [
-          { name: 'Шут', num_roman: '0', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png', upright: { text: 'Начало пути' } },
-          { name: 'Маг', num_roman: 'I', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/02_The_Magician.png', upright: { text: 'Воля и действия' } },
-          { name: 'Папесса', num_roman: 'II', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/03_The_Popess_(The_High_Priestess).png', upright: { text: 'Тайны подсознания' } },
-          { name: 'Императрица', num_roman: 'III', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/04_The_Empress.png', upright: { text: 'Плодородие и гармония' } },
-          { name: 'Император', num_roman: 'IV', imageFile: '04_ТАРО_И_РУНЫ/tarot_cards/05_The_Emperor.png', upright: { text: 'Структура и порядок' } }
+          { name: 'Шут', num_roman: '0', imageFile: '04_tarot_and_runes/tarot_cards/01_The_Fool.png', upright: { text: 'Начало пути' } },
+          { name: 'Маг', num_roman: 'I', imageFile: '04_tarot_and_runes/tarot_cards/02_The_Magician.png', upright: { text: 'Воля и действия' } },
+          { name: 'Папесса', num_roman: 'II', imageFile: '04_tarot_and_runes/tarot_cards/03_The_Popess_(The_High_Priestess).png', upright: { text: 'Тайны подсознания' } },
+          { name: 'Императрица', num_roman: 'III', imageFile: '04_tarot_and_runes/tarot_cards/04_The_Empress.png', upright: { text: 'Плодородие и гармония' } },
+          { name: 'Император', num_roman: 'IV', imageFile: '04_tarot_and_runes/tarot_cards/05_The_Emperor.png', upright: { text: 'Структура и порядок' } }
         ];
       }
 
@@ -3499,11 +3735,11 @@
         <!-- Row 1: Top 2 Cards (Прошлое, Причины) -->
         <div class="tarot-cross-row">
           <div class="tarot-slot-mini" id="slot-cross-0">
-            <img src="${c[0].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png'}" alt="${c[0].name}">
+            <img src="${c[0].imageFile || '04_tarot_and_runes/tarot_cards/01_The_Fool.png'}" alt="${c[0].name}">
             <div class="tarot-compact-label">${getNum(c[0])}${c[0].name}</div>
           </div>
           <div class="tarot-slot-mini" id="slot-cross-1">
-            <img src="${c[1].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/02_The_Magician.png'}" alt="${c[1].name}">
+            <img src="${c[1].imageFile || '04_tarot_and_runes/tarot_cards/02_The_Magician.png'}" alt="${c[1].name}">
             <div class="tarot-compact-label">${getNum(c[1])}${c[1].name}</div>
           </div>
         </div>
@@ -3511,7 +3747,7 @@
         <!-- Row 2: Center 1 Card (Суть ситуации) -->
         <div class="tarot-cross-row">
           <div class="tarot-slot-mini center-card" id="slot-cross-2">
-            <img src="${c[2].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/03_The_Popess_(The_High_Priestess).png'}" alt="${c[2].name}">
+            <img src="${c[2].imageFile || '04_tarot_and_runes/tarot_cards/03_The_Popess_(The_High_Priestess).png'}" alt="${c[2].name}">
             <div class="tarot-compact-label" style="color: var(--purple); font-weight: 800;">${getNum(c[2])}${c[2].name}</div>
           </div>
         </div>
@@ -3519,11 +3755,11 @@
         <!-- Row 3: Bottom 2 Cards (Совет, Исход) -->
         <div class="tarot-cross-row">
           <div class="tarot-slot-mini" id="slot-cross-3">
-            <img src="${c[3].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/04_The_Empress.png'}" alt="${c[3].name}">
+            <img src="${c[3].imageFile || '04_tarot_and_runes/tarot_cards/04_The_Empress.png'}" alt="${c[3].name}">
             <div class="tarot-compact-label">${getNum(c[3])}${c[3].name}</div>
           </div>
           <div class="tarot-slot-mini" id="slot-cross-4">
-            <img src="${c[4].imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/05_The_Emperor.png'}" alt="${c[4].name}">
+            <img src="${c[4].imageFile || '04_tarot_and_runes/tarot_cards/05_The_Emperor.png'}" alt="${c[4].name}">
             <div class="tarot-compact-label">${getNum(c[4])}${c[4].name}</div>
           </div>
         </div>
@@ -3583,50 +3819,209 @@
       }
     }
 
-    // Leveled Out & Flatter Fan Deck Renderer
+    // Tactile Full-Bleed Kinetic Tarot Deck Carousel (22 Major Arcana, Physics Tilt & Drag)
+    let tarotDeckDragOffset = 0;
+    let tarotIsDragging = false;
+    let tarotStartX = 0;
+    let tarotVelocity = 0;
+    let tarotLastDragX = 0;
+    let tarotLastDragTime = 0;
+    let tarotTouchTrack = null;
+
     function renderTarotFanDeck() {
       const deck = document.getElementById('tarot-fan-deck');
       if (!deck) return;
       deck.innerHTML = '';
 
-      const totalFanCards = 19;
-      const maxAngle = 14; // gentle tilt between -14° and +14°
-      const maxDrop = 14;  // gentle leveling: only 14px total sagitta from center to edge
+      // Get Major Arcana cards from database (22-23 cards)
+      const majorCards = (window.ASTRA_TAROT_DATABASE && window.ASTRA_TAROT_DATABASE.length > 0)
+        ? window.ASTRA_TAROT_DATABASE.filter(c => c.arcana === 'major')
+        : [];
+      
+      const count = majorCards.length > 0 ? majorCards.length : 22;
 
-      for (let i = 0; i < totalFanCards; i++) {
-        const c = document.createElement('img');
-        c.className = 'fan-card-item';
-        c.src = 'astra_assets/04_ТАРО_И_РУНЫ/ic_gods_card_back.png';
+      // Wrapper track for smooth horizontal dragging
+      const track = document.createElement('div');
+      track.className = 'tarot-kinetic-track';
+      track.id = 'tarot-kinetic-track';
+      track.style.cssText = 'position: relative; width: 100%; height: 105px; display: flex; align-items: center; justify-content: center; cursor: grab; user-select: none; touch-action: pan-y;';
+      deck.appendChild(track);
+      tarotTouchTrack = track;
+
+      const cardWidth = 58;
+      const cardHeight = 92;
+      const totalWidth = 370; // spread radius
+      const halfWidth = totalWidth / 2;
+
+      for (let i = 0; i < count; i++) {
+        const cardData = majorCards[i] || { id: i + 1, name: `Аркан ${i + 1}` };
+        const norm = (i - (count - 1) / 2) / ((count - 1) / 2); // -1.0 (left) to +1.0 (right)
+
+        const card = document.createElement('div');
+        card.className = 'fan-card-item tactile-deck-card';
+        card.dataset.index = i;
+        card.dataset.name = cardData.name;
         
-        // norm from -1 (leftmost) to +1 (rightmost)
-        const norm = (i - (totalFanCards - 1) / 2) / ((totalFanCards - 1) / 2);
-        const angle = norm * maxAngle;
-        const top = 4 + Math.pow(norm, 2) * maxDrop;
-        const left = 50 + norm * 41; // spreads from 9% to 91%
+        const baseX = norm * halfWidth;
+        const baseAngle = norm * 15; // -15 deg to +15 deg
+        const baseDrop = Math.pow(norm, 2) * 12; // parabolic sagitta 12px
 
-        c.style.left = `calc(${left}% - 29px)`;
-        c.style.top = `${top}px`;
-        c.style.transform = `rotate(${angle}deg)`;
-        c.style.zIndex = i + 1;
+        card.dataset.baseX = baseX;
+        card.dataset.baseAngle = baseAngle;
+        card.dataset.baseDrop = baseDrop;
 
-        c.onclick = () => {
-          const drawn = getRandomTarotCards(1);
-          if (drawn.length > 0) {
-            initTarot1Slot(drawn[0]);
-            c.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease';
-            c.style.transform = `rotate(${angle}deg) translateY(-20px) scale(1.12)`;
-            c.style.boxShadow = '0 0 24px rgba(120, 75, 246, 0.95)';
-            c.style.zIndex = 100;
-            setTimeout(() => {
-              c.style.transform = `rotate(${angle}deg)`;
-              c.style.boxShadow = '';
-              c.style.zIndex = i + 1;
-            }, 600);
-            showTarotTooltip('Карта вытянута', `Вы выбрали аркан: «${drawn[0].name}»`);
-          }
+        card.style.cssText = `
+          position: absolute;
+          width: ${cardWidth}px;
+          height: ${cardHeight}px;
+          border-radius: 10px;
+          cursor: pointer;
+          transform-origin: 50% 120%;
+          transform: translate3d(${baseX + tarotDeckDragOffset}px, ${baseDrop}px, 0) rotate(${baseAngle}deg);
+          z-index: ${i + 1};
+          transition: transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s;
+          will-change: transform;
+        `;
+
+        // Card Back Image
+        const img = document.createElement('img');
+        img.src = 'tarot_card_back.png';
+        img.alt = 'Tarot Back';
+        img.style.cssText = 'width: 100%; height: 100%; object-fit: cover; border-radius: 10px; pointer-events: none; box-shadow: 0 4px 14px rgba(0,0,0,0.55);';
+        card.appendChild(img);
+
+        // Click to Draw & Reveal
+        card.onclick = (e) => {
+          if (Math.abs(tarotVelocity) > 1.2) return;
+          e.stopPropagation();
+          selectTarotCardFromFan(cardData, card, i);
         };
-        deck.appendChild(c);
+
+        track.appendChild(card);
       }
+
+      setupTarotKineticDragger(track);
+    }
+
+    function setupTarotKineticDragger(track) {
+      if (!track) return;
+
+      const onPointerDown = (e) => {
+        tarotIsDragging = true;
+        tarotStartX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+        tarotLastDragX = tarotStartX;
+        tarotLastDragTime = performance.now();
+        tarotVelocity = 0;
+        track.style.cursor = 'grabbing';
+      };
+
+      const onPointerMove = (e) => {
+        if (!tarotIsDragging) return;
+        const currentX = e.clientX || (e.touches && e.touches[0].clientX) || 0;
+        const deltaX = currentX - tarotLastDragX;
+        const now = performance.now();
+        const dt = now - tarotLastDragTime;
+
+        if (dt > 0) {
+          tarotVelocity = (deltaX / dt) * 16;
+        }
+
+        tarotLastDragX = currentX;
+        tarotLastDragTime = now;
+
+        tarotDeckDragOffset += deltaX * 1.1;
+
+        // Clamp drag offset so cards don't completely leave
+        const maxOffset = 180;
+        if (tarotDeckDragOffset > maxOffset) tarotDeckDragOffset = maxOffset;
+        if (tarotDeckDragOffset < -maxOffset) tarotDeckDragOffset = -maxOffset;
+
+        updateTarotCardsTransform();
+      };
+
+      const onPointerUp = () => {
+        if (!tarotIsDragging) return;
+        tarotIsDragging = false;
+        track.style.cursor = 'grab';
+
+        // Apply smooth spring rebound to center
+        animateTarotRebound();
+      };
+
+      track.onmousedown = onPointerDown;
+      window.addEventListener('mousemove', onPointerMove);
+      window.addEventListener('mouseup', onPointerUp);
+
+      track.ontouchstart = onPointerDown;
+      track.ontouchmove = onPointerMove;
+      track.ontouchend = onPointerUp;
+    }
+
+    function updateTarotCardsTransform() {
+      const cards = document.querySelectorAll('.tactile-deck-card');
+      cards.forEach(c => {
+        const bx = parseFloat(c.dataset.baseX) || 0;
+        const ba = parseFloat(c.dataset.baseAngle) || 0;
+        const bd = parseFloat(c.dataset.baseDrop) || 0;
+        const currentTotalX = bx + tarotDeckDragOffset;
+        // Dynamic angle tilt based on distance from center
+        const dynamicAngle = (currentTotalX / 185) * 16;
+        c.style.transform = `translate3d(${currentTotalX}px, ${bd}px, 0) rotate(${dynamicAngle}deg)`;
+      });
+    }
+
+    function animateTarotRebound() {
+      let step = 0;
+      function spring() {
+        if (tarotIsDragging) return;
+        tarotDeckDragOffset *= 0.88;
+        updateTarotCardsTransform();
+        if (Math.abs(tarotDeckDragOffset) > 0.5) {
+          requestAnimationFrame(spring);
+        } else {
+          tarotDeckDragOffset = 0;
+          updateTarotCardsTransform();
+        }
+      }
+      requestAnimationFrame(spring);
+    }
+
+    function selectTarotCardFromFan(card, cardEl, index) {
+      // Haptic tactile vibration
+      if (navigator.vibrate) {
+        try { navigator.vibrate([18, 40, 20]); } catch(e){}
+      }
+
+      // 3D elevation animation with honey-amber halo
+      const bx = parseFloat(cardEl.dataset.baseX) || 0;
+      cardEl.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.35s ease';
+      cardEl.style.transform = `translate3d(${bx + tarotDeckDragOffset}px, -24px, 0) scale(1.15) rotate(0deg)`;
+      cardEl.style.boxShadow = '0 0 28px rgba(232, 155, 84, 0.9), 0 0 50px rgba(120, 75, 246, 0.6)';
+      cardEl.style.zIndex = 300;
+
+      setTimeout(() => {
+        cardEl.style.transform = `translate3d(${bx + tarotDeckDragOffset}px, ${cardEl.dataset.baseDrop}px, 0) rotate(${cardEl.dataset.baseAngle}deg)`;
+        cardEl.style.boxShadow = '';
+        cardEl.style.zIndex = index + 1;
+      }, 650);
+
+      // Set card into active spread slot
+      initTarot1Slot(card);
+
+      // Persist in localStorage for daily return
+      try {
+        const payload = {
+          card: card,
+          date: new Date().toISOString().split('T')[0],
+          timestamp: Date.now()
+        };
+        localStorage.setItem('astra_tarot_daily_card', JSON.stringify(payload));
+        if (window.AstraStorage) {
+          window.AstraStorage.set('tarot_daily_card', card);
+        }
+      } catch(e){}
+
+      showTarotTooltip('Аркан открыт', `Вы выбрали «${card.name}». Энергии зафиксированы.`);
     }
 
     function resetTarotSpread() {
@@ -3634,14 +4029,34 @@
       if (reloadIcon) {
         const curRot = (parseInt(reloadIcon.dataset.rot || '0') + 360);
         reloadIcon.dataset.rot = curRot;
+        reloadIcon.style.transition = 'transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1)';
         reloadIcon.style.transform = `rotate(${curRot}deg)`;
       }
+
+      // True Fisher-Yates 78-card shuffle
+      if (window.ASTRA_TAROT_DATABASE && window.ASTRA_TAROT_DATABASE.length > 0) {
+        for (let i = window.ASTRA_TAROT_DATABASE.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          const temp = window.ASTRA_TAROT_DATABASE[i];
+          window.ASTRA_TAROT_DATABASE[i] = window.ASTRA_TAROT_DATABASE[j];
+          window.ASTRA_TAROT_DATABASE[j] = temp;
+        }
+      }
+
+      // Haptic feedback
+      if (navigator.vibrate) {
+        try { navigator.vibrate([20, 30, 20, 45]); } catch(e){}
+      }
+
+      // Reset drag offset and re-render fan with kinetic layout
+      tarotDeckDragOffset = 0;
+      renderTarotFanDeck();
 
       if (currentTarotMode === 1) initTarot1Slot();
       else if (currentTarotMode === 3) renderTarot3CardsSpread();
       else if (currentTarotMode === 5) renderTarot5CardsCrossSpread();
 
-      showTarotTooltip('Карты перетасованы', 'Колода Райдера-Уэйта обновлена. Вытянуты новые арканы.');
+      showTarotTooltip('Колода перетасована', '78 арканов Райдера-Уэйта перемешаны. Вытянуты новые карты.');
     }
 
     // 78 Cards Catalog Grid
@@ -3665,7 +4080,7 @@
 
         cardEl.innerHTML = `
           ${lockBadge}
-          <img src="${c.imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png'}" style="width: 100%; height: 130px; object-fit: cover;" alt="${c.name}">
+          <img src="${c.imageFile || '04_tarot_and_runes/tarot_cards/01_The_Fool.png'}" style="width: 100%; height: 130px; object-fit: cover;" alt="${c.name}">
           <div style="font-size: 11px; font-weight: 700; color: #FFF; padding: 6px 4px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${c.name}</div>
         `;
         grid.appendChild(cardEl);
@@ -3683,7 +4098,7 @@
       currentActiveSheetCard = card;
       isCardSheetFlipped = false;
       
-      document.getElementById('sheet-card-img').src = card.imageFile || '04_ТАРО_И_РУНЫ/tarot_cards/01_The_Fool.png';
+      document.getElementById('sheet-card-img').src = card.imageFile || '04_tarot_and_runes/tarot_cards/01_The_Fool.png';
       document.getElementById('sheet-card-title').innerText = card.name;
       document.getElementById('sheet-card-arcana').innerText = card.arcana === 'major' ? 'Старший Аркан' : 'Младший Аркан';
       document.getElementById('sheet-card-desc-text').innerText = card.upright ? card.upright.text : (card.text || 'Карта указывает на силу интуиции и своевременность действий.');
@@ -3734,7 +4149,7 @@
       const slot = document.getElementById('oracle-slot');
       slot.className = 'tarot-slot-hero filled';
       slot.innerHTML = `
-        <img class="tarot-card-img-hero" src="03_ДЕВЫ_МУДРОСТИ/59_Tree_of_Life.png" alt="Oracle" style="border-radius: 18px;">
+        <img class="tarot-card-img-hero" src="03_wisdom_maidens/59_Tree_of_Life.png" alt="Oracle" style="border-radius: 18px;">
       `;
       document.getElementById('oracle-actions-bar').style.display = 'flex';
     }
@@ -3743,7 +4158,7 @@
       const slot = document.getElementById('gods-slot');
       slot.className = 'tarot-slot-hero filled';
       slot.innerHTML = `
-        <img class="tarot-card-img-hero" src="astra_assets/01_ФОНЫ_И_БАННЕРЫ_ВЫСОКОГО_РАЗРЕШЕНИЯ/ic_gods_empty.png" onerror="this.src='astra_assets/01_ФОНЫ_И_БАННЕРЫ_ВЫСОКОГО_РАЗРЕШЕНИЯ/ic_sharing_moon.png'" alt="Deity">
+        <img class="tarot-card-img-hero" src="astra_assets/01_backgrounds_and_banners/ic_gods_empty.png" onerror="this.src='astra_assets/01_backgrounds_and_banners/ic_sharing_moon.png'" alt="Deity">
         <div style="font-size: 13px; font-weight: 800; color: var(--amber); margin-top: 6px;">Хануман (Сила Духа)</div>
       `;
     }
@@ -3766,7 +4181,7 @@
           <span style="font-size: 12px; color: var(--amber); font-weight: 700;">19 Октября 2026 • Анализ сна</span>
           <button style="background: none; border: none; cursor: pointer; color: #EF4444; font-size: 16px;" onclick="deleteDreamEntry(this)">🗑️</button>
         </div>
-        <img src="astra_assets/01_ФОНЫ_И_БАННЕРЫ_ВЫСОКОГО_РАЗРЕШЕНИЯ/dreamer_top_image.png" onerror="this.src='astra_assets/01_ФОНЫ_И_БАННЕРЫ_ВЫСОКОГО_РАЗРЕШЕНИЯ/ic_sharing_moon.png'" style="width: 100%; height: 130px; object-fit: cover; border-radius: 14px; margin-bottom: 10px;" alt="Dream">
+        <img src="astra_assets/01_backgrounds_and_banners/dreamer_top_image.png" onerror="this.src='astra_assets/01_backgrounds_and_banners/ic_sharing_moon.png'" style="width: 100%; height: 130px; object-fit: cover; border-radius: 14px; margin-bottom: 10px;" alt="Dream">
         <div style="font-size: 15px; font-weight: 800; color: #FFF; margin-bottom: 6px;">«${text.slice(0, 35)}...»</div>
         <div style="font-size: 13px; line-height: 1.5; color: rgba(255,255,255,0.85); margin-bottom: 12px;">
           Образы сна отражают стремление к внутренней ясности. В вашей натальной карте это активирует 9-й дом высшего познания.
@@ -3777,8 +4192,8 @@
       `;
     }
 
-    function deleteDreamEntry(btn) {
-      if (confirm('Удалить этот сон? Сон и его смыслы исчезнут навсегда.')) {
+    async function deleteDreamEntry(btn) {
+      if (await bsConfirm('Удалить этот сон? Сон и его смыслы исчезнут навсегда.', 'Удаление сна', { danger: true })) {
         document.getElementById('dream-result-card').style.display = 'none';
         document.getElementById('dream-input-text').value = '';
       }
@@ -3819,7 +4234,7 @@
       }
       const stoneImg = document.getElementById('rune-hero-stone-img');
       if (stoneImg) {
-        stoneImg.src = '02_СКАНДИНАВСКИЕ_РУНЫ/' + currentRune.img;
+        stoneImg.src = '02_runes/' + currentRune.img;
         stoneImg.alt = currentRune.name;
       }
       const nameDisp = document.getElementById('rune-name-display');
@@ -3828,9 +4243,9 @@
       if (subDisp) subDisp.innerText = `«${currentRune.desc}»`;
     }
 
-    function openRuneMeaningModal() {
+    async function openRuneMeaningModal() {
       if (!currentRune) drawDailyRune();
-      alert(`РУНА ${currentRune.name} (${currentRune.glyph})\n\n${currentRune.desc}\n\nРекомендация: созерцайте этот священный глиф для сонастройки с космическим потоком.`);
+      await bsAlert(`РУНА ${currentRune.name} (${currentRune.glyph})\n\n${currentRune.desc}\n\nРекомендация: созерцайте этот священный глиф для сонастройки с космическим потоком.`, 'Значение руны');
     }
 
     function openRunesCatalogModal() {
@@ -3847,7 +4262,7 @@
           closeSheet('modal-runes-catalog');
         };
         item.innerHTML = `
-          <img src="02_СКАНДИНАВСКИЕ_РУНЫ/${r.img}" style="width: 72px; height: 90px; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));" alt="${r.name}">
+          <img src="02_runes/${r.img}" style="width: 72px; height: 90px; object-fit: contain; filter: drop-shadow(0 6px 14px rgba(0,0,0,0.6));" alt="${r.name}">
           <div style="font-size: 13px; font-weight: 700; color: #FFF; margin-top: 8px;">${r.name}</div>
           <div style="font-size: 10px; color: #A0A5BA; margin-top: 2px; max-width: 95px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;">«${r.desc}»</div>
         `;
@@ -3904,7 +4319,7 @@
             <div class="sound-card-sub">${s.description ? s.description.slice(0, 48) + '...' : 'Гармония ума и тела'}</div>
           </div>
           <div class="sound-card-right">
-            <img class="sound-card-thumb" src="${s.cardIconUrl || 'astra_assets/06_МЕДИТАЦИИ_И_ПРАКТИКИ/meditation_crystal.png'}" onerror="this.src='astra_assets/06_МЕДИТАЦИИ_И_ПРАКТИКИ/meditation_crystal.png'" alt="${s.name}">
+            <img class="sound-card-thumb" src="${s.cardIconUrl || 'astra_assets/06_meditations_and_practices/meditation_crystal.png'}" onerror="this.src='astra_assets/06_meditations_and_practices/meditation_crystal.png'" alt="${s.name}">
             <div class="sound-card-plus-badge">PLUS</div>
           </div>
         `;
@@ -3923,7 +4338,7 @@
       document.getElementById('player-track-name').innerText = s.name;
       document.getElementById('player-track-category').innerText = s.categories ? s.categories.join(' • ') : 'ЦЕЛЕБНЫЕ ГЕРЦЫ';
       document.getElementById('player-track-desc').innerText = s.description || 'Целебный резонанс пробуждает гармонию и ясность ума.';
-      document.getElementById('player-disc-img').src = s.cardIconUrl || 'astra_assets/07_3D_ИКОНКИ_И_ЭЛЕМЕНТЫ/icon.png';
+      document.getElementById('player-disc-img').src = s.cardIconUrl || 'astra_assets/07_3d_icons_and_elements/icon.png';
       
       const audioEl = document.getElementById('real-sound-audio');
       if (s.soundUrl) {
@@ -3960,7 +4375,7 @@
       openSoundPlayerById(294);
     }
 
-    function cycleSleepTimer() {
+    async function cycleSleepTimer() {
       const timers = [0, 15, 30, 45, 60];
       const idx = (timers.indexOf(sleepTimerMinutes) + 1) % timers.length;
       sleepTimerMinutes = timers[idx];
@@ -3968,9 +4383,9 @@
 
       if (sleepTimerInterval) clearInterval(sleepTimerInterval);
       if (sleepTimerMinutes > 0) {
-        sleepTimerInterval = setTimeout(() => {
+        sleepTimerInterval = setTimeout(async () => {
           closeSoundPlayer();
-          alert('Таймер сна сработал: воспроизведение завершено. Спокойного сна!');
+          await bsAlert('Таймер сна сработал: воспроизведение завершено. Спокойной ночи!', 'Таймер сна');
         }, sleepTimerMinutes * 60 * 1000);
       }
     }
@@ -3990,13 +4405,13 @@
         item.className = `floating-mentor-item ${idx === currentMasterIndex ? 'active' : ''}`;
         item.onclick = () => {
           currentMasterIndex = idx;
-          try { localStorage.setItem('astra_current_master_idx', idx); } catch (e) {}
+          try { AstraStorage.setSetting('current_master_idx', idx); } catch (e) {}
           updateActiveMasterUI();
           closeFloatingMentorMenu();
         };
         item.innerHTML = `
           <div style="display: flex; align-items: center; gap: 12px;">
-            <img src="${m.avatar}" onerror="this.src='10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png'" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(255,255,255,0.25);" alt="${m.name}">
+            <img src="${m.avatar}" onerror="this.src='10_ai_mentors/01_Astra_Personal_Astrologer.png'" style="width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 1.5px solid rgba(255,255,255,0.25);" alt="${m.name}">
             <div>
               <div style="font-size: 15px; font-weight: 700; color: #FFFFFF;">${m.name}</div>
               <div style="font-size: 12px; color: #A0A5BA;">${m.title}</div>
@@ -4071,12 +4486,12 @@
     function closeSettingsScreen() {
       document.getElementById('modal-settings-screen').style.display = 'none';
     }
-    function editBirthDataPrompt() {
-      prompt('Введите ваш город рождения:', 'Сочи, Россия');
+    async function editBirthDataPrompt() {
+      await bsPrompt('Введите ваш город рождения:', 'Город рождения', { defaultValue: 'Сочи, Россия', placeholder: 'Например: Москва, Россия' });
     }
-    function confirmAccountDeletion() {
-      if (confirm('ВНИМАНИЕ! Вы собираетесь удалить свой аккаунт и все сохраненные натальные расчеты. Это действие необратимо. Продолжить?')) {
-        alert('Все персональные данные успешно удалены согласно требованиям Федерального закона и политике RuStore.');
+    async function confirmAccountDeletion() {
+      if (await bsConfirm('ВНИМАНИЕ! Вы собираетесь удалить свой аккаунт и все сохраненные натальные расчеты. Это действие необратимо. Продолжить?', 'Удаление аккаунта', { danger: true, confirmText: 'Удалить навсегда' })) {
+        await bsAlert('Все персональные данные успешно удалены согласно требованиям Федерального закона и политике RuStore.', 'Аккаунт удален');
         closeSettingsScreen();
       }
     }
@@ -4092,8 +4507,8 @@
       document.querySelectorAll('.paywall-plan-card').forEach(c => c.classList.remove('selected'));
       el.classList.add('selected');
     }
-    function activateAstraPlusSubscription() {
-      alert('Поздравляем! Подписка Астра Плюс успешно активирована. Все арканы, звуки и наставники разблокированы.');
+    async function activateAstraPlusSubscription() {
+      await bsAlert('Поздравляем! Подписка Астра Плюс успешно активирована. Все арканы, звуки и наставники разблокированы.', 'Подписка активирована');
       closePaywallModal();
     }
 
@@ -4103,12 +4518,12 @@
       grid.innerHTML = '';
       
       const avatars = [
-        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png',
-        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/02_Selena_Lunar_Peace.png',
-        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/03_Maya_Tarot_Intuition.png',
-        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/04_Orion_Clarity_Power.png',
-        '10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/05_Taya_Dream_Keeper.png',
-        '11_ДЕФОЛТНЫЕ_И_AI_АВАТАРЫ/01_Default_Female_Muse_master.png'
+        '10_ai_mentors/01_Astra_Personal_Astrologer.png',
+        '10_ai_mentors/02_Selena_Lunar_Peace.png',
+        '10_ai_mentors/03_Maya_Tarot_Intuition.png',
+        '10_ai_mentors/04_Orion_Clarity_Power.png',
+        '10_ai_mentors/05_Taya_Dream_Keeper.png',
+        '11_default_and_ai_avatars/01_Default_Female_Muse_master.png'
       ];
 
       avatars.forEach(src => {
@@ -4118,7 +4533,7 @@
           document.getElementById('profile-avatar-display').src = src;
           closeSheet('modal-avatar-selector');
         };
-        item.innerHTML = `<img src="${src}" onerror="this.src='10_ПЕРСОНАЖИ_ИИ_АСТРОЛОГИ/01_Astra_Personal_Astrologer.png'" style="width: 100%; height: 100%; object-fit: cover;">`;
+        item.innerHTML = `<img src="${src}" onerror="this.src='10_ai_mentors/01_Astra_Personal_Astrologer.png'" style="width: 100%; height: 100%; object-fit: cover;">`;
         grid.appendChild(item);
       });
 
@@ -4134,97 +4549,353 @@
       const el = document.getElementById(id);
       if (el) el.style.display = 'none';
     }
-    function saveTarotSnapshot() {
-      alert('Снимок успешно сохранен в вашу галерею!');
+    async function saveTarotSnapshot() {
+      await bsAlert('Снимок успешно сохранен в вашу галерею!', 'Сохранено');
     }
-    function shareToSocial(platform) {
-      alert(`Поделиться в ${platform.toUpperCase()}: готово!`);
+    async function shareToSocial(platform) {
+      await bsAlert(`Поделиться в ${platform.toUpperCase()}: готово!`, 'Поделиться');
     }
 
     /* ========================================================
-       10. ЛОГИКА КАЛЕНДАРЯ (Screen 1) — 1:1 СТРУКТУРА MOONLY
+       10. ЛОГИКА КАЛЕНДАРЯ (Screen 1) — 1:1 СТРУКТУРА ASTRA
        ======================================================== */
     function enableDragToScroll(container) {
-      if (container._dragInitialized) return;
-      container._dragInitialized = true;
+          if (container._dragInitialized) return;
+          container._dragInitialized = true;
 
-      let isDown = false;
-      let startX = 0;
-      let scrollLeft = 0;
-      let dragDistance = 0;
+          let isDown = false;
+          let startX = 0;
+          let scrollLeft = 0;
+          let dragDistance = 0;
+          const dragThreshold = 5; // pixels: only prevent click after 5px drag
 
-      container.addEventListener('mousedown', (e) => {
-        isDown = true;
-        startX = e.pageX - container.offsetLeft;
-        scrollLeft = container.scrollLeft;
-        dragDistance = 0;
-      });
+          container.addEventListener('mousedown', (e) => {
+            isDown = true;
+            startX = e.pageX - container.offsetLeft;
+            scrollLeft = container.scrollLeft;
+            dragDistance = 0;
+          });
 
-      container.addEventListener('mouseleave', () => { isDown = false; });
-      container.addEventListener('mouseup', () => { isDown = false; });
+          container.addEventListener('mouseleave', () => { isDown = false; });
+          container.addEventListener('mouseup', () => { isDown = false; });
 
-      container.addEventListener('mousemove', (e) => {
-        if (!isDown) return;
-        e.preventDefault();
-        const x = e.pageX - container.offsetLeft;
-        const walk = (x - startX) * 1.5;
-        container.scrollLeft = scrollLeft - walk;
-        dragDistance += Math.abs(walk);
-      });
+          container.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            const x = e.pageX - container.offsetLeft;
+            const walk = (x - startX) * 1.5;
+            container.scrollLeft = scrollLeft - walk;
+            dragDistance += Math.abs(walk);
+            // Only prevent click after user has actually dragged past threshold
+            if (dragDistance > dragThreshold) {
+              e.preventDefault();
+            }
+          });
+        }
+
+        // High Precision Astronomical Vedic Lunar Day & Tithi Calculation
+    function getLunarDay(date) {
+      if (typeof window.getVedicTithi === 'function') {
+        try {
+          const t = window.getVedicTithi(date);
+          if (t && t.tithiNum) return t.tithiNum;
+        } catch (e) {}
+      }
+      const knownNewMoon = new Date(Date.UTC(2024, 0, 11, 11, 57));
+      const diffMs = date.getTime() - knownNewMoon.getTime();
+      const synodicMonth = 29.530588853;
+      const daysSince = diffMs / (1000 * 60 * 60 * 24);
+      let lunarDay = Math.floor((daysSince % synodicMonth) + 1);
+      if (lunarDay < 1) lunarDay += 30;
+      if (lunarDay > 30) lunarDay = 30;
+      return lunarDay;
     }
 
-    function initMoonlyCalendarStrip() {
+    function getMoonPhase(lunarDay) {
+      if (lunarDay === 1 || lunarDay === 30) return { name: 'Новолуние', icon: '🌑' };
+      if (lunarDay < 8) return { name: 'Растущая Луна', icon: '🌒' };
+      if (lunarDay === 15) return { name: 'Полнолуние', icon: '🌕' };
+      if (lunarDay < 23) return { name: 'Убывающая Луна', icon: '🌖' };
+      return { name: 'Старый месяц', icon: '🌘' };
+    }
+
+    function getZodiacSign(date) {
+      // Tropical zodiac approximation (good enough for UI)
+      const month = date.getMonth();
+      const day = date.getDate();
+      const signs = [
+        { name: 'Козерог ♑', start: [1, 20], end: [2, 18] },
+        { name: 'Водолей ♒', start: [2, 19], end: [3, 20] },
+        { name: 'Рыбы ♓', start: [3, 21], end: [4, 19] },
+        { name: 'Овен ♈', start: [4, 20], end: [5, 20] },
+        { name: 'Телец ♉', start: [5, 21], end: [6, 21] },
+        { name: 'Близнецы ♊', start: [6, 22], end: [7, 22] },
+        { name: 'Рак ♋', start: [7, 23], end: [8, 22] },
+        { name: 'Лев ♌', start: [8, 23], end: [9, 22] },
+        { name: 'Дева ♍', start: [9, 23], end: [10, 23] },
+        { name: 'Весы ♎', start: [10, 24], end: [11, 22] },
+        { name: 'Скорпион ♏', start: [11, 23], end: [12, 21] },
+        { name: 'Стрелец ♐', start: [12, 22], end: [1, 19] }
+      ];
+      const m = month + 1;
+      for (const s of signs) {
+        const [sm, sd] = s.start;
+        const [em, ed] = s.end;
+        if ((m === sm && day >= sd) || (m === em && day <= ed)) return s.name;
+      }
+      return 'Козерог ♑';
+    }
+
+    function getVedicMoonData(date) {
+      if (typeof window.getVedicTithi === 'function') {
+        try {
+          const t = window.getVedicTithi(date);
+          if (t && t.moon) {
+            return {
+              sign: t.moon.signRu,
+              degree: t.moon.degreeStr,
+              nakshatra: t.moon.nakshatraRu,
+              nakshatraNum: t.moon.nakshatraNum,
+              pada: t.moon.pada,
+              ruler: t.moon.nakshatraRuler,
+              tithi: t.tithiNum,
+              phaseName: t.phaseName,
+              illumination: t.illumination
+            };
+          }
+        } catch (e) {}
+      }
+      if (window.calculateNatalChart) {
+        try {
+          const chart = calculateNatalChart({
+            year: date.getFullYear(),
+            month: date.getMonth() + 1,
+            day: date.getDate(),
+            hour: 12,
+            minute: 0,
+            lat: 55.7558,
+            lon: 37.6173,
+            tz: 3
+          });
+          if (chart?.planets?.moon) {
+            const m = chart.planets.moon;
+            return {
+              sign: m.signRu,
+              degree: m.degreeStr,
+              nakshatra: m.nakshatraRu,
+              nakshatraNum: m.nakshatraNum,
+              pada: m.pada,
+              ruler: m.nakshatraRuler,
+              tithi: 11,
+              phaseName: 'Растущая Луна',
+              illumination: 75
+            };
+          }
+        } catch (e) {}
+      }
+      return {
+        sign: getZodiacSign(date),
+        degree: '—',
+        nakshatra: '—',
+        nakshatraNum: 0,
+        pada: 1,
+        ruler: '—',
+        tithi: 1,
+        phaseName: 'Растущая Луна',
+        illumination: 50
+      };
+    }
+
+    function formatDateRu(date) {
+      const months = ['ЯНВ', 'ФЕВ', 'МАР', 'АПР', 'МАЙ', 'ИЮН', 'ИЮЛ', 'АВГ', 'СЕН', 'ОКТ', 'НОЯ', 'ДЕК'];
+      return `${date.getDate()} ${months[date.getMonth()]} ${date.getFullYear()}`;
+    }
+
+    function initAstraCalendarStrip() {
       const container = document.getElementById('calendar-days-track');
       if (!container) return;
       container.innerHTML = '';
       enableDragToScroll(container);
 
       const weekdaysRu = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'];
-      const baseDate = new Date(2026, 9, 1); // 1 Октября 2026
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
 
-      for (let dayNum = 1; dayNum <= 30; dayNum++) {
-        const d = new Date(baseDate);
-        d.setDate(dayNum);
+      // Generate 90 days: 30 past + today + 59 future
+      const DAYS_BEFORE = 30;
+      const DAYS_AFTER = 59;
+      const TOTAL_DAYS = DAYS_BEFORE + 1 + DAYS_AFTER;
+
+      // Find today's lunar day to pre-select
+      const todayLunar = getLunarDay(today);
+
+      for (let i = -DAYS_BEFORE; i <= DAYS_AFTER; i++) {
+        const d = new Date(today);
+        d.setDate(today.getDate() + i);
+        
+        const lunarDay = getLunarDay(d);
         const weekday = weekdaysRu[d.getDay()];
-        const isSelected = (dayNum === 13); // по умолчанию 13-й день (Полнолуние)
-        const isToday = (dayNum === 13);
+        const isToday = (i === 0);
+        const isSelected = (lunarDay === todayLunar && i === 0);
 
         const item = document.createElement('div');
         item.className = `day-scroll-item ${isSelected ? 'selected' : ''} ${isToday ? 'is-today' : ''}`;
-        item.dataset.day = dayNum;
+        item.dataset.date = d.toISOString().split('T')[0];
+        item.dataset.lunarDay = lunarDay;
 
+        // Full moon star indicator
         let starIndicator = '';
-        if (dayNum === 15) {
+        if (lunarDay === 15) {
           starIndicator = '<span style="color: #F7B64D; font-size: 10px; margin-right: 2px;">✦</span>';
         }
+        // New moon indicator
+        if (lunarDay === 1 || lunarDay === 30) {
+          starIndicator = '<span style="color: #8E93A6; font-size: 10px; margin-right: 2px;">●</span>';
+        }
 
+        const phase = getMoonPhase(lunarDay);
+        
         item.innerHTML = `
           <div class="day-scroll-weekday">${starIndicator}${weekday}</div>
-          <img class="day-scroll-moon" src="moonly_3d_icons/moon_${dayNum}.png" alt="Moon ${dayNum}">
-          <div class="day-scroll-num">${dayNum}</div>
+          <img class="day-scroll-moon" src="astra_3d_spheres/moon_${lunarDay}.png" alt="Moon ${lunarDay}" loading="lazy">
+          <div class="day-scroll-num">${d.getDate()}</div>
+          <div class="day-scroll-month" style="font-size: 9px; color: #6E7282; text-transform: uppercase; margin-top: 2px;">${['ЯНВ','ФЕВ','МАР','АПР','МАЙ','ИЮН','ИЮЛ','АВГ','СЕН','ОКТ','НОЯ','ДЕК'][d.getMonth()]}</div>
         `;
 
         item.onclick = () => {
           document.querySelectorAll('.day-scroll-item').forEach(el => el.classList.remove('selected'));
           item.classList.add('selected');
-          updateDayData(dayNum, weekday);
+          updateDayDataFromDate(d);
         };
 
         container.appendChild(item);
       }
 
-      // Center selected day on load
+      // Center today on load
       setTimeout(() => {
-        const active = container.querySelector('.day-scroll-item.selected');
+        const active = container.querySelector('.day-scroll-item.is-today');
         if (active) {
           container.scrollLeft = active.offsetLeft - container.offsetWidth / 2 + active.offsetWidth / 2;
         }
       }, 50);
 
-      // Load initial day data
-      updateDayData(13, 'ПН');
+      // Load today's data
+      updateDayDataFromDate(today);
     }
-    const initCalendarStrip = initMoonlyCalendarStrip;
+    const initCalendarStrip = initAstraCalendarStrip;
+
+    function updateDayDataFromDate(date) {
+      const lunarDay = getLunarDay(date);
+      const weekday = ['ВС', 'ПН', 'ВТ', 'СР', 'ЧТ', 'ПТ', 'СБ'][date.getDay()];
+      const phase = getMoonPhase(lunarDay);
+      const vedic = getVedicMoonData(date);
+
+      // Update transit date label
+      const dateLabel = document.getElementById('transit-date-label');
+      if (dateLabel) {
+        const endDate = new Date(date);
+        endDate.setDate(date.getDate() + 2);
+        dateLabel.innerText = `${formatDateRu(date)} — ${formatDateRu(endDate)}`;
+      }
+
+      // Day header
+      const dayHeader = document.getElementById('calendar-day-header');
+      if (dayHeader) {
+        dayHeader.innerText = `${lunarDay}-й лунный день`;
+      }
+
+      // 3D moon corner
+      const moonCorner = document.getElementById('calendar-moon-corner');
+      if (moonCorner) {
+        moonCorner.src = `astra_3d_spheres/moon_${lunarDay}.png`;
+      }
+
+      // Lunar phase title
+      const lunarTitle = document.getElementById('calendar-lunar-phase-title');
+      if (lunarTitle) {
+        lunarTitle.innerText = `${lunarDay}-й лунный день • ${phase.name}`;
+      }
+
+      // Full moon countdown
+      const daysToFull = (15 - lunarDay >= 0) ? (15 - lunarDay) : (45 - lunarDay);
+      const countdownEl = document.getElementById('calendar-full-moon-countdown');
+      if (countdownEl) {
+        countdownEl.innerText = daysToFull === 0 ? "Сегодня в зените ✦" : `Через ${daysToFull} дн. ✦`;
+      }
+
+      // Vedic zodiac
+      const zodiacEl = document.getElementById('calendar-lunar-zodiac');
+      if (zodiacEl) {
+        zodiacEl.innerText = vedic.sign;
+      }
+
+      // Transit card with Vedic data
+      const transitSign = document.getElementById('transit-sign-title');
+      if (transitSign) {
+        transitSign.innerText = `Луна в ${vedic.sign} (${vedic.degree}), Накшатра: ${vedic.nakshatra} (пада ${vedic.pada})`;
+      }
+
+      // Transit stats
+      const transitAspect = document.getElementById('transit-aspect-val');
+      const transitZodiacName = document.getElementById('transit-zodiac-name');
+      const transitZodiacImg = document.getElementById('transit-zodiac-img');
+      if (transitAspect) {
+        transitAspect.innerText = `Накшатра: ${vedic.nakshatra} (Пада ${vedic.pada}), Владелец: ${vedic.ruler}`;
+      }
+      if (transitZodiacName) transitZodiacName.innerText = vedic.sign.replace(/ ♈| ♉| ♊| ♋| ♌| ♍| ♎| ♏| ♐| ♑| ♒| ♓/, '');
+      if (transitZodiacImg) {
+        const signFile = vedic.sign.toLowerCase().replace(/ ♈| ♉| ♊| ♋| ♌| ♍| ♎| ♏| ♐| ♑| ♒| ♓/, '').replace(' ', '_');
+        transitZodiacImg.src = `astra_3d_spheres/ic_transit_zodiac_${signFile}.png`;
+      }
+
+      // Day focus description
+      const dayDescriptions = {
+        1: "День замыслов, чистого листа и закладки фундамента ментальных целей на весь лунный месяц.",
+        2: "День первых практических шагов, щедрости и доверия интуиции тела при выборе пищи.",
+        3: "День воина, концентрации астральной энергии и преодоления внутренних сомнений.",
+        4: "День выбора между добром и злом. Время глубокого самоанализа и верности традициям.",
+        5: "День алхимии и трансформации. Пища духовная и телесная усваивается с удвоенной силой.",
+        6: "День интуиции, работы с тонкими запахами и созерцания космической благодати.",
+        7: "День силы слова, молитвы и исполнения искренних вербальных намерений.",
+        8: "День алхимического огня и обновления. Благоприятно освобождаться от старых обид.",
+        9: "День осторожности, иллюзий и духовной стойкости. Сохраняйте чистоту мыслей.",
+        10: "День созидания, укрепления семейных уз и обретения благословения предков.",
+        11: "День Кундалини, непоколебимой воли и высшей концентрации духовных сил.",
+        12: "День милосердия, сострадания и мудрости сердца. Молитвы обретают отклик.",
+        13: "День омоложения, колеса прялки и раскрытия тайн. Время распутывать кармические узлы.",
+        14: "День священной трубы, призыва высших сил и мощного старта самых важных начинаний.",
+        15: "Полнолуние. Пик астральной энергии, максимальная ясность ума и вещие сновидения.",
+        16: "День равновесия, чистоты души и гармонии между физическим и духовным планами.",
+        17: "День радости, праздника жизни, экстаза творчества и женской энергии Шакти.",
+        18: "День зеркала: окружающий мир отражает наши скрытые мысли и внутреннюю суть.",
+        19: "День паутины и самоконтроля. Время избегать конфликтов и очищать жилище огнем.",
+        20: "День парения орла, духовного прозрения и преодоления земных привязанностей.",
+        21: "День верности цели, рыцарства, объединения единомышленников и движения вперед.",
+        22: "День мудрости, тайных знаний, постижения книг и предсказательных символов.",
+        23: "Время внутренней дисциплины и очищения от ментального шума.",
+        24: "День пробуждения сил природы, плодородия и закладки фундамента проектов.",
+        25: "День внутренней тишины и созерцания. Слушайте тихий голос души.",
+        26: "Избегайте суеты, хвастовства и пустых разговоров. Постигайте меру вещей.",
+        27: "День водной стихии, глубокой интуиции и постижения сокровенных тайн.",
+        28: "День духовного света и прозрения. Время созерцания высшей гармонии.",
+        29: "День завершения, очищения пространства и спокойного созерцания перед Новолунием.",
+        30: "День искренней благодарности Вселенной и любви ко всему живому."
+      };
+
+      const focusEl = document.getElementById('calendar-day-focus');
+      if (focusEl) {
+        let desc = dayDescriptions[lunarDay] || 'Благоприятный день для духовных практик и гармонии с космическими циклами.';
+        if (vedic.nakshatra !== '—') {
+          desc += ` | Накшатра: ${vedic.nakshatra} (пада ${vedic.pada}), Владелец: ${vedic.ruler}.`;
+        }
+        focusEl.innerText = desc;
+      }
+
+      const lunarInsightEl = document.getElementById('calendar-lunar-insight');
+      if (lunarInsightEl) {
+        let insight = `Луна в ${vedic.sign} (${vedic.degree}) в накшатре ${vedic.nakshatra} (пада ${vedic.pada}). Энергия лунного дня ${lunarDay} направляет намерения — замыслы кристаллизуются, обретая устойчивую форму.`;
+        lunarInsightEl.innerText = insight;
+      }
+    }
 
     function updateDayData(moonDay, weekday) {
       // Обновление даты транзита
@@ -4242,7 +4913,7 @@
       // Обновление угловой 3D сферы
       const moonCorner = document.getElementById('calendar-moon-corner');
       if (moonCorner) {
-        moonCorner.src = `moonly_3d_icons/moon_${moonDay}.png`;
+        moonCorner.src = `astra_3d_spheres/moon_porcelain.jpg`;
       }
 
       // Фаза Луны
@@ -4327,18 +4998,121 @@
       }
     }
 
-    // Modal Helpers
-    function openMonthCalendarModal() {
-      alert('Месячный календарь: открыт режим полного обзора лунного цикла.');
+    // Modal Helpers (Rich Frosted Quartz Bottom Sheets with Astrological Accuracy)
+    async function openMonthCalendarModal() {
+      const today = new Date();
+      let monthRows = '';
+      for (let day = 1; day <= 30; day++) {
+        const d = new Date(today.getFullYear(), today.getMonth(), day);
+        let t = null;
+        if (typeof window.getVedicTithi === 'function') {
+          try { t = window.getVedicTithi(d); } catch(e){}
+        }
+        const tNum = t ? t.tithiNum : day;
+        const phase = t ? t.phaseName : (day === 15 ? 'Полнолуние' : day === 30 ? 'Новолуние' : 'Растущая');
+        const sign = t ? t.moon.signRu : 'Знак';
+        monthRows += `
+          <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 12px; margin-bottom: 8px;">
+            <div style="display: flex; align-items: center; gap: 10px;">
+              <span style="font-weight: 800; font-size: 15px; color: #E89B54;">${day}</span>
+              <div>
+                <div style="font-size: 13px; font-weight: 600; color: #FFF;">${tNum}-й лунный день</div>
+                <div style="font-size: 11px; color: #8E93A6;">${phase} • ${sign}</div>
+              </div>
+            </div>
+            <img src="astra_3d_spheres/moon_${tNum}.png" onerror="this.src='astra_3d_spheres/moon_porcelain.jpg'" style="width: 28px; height: 28px; object-fit: contain;">
+          </div>
+        `;
+      }
+
+      await showBottomSheet({
+        type: 'alert',
+        title: 'Месячный Лунный Цикл',
+        confirmText: 'Закрыть',
+        message: `
+          <div style="margin-bottom: 12px; font-size: 13px; color: #A0A5B5;">Полный обзор ведических лунных суток (Титхи) текущего месяца:</div>
+          <div style="max-height: 380px; overflow-y: auto; padding-right: 4px;">
+            ${monthRows}
+          </div>
+        `
+      });
     }
-    function openDayDetailModal() {
-      alert('Подробный прогноз лунного дня открыт.');
+
+    async function openDayDetailModal() {
+      const today = new Date();
+      let t = null;
+      if (typeof window.getVedicTithi === 'function') {
+        try { t = window.getVedicTithi(today); } catch(e){}
+      }
+      const tNum = t ? t.tithiNum : getLunarDay(today);
+      const moonSign = t ? t.moon.signRu : 'Водолей';
+      const nakshatra = t ? t.moon.nakshatraRu : 'Шатабхиша';
+      const pada = t ? t.moon.pada : 2;
+      const ruler = t ? t.moon.nakshatraRuler : 'Раху';
+      const paksha = t ? t.paksha : 'Шукла Пакша';
+
+      const desc = (typeof dayDescriptions !== 'undefined' && dayDescriptions[tNum])
+        ? dayDescriptions[tNum]
+        : 'Благоприятный день для духовных практик и внутренней ясности.';
+
+      await showBottomSheet({
+        type: 'alert',
+        title: `${tNum}-й Лунный День`,
+        confirmText: 'Понятно',
+        message: `
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 16px; background: rgba(232, 155, 84, 0.08); border: 1px solid rgba(232, 155, 84, 0.2); padding: 12px 16px; border-radius: 16px;">
+            <img src="astra_3d_spheres/moon_${tNum}.png" onerror="this.src='astra_3d_spheres/moon_porcelain.jpg'" style="width: 44px; height: 44px; object-fit: contain;">
+            <div>
+              <div style="font-size: 16px; font-weight: 700; color: #FFF;">${t ? t.phaseName : 'Лунный ритм'}</div>
+              <div style="font-size: 12px; color: #E89B54;">${paksha}</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; line-height: 1.6; color: #D1D5DB; margin-bottom: 14px;">
+            <strong>Ведическая позиция:</strong> Луна в знаке ${moonSign}, Накшатра ${nakshatra} (Пада ${pada}).<br>
+            <strong>Управитель дня:</strong> ${ruler}.<br><br>
+            <strong>Рекомендации:</strong> ${desc}
+          </div>
+        `
+      });
     }
-    function openTransitDetailModal() {
-      alert('Детальная карта астрологических транзитов открыта.');
+
+    async function openTransitDetailModal() {
+      await showBottomSheet({
+        type: 'alert',
+        title: 'Астрологические Транзиты',
+        confirmText: 'Закрыть',
+        message: `
+          <div style="text-align: center; margin-bottom: 14px;">
+            <img src="astra_3d_spheres/astrolabe_natal.png" style="width: 60px; height: 60px; margin: 0 auto 10px;">
+            <div style="font-size: 16px; font-weight: 700; color: #FFF;">Транзитная Луна</div>
+            <div style="font-size: 12px; color: #8E93A6;">Система Сидерического Зодиака (Лахири)</div>
+          </div>
+          <div style="font-size: 13px; line-height: 1.6; color: #D1D5DB;">
+            Движение Луны через накшатры активирует энергетические меридианы сознания. Текущий транзит благоприятствует духовной сосредоточенности, творческим практикам и медитации.
+          </div>
+        `
+      });
     }
-    function openRoutineModal(title, desc, icon) {
-      alert(`${title}: ${desc}`);
+
+    async function openRoutineModal(title, desc, icon) {
+      const cleanIcon = (icon || '').replace('moonly_3d_icons/', 'astra_3d_spheres/');
+      await showBottomSheet({
+        type: 'alert',
+        title: `Практика: ${title}`,
+        confirmText: 'Принять совет',
+        message: `
+          <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 14px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 12px 16px; border-radius: 16px;">
+            <img src="${cleanIcon}" onerror="this.src='astra_3d_spheres/astrolabe_natal.png'" style="width: 40px; height: 40px; object-fit: contain;">
+            <div>
+              <div style="font-size: 15px; font-weight: 700; color: #FFF;">${title}</div>
+              <div style="font-size: 12px; color: #E89B54;">Рекомендация на сегодня</div>
+            </div>
+          </div>
+          <div style="font-size: 14px; line-height: 1.6; color: #D1D5DB;">
+            ${desc}. Следуйте естественному ритму дня, чтобы гармонизировать внутреннюю энергию.
+          </div>
+        `
+      });
     }
     function openDreamerModal() {
       navigateToScreen('dream', false);
@@ -4442,7 +5216,7 @@
     });
 
     window.addEventListener('DOMContentLoaded', () => {
-      initMoonlyCalendarStrip();
+      initAstraCalendarStrip();
       initSoundscape();
       initTarot1Slot();
       drawDailyRune();
@@ -4455,6 +5229,17 @@
         setTimeout(() => navigateToScreen(initialScreen, hideTabsFlag), 50);
       }
     });
-  </script>
+  
+    // Expose key functions globally for browser automation / testing
+    window.initAstraCalendarStrip = initAstraCalendarStrip;
+    window.initCalendarStrip = initCalendarStrip;
+    window.switchMainScreen = switchMainScreen;
+    window.switchPracticeTab = switchPracticeTab;
+    window.switchPracticeSection = switchPracticeSection;
+    window.setTarotMode = setTarotMode;
+    window.navigateToScreen = navigateToScreen;
+    window.AstraStorage = AstraStorage;
+
+</script>
 </body>
 </html>

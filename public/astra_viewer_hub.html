@@ -473,8 +473,8 @@
     </div>
 
     <div class="nav-tabs">
-      <button class="tab-btn active" data-view="onboarding">🌟 Онбординг (21 шаг)</button>
-      <button class="tab-btn" data-view="screens" style="color: #F5A623; font-weight: 700;">📱 Экраны приложения Астра</button>
+      <button class="tab-btn" data-view="onboarding">🌟 Онбординг (21 шаг)</button>
+      <button class="tab-btn active" data-view="screens" style="color: #F5A623; font-weight: 700;">📱 Экраны приложения Астра</button>
     </div>
   </header>
 
@@ -600,7 +600,7 @@
                 <div class="dynamic-island">
                   <div class="island-lens"></div>
                 </div>
-                <iframe id="moonlyFrame" src="фигасе/real_onboarding_official/screen_mockups/html_screens/00_slide_1_bento.html"></iframe>
+                <iframe id="moonlyFrame" src="moonly_original_assets/02_illustrations_and_onboarding/real_onboarding_official/screen_mockups/html_screens/00_slide_1_bento.html"></iframe>
                 <div class="home-indicator"></div>
               </div>
             </div>
@@ -671,7 +671,7 @@
 
     const TOTAL_STEPS = 21;
     let currentStepIndex = 0;
-    let activeView = 'onboarding'; // 'onboarding' | 'screens' | 'compare' | 'ritual' | 'videos' | 'avatars'
+    let activeView = 'screens'; // 'onboarding' | 'screens' | 'compare' | 'ritual' | 'videos' | 'avatars'
     let compareMode = 'both'; // 'both' | 'astra' | 'moonly'
 
     // Экраны
@@ -938,7 +938,7 @@
         }
       } else if (activeView === 'compare') {
         const moonlyFile = MOONLY_SLIDE_FILES[idx] || MOONLY_SLIDE_FILES[0];
-        moonlyFrame.src = 'фигасе/real_onboarding_official/screen_mockups/html_screens/' + moonlyFile;
+        moonlyFrame.src = 'moonly_original_assets/02_illustrations_and_onboarding/real_onboarding_official/screen_mockups/html_screens/' + moonlyFile;
         if (astraCompareFrame.contentWindow && astraCompareFrame.contentWindow.renderSlide) {
           astraCompareFrame.contentWindow.currentSlide = idx;
           astraCompareFrame.contentWindow.renderSlide(idx);
@@ -1008,7 +1008,7 @@
 
           if (activeView === 'compare') {
             const moonlyFile = MOONLY_SLIDE_FILES[newIdx] || MOONLY_SLIDE_FILES[0];
-            moonlyFrame.src = 'фигасе/real_onboarding_official/screen_mockups/html_screens/' + moonlyFile;
+            moonlyFrame.src = 'moonly_original_assets/02_illustrations_and_onboarding/real_onboarding_official/screen_mockups/html_screens/' + moonlyFile;
           }
         }
       }
@@ -1016,6 +1016,7 @@
 
     // Инициализация при старте
     window.addEventListener('DOMContentLoaded', () => {
+      switchView('screens');
       updateLayoutScaling();
     });
 

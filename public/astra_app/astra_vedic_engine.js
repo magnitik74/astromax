@@ -250,16 +250,73 @@ function calculateNatalChart({ year, month, day, hour, minute = 0, lat, lon, tz 
   };
 }
 
-module.exports = {
-  calculateNatalChart,
-  getJulianDay,
-  getLahiriAyanamsa,
-  ZODIAC_SIGNS,
-  NAKSHATRAS
-};
+/**
+ * Calculate Vedic Tithi (Лунный день), Paksha, Illumination and Transits for any Date
+ */
+function getVedicTithi(date = new Date()) {
+  const jd = getJulianDay(date.getFullYear(), date.getMonth() + 1, date.getDate(), date.getHours(), date.getMinutes());
+  const T = (jd - 2451545.0) / 36525.0;
+  const ayanamsa = getLahiriAyanamsa(T);
+  const tropSun = getSunLongitude(T);
+  const tropMoon = getMoonLongitude(T);
+  const sun = toVedicPosition(tropSun, ayanamsa);
+  const moon = toVedicPosition(tropMoon, ayanamsa);
+
+  // Vedic Tithi: angular distance from Sun to Moon divided by 12 degrees
+  let delta = normalizeDeg(tropMoon - tropSun);
+  const tithiNum = Math.min(30, Math.max(1, Math.floor(delta / 12.0) + 1));
+  const isShukla = tithiNum <= 15;
+  const paksha = isShukla ? 'Шукла Пакша (Растущая)' : 'Кришна Пакша (Убывающая)';
+  const illumination = Math.round(((1 - Math.cos(delta * DEG2RAD)) / 2) * 100);
+
+  let phaseName = 'Растущая Луна';
+  if (tithiNum === 1) phaseName = 'Новолуние';
+  else if (tithiNum === 15) phaseName = 'Полнолуние';
+  else if (tithiNum === 30) phaseName = 'Новолуние';
+  else if (isShukla) phaseName = 'Растущая Луна';
+  else phaseName = 'Убывающая Луна';
+
+  return {
+    tithiNum,
+    paksha,
+    isShukla,
+    phaseName,
+    illumination,
+    deltaDeg: delta,
+    sun,
+    moon,
+    ayanamsa
+  };
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = {
+    calculateNatalChart,
+    getJulianDay,
+    getLahiriAyanamsa,
+    getSunLongitude,
+    getMoonLongitude,
+    toVedicPosition,
+    getVedicTithi,
+    ZODIAC_SIGNS,
+    NAKSHATRAS
+  };
+}
+
+if (typeof window !== 'undefined') {
+  window.calculateNatalChart = calculateNatalChart;
+  window.getJulianDay = getJulianDay;
+  window.getLahiriAyanamsa = getLahiriAyanamsa;
+  window.getSunLongitude = getSunLongitude;
+  window.getMoonLongitude = getMoonLongitude;
+  window.toVedicPosition = toVedicPosition;
+  window.getVedicTithi = getVedicTithi;
+  window.ZODIAC_SIGNS = ZODIAC_SIGNS;
+  window.NAKSHATRAS = NAKSHATRAS;
+}
 
 // Run demonstration if called directly
-if (require.main === module) {
+if (typeof require !== 'undefined' && typeof module !== 'undefined' && require.main === module) {
   console.log('--- Testing Astra Vedic Natal Calculator ---');
   // Example birth: 15 July 1995, 14:30 Moscow (55.7558 N, 37.6173 E, UTC+3)
   const chart = calculateNatalChart({
@@ -274,4 +331,6 @@ if (require.main === module) {
   });
 
   console.log(JSON.stringify(chart, null, 2));
+  console.log('--- Testing Today Vedic Tithi ---');
+  console.log(getVedicTithi(new Date()));
 }
